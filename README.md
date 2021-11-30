@@ -5,8 +5,4 @@
 <img src="aki/abta_Sell.jpg" width="200" height="200" alt="ASIA BLOCKCHAIN TECHNOLOGY APPLICATION HONG KONG"/>
 </a>
 
-[![ASIA BLOCKCHAIN TECHNOLOGY APPLICATION HONG KONG](aki/abta_Sell.jpg)](https://98672794.github.io/abta/)
-
-
-
 
