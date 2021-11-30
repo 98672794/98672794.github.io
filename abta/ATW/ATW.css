@@ -1,0 +1,34 @@
+
+
+/*
+index
+*/
+
+
+
+
+/*
+Services
+*/
+
+.single-cat {
+    max-height: 260px;
+    overflow: hidden;
+}
+
+.single-cat:hover{
+    max-height: 600px;
+    transition: max-height .5s linear;
+
+}
+
+
+
+
+/*
+Beginning
+*/
+
+#Beginning div,#Beginning h3{
+    color: #fff;
+}
