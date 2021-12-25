@@ -69,12 +69,17 @@
 	padding: 5%;
 
 }
+.HoverTitle h5{
+	color: #f3f3f3cc;
+}
 .HoverTitle p,a{
-	color: rgb(22, 21, 21);
+	color: rgba(200, 188, 243, .8);
+	transition: 5s;
 }
 
 .HoverTitle a:hover{
-	color: rgb(121, 240, 10);
+	color: rgba(15, 236, 210, 0.8);
+	transition: .8s;
 }
 .HoverTitle:hover{
 	opacity: 1;
