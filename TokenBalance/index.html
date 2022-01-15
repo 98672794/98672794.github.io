@@ -1,61 +1,156 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
+  <title>Web3 Metamask Login</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <script src="web3.min.js"></script>
 </head>
-<body>
 
-  <h1>Get ERC20 Token Balance</h1>
-  <p>Ethereum support browser or MetaMask is needed.</p>
+<body class="flex w-screen h-screen justify-center items-center">
 
-  <h2>Token Address</h2>
-  <input type="text" id="token-address" size="80" oninput="onAddressChange()"></input>
-  <p>e.g. 0x2A65D41dbC6E8925bD9253abfAdaFab98eA53E34</p>
 
-  <h2>Wallet Address</h2>
-  <input type="text" id="wallet-address" size="80" oninput="onAddressChange()"></input>
-  <p>e.g. 0x821e28109872cad442da8d8335be37d317d4f1e7</p>
 
-  <h2>Result</h2>
-  <span id="result"></span>
+  <div class="flex-col space-y-2 justify-center items-center">
+    <button id='loginButton' onclick="" class="mx-auto rounded-md p-2 bg-purple-500 text-white">
+      Login with MetaMask
+    </button>
+    <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+  </div>
 
   <script>
+    window.userWalletAddress = null
+    const loginButton = document.getElementById('loginButton')
+    const userWallet = document.getElementById('userWallet')
 
-    var web3js;
-
-    function getERC20TokenBalance(tokenAddress, walletAddress, callback) {
-      let minABI = [
-        {"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"},
-        {"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"type":"function"}
-      ];
-      let contract = new web3js.eth.Contract(minABI, tokenAddress);
-      contract.methods.balanceOf(walletAddress).call((error, balance) => {
-        contract.methods.decimals().call((error, decimals) => {
-          console.log(balance);
-          console.log(decimals);
-          balance = balance / (10**decimals);
-          callback(balance);
-        });
-      });
-    }
-
-    function onAddressChange(e) {
-      let tokenAddress = document.getElementById('token-address').value;
-      let walletAddress = document.getElementById('wallet-address').value;
-      if(tokenAddress != "" && walletAddress != "") {
-        getERC20TokenBalance(tokenAddress, walletAddress, (balance) => {
-          document.getElementById('result').innerText = balance.toString();
-        });        
+    function toggleButton() {
+      if (!window.ethereum) {
+        loginButton.innerText = 'MetaMask is not installed'
+        loginButton.classList.remove('bg-purple-500', 'text-white')
+        loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+        return false
       }
+
+      loginButton.addEventListener('click', loginWithMetaMask)
     }
 
-    window.onload = function() {
-      web3js = new Web3(Web3.givenProvider);
-      console.log(web3js.version);
+    async function loginWithMetaMask() {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+        .catch((e) => {
+          console.error(e.message)
+          return
+        })
+      if (!accounts) { return }
+
+      window.userWalletAddress = accounts[0]
+      userWallet.innerText = window.userWalletAddress
+      loginButton.innerText = 'Sign out of MetaMask'
+
+      loginButton.removeEventListener('click', loginWithMetaMask)
+      setTimeout(() => {
+        loginButton.addEventListener('click', signOutOfMetaMask)
+      }, 200)
     }
 
+    function signOutOfMetaMask() {
+      window.userWalletAddress = null
+      userWallet.innerText = ''
+      loginButton.innerText = 'Sign in with MetaMask'
+
+      loginButton.removeEventListener('click', signOutOfMetaMask)
+      setTimeout(() => {
+        loginButton.addEventListener('click', loginWithMetaMask)
+      }, 200)
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      toggleButton()
+    });
   </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+
+<h1>Get ERC20 Token Balance</h1>
+<p>Ethereum support browser or MetaMask is needed.</p>
+
+<h2>Token Address</h2>
+<input type="text" id="token-address" size="80" oninput="onAddressChange()"></input>
+<p>e.g. 0x433f874871dc4b64c27dafede0638a744f7fc47b</p>
+
+<h2>Wallet Address</h2>
+<input type="text" id="wallet-address" size="80" oninput="onAddressChange()"></input>
+<p>e.g. 0x821e28109872cad442da8d8335be37d317d4f1e7</p>
+
+<h2>Result</h2>
+<span id="result"></span>
+
+<script>
+
+  var web3js;
+
+  function getERC20TokenBalance(tokenAddress, walletAddress, callback) {
+    let minABI = [
+      {"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"},
+      {"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"type":"function"}
+    ];
+    let contract = new web3js.eth.Contract(minABI, tokenAddress);
+    contract.methods.balanceOf(walletAddress).call((error, balance) => {
+      contract.methods.decimals().call((error, decimals) => {
+        console.log(balance);
+        console.log(decimals);
+        balance = balance / (10**decimals);
+        callback(balance);
+      });
+    });
+  }
+
+  function onAddressChange(e) {
+    let tokenAddress = document.getElementById('token-address').value;
+    let walletAddress = document.getElementById('wallet-address').value;
+    if(tokenAddress != "" && walletAddress != "") {
+      getERC20TokenBalance(tokenAddress, walletAddress, (balance) => {
+        document.getElementById('result').innerText = balance.toString();
+      });        
+    }
+  }
+
+  window.onload = function() {
+    web3js = new Web3(Web3.givenProvider);
+    console.log(web3js.version);
+  }
+
+</script>
+
+</div>
+
+
+
+
+
+
+
+
+
 </body>
+
 </html>
