@@ -14,7 +14,7 @@
 -
 
 <a href="https://98672794.github.io/SomethingCapability/">
-<img src="aki/SomethingCapability.jpg" width="45%" height="auto" style="float: left;" title="SomethingCapability" alt=SomethingCapability"/>
+<img src="https://98672794.github.io/SomethingCapability/STCQR.png" width="45%" height="auto" style="float: left;" title="SomethingCapability" alt=SomethingCapability"/>
 </a>
 
 
