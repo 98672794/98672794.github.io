@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <!-- mokaki -->
+  <meta name="description" content="3DSkyboxIndexDemo mokaki20220202 https://98672794.github.io/">
+  <meta name="author" content="MokSurky">
+  <link href="_SkyBoxData/skybox.css" rel="stylesheet">
+
+  <!-- skybox -->
+  <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <!-- HTML5 控制裝置陀螺儀 ( 三軸 ) -->
+  <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>3DSkyboxIndexDemo mokaki20220202</title>
+
+
+
+<h1>3D iframe cubemaps HTML Demo</h1>
+
+
+
+<ul>
+  <li class="eve">EVE Onl3123ine</li>
+  <li class="ccpgames">CCP Games</li>
+  <li class="gunjack">EVE Gunjack</li>
+  <li class="community">EVE Community</li>
+  <li class="updates">EVE Updates</li>
+  <li class="valkyrie">EVE Valkyrie</li>
+</ul>
+
+
+
+
+
+
+<div class="container">
+  
+  <div class="inner">
+    <div class="sub front">3333</div>
+    <div class="sub left"></div>
+    <div class="sub right"></div>
+    <div class="sub back"></div>
+    <div class="sub top"></div>
+    <div class="sub bottom"></div>
+    
+    
+    
+    <div class="smallCube">
+      <div class="side front"><iframe src="https://developer.mozilla.org/zh-TW/docs/Web/HTML/Element/iframe"></iframe></div>
+      <div class="side left"><iframe src="http://updates.eveonline.com"></iframe></div>
+      <div class="side right"><iframe src="http://community.eveonline.com"></iframe></div>
+      <div class="side back"><iframe src="http://www.ccpgames.com"></iframe></div>
+      <div class="side top"><iframe src="http://www.evevalkyrie.com"></iframe></div>
+      <div class="side bottom"><iframe src="http://www.gunjack.com"></iframe></div>
+    </div>
+     
+    
+    
+    
+    
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  <!-- 控制裝置陀螺儀 gyroscope skybox  -->
+<script>
+	var space = document.querySelectorAll('.container .inner');
+	if(window.DeviceOrientationEvent) {
+
+	  window.addEventListener('deviceorientation', function(event) {
+      var alpha = event.alpha,
+      	beta = event.beta,
+		 gamma = event.gamma;
+      
+        space[0].style.webkitTransform = 'rotateX('+beta+'deg) rotateY('+gamma+'deg) rotateZ('+alpha+'deg)';
+        space[0].style.transform = 'rotateX('+beta+'deg) rotateY('+gamma+'deg) rotateZ('+alpha+'deg)';
+        space[0].style.mozTransform = 'rotateX('+beta+'deg) rotateY('+gamma+'deg) rotateZ('+alpha+'deg)';
+
+	      }, false);
+	}else{
+	  document.querySelector('body').innerHTML = '你的瀏覽器不支援喔';
+	}
+	</script>
+
+
+
+
+<!-- click skybox  -->
+<script src="_SkyBoxData/skybox.js"></script>
+
+
