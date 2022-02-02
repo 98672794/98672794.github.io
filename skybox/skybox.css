@@ -61,41 +61,53 @@ body ul li:hover {
   top: 0;
   left: 0;
   backface-visibility: hidden;
-  
+
+
+  background-color: rgba(17, 17, 17, 0.155);
+  border-top: inset rgb(6, 245, 58);
+  border-left: inset rgb(6, 245, 58);
+
+  /*
+  border-right: inset rgb(6, 245, 58);
+  border-bottom: inset rgb(6, 245, 58);
+
+  border-width: 8px;
+  border-radius: -5%;
+ 
   background-image: url("https://res.cloudinary.com/practicaldev/image/fetch/s--xazBdCOT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://codinhood.com/static/78e5f34c1ceb1e205cc8cc00b01a7d53/14e05/skybox2.png");
   background-repeat: no-repeat;
   background-size: 400% 300%;
-  /**/
+  */
 }
 .container .sub.front {
   transform: translateZ(-50vw) scale(1.01);
   background-position: 33.333% 50%;
-  background-color: rgba(27, 153, 153, 0.918);
+
 }
 .container .sub.left {
   transform: translate3d(-50vw, 0, 0) rotateY(90deg) scale(1.01);
   background-position: 0% 50%;
-  background-color: rgba(253, 215, 87, 0.918);
+
 }
 .container .sub.right {
   transform: translate3d(50vw, 0, 0) rotateY(-90deg) scale(1.01);
   background-position: 66.6777% 50%;
-  background-color: rgba(48, 18, 245, 0.918);
+
 }
 .container .sub.back {
   transform: translateZ(50vw) rotateY(180deg) scale(1.01);
   background-position: 100% 50%;
-  background-color: rgba(245, 24, 160, 0.918);
+
 }
 .container .sub.top {
   transform: translate3d(0, -50vw, 0) rotateX(-90deg);
   background-position: 33.333% 0%;
-  background-color: rgba(141, 39, 8, 0.918);
+
 }
 .container .sub.bottom {
   transform: translate3d(0, 50vw, 0) rotateX(90deg);
   background-position: 33.333% 100%;
-  background-color: rgba(9, 202, 57, 0.918);
+
 }
 
 
