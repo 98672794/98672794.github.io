@@ -1,54 +1,27 @@
 
 
-<style>h1,a,p,h2,samp{margin: 5%;}</style>
-<script src="web3.min.js"></script>
+
+          <style>h1,a,p,h2,samp{margin: 5%;}</style>
 
 
+          <script src="web3.min.js"></script>
+
+          
+          
+          <!-- ============ Aki Web3Js ============ -->
+          
+
+		<!-- ============ Login  MetaMask ============ -->
+    <li class="dropdown" style="float: right;">
+      <a class="dropdown-toggle" data-toggle="dropdown">
+    <h2 id="錢包menu" ><!-- 切割字串 -->我的 0203ddd 錢包</h2> <b class="caret"></b></a>
+      <ul class="dropdown-menu">
 
 
+        <li><a id='userWallet'><!-- ============ 我的錢All包 ============ --></a></li>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!-- ============ Login  MetaMask ============ -->
-    <h2 id="錢包menu" ><!-- 切割字串 -->我的 dsd錢包</h2> 
-
-    <a id='userWallet'><!-- ============ 我的錢All包 ============ --></a>
-
-    <p>STC餘額:
-      <samp id="STC餘額" >0.00STC<!-- ============ STC 代幣餘額 display ============ --></samp>
-    </p>
-  
-
+        <li>
+  <a >STC餘額:<samp id="STC餘額" >0.00STC<!-- ============ STC 代幣餘額 display ============ --></samp></a>
     <script>
       var web3js;
     
@@ -72,109 +45,14 @@
         console.log(web3js.version);
       }
       </script>
+  </li>
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <li><a id="colorlib-logo">
     <!-- ============ Login  MetaMask btn ============ -->
     <a id='loginButton' onclick="" title="登入以太坊">
-      <img src="metamaskLogo.gif" width="100%"/>登入以太坊
-    </a>
-  
+    <img src="metamaskLogo.gif" 
+    width="50em"/>登入以太坊</a></li>
     <script>
       window.userWalletAddress = null
       const loginButton = document.getElementById('loginButton')
@@ -242,8 +120,13 @@
       });
       </script>
       <!-- ============ /Login  MetaMask ============ -->
+  </ul>
+    </li>
 
-      
+
+
+
+
 
 
 
