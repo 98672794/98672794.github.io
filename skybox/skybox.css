@@ -1,3 +1,5 @@
+/* skybox */
+
 body {
   background: #000;
   overflow: hidden;
@@ -63,40 +65,33 @@ body ul li:hover {
   backface-visibility: hidden;
 
 
-  background-color: rgba(17, 17, 17, 0.155);
-  border-top: inset rgb(6, 245, 58);
-  border-left: inset rgb(6, 245, 58);
 
-  /*
-  border-right: inset rgb(6, 245, 58);
-  border-bottom: inset rgb(6, 245, 58);
+  
 
-  border-width: 8px;
-  border-radius: -5%;
- 
-  background-image: url("https://res.cloudinary.com/practicaldev/image/fetch/s--xazBdCOT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://codinhood.com/static/78e5f34c1ceb1e205cc8cc00b01a7d53/14e05/skybox2.png");
-  background-repeat: no-repeat;
-  background-size: 400% 300%;
-  */
+
 }
 .container .sub.front {
   transform: translateZ(-50vw) scale(1.01);
   background-position: 33.333% 50%;
+
 
 }
 .container .sub.left {
   transform: translate3d(-50vw, 0, 0) rotateY(90deg) scale(1.01);
   background-position: 0% 50%;
 
+
 }
 .container .sub.right {
   transform: translate3d(50vw, 0, 0) rotateY(-90deg) scale(1.01);
   background-position: 66.6777% 50%;
 
+
 }
 .container .sub.back {
   transform: translateZ(50vw) rotateY(180deg) scale(1.01);
   background-position: 100% 50%;
+
 
 }
 .container .sub.top {
@@ -121,6 +116,7 @@ body ul li:hover {
  transition: .1s ;*/
   margin-left: -12.5vw;
   transform-style: preserve-3d;
+  backface-visibility: hidden;
 
 
 }
@@ -131,6 +127,11 @@ body ul li:hover {
   height: 100%;
   backface-visibility: hidden;
   background: rgba(0, 0, 0, 0);
+
+
+
+
+
 }
 .container .smallCube .side:hover {
   opacity: 1;
@@ -168,19 +169,204 @@ body ul li:hover {
 
 
 
-/* MOKAKI */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* mune */
+.muneAR {
+  position: fixed;
+
+  width: 50px;height: 50px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  display: block; /* block none */
+  border-radius: 100px;
+  z-index: 2;
+  opacity: .2;
+    /* animation 參數設定 */
+    animation-name: muneARBall;    /*動畫名稱，需與 keyframe 名稱對應*/
+    animation-duration: 10s;    /*動畫持續時間，單位為秒*/
+    animation-delay: 4s;    /* 動畫延遲開始時間*/
+    animation-iteration-count: infinite;    /*動畫次數，infinite 為無限次*/    
+  }
+/* 關鍵影格(@keyframe) */
+@keyframes muneARBall {
+  0% { background-color: rgba(253, 0, 0, 0.5);border-radius: 500px;width: 40px;height: 40px;}
+  25% { background-color: rgb(255, 217, 0,.5); border-radius: 20px;width: 60px;height: 60px;}
+  50% { background-color: rgb(4, 0, 255,.5); border-radius: 0px;width: 80px;height: 80px;}
+  75% { background-color: rgb(0, 255, 42,.5); border-radius: 10px;width: 70px;height: 70px;}
+  100% {background-color: rgb(255, 255, 255,.5);  border-radius: 30px;width: 60px;height: 60px;}
+}
+
+.muneAR:hover {
+  opacity: .5;
+  width: 50%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);overflow-y: scroll;
+  box-shadow: inset 50px 4px 36px -64px #FFFFFF;
+-webkit-box-shadow: inset 50px 4px 36px -64px #FFFFFF;
+-moz-box-shadow: inset 50px 4px 36px -64px #FFFFFF;
+-o-box-shadow: inset 50px 4px 36px -64px #FFFFFF;
+border-radius: 0px;
+  bottom: 0px;
+  right: 0px;
+  top: 0px;
+  /* animation 參數設定 */
+  animation-name: MoveToRight;    /*動畫名稱，需與 keyframe 名稱對應*/
+  animation-duration: 4s;    /*動畫持續時間，單位為秒*/
+  animation-delay: 2s;    /* 動畫延遲開始時間*/
+  animation-iteration-count: infinite;    /*動畫次數，infinite 為無限次*/    
+}
+/* 關鍵影格(@keyframe) */
+@keyframes MoveToRight {
+  0% { width: 48.3%;}
+  25% { width: 55.6%;}
+  50% { width: 30.9%;}
+  75% { width: 52.5%;}
+  100% { width: 49.2%;}
+}
+
+
+
+
+.muneAR ul{
+  -webkit-box-shadow: inset 75px 0px 30px 0px rgba(134, 165, 141, 0.1);
+  -moz-box-shadow:    inset 75px 0px 30px 0px rgba(134, 165, 141, 0.1);
+  box-shadow:         inset 75px 0px 30px 0px rgba(134, 165, 141, 0.1);
+  display: block;
+  position: relative;
+  width: auto;
+}
+
+.muneAR li{
+  min-height: 50px;
+  display: block;
+  word-wrap:break-word;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 背景內容 */
+
+h1,a,p,h2,samp{
+  margin: 5%;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MOKAKI setting */
 .sub {
   /* 背景透明度 */
   opacity: 0.5;
+  background-image: url("https://i.pinimg.com/originals/88/21/12/882112d6f2f8bf10e15b8a2a4e25c482.png");
+  background-repeat: no-repeat;
+  background-size: 400% 300%;
+
 }
+.container .sub { 
+  /* Ar背景線色 */
+  border-top: inset rgb(134, 165, 141);
+  border-left: inset rgb(134, 165, 141);
+}
+
+
 .container .smallCube .side {
   /* web內方原透明度 */
   opacity: .5;
 }
-
 .container .smallCube {
   /* web內方原左右 */
-  left: 35%;
+  left: 40%;
 }
 
+.muneAR {
+  /* menu位置 */
+  bottom: 10px;
+  right: 10px;
+
+}
 

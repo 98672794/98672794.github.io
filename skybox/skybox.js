@@ -1,5 +1,10 @@
-var rotX = 40;
-var rotY = -30;
+// skybox.js
+// https://codepen.io/ikbbceme-the-sasster/pen/dyZXMNa
+
+
+//內方原位
+var rotX = 40; //40
+var rotY = -30; //-30
 var currX = 0;
 var currY = 0;
 tracking = false;
@@ -84,6 +89,8 @@ function setBindings() {
   })
 }
 
+
+//?????????????
 function interactionStart(x, y) {
   currX = x;
   currY = y;
@@ -106,7 +113,7 @@ function setRotation(x, y) {
     unsetBindings();
     setTimeout(function() {
     setBindings();
-      $('.container .smallCube').removeClass('anim');
+      $('.container .inner').removeClass('anim');
     }, 1000);
   }
   rotX+=x;
@@ -123,13 +130,58 @@ function setRotation(x, y) {
     rotY = -90;
   }
   
+
+
+  // 內方轉芯
   var radX = 0;
-  var radZ = 0; // start front-facing?
+  var radZ = 0; 
   var radY = 0;
   
-  $('.container .smallCube').css({transform:'rotateX('+rotY+'deg) rotateY('+rotX+'deg) translate3d('+radX+'px,'+radY+'px,'+radZ+'px)'});
+  $('.container .inner').css({transform:'rotateX('+rotY+'deg) rotateY('+rotX+'deg) translate3d('+radX+'px,'+radY+'px,'+radZ+'px)'});
+  //$('.container .inner') 外內轉
+  //$('.container .smallCube') 只內方
+
 }
 
 function interactionEnd() {
   tracking = false;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
