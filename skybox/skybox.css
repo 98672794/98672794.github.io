@@ -210,7 +210,7 @@ body ul li:hover {
   width: 50px;height: 50px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0);
-  display: block; /* block none */
+  display: none; /* block none */
   border-radius: 100px;
   z-index: 2;
   opacity: .2;
