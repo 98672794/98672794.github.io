@@ -3,8 +3,8 @@
 
 
 //內方原位
-var rotX = 40; //40
-var rotY = -30; //-30
+var rotX = 0; //40
+var rotY = 0; //-30
 var currX = 0;
 var currY = 0;
 tracking = false;
