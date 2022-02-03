@@ -1,119 +1,109 @@
 
+
+
+          <style>h1,a,p,h2,samp{margin: 5%;}</style>
+
+          <!-- ============ Aki Web3Js ============ -->
           <script src="web3.min.js"></script>
 
+          <!-- ============ Login  MetaMask ============ -->
+          <h2 id="錢包menu" ><!-- 切割字串 -->我123312313dd的錢包</h2>
+          <p>STC餘額:<samp id="STC餘額" >0.00STC<!-- ============ STC 代幣餘額 display ============ --></samp></p>
+          <script>
+            var web3js;
           
-          
-          <!-- ============ Aki Web3Js ============ -->
-          
+            function getERC20TokenBalance(tokenAddress, walletAddress, callback) {
+              let minABI = [
+              {"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"},
+              {"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"type":"function"}
+              ];
+              let contract = new web3js.eth.Contract(minABI, tokenAddress);
+              contract.methods.balanceOf(walletAddress).call((error, balance) => {
+              contract.methods.decimals().call((error, decimals) => {
+                console.log(balance);
+                console.log(decimals);
+                balance = balance / (10**decimals);
+                callback(balance);
+              });
+              });
+            }
+            window.onload = function() {
+              web3js = new Web3(Web3.givenProvider);
+              console.log(web3js.version);
+            }
+          </script>
+            
+          <!-- ============ Login  MetaMask btn ============ -->
+          <a id='loginButton' onclick="" title="登入以太坊">
+            <img src="metamaskLogo.gif" 
+            width="50em"/>登入以太坊</a>
 
-		<!-- ============ Login  MetaMask ============ -->
-    <li class="dropdown" style="float: right;">
-      <a class="dropdown-toggle" data-toggle="dropdown">
-    <h2 id="錢包menu" ><!-- 切割字串 -->我的333eeee錢包</h2> <b class="caret"></b></a>
-      <ul class="dropdown-menu">
 
 
-        <li><a id='userWallet'><!-- ============ 我的錢All包 ============ --></a></li>
-
-        <li>
-  <a >STC餘額:<samp id="STC餘額" >0.00STC<!-- ============ STC 代幣餘額 display ============ --></samp></a>
-    <script>
-      var web3js;
+            <script>
+              window.userWalletAddress = null
+              const loginButton = document.getElementById('loginButton')
+              const userWallet = document.getElementById('userWallet')
+            
+              function toggleButton() {
+                if (!window.ethereum) {
+                loginButton.innerText = '需要支持以太坊的瀏覽器如 MetaMask'
+                return false
+                }
+            
+                loginButton.addEventListener('click', loginWithMetaMask)
+              }
+            
+              async function loginWithMetaMask() {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+                .catch((e) => {
+                  console.error(e.message)
+                  return
+                })
+                if (!accounts) { return }
+            
+                window.userWalletAddress = accounts[0]
+                userWallet.innerText = window.userWalletAddress
+                loginButton.innerText = '退出 MetaMask'
     
-      function getERC20TokenBalance(tokenAddress, walletAddress, callback) {
-        let minABI = [
-        {"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"},
-        {"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"type":"function"}
-        ];
-        let contract = new web3js.eth.Contract(minABI, tokenAddress);
-        contract.methods.balanceOf(walletAddress).call((error, balance) => {
-        contract.methods.decimals().call((error, decimals) => {
-          console.log(balance);
-          console.log(decimals);
-          balance = balance / (10**decimals);
-          callback(balance);
-        });
-        });
-      }
-      window.onload = function() {
-        web3js = new Web3(Web3.givenProvider);
-        console.log(web3js.version);
-      }
-      </script>
-  </li>
-  
-
-        <li><a id="colorlib-logo">
-    <!-- ============ Login  MetaMask btn ============ -->
-    <a id='loginButton' onclick="" title="登入以太坊">
-    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/eb5c0f131767869.Y3JvcCwxMDI0LDgwMCwwLDExMQ.png" 
-    width="50em"/>登入以太坊</a></li>
-    <script>
-      window.userWalletAddress = null
-      const loginButton = document.getElementById('loginButton')
-      const userWallet = document.getElementById('userWallet')
+                //<!-- ============ 用STC餘額 ============ -->
+                var str = $( "#我的錢包2222" ).val(accounts[0]);
     
-      function toggleButton() {
-        if (!window.ethereum) {
-        loginButton.innerText = '需要以太坊支持瀏覽器或 MetaMask'
-        return false
-        }
+                //<!-- ============ 切割字串 https://www.fooish.com/javascript/string/substr.html ============ -->
+                $( "#錢包menu" ).html( accounts[0].substr(0, 5) );
+                
     
-        loginButton.addEventListener('click', loginWithMetaMask)
-      }
+              //<!-- ============ STC 代幣餘額 ============ -->
+              let tokenAddress = $( "#STC合約地址" ).val(); //STC合約地址
+              let walletAddress = $( "#我的錢包2222" ).val(); //我的錢All包
+              getERC20TokenBalance(tokenAddress, walletAddress, (balance) => {
+                document.getElementById('STC餘額').innerText = balance.toString();
+              });
     
-      async function loginWithMetaMask() {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-        .catch((e) => {
-          console.error(e.message)
-          return
-        })
-        if (!accounts) { return }
-    
-        window.userWalletAddress = accounts[0]
-        userWallet.innerText = window.userWalletAddress
-        loginButton.innerText = '退出 MetaMask'
-
-        //<!-- ============ 用STC餘額 ============ -->
-        var str = $( "#我的錢包2222" ).val(accounts[0]);
-
-        //<!-- ============ 切割字串 https://www.fooish.com/javascript/string/substr.html ============ -->
-        $( "#錢包menu" ).html( accounts[0].substr(0, 5) );
-        
-
-      //<!-- ============ STC 代幣餘額 ============ -->
-      let tokenAddress = $( "#STC合約地址" ).val(); //STC合約地址
-      let walletAddress = $( "#我的錢包2222" ).val(); //我的錢All包
-      getERC20TokenBalance(tokenAddress, walletAddress, (balance) => {
-        document.getElementById('STC餘額').innerText = balance.toString();
-      });
-
-        loginButton.removeEventListener('click', loginWithMetaMask)
-        setTimeout(() => {
-        loginButton.addEventListener('click', signOutOfMetaMask)
-        }, 200)
-    
-      }
-    
-      function signOutOfMetaMask() {
-        window.userWalletAddress = null
-        userWallet.innerText = ''
-        loginButton.innerText = '使用 MetaMask 登錄'
-        //<!-- ============ 用STC餘額 html 靜態 Copy dd Js Aki ============ -->
-        var str = $( "#我的錢包2222" ).val("0x0"); //val=input
-        $( "#錢包menu" ).html( '登錄我的錢包');
-        //<!-- ============ / https://jsfiddle.net/mokaki/yu0n2r7z/1/ ============ -->
-    
-        loginButton.removeEventListener('click', signOutOfMetaMask)
-        setTimeout(() => {
-        loginButton.addEventListener('click', loginWithMetaMask)
-        }, 200)
-      }
-    
-      window.addEventListener('DOMContentLoaded', () => {
-        toggleButton()
-      });
-      </script>
-      <!-- ============ /Login  MetaMask ============ -->
-  </ul>
-    </li>
+                loginButton.removeEventListener('click', loginWithMetaMask)
+                setTimeout(() => {
+                loginButton.addEventListener('click', signOutOfMetaMask)
+                }, 200)
+            
+              }
+            
+              function signOutOfMetaMask() {
+                window.userWalletAddress = null
+                userWallet.innerText = ''
+                loginButton.innerText = '使用 MetaMask 登錄'
+                //<!-- ============ 用STC餘額 html 靜態 Copy dd Js Aki ============ -->
+                var str = $( "#我的錢包2222" ).val("0x0"); //val=input
+                $( "#錢包menu" ).html( '登錄我的錢包');
+                //<!-- ============ / https://jsfiddle.net/mokaki/yu0n2r7z/1/ ============ -->
+            
+                loginButton.removeEventListener('click', signOutOfMetaMask)
+                setTimeout(() => {
+                loginButton.addEventListener('click', loginWithMetaMask)
+                }, 200)
+              }
+            
+              window.addEventListener('DOMContentLoaded', () => {
+                toggleButton()
+              });
+              </script>
+              <!-- ============ /Login  MetaMask ============ -->
