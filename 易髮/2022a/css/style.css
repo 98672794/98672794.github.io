@@ -180,8 +180,8 @@ div#dd1 span {
 .wrapper-dropdown-1 .dropdown li:hover,.wrapper-dropdown-3 .dropdown li:hover ,.wrapper-dropdown-4 .dropdown li:hover {
   background:#FDFDFD;
 }
-.odd{
-}
+/* .odd{} */
+
 .wrapper-dropdown-1 .dropdown li:last-child,.wrapper-dropdown-3 .dropdown li:last-child,.wrapper-dropdown-2 .dropdown li:last-child,.wrapper-dropdown-4 .dropdown li:last-child{
   border-bottom:none;
 }

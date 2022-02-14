@@ -51,8 +51,6 @@ function checkTime(i) {
 <!-- fa fa -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- https://juejin.cn/post/6941960744913076254 -->
-<link rel="import" href="../../aki/copyright.html" id="page2"/>
 
 
 
@@ -60,10 +58,11 @@ function checkTime(i) {
 
 <body onload="startTime()">
 
-    <h1 id="頁面標題">易髮髮型預約系統2022</h1>
+    <h1 id="頁面標題inputChangeCssBox">易髮髮型預約系統2022</h1>
 
 <div class="content">
 
+    <!-- 日歷 -->
 <div class="calender">
 
         <div class="cal1">
@@ -126,34 +125,34 @@ function checkTime(i) {
                                 <div class="day-contents">12</div>
                             </td>
                             <td class="day past calendar-day-2015-11-13">
-                                <div class="day-contents">13</div>
+                                <div class="day-contents akiDay13">13</div>
                             </td>
                             <td class="day past calendar-day-2015-11-14">
-                                <div class="day-contents">14</div>
+                                <div class="day-contents akiDay14">14</div>
                             </td>
                         </tr>
 
                         <tr>
                             <td class="day past calendar-day-2015-11-05">
-                                <div class="day-contents">15</div>
+                                <div class="day-contents akiDay15">15</div>
                             </td>
                             <td class="day past calendar-day-2015-11-16">
-                                <div class="day-contents">16</div>
+                                <div class="day-contents akiDay16">16</div>
                             </td>
                             <td class="day past calendar-day-2015-11-17">
-                                <div class="day-contents">17</div>
+                                <div class="day-contents akiDay17">17</div>
                             </td>
                             <td class="day past calendar-day-2015-11-18">
-                                <div class="day-contents">18</div>
+                                <div class="day-contents akiDay18">18</div>
                             </td>
                             <td class="day past calendar-day-2015-11-19">
-                                <div class="day-contents">19</div>
+                                <div class="day-contents akiDay19">19</div>
                             </td>
                             <td class="day past calendar-day-2015-11-20">
-                                <div class="day-contents">20</div>
+                                <div class="day-contents akiDay20">20</div>
                             </td>
                             <td class="day today calendar-day-2015-11-21">
-                                <div class="day-contents">21</div>
+                                <div class="day-contents akiDay21">21</div>
                             </td>
                         </tr>
 
@@ -217,7 +216,7 @@ function checkTime(i) {
     <div id="dd1" class="wrapper-dropdown-3" tabindex="1">
 
 		<span><img src="images/nav.png" alt="Navbar"/></span>
-		<div id="導航列">
+		<div id="導航列inputChangeCssBox">
 			<ul class="dropdown">
 				<li><a href="https://www.facebook.com/groups/193265888192020"><i class="fa fa-facebook"></i></a></li>
 				<li><a href="https://wa.me/85298672794?text=4月4日我想預約剪髮"><i class="fa fa-whatsapp"></i></a></li>
@@ -274,16 +273,13 @@ function checkTime(i) {
             <!-- /右今日期 -->
 
             
-            <div id="主頁簡介">
+            <div id="主頁簡介inputChangeCssBox">
                 <h2>易髮髮型預約系統</h2>
                 <p>為香港髮型屋而設的預約系統，只要簡單登記，
                     無人化預約讓您店24小時隨時接受預約，服務人員不用拼命回訊息!!!</p>
 
                 <ul class="reminder">
                     <li>簡單易用</li>
-                    <li>24小時無人化預約</li>
-                    <li>無需佣金壓金</li>
-                    <li>連接電子支付</li>
                     <li>香港人研發</li>
                 </ul>
 
@@ -374,32 +370,22 @@ function checkTime(i) {
 
 
 <!-- 2022 mokaki input change css -->
-<div id="inputCngeCssBox">
+<div id="inputChangeCssBox">
 
  
 
  
 
-    <!--div容器-->
-
-    <p style="display: none;">
-        copyright
-        -
-        input改变多個 div的属性
-        ©著作权归作者所有：来自51CTO博客作者祈澈菇凉的原创作品，请联系作者获取转载授
-        ，否则将追究法律责任js通过input框输入属性和值，改变div的属性
-        https://blog.51cto.com/u_15315508/3210954
-        -
-        监听输入事    https://www.cnblogs.com/baiyangyuanzi
-        </p>
+    <!--div容器
     <div id="outer">
         <p><label>属性名：</label><input type="text" value="background" /></p>
         <p><label>属性值：</label><input id="input2" type="text" value="#a9f30a" /></p>
-        <p><label></label><button>确定</button><button>重置</button></p>
     </div>
+    <div id="获取div元素引用"><b>0</b>在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果。</div>
   
     <script>
-        // 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
+        // https://codepen.io/ikbbceme-the-sasster/pen/rNYzRVE?editors=1010
+        //此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
         var changeStyle = function (elem, name, value) {
             elem.style[name] = value;
         }
@@ -419,13 +405,25 @@ function checkTime(i) {
             }
         }
     </script>
+    -->
 
+
+
+
+    <p><label>可預約日期:</label><br/>
+        <textarea id="可預約日期btn" >
+            <ul class="dropdown">
+                 </ul>
+            </ul>
+        </textarea>
+        </p>
+        
 
 
 
 <hr/>
 
-<p><label>導航列:</label>
+<p><label>導航列:</label><br/>
 <textarea id="導航列btn" >
 	<ul class="dropdown">
 		<li><a href="https://www.facebook.com/groups/193265888192020"><i class="fa fa-facebook"></i>    FACEBOOK</a></li>
@@ -439,7 +437,7 @@ function checkTime(i) {
 </p>
 
 
-<p><label>主頁簡介:</label>
+<p><label>主頁簡介:</label><br/>
 	<textarea id="主頁簡介btn" >
 		<h2>香港人既髮型預約系統</h2>
 		<ul class="reminder">
@@ -454,7 +452,27 @@ function checkTime(i) {
 
 
 
-<p><label>頁面標題：</label><input id="頁面標題btn"  type="text" value="香港人既髮型預約系統" /></p>
+
+
+    <p><label>導航列:</label><br/>
+        <textarea id="導航列btn" >
+            <ul class="dropdown">
+                <li><a href="https://www.facebook.com/groups/193265888192020"><i class="fa fa-facebook"></i>    FACEBOOK</a></li>
+                <li><a href="https://wa.me/85298672794?text=4月4日我想預約剪髮"><i class="fa fa-whatsapp"></i>    wechat</a></li>
+                <li><a href="https://github.com/98672794/98672794.github.io/tree/main/%E6%98%93%E9%AB%AE"><i class="fa fa-github"></i>    github</a></li>
+                <li><a href="https://www.instagram.com/moksurky/"><i class="fa fa-instagram"></i>    instagram</a></li>
+                <li><a href="wechat"><i class="fa fa-wechat"></i>    wechat</a></li>
+            </ul>
+            </ul>
+        </textarea>
+        </p>
+        
+
+
+
+
+
+<p><label>頁面標題：</label><br/><input id="頁面標題btn"  type="text" value="香港人既髮型預約系統" /></p>
 
 
 <script>
@@ -462,13 +480,13 @@ function checkTime(i) {
 	//https://www.cnblogs.com/baiyangyuanzi/p/6856598.html
   $('#頁面標題btn').on('input propertychange', function() {
 	var val = $(this).val()
-	$('#頁面標題').html(val)
+	$('#頁面標題inputChangeCssBox').html(val)
 	
 	var val = $('#主頁簡介btn').val()
-	$('#主頁簡介').html(val)
+	$('#主頁簡介inputChangeCssBox').html(val)
 
 	var val = $('#導航列btn').val()
-	$('#導航列').html(val)
+	$('#導航列inputChangeCssBox').html(val)
 
 	})
 </script>
@@ -511,14 +529,6 @@ function checkTime(i) {
 
 <div class="footer">
      <p>
-
-        <script type="text/javascript">
-            //<!-- https://juejin.cn/post/6941960744913076254 -->
-            document.write(page2.import.body.innerHTML);
-        </script>
-
-
-        <?php include("../../aki/copyright.html"); ?>
         <iframe  align="center" 
         src="../../aki/copyright.html" style="margin: auto;" frameborder="no" 
         border="0" marginwidth="0" marginheight="0" scrolling="no">
