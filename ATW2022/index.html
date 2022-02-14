@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- mokaki -->
+
+
+
+  <meta name="description" content="3DSkyboxIndexDemo mokaki20220202 https://98672794.github.io/">
+  <meta name="author" content="MokSurky">
+  <link href="ATW2022skybox.css" rel="stylesheet">
+
+
+
+
+
+  <!-- display other html div -->
+  <script language="JavaScript" type="text/javascript" src="jquery-3.5.0.js"></script>
+
+
+
+
+  <!-- skybox  -->
+  <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="../skybox/skybox.jquery.min.js"></script>
+
+
+  <!-- HTML5 控制裝置陀螺儀 ( 三軸 ) -->
+  <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>ATW2022</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- skybox  -->
+  <div class="container">
+    <div class="inner">
+
+      <!-- ar背景 外方  -->
+        <div class="sub front"><!-- 前外方 --></div>
+        <div class="sub left"><!-- 左外方 --></div>
+        <div class="sub right"><!-- right外方 --></div>
+
+        <div class="sub back"><!-- 後外方 --></div>
+
+        <div class="sub top"><!-- top外方 --></div>
+
+
+        <div class="sub bottom"><!-- 下外方 -->
+
+          <h1>莫氏有限公司</h1>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <a href="https://www.facebook.com/aki.mok.10"><i class="fa fa-facebook" style="font-size:80px"></i></a> 
+          <a href="https://wa.me/85298672794?text=4月4日我想預約剪髮"><i class="fa fa-wechat" style="font-size:80px"></i></a> 
+          <a href="https://github.com/98672794/98672794.github.io"><i class="fa fa-github" style="font-size:80px"></i></a> 
+
+          <a href="https://www.instagram.com/moksurky/"><i class="fa fa-instagram" style="font-size:80px"></i></a> 
+
+          <iframe align="center" 
+          src="../aki/copyright.html" style="margin: auto;" frameborder="no" 
+          border="0" marginwidth="0" marginheight="0" scrolling="no">
+        </iframe>
+        </div>
+        
+      <!-- / r背景 外方  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--  內方  -->
+      <div class="smallCube">
+
+        <div class="side front"><!-- 前內方 --><iframe src="https://98672794.github.io/abta/"></iframe></div>
+        <div class="side left"><!-- left內方 --><ol id="new-projects"></ol></div>
+        <div class="side right"><!-- right內方 --></div>
+        <div class="side back"><!-- 後內方 --></div>
+
+
+
+        <div class="side top"><!-- 上內方 --></div>
+        <div class="side bottom"><!-- 下內方 --></div>
+
+
+
+      </div>
+      <!--  /內方  -->
+
+
+      
+    </div>
+  </div>
+
+
+
+
+
+
+  <script>
+    $( "#new-projects" ).load( "../index.html" );
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 控制裝置陀螺儀 gyroscope skybox 背景  -->
+  <script>
+    var space = document.querySelectorAll('.container .inner');
+    if(window.DeviceOrientationEvent) {
+
+      window.addEventListener('deviceorientation', function(event) {
+        var alpha = event.alpha,
+          beta = event.beta,
+      gamma = event.gamma;
+        
+          space[0].style.webkitTransform = 'rotateX('+beta+'deg) rotateY('+gamma+'deg) rotateZ('+alpha+'deg)';
+          space[0].style.transform = 'rotateX('+beta+'deg) rotateY('+gamma+'deg) rotateZ('+alpha+'deg)';
+          space[0].style.mozTransform = 'rotateX('+beta+'deg) rotateY('+gamma+'deg) rotateZ('+alpha+'deg)';
+
+          }, false);
+    }else{
+      document.querySelector('body').innerHTML = '你的瀏覽器不支援陀螺儀喔';
+    }
+	</script>
+
+
+
+
+
+
+
+
+  <!-- mousemove skybox 內方  -->
+  <script>
+    // skybox.js
+    // https://codepen.io/ikbbceme-the-sasster/pen/dyZXMNa
+
+
+    //內方原位
+    var rotX = 0; //40
+    var rotY = 0; //-30
+    var currX = 0;
+    var currY = 0;
+    tracking = false;
+
+    $(document).ready(function() {
+      
+      diff = $('.container').width() - $('.container').height();
+      $('.container .smallCube').css({marginTop: '-'+diff/2+'px'})
+
+      setBindings();
+      
+      setRotation(0,0);
+    });
+
+    function unsetBindings() {
+      $('body, li').off();
+    }
+
+    function setBindings() {
+      $('body').on('mousedown touchstart', function(e) {
+        if (e.type == "touchstart") {
+        interactionStart(e.originalEvent.touches[0].clientX, e.originalEvent.touches[0].clientY);
+        } else {
+          interactionStart(e.clientX, e.clientY);
+        }
+        e.preventDefault();
+      });
+
+      $('body').on('mousemove touchmove', function(e) {
+        if (e.type == "touchmove") {
+          interactionMove(e.originalEvent.touches[0].clientX, e.originalEvent.touches[0].clientY);
+        } else {
+          interactionMove(e.clientX, e.clientY);
+        }
+        e.preventDefault();
+      });
+
+      $('body').on('mouseup touchend', function(e) {
+        interactionEnd();
+        e.preventDefault();
+      });
+      
+      $('.eve').on('click', function() {
+          $('.container .smallCube').addClass('anim');
+          rotX = 0;
+          rotY = 0;
+          setRotation(0,0);
+        
+      })
+      $('.community').on('click', function() {
+          $('.container .smallCube').addClass('anim');
+          rotX = -90;
+          rotY = 0;
+          setRotation(0,0);
+        
+      })
+      $('.ccpgames').on('click', function() {
+          $('.container .smallCube').addClass('anim');
+          rotX = -180;
+          rotY = 0;
+          setRotation(0,0);
+        
+      })
+      $('.updates').on('click', function() {
+          $('.container .smallCube').addClass('anim');
+          rotX = 90;
+          rotY = 0;
+          setRotation(0,0);
+        
+      })
+      $('.valkyrie').on('click', function() {
+          $('.container .smallCube').addClass('anim');
+          rotX = 0;
+          rotY = -90;
+          setRotation(0,0);    
+      })
+      $('.gunjack').on('click', function() {
+          $('.container .smallCube').addClass('anim');
+          rotX = 0;
+          rotY = 90;
+          setRotation(0,0);
+      })
+    }
+
+
+    //?????????????
+    function interactionStart(x, y) {
+      currX = x;
+      currY = y;
+      tracking = true;
+    }
+
+    function interactionMove(x, y) {
+      if (tracking == false) {
+        return;
+      }
+      var deltaX = x - currX;
+      var deltaY = y - currY;
+      setRotation(deltaX, deltaY);
+      currX = x;
+      currY = y;
+    }
+
+    function setRotation(x, y) {
+      if (tracking == false) {
+        unsetBindings();
+        setTimeout(function() {
+        setBindings();
+          $('.container .inner').removeClass('anim');
+        }, 1000);
+      }
+      rotX+=x;
+      rotY+=y;
+      if (rotX >= 180) {
+        rotX-=360;
+      } else if (rotX <= (-179)) {
+        rotX+=360;
+      }
+      
+      if (rotY >= 90) {
+        rotY = 90;
+      } else if (rotY <= (-90)) {
+        rotY = -90;
+      }
+      
+
+
+      // 內方轉芯
+      var radX = 0;
+      var radZ = 0; 
+      var radY = 0;
+      
+      $('.container .inner').css({transform:'rotateX('+rotY+'deg) rotateY('+rotX+'deg) translate3d('+radX+'px,'+radY+'px,'+radZ+'px)'});
+      //$('.container .inner') 外內轉
+      //$('.container .smallCube') 只內方
+
+    }
+
+    function interactionEnd() {
+      tracking = false;
+    }
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>
+
+
