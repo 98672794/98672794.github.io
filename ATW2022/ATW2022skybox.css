@@ -193,7 +193,7 @@ body ul li:hover {
   /* animation 參數設定 */
   animation-name: StopMoveSmallCube;    /*動畫名稱，需與 keyframe 名稱對應*/
   animation-duration: 10s;    /*動畫持續時間，單位為秒*/
-  animation-delay: 0s;    /* 動畫延遲開始時間*/
+  animation-delay: 2s;    /* 動畫延遲開始時間*/
   animation-iteration-count: infinite;    /*動畫次數，infinite 為無限次*/   
 }
 /* 停內方呼吸 關鍵影格(@keyframe) */
