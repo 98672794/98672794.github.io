@@ -49,12 +49,32 @@ set
 
 
 
-
+/* ################################### */
+/* 指日轉色 .calendar-day-2022-02-12 */
 /* 歷admin sel btn */
-.calendar-day-2022-02-12{background: #7b0202;}
 
 
 
+/* https://stackoverflow.com/questions/8541081/css-set-a-background-color-which-is-50-of-the-width-of-the-window */
+.約日,.calendar-day-2022-02-12{
+	/* 用 可約日 po in 歷 */
+	background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 80%,
+	rgba(6, 193, 140, 0.71) 20%);
+	}
+.滿日,.calendar-day-2022-02-18{
+	/* 用 可約日 po in 歷 */
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 80%,
+	rgba(255, 0, 0, 0.71) 20%);
+	}
+.休日,.calendar-day-2022-02-21{
+	/* 用 可約日 po in 歷 */
+	opacity: .2;
+	}
+
+
+
+		
+	
 
 
 
