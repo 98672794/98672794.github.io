@@ -9,7 +9,7 @@ set
 --*/
 
 
-#主頁簡介 p,h1,samp,#inputCngeCssBox p,h1,samp{margin: 5%;}
+#主頁簡介inputChangeCssBox p,h1,samp,#inputCngeCssBox p,h1,samp{margin: 5%;}
 
 
 /* 左今月背 */
@@ -50,10 +50,8 @@ set
 
 
 
-
-
-
-
+/* 歷admin sel btn */
+.calendar-day-2022-02-12{background: #7b0202;}
 
 
 

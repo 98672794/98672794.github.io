@@ -112,9 +112,7 @@
   cursor: pointer;
     padding: 10px;
 }
-.cal1:hover .clndr:hover .clndr-table tr:hover .day:hover .day-contents:hover {
-  
-}
+/*.cal1:hover .clndr:hover .clndr-table tr:hover .day:hover .day-contents:hover {}*/
 .cal1 .clndr .clndr-table tr .empty,
 .cal1 .clndr .clndr-table tr .adjacent-month {
   width: 100%;
