@@ -469,55 +469,79 @@ function checkTime(i) {
 
 
 
-<!-- 2022 mokaki input change css -->
-<div id="inputChangeCssBox">
+    <!-- 2022 mokaki input change css -->
+    <div id="inputChangeCssBox">
+
+        <p>
+            <label>休息日</label><input type="text" value="25" />
+            <p style="display: none;">
+            <input type="text" value="opacity" />
+            <input type="text" value=".2" />
+            </p>
+        </p>
+        <br/>
+        <p>
+            <label>可給客戶預約的日期</label><input type="text" value="26" />
+            <p style="display: none;">
+            <input type="text" value="background-image" />
+            <input type="text" value="linear-gradient(45deg, rgba(0, 0, 0, 0) 80%,rgba(6, 193, 140, 0.71) 20%)" />
+            </p>
+        </p>
+        <br/>
+        <p>
+            <label>已客滿的日期</label><input type="text" value="27" />
+            <p style="display: none;">
+            <input type="text" value="background-image" />
+            <input type="text" value="linear-gradient(90deg, rgba(0, 0, 0, 0) 80%,rgba(255, 0, 0, 0.71) 20%)" />
+            </p>
+        </p>
+        <br/>
+        <p>
+
+            <!-- 2022 mokaki 加野 in here -->
 
 
-       <hr/>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div>
-        
-
-
-        <p id="休息日btn">
-            <label>休息日</label><input type="text" value="18" />
-            <br/>
-            會員在休息日 填寫日期，主頁日歷中，當日會出現 休息日的圖示
-            <br/>
-            <label>css樣式名</label><input type="text" value="opacity" />
-            <label>量：</label><input type="text" value=".2" />
+            <label>導航列:</label><br/>
+            <textarea id="導航列btn" >
+                <ul class="dropdown">
+                    <li><a href="https://www.facebook.com/groups/193265888192020"><i class="fa fa-facebook"></i>    FACEBOOK</a></li>
+                    <li><a href="https://wa.me/85298672794?text=4月4日我想預約剪髮"><i class="fa fa-whatsapp"></i>    wechat</a></li>
+                    <li><a href="https://github.com/98672794/98672794.github.io/tree/main/%E6%98%93%E9%AB%AE"><i class="fa fa-github"></i>    github</a></li>
+                    <li><a href="https://www.instagram.com/moksurky/"><i class="fa fa-instagram"></i>    instagram</a></li>
+                    <li><a href="wechat"><i class="fa fa-wechat"></i>    wechat</a></li>
+                </ul>
+            </textarea>
+        </p>
+        <br/>
+        <p>
+            <label>主頁簡介:</label><br/>
+            <textarea id="主頁簡介btn" >
+                <h2>香港人既髮型預約系統</h2>
+                <ul class="reminder">
+                    <li>06:00 - Wake Up</li>
+                    <li>09:00 - Suit Up</li>
+                    <li>14:00 - Lunch</li>
+                    <li>20:00 - Party!</li>
+                    <li>23:00 - Bed Time</li>
+                </ul>
+            </textarea>
+        </p>
+        <br/>
+        <p>
+            <label>頁面標題：</label><br/><input id="頁面標題btn"  type="text" value="香港人既髮型預約系統" />
+        </p>
+        <br/>
+        <p>
+            <label></label><button>下一步</button>
+            &nbsp;|&nbsp;<button>重置</button>
         </p>
 
-        <p><label></label><button>确定</button><button>重置</button></p>
 
-        
+
             <!-- js input change style mokaki 202202171555 暫ok -->
             <script>
-
                 // 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
                 var changeStyle = function (elem, name, value) {elem.style[name] = value;}
 
@@ -531,9 +555,27 @@ function checkTime(i) {
                 oBtn[0].onclick = function () {     //$(oInput[0]).on('input propertychange', function() {	//监听输入事件 即時內容另一個
                     // 休息日
                     var gwthty = ".calendar-day-2022-02-" + oInput[0].value //  inpu 連接 css name
-                    var oDiv = document.querySelectorAll(gwthty);           //  querySelectorAll 取 .class = oDiv[0]
-                    changeStyle(oDiv[0], oInput[1].value, oInput[2].value); //调用changeStyle函数
+                    var oDiv1 = document.querySelectorAll(gwthty);           //  querySelectorAll 取 .class = oDiv[0]
+                    changeStyle(oDiv1[0], oInput[1].value, oInput[2].value); //调用changeStyle函数
+                    // 可給客戶預約的日期
+                    var gwthty2 = ".calendar-day-2022-02-" + oInput[3].value //  inpu 連接 css name
+                    var oDiv2 = document.querySelectorAll(gwthty2);           //  querySelectorAll 取 .class = oDiv[0]
+                    changeStyle(oDiv2[0], oInput[4].value, oInput[5].value); //调用changeStyle函数
+                    // 已客滿的日期
+                    var gwthty3 = ".calendar-day-2022-02-" + oInput[6].value //  inpu 連接 css name
+                    var oDiv3 = document.querySelectorAll(gwthty3);           //  querySelectorAll 取 .class = oDiv[0]
+                    changeStyle(oDiv3[0], oInput[7].value, oInput[8].value); //调用changeStyle函数
+
+
+                    // admin 轉頁文    
+                    var val = $('#頁面標題btn').val()
+                    $('#頁面標題inputChangeCssBox').html(val)
                     
+                    var val = $('#主頁簡介btn').val()
+                    $('#主頁簡介inputChangeCssBox').html(val)
+
+                    var val = $('#導航列btn').val()
+                    $('#導航列inputChangeCssBox').html(val)
                 };//});
 
                 // 不能用 轉 //给重置按钮添加事件处理
@@ -543,6 +585,9 @@ function checkTime(i) {
 
 
 
+                //监听bbb输入事件 即時內容另一個
+                //https://www.cnblogs.com/baiyangyuanzi/p/6856598.html
+                
                 // changeStyle
                 //https://www.cnblogs.com/baiyangyuanzi/p/6856598.html
 
@@ -551,109 +596,11 @@ function checkTime(i) {
 
                 // oDiv[0]
                 //https://www.semicolonworld.com/question/23315/why-getelementsbyclassname-is-not-working-while-getelementbyid-works
-
             </script>
 
+
     </div>
-
-
-
-
-
-
-
-
-
-        
-
-<hr/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p><label>可給客戶預約的日期:</label><br/>
-    <input id="可預約日期btn" type="text" value="" />
-    </p>
-    
-<p><label>已客滿的日期:</label><br/>
-    <input id="已客滿日期btn" type="text" value="" />
-    </p>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p><label>導航列:</label><br/>
-<textarea id="導航列btn" >
-	<ul class="dropdown">
-		<li><a href="https://www.facebook.com/groups/193265888192020"><i class="fa fa-facebook"></i>    FACEBOOK</a></li>
-		<li><a href="https://wa.me/85298672794?text=4月4日我想預約剪髮"><i class="fa fa-whatsapp"></i>    wechat</a></li>
-		<li><a href="https://github.com/98672794/98672794.github.io/tree/main/%E6%98%93%E9%AB%AE"><i class="fa fa-github"></i>    github</a></li>
-		<li><a href="https://www.instagram.com/moksurky/"><i class="fa fa-instagram"></i>    instagram</a></li>
-		<li><a href="wechat"><i class="fa fa-wechat"></i>    wechat</a></li>
-	</ul>
-</textarea>
-</p>
-
-
-<p><label>主頁簡介:</label><br/>
-	<textarea id="主頁簡介btn" >
-		<h2>香港人既髮型預約系統</h2>
-		<ul class="reminder">
-			<li>06:00 - Wake Up</li>
-			<li>09:00 - Suit Up</li>
-			<li>14:00 - Lunch</li>
-			<li>20:00 - Party!</li>
-			<li>23:00 - Bed Time</li>
-		</ul>
-	</textarea>
-	</p>
-
-
-
-
-
-
-
-
-<p><label>頁面標題：</label><br/><input id="頁面標題btn"  type="text" value="香港人既髮型預約系統" /></p>
-
-
-<script>
-	//监听bbb输入事件 即時內容另一個
-	//https://www.cnblogs.com/baiyangyuanzi/p/6856598.html
-  $('#頁面標題btn').on('input propertychange', function() {
-	var val = $(this).val()
-	$('#頁面標題inputChangeCssBox').html(val)
-	
-	var val = $('#主頁簡介btn').val()
-	$('#主頁簡介inputChangeCssBox').html(val)
-
-	var val = $('#導航列btn').val()
-	$('#導航列inputChangeCssBox').html(val)
-
-	})
-</script>
-</div>
+    <!-- / 2022 mokaki input change css -->
 
 
 
