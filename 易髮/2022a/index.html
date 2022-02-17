@@ -500,74 +500,59 @@ function checkTime(i) {
 
 
     <div>
-
-
-        <div id="outer">
-            <p><label>属性名：</label><input type="text" value="background" /></p>
-            <p><label>属性值：</label><input id="input2" type="text" value="#a9f30a" /></p>
-            <p><label></label><button>确定 不需用</button><button>重置</button></p>
-        </div>
-        <div id="div1">查看效果。</div>
         
 
 
-        <p><label class="油技21">休息日:</label><br/>
-            會員在 休息日 填寫日期，主頁日歷中，當日會出現 休息日的圖示
-            .calendar-day-2022-02-18
+        <p id="休息日btn">
+            <label>休息日</label><input type="text" value="18" />
+            <br/>
+            會員在休息日 填寫日期，主頁日歷中，當日會出現 休息日的圖示
+            <br/>
+            <label>css樣式名</label><input type="text" value="opacity" />
+            <label>量：</label><input type="text" value=".2" />
+        </p>
 
-<!-- js input change style mokaki 202202171555 -->
-<script>
-    // 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
-    var changeStyle = function (elem, name, value) {
-        elem.style[name] = value;
-    }
-    window.onload = function () {
+        <p><label></label><button>确定</button><button>重置</button></p>
+
         
-        var oDiv = document.querySelectorAll(".calendar-day-2022-02-18");
-        //querySelectorAll
-        // https://stackoverflow.com/questions/39178138/getelementsbyclassname-doesnt-work-but-getelementbyid-does
+            <!-- js input change style mokaki 202202171555 暫ok -->
+            <script>
+
+                // 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
+                var changeStyle = function (elem, name, value) {elem.style[name] = value;}
+
+                //获取input內容    
+                var oInput = document.getElementsByTagName("input");    
+                //获取按钮的引用
+                var oBtn = document.getElementsByTagName("button"); 
+
+
+                //给确定按钮添加事件
+                oBtn[0].onclick = function () {     //$(oInput[0]).on('input propertychange', function() {	//监听输入事件 即時內容另一個
+                    // 休息日
+                    var gwthty = ".calendar-day-2022-02-" + oInput[0].value //  inpu 連接 css name
+                    var oDiv = document.querySelectorAll(gwthty);           //  querySelectorAll 取 .class = oDiv[0]
+                    changeStyle(oDiv[0], oInput[1].value, oInput[2].value); //调用changeStyle函数
+                    
+                };//});
+
+                // 不能用 轉 //给重置按钮添加事件处理
+                oBtn[1].onclick = function () { 
+                    oDiv[0].removeAttribute("style");//去除样式
+                }
 
 
 
-        //var oDiv = document.getElementsByClassName("calendar-day-2022-02-18");//getElementById("div1");//获取div元素引用
-        var oBtn = document.getElementsByTagName("button"); //获取按钮的引用
-        var oInput = document.getElementsByTagName("input"); //获取input元素的引用
-      //xxx oBtn[0].on('input propertychange') = function () {	
-        $('#input2').on('input propertychange', function() {	//监听输入事件 即時內容另一個
-        //oBtn[0].onclick = function () { //给确定按钮添加事件
-            changeStyle(oDiv[0], oInput[0].value, oInput[1].value);//调用changeStyle函数
-            // getElementsByClassName[0]
-            //https://www.semicolonworld.com/question/23315/why-getelementsbyclassname-is-not-working-while-getelementbyid-works
+                // changeStyle
+                //https://www.cnblogs.com/baiyangyuanzi/p/6856598.html
 
-        });
-        oBtn[1].onclick = function () { //给重置按钮添加事件处理
-            oDiv[0].removeAttribute("style");//去除样式
-        }
-    }
-</script>
+                //querySelectorAll
+                // https://stackoverflow.com/questions/39178138/getelementsbyclassname-doesnt-work-but-getelementbyid-does
 
+                // oDiv[0]
+                //https://www.semicolonworld.com/question/23315/why-getelementsbyclassname-is-not-working-while-getelementbyid-works
 
-            </p>
-
-
-
-
-
-            <hr/>
-
-
-
-        <p><label>可給客戶預約的日期:</label><br/>
-            <input id="可預約日期btn" type="text" value="" />
-            </p>
-            
-        <p><label>已客滿的日期:</label><br/>
-            <input id="已客滿日期btn" type="text" value="" />
-            </p>
-            
-
-
-
+            </script>
 
     </div>
 
@@ -582,6 +567,40 @@ function checkTime(i) {
         
 
 <hr/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><label>可給客戶預約的日期:</label><br/>
+    <input id="可預約日期btn" type="text" value="" />
+    </p>
+    
+<p><label>已客滿的日期:</label><br/>
+    <input id="已客滿日期btn" type="text" value="" />
+    </p>
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p><label>導航列:</label><br/>
 <textarea id="導航列btn" >
