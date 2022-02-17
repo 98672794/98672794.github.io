@@ -307,7 +307,13 @@ function checkTime(i) {
             </div>
             <!-- /右今日期 -->
 
+
             
+
+
+
+
+
             <div id="主頁簡介inputChangeCssBox">
                 <h2>易髮髮型預約系統</h2>
                 <p>為香港髮型屋而設的預約系統，只要簡單登記，
@@ -472,6 +478,47 @@ function checkTime(i) {
     <!-- 2022 mokaki input change css -->
     <div id="inputChangeCssBox">
 
+
+
+        <!-- 加野 -->
+        
+
+            <!-- 202202172218mokaki_要女吞精 -->    
+            <div id="要女吞精">
+                <input id="datefield" type='date' min='1899-01-01' max='2000-13-13'/>
+                <script type="text/javascript">
+                    var today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth()+1; //January is 0!
+                    var yyyy = today.getFullYear();
+                    var dd2 = today.getDate()+5;        // maxday aki
+                    if(dd<10){
+                            dd='0'+dd
+                        } 
+                        if(mm<10){
+                            mm='0'+mm
+                        } 
+                    today = yyyy+'-'+mm+'-'+dd;
+                    document.getElementById("datefield").setAttribute("min", today);
+                    maxday = yyyy+'-'+mm+'-'+dd2;
+                    document.getElementById("datefield").setAttribute("max", maxday);
+                    // https://jsfiddle.net/dae4y126/
+                    // https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today
+                </script>
+                
+
+                
+            </div>
+            <!-- /202202172218mokaki_jsBox -->
+
+
+
+
+
+
+
+
+        <hr/>
         <p>
             <label>休息日</label><input type="text" value="25" />
             <p style="display: none;">
@@ -499,7 +546,6 @@ function checkTime(i) {
         <p>
 
             <!-- 2022 mokaki 加野 in here -->
-
 
 
 
@@ -539,20 +585,30 @@ function checkTime(i) {
         </p>
 
 
-
             <!-- js input change style mokaki 202202171555 暫ok -->
             <script>
-                // 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
+                //// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
                 var changeStyle = function (elem, name, value) {elem.style[name] = value;}
 
                 //获取input內容    
+                //  休息日=0     可給客戶預約的日期=3    已客滿的日期=6
                 var oInput = document.getElementsByTagName("input");    
                 //获取按钮的引用
                 var oBtn = document.getElementsByTagName("button"); 
 
-
-                //给确定按钮添加事件
+                //给 inputChangeCssBox 确定按 钮添加事件
                 oBtn[0].onclick = function () {     //$(oInput[0]).on('input propertychange', function() {	//监听输入事件 即時內容另一個
+                    //// 加野 
+
+
+
+                    //// js日期比較
+
+
+
+
+
+                    //// 日歷換
                     // 休息日
                     var gwthty = ".calendar-day-2022-02-" + oInput[0].value //  inpu 連接 css name
                     var oDiv1 = document.querySelectorAll(gwthty);           //  querySelectorAll 取 .class = oDiv[0]
@@ -567,23 +623,28 @@ function checkTime(i) {
                     changeStyle(oDiv3[0], oInput[7].value, oInput[8].value); //调用changeStyle函数
 
 
-                    // admin 轉頁文    
+                    //// 頁文換    
                     var val = $('#頁面標題btn').val()
                     $('#頁面標題inputChangeCssBox').html(val)
-                    
                     var val = $('#主頁簡介btn').val()
                     $('#主頁簡介inputChangeCssBox').html(val)
-
                     var val = $('#導航列btn').val()
                     $('#導航列inputChangeCssBox').html(val)
                 };//});
 
-                // 不能用 轉 //给重置按钮添加事件处理
+                // 不能用 轉用f5 但不能刪這 //给重置按钮添加事件处理
                 oBtn[1].onclick = function () { 
                     oDiv[0].removeAttribute("style");//去除样式
                 }
 
 
+
+
+                // new Date()
+                // https://tecadmin.net/get-current-date-time-javascript/
+
+                // js日期比較
+                // delftstack.com/zh-tw/howto/javascript/how-to-compare-two-dates-with-javascript/
 
                 //监听bbb输入事件 即時內容另一個
                 //https://www.cnblogs.com/baiyangyuanzi/p/6856598.html
