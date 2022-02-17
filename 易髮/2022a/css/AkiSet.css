@@ -31,16 +31,12 @@ set
   }
 
   
-/* 歷中今日 */
+/* ???? */
 .cal1 .clndr .clndr-table tr .day.today.event {
 	background-color: rgba(76, 80, 45, 0.455);
 }
 
-	/* 歷中今日 圈/字 */
-.cal1 .clndr .clndr-table tr .day.today {
-	color: #5482AB!important;
-	background: #747272;
-}
+
 
 /* 歷中日字 */
 .cal1 .clndr .clndr-table tr .day .day-contents {
@@ -57,34 +53,54 @@ set
 
 /* https://stackoverflow.com/questions/8541081/css-set-a-background-color-which-is-50-of-the-width-of-the-window */
 .約日,.calendar-day-2022-02-12{
-	/* 用 可約日 po in 歷 */
+	/* 可約 日歷*/
 	background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 80%,
 	rgba(6, 193, 140, 0.71) 20%);
 	}
 .滿日,.calendar-day-2022-02-18{
-	/* 用 可約日 po in 歷 */
+	/* 客滿 日歷 */
 	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 80%,
 	rgba(255, 0, 0, 0.71) 20%);
 	}
 .休日,.calendar-day-2022-02-21{
-	/* 用 可約日 po in 歷 */
+	/* 休息 日歷 */
 	opacity: .2;
 	}
 
 
-
-		
+/* 歷中今日 圈/字 */
+	.cal1 .clndr .clndr-table tr .day.today {
+		color: #e5ff00!important;
 	
+		background-image: linear-gradient(180deg, rgba(233, 0, 0, 0) 95%,
+		rgba(76, 80, 45, 0.455) 5%);
+	
+	}
 
 
+
+
+
+
+
+
+
+/* 
+	.calendar-day-2022-02-28{
+		
+		background: #a9f30a;
+		}
+休息 日歷 */
 
 
 /* aki input Change Css Box */
 #inputChangeCssBox {
 	background: #222222;
 	padding: 5%;
+	/* 
 	position: fixed;
 	right: 0px; left: 90%;top: 10%;bottom: 0%;
+	*/
 	overflow: scroll;
 	opacity: .2;
 	transition: 3s;
