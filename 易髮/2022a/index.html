@@ -31,6 +31,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- fa fa -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> <!-- 必在 startTime() 前 --> 
+
+
+<!-- js 日期多选 https://www.cnblogs.com/ysxq/p/13385941.html -->
+<link rel="stylesheet" type="text/css" href="//lib.baomitu.com/air-datepicker/2.2.3/css/datepicker.css"/>
+<script type="text/javascript" src="//lib.baomitu.com/air-datepicker/2.2.3/js/datepicker.min.js"></script>
+<script type="text/javascript" src="//lib.baomitu.com/air-datepicker/2.2.3/js/i18n/datepicker.zh.min.js"></script>
+<style>
+.demo-input{padding-left: 10px; height: 38px; min-width: 262px;width: 100%; line-height: 38px; border: 1px solid #e6e6e6;  background-color: #fff;  border-radius: 2px;text-overflow: ellipsis;}
+</style>
+
+
+
 <!-- / -->
 
 
@@ -406,17 +418,52 @@ function checkTime(i) {
 
 
 <div class="footer">
-    <p title="說明">
-        <samp class="約日">可預約 &nbsp;&nbsp;&nbsp;&nbsp;</samp>
-        <samp class="滿日">客滿 &nbsp;&nbsp;&nbsp;</samp>
-        <samp class="休日">休息 &nbsp;&nbsp;&nbsp;</samp>
-    </p>
 
-     <p><!-- copyright -->
-        <iframe  align="center" 
+
+            <!-- 202202180023mokakiInputDataMin -->    
+            <p id="比User的客用的DataSel">
+                <label>預約</label>
+                <input id="datefield" type='date' min='1899-01-01' max='2000-13-13'/>
+                <script type="text/javascript">
+
+                    function GetToday() {
+                        var today = new Date();
+                        var dd = today.getDate();
+                        var mm = today.getMonth()+1; //January is 0!
+                        var yyyy = today.getFullYear();
+                        
+                        var dd2 = today.getDate()+5;        // maxday aki
+                        if(dd<10){
+                                dd='0'+dd
+                            } 
+                            if(mm<10){
+                                mm='0'+mm
+                            } 
+                        today = yyyy+'-'+mm+'-'+dd;
+                        document.getElementById("datefield").setAttribute("min", today);
+                        maxday = yyyy+'-'+mm+'-'+dd2;
+                        document.getElementById("datefield").setAttribute("max", maxday);
+                    
+                        return today
+                    }
+                //  How to Get an Input’s Value with JavaScript https://www.tabnine.com/academy/javascript/get-value-of-input/
+                // https://jsfiddle.net/dae4y126/
+                // https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today
+                </script>
+                &nbsp;&nbsp;&nbsp;
+                
+                <samp title="說明">
+                    <samp class="約日">可預約 &nbsp;&nbsp;</samp>&nbsp;&nbsp;&nbsp;
+                    <samp class="滿日">客滿 &nbsp;&nbsp;</samp>&nbsp;&nbsp;&nbsp;
+                    <samp class="休日">休息 &nbsp;&nbsp;</samp>
+                </samp>
+            </p>
+
+    <p><!-- copyright -->
+        <iframe align="center" 
         src="../../aki/copyright.html" style="margin: auto;" frameborder="no" 
         border="0" marginwidth="0" marginheight="0" scrolling="no">
-      </iframe>
+        </iframe>
         <samp style="display: none;"> &copy; 2015 Calendar, Date & Time Widget. All Rights Reserved | Design by 
         <a href="http://w3layouts.com">W3layouts</a></samp>
     </p>
@@ -477,56 +524,49 @@ function checkTime(i) {
 
     <!-- 2022 mokaki input change css -->
     <div id="inputChangeCssBox">
-
-
-
         <!-- 加野 -->
         
-
-            <!-- 202202172218mokaki_要女吞精 -->    
-            <div id="要女吞精">
-                <input id="datefield" type='date' min='1899-01-01' max='2000-13-13'/>
-                <script type="text/javascript">
-                    var today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth()+1; //January is 0!
-                    var yyyy = today.getFullYear();
-                    var dd2 = today.getDate()+5;        // maxday aki
-                    if(dd<10){
-                            dd='0'+dd
-                        } 
-                        if(mm<10){
-                            mm='0'+mm
-                        } 
-                    today = yyyy+'-'+mm+'-'+dd;
-                    document.getElementById("datefield").setAttribute("min", today);
-                    maxday = yyyy+'-'+mm+'-'+dd2;
-                    document.getElementById("datefield").setAttribute("max", maxday);
-                    // https://jsfiddle.net/dae4y126/
-                    // https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today
-                </script>
-                
-
-                
-            </div>
-            <!-- /202202172218mokaki_jsBox -->
-
-
-
-
-
-
 
 
         <hr/>
         <p>
-            <label>休息日</label><input type="text" value="25" />
-            <p style="display: none;">
-            <input type="text" value="opacity" />
-            <input type="text" value=".2" />
-            </p>
+            <!-- qqqqqqqqqq再 -->
+            <label>請選休息日期</label><input type="text" id="daySelect" class="demo-input" placeholder="请选择日期" readonly="readonly"/>
+            <script>
+                /* 日期选择 */
+                // 默认初始赋值数据
+                var dayData = [GetToday()]; // 比User的客用的DataSel
+                $('#daySelect')
+                .attr('title',dayData.join())               //设置title 当值太多显示不全时有用
+                .datepicker({
+                    clearButton:true,
+                    language:'zh',
+                    multipleDates:true,                     //是否多选，Boolean | Number
+                    multipleDatesSeparator:',',             // 多选间隔符号
+                    onHide:function(inst, animationCompleted){
+                        inst.$el.attr('title', inst.$el.val())
+                    }
+                })
+                .data('datepicker')
+                // .selectDate([new Date('2020-05-01'),new Date('2020-05-02'),new Date('2020-05-03')])
+                .selectDate(dayData.map(function(n){return new Date(n)}))  
+            // js 日期多选
+            // https://www.cnblogs.com/ysxq/p/13385941.html
+            </script>
         </p>
         <br/>
+        <hr/>
+
+        
+
+        
+        <label>休息日</label><in0put type="text" value="25" /><br/>
+        <p style="display: no0ne;">
+        <input type="text" value="opacity" />
+        <input type="text" value=".2" />
+        </p>
+
+
         <p>
             <label>可給客戶預約的日期</label><input type="text" value="26" />
             <p style="display: none;">
@@ -590,14 +630,10 @@ function checkTime(i) {
                 //// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
                 var changeStyle = function (elem, name, value) {elem.style[name] = value;}
 
-                //获取input內容    
-                //  休息日=0     可給客戶預約的日期=3    已客滿的日期=6
-                var oInput = document.getElementsByTagName("input");    
-                //获取按钮的引用
-                var oBtn = document.getElementsByTagName("button"); 
-
-                //给 inputChangeCssBox 确定按 钮添加事件
-                oBtn[0].onclick = function () {     //$(oInput[0]).on('input propertychange', function() {	//监听输入事件 即時內容另一個
+                //获取input內容  //  oInput 休息日=0     可給客戶預約的日期=3    已客滿的日期=6  
+                var oInput = document.getElementById('inputChangeCssBox' ).getElementsByTagName('input')    // javascript获取指定div内的所有input框
+                var oBtn = document.getElementById('inputChangeCssBox' ).getElementsByTagName("button");     //获取按钮的引用
+                oBtn[0].onclick = function () {     //给 inputChangeCssBox 确定按 钮添加事件
                     //// 加野 
 
 
@@ -610,17 +646,17 @@ function checkTime(i) {
 
                     //// 日歷換
                     // 休息日
-                    var gwthty = ".calendar-day-2022-02-" + oInput[0].value //  inpu 連接 css name
+                    var gwthty = ".calendar-day-" + oInput[0].value //  inpu 連接 css name
                     var oDiv1 = document.querySelectorAll(gwthty);           //  querySelectorAll 取 .class = oDiv[0]
                     changeStyle(oDiv1[0], oInput[1].value, oInput[2].value); //调用changeStyle函数
                     // 可給客戶預約的日期
-                    var gwthty2 = ".calendar-day-2022-02-" + oInput[3].value //  inpu 連接 css name
-                    var oDiv2 = document.querySelectorAll(gwthty2);           //  querySelectorAll 取 .class = oDiv[0]
-                    changeStyle(oDiv2[0], oInput[4].value, oInput[5].value); //调用changeStyle函数
+                    //var gwthty2 = ".calendar-day-2022-02-" + oInput[3].value //  inpu 連接 css name
+                    //var oDiv2 = document.querySelectorAll(gwthty2);           //  querySelectorAll 取 .class = oDiv[0]
+                    //changeStyle(oDiv2[0], oInput[4].value, oInput[5].value); //调用changeStyle函数
                     // 已客滿的日期
-                    var gwthty3 = ".calendar-day-2022-02-" + oInput[6].value //  inpu 連接 css name
-                    var oDiv3 = document.querySelectorAll(gwthty3);           //  querySelectorAll 取 .class = oDiv[0]
-                    changeStyle(oDiv3[0], oInput[7].value, oInput[8].value); //调用changeStyle函数
+                    //var gwthty3 = ".calendar-day-2022-02-" + oInput[6].value //  inpu 連接 css name
+                    //var oDiv3 = document.querySelectorAll(gwthty3);           //  querySelectorAll 取 .class = oDiv[0]
+                    //changeStyle(oDiv3[0], oInput[7].value, oInput[8].value); //调用changeStyle函数
 
 
                     //// 頁文換    
@@ -639,6 +675,8 @@ function checkTime(i) {
 
 
 
+                // javascript获取指定div内的所有input框
+                // https://blog.csdn.net/guo_qiangqiang/article/details/114879427
 
                 // new Date()
                 // https://tecadmin.net/get-current-date-time-javascript/
