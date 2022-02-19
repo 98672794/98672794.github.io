@@ -95,20 +95,22 @@ set
 
 /* aki input Change Css Box */
 #inputChangeCssBox {
-	background: #222222;
+	background: rgba(0, 0, 0, 0);
 	padding: 5%;
-	/* 
+	/*  */
 	position: fixed;
+	width: auto;
 	right: 0px; left: 90%;top: 10%;bottom: 0%;
-	*/
+	
 	overflow: scroll;
 	opacity: .2;
-	transition: 3s;
+	transition: 6s;
   }
   #inputChangeCssBox:hover {	
 	left: auto;
 	opacity: .9;
 	transition: .2s;
+	background: rgba(0, 0, 0, .5);
   }
 
 
