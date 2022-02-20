@@ -8,7 +8,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>香港人既髮型預約系統|https://98672794.github.io/易髮/</title>
+
+
+<!-- aki 2022 02191737 -->
+<title>香港人既髮型預約系統|https://98672794.github.io/易髮/2022a</title>
+<link rel="stylesheet" href="css/AkiSet.css" type="text/css" />
+<!-- fa fa -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> <!-- 必在 startTime() 前 --> 
+
+
+
+
 <!-- For-Mobile-Apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,20 +37,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 
-<!-- aki 2022 02171528 -->
-<link rel="stylesheet" href="css/AkiSet.css" type="text/css" />
-<!-- fa fa -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> <!-- 必在 startTime() 前 --> 
-
 
 <!-- js 日期多选 https://www.cnblogs.com/ysxq/p/13385941.html -->
 <link rel="stylesheet" type="text/css" href="//lib.baomitu.com/air-datepicker/2.2.3/css/datepicker.css"/>
 <script type="text/javascript" src="//lib.baomitu.com/air-datepicker/2.2.3/js/datepicker.min.js"></script>
 <script type="text/javascript" src="//lib.baomitu.com/air-datepicker/2.2.3/js/i18n/datepicker.zh.min.js"></script>
-<style>
-.demo-input{padding-left: 10px; height: 38px; min-width: 262px;width: 100%; line-height: 38px; border: 1px solid #e6e6e6;  background-color: #fff;  border-radius: 2px;text-overflow: ellipsis;}
-</style>
+
 
 
 
@@ -619,7 +622,7 @@ function checkTime(i) {
         </p>
         <br/>
         <p>
-            <label>頁面標題：</label><br/><input id="頁面標題btn"  type="text" value="香港人既髮型預約系統" />
+            <label>頁面標321題：</label><br/><input id="頁面標題btn"  type="text" value="香港人既髮型預約系統" />
         </p>
         <br/>
         <p>
@@ -628,10 +631,23 @@ function checkTime(i) {
         </p>
 
 
+
+
             <!-- js input change style mokaki 202202171555 暫ok -->
             <script>
                 //// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
                 var changeStyle = function (elem, name, value) {elem.style[name] = value;}
+
+
+
+                //// 日歷換css 0219
+                var 日歷換css = function (類_,日期, CssName, CssVal) {
+                    var oDiv1 = document.querySelectorAll(".calendar-day-" + 日期);     //oDiv1=List[0]
+                    changeStyle(oDiv1[0], CssName, CssVal); //调用changeStyle函数
+                    }
+
+
+
 
                 // javascript获取指定div内的所有input框 內容  //  oInput[0]=休息     可給客戶預約的日期=3    已客滿的日期=6  
                 var oInput = document.getElementById('inputChangeCssBox' ).getElementsByTagName('input')    // javascript获取指定div内的所有input框
@@ -644,40 +660,34 @@ function checkTime(i) {
 
 
 
-                    // 休息日if多日
-                    // Checking if input value matches the array items
-                    // let IfDayNotOne = new Array("0")   // 如有 , 
-                    // let UserInputData = oInput[0].value[1]
-                    //if (IfDayNotOne.includes(UserInputData))
-                    //if (IfDayNotOne.indexOf(',') != -1) 
-//                    alert(UserInputData.indexOf(','));
-//                    console.log(UserInputData.indexOf(','));
-                    //var result = oInput[0].value;
-                    //console.log(UserInputData.indexOf(','));
-                    //alert(result);
-//                        alert("休息日if多日");
-//                    else
-//                        alert("m a ");
-                    //// qqqqqqqqqqqqqqqqq 2022 0218 0315 腰痛 qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+
+                    //// qqqqqqqqqqqqqqqqq 2022 0219 1738 急 qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
 
 
 
+                        // if input 多  // indexOf 沒-1 有10
+                        if (oInput[0].value.indexOf(',') != -1){
+                            var asd_wqe = oInput[0].value.split(",")    //js 分割字符串
+                            for (let property in asd_wqe) // loop list all
+                                //alert(asd_wqe[property]);
+                                // 係咁換css
+                                日歷換css("休息",asd_wqe[property], oInput[1].value, oInput[2].value);
+                        }
+                        else
+                            // Run the fun      //  oInput[0]=休息日期 1=CssName 2=Val
+                            日歷換css("休息",oInput[0].value, oInput[1].value, oInput[2].value);
+                    
 
-                    //// qqqqqqqqqqqqqqqqq 2022 0219 1241 急 qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
 
-                    // if input 多 oInput[0]=休息
-                    if (oInput[0].value.indexOf(',') != -1)     // indexOf 沒-1 有10
-                        alert("oInput[0].value 中有 ,");
-                    else
-                        alert("no ,");
+
+                    
 
 
 
-                    //// 日歷換
-                    // 休息日
-                    var gwthty = ".calendar-day-" + oInput[0].value //  inpu 連接 css name
-                    var oDiv1 = document.querySelectorAll(gwthty);           //  querySelectorAll 取 .class = oDiv[0]
-                    changeStyle(oDiv1[0], oInput[1].value, oInput[2].value); //调用changeStyle函数
+                    
+                    
+                    
+                    
                     // 可給客戶預約的日期
                     //var gwthty2 = ".calendar-day-2022-02-" + oInput[3].value //  inpu 連接 css name
                     //var oDiv2 = document.querySelectorAll(gwthty2);           //  querySelectorAll 取 .class = oDiv[0]
