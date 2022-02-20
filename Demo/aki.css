@@ -1,0 +1,19 @@
+
+
+.ForIframe {
+  width:88%; height: 480px; margin: 5%;padding: 1%;
+  background-color: rgba(29, 29, 29, 0.815);
+  position: relative;
+}
+
+.ForIframe iframe,.ForIframe a,.ForIframe p,.ForIframe samp{
+  margin: 1%;
+}
+
+.ForIframe iframe {
+  width:98%; height: 90%;
+  border: none;
+  overflow: scroll;
+  display: block;
+  
+}
