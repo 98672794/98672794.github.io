@@ -1,8 +1,19 @@
-# 98672794.github.io
-98672794 2022 莫氏有限公司
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 
-<hr/>
+  <title>網頁DEMO 2022 |莫氏有限公司</title>
+  <link href="aki.css" rel="stylesheet">
+
+  <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+</head>
+<body>
+
 
 
 
@@ -136,3 +147,13 @@
         </iframe>
   </div>
     
+
+
+</body>
+
+
+
+
+</html>
+
+
