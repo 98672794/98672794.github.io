@@ -4,6 +4,10 @@ aki
 @charset "UTF-8";
 /*https://www.php.cn/css-tutorial-487919.html*/
 
+
+iframe { height: 360px; }
+
+
 .logo1 {
 	position: relative;
 	top: 0px;
@@ -54,3 +58,14 @@ a{color: #e27b35;}
 a{color: #b35415;}
 .addBg,.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {background: #b35415;color: #fff;}
 .amyBG,.navbar-inverse .navbar-toggle,.topHome:hover {background: #2fa6f5;color: #fff;}
+
+.wechatBox img{
+	background-color: #fff;margin: 5%;
+	position: absolute;
+	background: url("../images/qr.png") no-repeat;
+	top: -150%;
+	left: 10%;
+	display: none;
+}
+
+.wechatBox:hover img{display: block;}
