@@ -1,0 +1,834 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<!-- aki 2022 02191737 -->
+<title>香港人既髮型預約系統|https://98672794.github.io/易髮/2022a</title>
+<link rel="stylesheet" href="css/AkiSet.css" type="text/css" />
+<!-- fa fa -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> <!-- 必在 startTime() 前 --> 
+
+
+
+
+<!-- For-Mobile-Apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Calendar, Date & Time Widget Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+<!-- jQuery (necessary JavaScript plugins) -->
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- js 日期多选 https://www.cnblogs.com/ysxq/p/13385941.html -->
+<link rel="stylesheet" type="text/css" href="//lib.baomitu.com/air-datepicker/2.2.3/css/datepicker.css"/>
+<script type="text/javascript" src="//lib.baomitu.com/air-datepicker/2.2.3/js/datepicker.min.js"></script>
+<script type="text/javascript" src="//lib.baomitu.com/air-datepicker/2.2.3/js/i18n/datepicker.zh.min.js"></script>
+
+
+
+
+<!-- / -->
+
+
+ <!-- <script src="js/jquery-1.11.1.min.js"></script> -->
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+ <!--Calender-->
+      <link rel="stylesheet" href="css/clndr.css" type="text/css" />
+      <script src="js/underscore-min.js"></script>
+      <script src= "js/moment-2.2.1.js"></script>
+      <script src="js/clndr.js"></script>
+      <script src="js/site.js"></script>
+      
+      
+    <!--End Calender-->
+
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+
+
+
+
+
+
+
+
+</head>
+
+<body onload="startTime()">
+
+    <h1 id="頁面標題inputChangeCssBox">易髮髮型預約系統2022</h1>
+
+
+
+
+
+   
+
+
+
+
+
+
+<div class="content">
+
+    <!-- 日歷 -->
+<div class="calender">
+
+        <div class="cal1">
+            <div class="clndr">
+                
+                <table class="clndr-table" border="0" cellspacing="0" cellpadding="0">
+
+                        <tr class="header-days">
+                            <td class="header-day">S</td>
+                            <td class="header-day">M</td>
+                            <td class="header-day">T</td>
+                            <td class="header-day">W</td>
+                            <td class="header-day">T</td>
+                            <td class="header-day">F</td>
+                            <td class="header-day">S</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td class="day past calendar-day-2015-11-01">
+                                <div class="day-contents">01</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-02">
+                                <div class="day-contents">02</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-03">
+                                <div class="day-contents">03</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-04">
+                                <div class="day-contents">04</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-05">
+                                <div class="day-contents">05</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-06">
+                                <div class="day-contents">06</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-07">
+                                <div class="day-contents">07</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="day past calendar-day-2015-11-08">
+                                <div class="day-contents">08</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-09">
+                                <div class="day-contents">09</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-10">
+                                <div class="day-contents">10</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-11">
+                                <div class="day-contents">11</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-12">
+                                <div class="day-contents">12</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-13">
+                                <div class="day-contents akiDay13">13</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-14">
+                                <div class="day-contents ">14</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="day past calendar-day-2015-11-05">
+                                <div class="day-contents">15</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-16">
+                                <div class="day-contents">16</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-17">
+                                <div class="day-contents">17</div>
+                            </td>
+                            <td  class="day past calendar-day-2015-11-18">
+                                <div class="day-contents">
+                                    18
+                                </div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-19">
+                                <div class="day-contents">19</div>
+                            </td>
+                            <td class="day past calendar-day-2015-11-20">
+                                <div class="day-contents">20</div>
+                            </td>
+                            <td class="day today calendar-day-2015-11-21">
+                                <div class="day-contents">21</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                    
+                            <td class="day calendar-day-2015-11-22">
+                                <div class="day-contents">22</div>
+                            </td>
+                        
+
+                            <td class="day calendar-day-2015-11-23">
+                                <div class="day-contents">23</div>
+                            </td>
+                            <td class="day calendar-day-2015-11-24">
+                                <div class="day-contents">24</div>
+                            </td>
+                            <td class="day calendar-day-2015-11-25">
+                                <div class="day-contents">25</div>
+                            </td>
+                            <td class="day calendar-day-2015-11-26">
+                                <div class="day-contents">26</div>
+                            </td>
+                            <td class="day calendar-day-2015-11-27">
+                                <div class="day-contents">27</div>
+                            </td>
+                            <td class="day calendar-day-2015-11-28">
+                                <div class="day-contents">28</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="day calendar-day-2015-11-29">
+                                <div class="day-contents">29</div>
+                            </td>
+                            <td class="day calendar-day-2015-11-30">
+                                <div class="day-contents">30</div>
+                            </td>
+                            <td class="day adjacent-month next-month calendar-day-2015-12-01">
+                                <div class="day-contents">01</div>
+                            </td>
+                            <td class="day adjacent-month next-month calendar-day-2015-12-02">
+                                <div class="day-contents">02</div>
+                            </td>
+                            <td class="day adjacent-month next-month calendar-day-2015-12-03">
+                                <div class="day-contents">03</div>
+                            </td>
+                            <td class="day adjacent-month next-month calendar-day-2015-12-04">
+                                <div class="day-contents">04</div>
+                            </td>
+                            <td class="day adjacent-month next-month calendar-day-2015-12-05">
+                                <div class="day-contents">05</div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+</div>
+
+<div class="date">
+    <div id="dd1" class="wrapper-dropdown-3" tabindex="1">
+
+		<span><img src="images/nav.png" alt="Navbar"/></span>
+		<div id="導航列inputChangeCssBox">
+			<ul class="dropdown">
+				<li><a href="https://www.facebook.com/groups/193265888192020"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://wa.me/85298672794?text=4月4日我想預約剪髮"><i class="fa fa-whatsapp"></i></a></li>
+				<li><a href="https://github.com/98672794/98672794.github.io/tree/main/%E6%98%93%E9%AB%AE"><i class="fa fa-github"></i></a></li>
+				<li><a href="https://www.instagram.com/moksurky/"><i class="fa fa-instagram"></i></a></li>
+			</ul>
+		</div>
+
+            <script type="text/javascript">
+                function DropDown(el) {
+                this.dd = el;
+                this.initEvents();
+                }
+                DropDown.prototype = {
+                initEvents : function() {
+                var obj = this;                    
+                obj.dd.on('click', function(event){
+                $(this).toggleClass('active');
+                event.stopPropagation();
+                });    
+                }
+                }
+                $(function() {
+                var dd = new DropDown( $('#dd1') );
+                $(document).click(function() {
+                // all dropdowns
+                $('.wrapper-dropdown-3').removeClass('active');
+                });
+                });
+            </script>
+            </div>
+
+            <div id="txt"></div>
+
+
+            <!-- 右今日期 -->    
+            <div class="dmy">
+            <script type="text/javascript">
+               var mydate=new Date()
+               var year=mydate.getYear()
+               if(year<1000)
+                 year+=1900
+                 var day=mydate.getDay()
+                 var month=mydate.getMonth()
+                 var daym=mydate.getDate()
+               if(daym<10)
+                 daym="0"+daym
+                 // 右今日期字
+                 var dayarray=new Array("星期一","星期二","星期三","星期四","星期五","星期六","星期日")
+                 var montharray=new Array("一","二","三","四","五","六","七","八","九","十","十一","十二")
+                 document.write(""+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+"")
+            </script>
+            </div>
+            <!-- /右今日期 -->
+
+
+            
+
+
+
+
+
+            <div id="主頁簡介inputChangeCssBox">
+                <h2>易髮髮型預約系統</h2>
+                <p>為香港髮型屋而設的預約系統，只要簡單登記，
+                    無人化預約讓您店24小時隨時接受預約，服務人員不用拼命回訊息!!!</p>
+
+                <ul class="reminder">
+                    <li>簡單易用</li>
+                    <li>香港人研發</li>
+                </ul>
+
+            </div>
+
+
+            </div>
+
+</div>
+
+<div class="clear"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer">
+
+
+            <!-- 202202180023mokakiInputDataMin -->    
+            <p id="比User的客用的DataSel">
+                <label>預約</label>
+                <input id="datefield" type='date' min='1899-01-01' max='2000-13-13'/>
+                <script type="text/javascript">
+
+                    function GetToday() {
+                        var today = new Date();
+                        var dd = today.getDate();
+                        var mm = today.getMonth()+1; //January is 0!
+                        var yyyy = today.getFullYear();
+                        
+                        var dd2 = today.getDate()+5;        // maxday aki
+                        if(dd<10){
+                                dd='0'+dd
+                            } 
+                            if(mm<10){
+                                mm='0'+mm
+                            } 
+                        today = yyyy+'-'+mm+'-'+dd;
+                        document.getElementById("datefield").setAttribute("min", today);
+                        maxday = yyyy+'-'+mm+'-'+dd2;
+                        document.getElementById("datefield").setAttribute("max", maxday);
+                    
+                        return today
+                    }
+                //  How to Get an Input’s Value with JavaScript https://www.tabnine.com/academy/javascript/get-value-of-input/
+                // https://jsfiddle.net/dae4y126/
+                // https://stackoverflow.com/questions/32378590/set-date-input-fields-max-date-to-today
+                </script>
+                &nbsp;&nbsp;&nbsp;
+                
+                <samp title="說明">
+                    <samp class="約日">可預約 &nbsp;&nbsp;</samp>&nbsp;&nbsp;&nbsp;
+                    <samp class="滿日">客滿 &nbsp;&nbsp;</samp>&nbsp;&nbsp;&nbsp;
+                    <samp class="休日">休/息 &nbsp;&nbsp;</samp>
+                </samp>
+            </p>
+
+    <p><!-- copyright -->
+        <iframe align="center" 
+        src="../../aki/copyright.html" style="margin: auto;" frameborder="no" 
+        border="0" marginwidth="0" marginheight="0" scrolling="no">
+        </iframe>
+        <samp style="display: none;"> &copy; 2015 Calendar, Date & Time Widget. All Rights Reserved | Design by 
+        <a href="http://w3layouts.com">W3layouts</a></samp>
+    </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 2022 mokaki input change css -->
+    <div id="inputChangeCssBox">
+        <!-- 加野 -->
+        
+
+
+        <hr/>
+        <p>
+            <!-- qqqqqqqqqq再 -->
+            <label>請選休息日期</label><input type="text" id="daySelect" class="demo-input" placeholder="请选择日期" readonly="readonly"/>
+            <script>
+                /* 日期选择 */
+                // 默认初始赋值数据
+                var dayData = [GetToday()]; // 比User的客用的DataSel
+                $('#daySelect')
+                .attr('title',dayData.join())               //设置title 当值太多显示不全时有用
+                .datepicker({
+                    clearButton:true,
+                    language:'zh',
+                    multipleDates:true,                     //是否多选，Boolean | Number
+                    multipleDatesSeparator:',',             // 多选间隔符号
+                    onHide:function(inst, animationCompleted){
+                        inst.$el.attr('title', inst.$el.val())
+                    }
+                })
+                .data('datepicker')
+                // .selectDate([new Date('2020-05-01'),new Date('2020-05-02'),new Date('2020-05-03')])
+                .selectDate(dayData.map(function(n){return new Date(n)}))  
+            // js 日期多选
+            // https://www.cnblogs.com/ysxq/p/13385941.html
+            </script>
+
+            <p style="display: none;">
+                <input type="text" value="opacity" />
+                <input type="text" value=".2" />
+            </p>
+
+        </p>
+        <br/>
+        <hr/>
+
+        
+        
+
+
+
+
+
+        <p>
+            <label>可給客戶預約的日期</label><input type="text" value="26" />
+            <p style="display: none;">
+            <input type="text" value="background-image" />
+            <input type="text" value="linear-gradient(45deg, rgba(0, 0, 0, 0) 80%,rgba(6, 193, 140, 0.71) 20%)" />
+            </p>
+        </p>
+        <br/>
+        <p>
+            <label>已客滿的日期</label><input type="text" value="27" />
+            <p style="display: none;">
+            <input type="text" value="background-image" />
+            <input type="text" value="linear-gradient(90deg, rgba(0, 0, 0, 0) 80%,rgba(255, 0, 0, 0.71) 20%)" />
+            </p>
+        </p>
+        <br/>
+        <p>
+
+            <!-- 2022 mokaki 加野 in here -->
+
+
+
+            <label>導航列:</label><br/>
+            <textarea id="導航列btn" >
+                <ul class="dropdown">
+                    <li><a href="https://www.facebook.com/groups/193265888192020"><i class="fa fa-facebook"></i>    FACEBOOK</a></li>
+                    <li><a href="https://wa.me/85298672794?text=4月4日我想預約剪髮"><i class="fa fa-whatsapp"></i>    wechat</a></li>
+                    <li><a href="https://github.com/98672794/98672794.github.io/tree/main/%E6%98%93%E9%AB%AE"><i class="fa fa-github"></i>    github</a></li>
+                    <li><a href="https://www.instagram.com/moksurky/"><i class="fa fa-instagram"></i>    instagram</a></li>
+                    <li><a href="wechat"><i class="fa fa-wechat"></i>    wechat</a></li>
+                </ul>
+            </textarea>
+        </p>
+        <br/>
+        <p>
+            <label>主頁簡介:</label><br/>
+            <textarea id="主頁簡介btn" >
+                <h2>香港人既髮型預約系統</h2>
+                <ul class="reminder">
+                    <li>06:00 - Wake Up</li>
+                    <li>09:00 - Suit Up</li>
+                    <li>14:00 - Lunch</li>
+                    <li>20:00 - Party!</li>
+                    <li>23:00 - Bed Time</li>
+                </ul>
+            </textarea>
+        </p>
+        <br/>
+        <p>
+            <label>頁面標321題：</label><br/><input id="頁面標題btn"  type="text" value="香港人既髮型預約系統" />
+        </p>
+        <br/>
+        <p>
+            <label></label><button>下一步</button>
+            &nbsp;|&nbsp;<button>重置</button>
+        </p>
+
+
+
+
+            <!-- js input change style mokaki 202202171555 暫ok -->
+            <script>
+                //// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
+                var changeStyle = function (elem, name, value) {elem.style[name] = value;}
+
+
+
+                //// 日歷換css 0219
+                var 日歷換css = function (類_,日期, CssName, CssVal) {
+                    var oDiv1 = document.querySelectorAll(".calendar-day-" + 日期);     //oDiv1=List[0]
+                    changeStyle(oDiv1[0], CssName, CssVal); //调用changeStyle函数
+                    }
+
+
+
+
+                // javascript获取指定div内的所有input框 內容  //  oInput[0]=休息     可給客戶預約的日期=3    已客滿的日期=6  
+                var oInput = document.getElementById('inputChangeCssBox' ).getElementsByTagName('input')    // javascript获取指定div内的所有input框
+                var oBtn = document.getElementById('inputChangeCssBox' ).getElementsByTagName("button");     //获取按钮的引用
+
+                //// 加野 
+
+                ////给 inputChangeCssBox 确定按 钮添加事件
+                oBtn[0].onclick = function () {     
+
+
+
+
+                    //// qqqqqqqqqqqqqqqqq 2022 0219 1738 急 qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+
+                    // if input 多  // indexOf 沒-1 有10
+                    if (oInput[0].value.indexOf(',') != -1){
+                        var asd_wqe = oInput[0].value.split(",")    //js 分割字符串
+                        for (let property in asd_wqe) // loop list all
+                            //alert(asd_wqe[property]);
+                            // 係咁換css
+                            日歷換css("休息",asd_wqe[property], oInput[1].value, oInput[2].value);
+                    }
+                    
+                        
+                    else
+                        // Run the fun      //  oInput[0]=休息日期 1=CssName 2=Val
+                        日歷換css("休息",oInput[0].value, oInput[1].value, oInput[2].value);
+                    
+
+
+
+                    
+
+
+
+                    
+                    
+                    
+                    
+                    // 可給客戶預約的日期
+                    //var gwthty2 = ".calendar-day-2022-02-" + oInput[3].value //  inpu 連接 css name
+                    //var oDiv2 = document.querySelectorAll(gwthty2);           //  querySelectorAll 取 .class = oDiv[0]
+                    //changeStyle(oDiv2[0], oInput[4].value, oInput[5].value); //调用changeStyle函数
+                    // 已客滿的日期
+                    //var gwthty3 = ".calendar-day-2022-02-" + oInput[6].value //  inpu 連接 css name
+                    //var oDiv3 = document.querySelectorAll(gwthty3);           //  querySelectorAll 取 .class = oDiv[0]
+                    //changeStyle(oDiv3[0], oInput[7].value, oInput[8].value); //调用changeStyle函数
+
+
+                    //// 頁文換    
+                    var val = $('#頁面標題btn').val()
+                    $('#頁面標題inputChangeCssBox').html(val)
+                    var val = $('#主頁簡介btn').val()
+                    $('#主頁簡介inputChangeCssBox').html(val)
+                    var val = $('#導航列btn').val()
+                    $('#導航列inputChangeCssBox').html(val)
+                };//});
+
+                // 不能用 轉用f5 但不能刪這 //给重置按钮添加事件处理
+                oBtn[1].onclick = function () { 
+                    oDiv[0].removeAttribute("style");//去除样式
+                }
+
+
+
+
+                // indexOf
+                // https://stackoverflow.com/questions/6871532/javascript-find-comma-exists-in-string
+                // https://stackoverflow.com/questions/55957237/checking-if-input-value-matches-the-array-items
+
+                // javascript获取指定div内的所有input框
+                // https://blog.csdn.net/guo_qiangqiang/article/details/114879427
+
+                // new Date()
+                // https://tecadmin.net/get-current-date-time-javascript/
+
+                // js日期比較
+                // delftstack.com/zh-tw/howto/javascript/how-to-compare-two-dates-with-javascript/
+
+                //监听bbb输入事件 即時內容另一個
+                //https://www.cnblogs.com/baiyangyuanzi/p/6856598.html
+                
+                // changeStyle
+                //https://www.cnblogs.com/baiyangyuanzi/p/6856598.html
+
+                //querySelectorAll
+                // https://stackoverflow.com/questions/39178138/getelementsbyclassname-doesnt-work-but-getelementbyid-does
+
+                // oDiv[0]
+                //https://www.semicolonworld.com/question/23315/why-getelementsbyclassname-is-not-working-while-getelementbyid-works
+            </script>
+
+
+    </div>
+    <!-- / 2022 mokaki input change css -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
