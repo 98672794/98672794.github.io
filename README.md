@@ -22,3 +22,18 @@
   2022
 
 https://98672794.github.io/
+
+
+----
+
+## 同事
+
+    AT_MBW = 客頁
+    客頁set = 客頁+Set
+    YouTube(Upload001)
+    
+    
+----
+    
+    
+    
