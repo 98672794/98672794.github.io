@@ -1,0 +1,5 @@
+
+/*aki*/
+@charset "UTF-8";
+#AkiAdmin{position: fixed;top: 0;left: 0;right: 0;height: 100px;background: rgba(155, 19, 19, 0.52);}
+body,#header_wrapper{margin-top: 100px;}
