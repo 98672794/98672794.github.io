@@ -519,9 +519,8 @@
 
 
 
-
+    // user input the img url, we change to be turn html api code
     function _InputSel(imgurl) {
-
       // if google drive url
       let googleIMG = 'https://drive.google.com/file/d/'  // user 共用 google drive img url
       if (imgurl.indexOf(googleIMG) != -1){
@@ -531,24 +530,20 @@
         //alert(turnImgUrl)
         return turnImgUrl
       }
-
       // other img
       else{
         return imgurl
       }
-
     }
 
 
 
-    function ChangeIMG(imgNb) {
-      //alert(imgNb)
-      let imgUrl = document.getElementById(imgNb).value
-      if (imgUrl != ''){
-        document.getElementById(imgUrl[1:]).src = _InputSel(imgUrl) 
+    function ChangeIMG(imgNb) { //<button onclick to this
+      //alert(imgNb.substr(1))
+      let imgUrl = document.getElementById(imgNb).value // imgNb input is img url
+      if (imgUrl != ''){  // if have data
+        document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = myImg123  | _InputSel(imgUrl) return imgurl
       }
-
-      
     }
 
 
