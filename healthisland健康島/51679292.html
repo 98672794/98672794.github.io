@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 <!doctype html>
 <html>
 <head>
@@ -16,11 +26,6 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/html5element.js"></script>
 <![endif]-->
- 
-
-
-
-
 
 
 <!-- aki 2022 03061317 -->
@@ -31,15 +36,31 @@
   <title>51679292|0308healthisland健康島</title>  <!-- Admin = User|客頁 -->
   <link rel="icon" type="image/png" sizes="16x16" href="AmyIMG/Amy健康島logo.png">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
-
   <style>
     /*aki*/
     @charset "UTF-8";
     body,#header_wrapper{margin-top: 100px;}
     #AkiAdmin{position: fixed;top: 0;left: 0;right: 0;height: 100px;background: rgba(155, 19, 19, 0.52);}
-    textarea[id^="AdminSet"]{ border: n0one;background: rgba(0, 0, 0, 0);resize: none;text-align:center;position: relative;height: auto;width: auto;} /* https://zhidao.baidu.com/question/617752463977869892.html */
-    .AdminIMGSetBox{margin: 5%; background: rgba(165, 13, 13, 0.9); color: #fff; position: absolute;top: 10px;left: 0%;}
-    .AdminIMGSetBox:hover{z-index: 999;}
+    textarea[id^="AdminSet"]{ background: rgba(0, 0, 0, 0);resize: none;text-align:center;position: relative;height: auto;width: auto;} /* https://zhidao.baidu.com/question/617752463977869892.html */
+    .AdminIMGSetBox{ opacity: .5;background: rgba(165, 13, 13, 0.9); color: #fff; position: absolute;top: 5%;left: 5%;}
+    .AdminIMGSetBox input{margin: 5%;}
+    .AdminIMGSetBox:hover{z-index: 999; opacity: 1; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -50,17 +71,17 @@
     .wechatBox img{
       background-color: #fff;margin: 5%;
       position: fixed;
-      bottom: 15%;
-      left: 10%;
+      bottom: -20%;
+      left: 20%;
       display: none;
+      width: 30%;
+      
     }
-    .wechatBox:hover img{display: block;}
+    .wechatBox:hover img{display: block;z-index: 1; }
     .florL li{float: left;margin: 5%;}
     video{width: 100%;height: 100%;}
   </style>
-
 <!-- /aki 2022 031125 -->
-
 </head>
 <body>
 
@@ -81,7 +102,30 @@
 
 
 
- <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--AD--> 
+  <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+
     <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
         <li data-target="#carousel" data-slide-to="1"></li>
@@ -100,8 +144,7 @@
     <input id="_myImg1" type="text"/>
     <button onclick="ChangeIMG('_myImg1')">Try it</button>
     </p>
-  </div>
-
+        </div>
 
         <div class="item">
 		<div class="caption zoomIn wow animated"> 		 			 
@@ -114,8 +157,7 @@
               <input id="_myImg2" type="text"/>
               <button onclick="ChangeIMG('_myImg2')">Try it</button>
               </p>
-            </div>
-
+        </div>
 
         <div class="item">
 		<div class="caption zoomIn wow animated"> 		 			
@@ -128,12 +170,41 @@
              <input id="_myImg3" type="text"/>
              <button onclick="ChangeIMG('_myImg3')">Try it</button>
              </p>
-           </div>
+        </div>
 
-    <!-- Carousel nav -->
-    <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
-</div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+
+    </div>    
+
+  </div>
+<!--/AD--> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -161,6 +232,11 @@
 			  <li><a href="#Portfolio" class="scroll-link"><textarea id="AdminSet4" >雪泥碳天然皂</textarea></a></li>
 			  <li><a href="#okeapp" class="scroll-link"><textarea id="AdminSet5" >oke app會員</textarea></a></li>
 			  <li><a href="#service" class="scroll-link"><textarea id="AdminSet6" >適用任何年龄性別任何皮膚</textarea></a></li> 
+
+        <li><a href="#.." class="scroll-link"><textarea id="AdminSet705" >健康美食</textarea></a></li> 
+        <li><a href="#寶寶米抗疫禮包" class="scroll-link"><textarea id="AdminSet706" >寶寶米抗疫禮包</textarea></a></li> 
+
+
 			  <li><a href="#contact" class="scroll-link"><textarea id="AdminSet7" >關於我們</textarea></a></li> 
 			</ul>
       </div>
@@ -191,8 +267,8 @@
 
 
 
-
-<section id="okeapp"><!--okeapp-->
+<!--okeapp-->
+<section id="okeapp">
 <div class="inner_wrapper about-us okeapp-container fadeInLeft animated wow">
   <div class="container">
     <h2><textarea id="AdminSet8" >掃碼賺禮包</textarea></h2>
@@ -213,6 +289,7 @@
           <li class="points"><textarea id="AdminSet10" >掃碼賺禮包</textarea></li>
           <li class="points"><textarea id="AdminSet11" >並獲價值100元折扣券</textarea></li>
           <li class="points"><textarea id="AdminSet12" >和10%至50%折扣優惠</textarea></li>
+          <li class="points"><textarea id="AdminSet12" >特選商戶優惠</textarea></li>
 
           
         </ul><!-- /.about-us-list -->
@@ -280,7 +357,7 @@
 
 
 
-<!--Service-->
+<!--適用任何年龄性別任何皮膚-->
 <section  id="service">
   <div class="container">
     <h2>適用任何年龄性別任何皮膚</h2>
@@ -347,7 +424,52 @@
     </div>
   </div>
 </section>
-<!--Service-->  
+<!--適用任何年龄性別任何皮膚-->  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Portfolio -->
 <section id="Portfolio" class="content"> 
@@ -525,57 +647,108 @@
   
 </section>
 <!--/Portfolio --> 
-<section id="experience">
-<div class="container">
-    <section id="news" class="white-bg padding-top-bottom">
-	 <div class="section-title">
-      <h2>Testimonial </h2>
-	<h6>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum</h6>
-	  
-    </div> 
-	<section id="carousel">    				
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-                <div class="quote"><i class="fa fa-quote-left fa-4x"></i></div>
-				<div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
-				  <!-- Carousel indicators -->
-                  <ol class="carousel-indicators">
-				    <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
-				    <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
-				    <li data-target="#fade-quote-carousel" data-slide-to="2"></li>
-				  </ol>
-				  <!-- Carousel items -->
-				  <div class="carousel-inner">
-				    <div class="active item">
-				    	<blockquote>
-				    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-				    	</blockquote>
-				    	<div class="profile-circle" style="background-color: rgba(0,0,0,.2);"></div>
-				    </div>
-				    <div class="item">
-				    	<blockquote>
-				    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-				    	</blockquote>
-				    	<div class="profile-circle" style="background-color: rgba(77,5,51,.2);"></div>
-				    </div>
-				    <div class="item">
-				    	<blockquote>
-				    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-				    	</blockquote>
-				    	<div class="profile-circle" style="background-color: rgba(145,169,216,.2);"></div>
-				    </div>
-				  </div>
-				</div>
-			</div>							
-		</div>
-	</div>
-			
-	 
-		 </div>
-	</section>
-</div>				                                                      
-</section> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--寶寶米抗疫禮包-->
+<section id="寶寶米抗疫禮包">
+  <div class="col-md-12">
+    <div class="container col-md-12">
+      <h2  class="col-md-12"><textarea id="AdminSet8004" >寶寶米抗疫禮包</textarea></h2>
+      <img id="myImg53313"  src="AmyIMG/寶寶米抗疫禮包.png" align="">
+      <p class="row">&nbsp;</p> 
+    </div>
+    
+  </section>
+  <!--寶寶米抗疫禮包--> 
+  
+
+
+
+
+
+
+
+
 
 
 
@@ -606,10 +779,14 @@
       <div class="contact_section">
 
       <ul class="florL">
-        <a href="#service" class="scroll-link"><li><textarea id="AdminSet4" >雪泥碳天然皂</textarea></li> </a>
-        <a href="#okeapp" class="scroll-link"><li><textarea id="AdminSet5" >oke app會員</textarea></li> </a>
-        <a href="#Portfolio" class="scroll-link"><li><textarea id="AdminSet6" >適用任何年龄性別任何皮膚</textarea></li> </a>
-        <a href="#contact" class="scroll-link"><li><textarea id="AdminSet7" >關於我們</textarea></li> </a>
+        <a href="#service" class="scroll-link"><li><textarea id="AdminSet0009" >雪泥碳天然皂</textarea></li> </a>
+        <a href="#okeapp" class="scroll-link"><li><textarea id="AdminSet00008" >oke app會員</textarea></li> </a>
+        <a href="#Portfolio" class="scroll-link"><li><textarea id="AdminSet00007" >適用任何年龄性別任何皮膚</textarea></li> </a>
+
+        <a href="#00" class="scroll-link"><li><textarea id="AdminSet705000" >健康美食</textarea></li> </a>
+        <a href="#00" class="scroll-link"><li><textarea id="AdminSet706000" >寶寶米抗疫禮包</textarea></li> </a>
+
+        <a href="#contact" class="scroll-link"><li><textarea id="AdminSet0006" >關於我們</textarea></li> </a>
 			</ul>
 
       </div>
@@ -623,8 +800,20 @@
                                 </a></h4>
                             </div>
                             <div class="detail">
-                                <h4>Phone</h4>
-                                <p>+852 5167 9292</p>
+                                <h4>whatsApp</h4>
+                                <p>852-59328723</p>
+                            </div>
+                            <div class="detail">
+                              <h4>Tel</h4>
+                              <p>852-59328723</p>
+                            </div>
+                            <div class="detail">
+                              <h4>微信ID</h4>
+                              <p>A51679292</p>
+                            </div>
+                            <div class="detail">
+                              <h4>email</h4>
+                              <p>hkhealthgroup@163.com</p>
                             </div>
                         </div>
        		  
@@ -667,26 +856,7 @@
       <span style="display: none;">Copyright © reserved,    Template by <a href="http://webthemez.com">WebThemez.com</a>. Find More <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Free Bootstrap Themes</a> </span> </div>
   </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--/Footer-->
 
 
 <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
@@ -752,6 +922,11 @@
 
     </script>
 </div>
-
 </body>
 </html>
+
+
+
+
+
+
