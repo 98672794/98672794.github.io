@@ -28,7 +28,7 @@
   <!-- AdminBox = UnZIPSee,GetCodeZip,ChangeCss,Send9867 -->
   <link rel="stylesheet" href="aki22.css" />
   <!-- Amy健康島 -->
-  <title>51679292|333healthisland健康島</title>  <!-- Admin = User|客頁 -->
+  <title>51679292|0308healthisland健康島</title>  <!-- Admin = User|客頁 -->
   <link rel="icon" type="image/png" sizes="16x16" href="AmyIMG/Amy健康島logo.png">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
 
@@ -37,31 +37,25 @@
     @charset "UTF-8";
     body,#header_wrapper{margin-top: 100px;}
     #AkiAdmin{position: fixed;top: 0;left: 0;right: 0;height: 100px;background: rgba(155, 19, 19, 0.52);}
-    
     textarea[id^="AdminSet"]{ border: n0one;background: rgba(0, 0, 0, 0);resize: none;text-align:center;position: relative;height: auto;width: auto;} /* https://zhidao.baidu.com/question/617752463977869892.html */
-    .AdminIMGSetBox{margin: 5%; background: rgba(165, 13, 13, 0.9); color: #fff; z-index: 999;position: absolute;top: 10px;left: 0%;}
-
-    
-
+    .AdminIMGSetBox{margin: 5%; background: rgba(165, 13, 13, 0.9); color: #fff; position: absolute;top: 10px;left: 0%;}
+    .AdminIMGSetBox:hover{z-index: 999;}
 
 
 
+
+    /*Amy健康島*/
     .logo1{width: auto;height: 7vw;}
     .logo2{width: auto;height: 15vw;}
-
-
-
     .wechatBox img{
-	background-color: #fff;margin: 5%;
-	position: fixed;
-	bottom: 15%;
-	left: 10%;
-	display: none;
-}
-
-.wechatBox:hover img{display: block;}
-
-.florL li{float: left;margin: 5%;}
+      background-color: #fff;margin: 5%;
+      position: fixed;
+      bottom: 15%;
+      left: 10%;
+      display: none;
+    }
+    .wechatBox:hover img{display: block;}
+    .florL li{float: left;margin: 5%;}
 
 
   </style>
@@ -150,17 +144,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!--Header_section-->
 <header id="header_wrapper">
   <div class="container">
@@ -176,9 +159,9 @@
           <a href="#carousel" class="scroll-link">
             <img class="logo1" src="AmyIMG/Amy健康島logo.png"  title="健康島" alt="" />
           </a></li>
-			  <li><a href="#service" class="scroll-link"><textarea id="AdminSet4" >雪泥碳天然皂</textarea></a></li>
+			  <li><a href="#Portfolio" class="scroll-link"><textarea id="AdminSet4" >雪泥碳天然皂</textarea></a></li>
 			  <li><a href="#okeapp" class="scroll-link"><textarea id="AdminSet5" >oke app會員</textarea></a></li>
-			  <li><a href="#Portfolio" class="scroll-link"><textarea id="AdminSet6" >適用任何年龄性別任何皮膚</textarea></a></li> 
+			  <li><a href="#service" class="scroll-link"><textarea id="AdminSet6" >適用任何年龄性別任何皮膚</textarea></a></li> 
 			  <li><a href="#contact" class="scroll-link"><textarea id="AdminSet7" >關於我們</textarea></a></li> 
 			</ul>
       </div>
@@ -252,7 +235,7 @@
         <div style="position: relative;">
         <img id="myImg6" class="img-responsive" src="AmyIMG/立即登記.svg" align="" style="background-color: #BC2A87;" >
         <p class="AdminIMGSetBox">
-          任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+          任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
           <input id="_myImg6" type="text"/>
           <button onclick="ChangeIMG('_myImg6')">Try it</button>
         </p>
@@ -301,41 +284,61 @@
 <!--Service-->
 <section  id="service">
   <div class="container">
-    <h2>Our Services</h2>
-	<h6>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum</h6>
+    <h2>適用任何年龄性別任何皮膚</h2>
+
+	<h6>
+    <video class="col-md-12" controls>
+      <source src="AmyIMG/v1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+    <div class="row"></div>
+  
     <div class="service_wrapper">
+      
       <div class="row">
+
         <div class="col-md-3">
-		<div class="service_icon delay-03s animated wow  zoomIn"> <span><i class="fa fa-tree"></i></span> </div>
-          <div class="service_block">
-            
-            <h3 class="animated fadeInUp wow">Photography</h3>
-            <p class="animated fadeInDown wow">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-          </div>
+          <img id="myImg7" src="AmyIMG/s1.jpg" alt="Portfolio 1">
+          <p class="AdminIMGSetBox">
+            任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+            <input id="_myImg7" type="text"/>
+            <button onclick="ChangeIMG('_myImg7')">Try it</button>
+          </p>
         </div>
-        <div class="col-md-3"> 
-		<div class="service_icon icon2  delay-03s animated wow zoomIn"> <span><i class="fa fa-crosshairs"></i></span> </div> 
-		<div class="service_block">
-            <h3 class="animated fadeInUp wow">Editing Skills</h3>
-            <p class="animated fadeInDown wow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-          </div>
-        </div>
+
         <div class="col-md-3">
-		<div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-building-o "></i></span> </div>
-          <div class="service_block">
-            
-            <h3 class="animated fadeInUp wow">Lighting</h3>
-            <p class="animated fadeInDown wow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-          </div>
+          <img id="myImg8" src="AmyIMG/s2.jpg" alt="Portfolio 1">
+          <p class="AdminIMGSetBox">
+            任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+            <input id="_myImg8" type="text"/>
+            <button onclick="ChangeIMG('_myImg8')">Try it</button>
+          </p>
         </div>
-		  <div class="col-md-3">
-		<div class="service_icon icon3  delay-03s animated wow zoomIn"> <span><i class="fa fa-twitter"></i></span> </div>
-          <div class="service_block">
-            
-            <h3 class="animated fadeInUp wow">Dimensions</h3>
-            <p class="animated fadeInDown wow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.  </p>
-          </div>
+
+        <div class="col-md-3">
+          <img id="myImg9" src="AmyIMG/s3.jpg" alt="Portfolio 1">
+          <p class="AdminIMGSetBox">
+            任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+            <input id="_myImg9" type="text"/>
+            <button onclick="ChangeIMG('_myImg9')">Try it</button>
+          </p>
         </div>
+
+        <div class="col-md-3">
+          <img id="myImg10" src="AmyIMG/s4.jpg" alt="Portfolio 1">
+          <p class="AdminIMGSetBox">
+            任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+            <input id="_myImg10" type="text"/>
+            <button onclick="ChangeIMG('_myImg10')">Try it</button>
+          </p>
+        </div>
+        
+
+
+
+
+
+
       </div> 
 	 
     </div>
