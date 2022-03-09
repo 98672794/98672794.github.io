@@ -314,7 +314,6 @@ p {
 ---------------------------------*/
 
 #header_wrapper {
-    background: #BC2A87;
     padding: 15px 0px;
     position: relative;
     border-top: 2px solid #fff;
@@ -322,6 +321,7 @@ p {
 
 .header_box {
     position: relative;
+
     /* z-index: 9999999999999999999999999999999999; */
 }
 

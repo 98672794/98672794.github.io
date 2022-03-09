@@ -86,11 +86,18 @@
       width: 30%;
       
     }
-    .wechatBox:hover img{display: block;z-index: 1; }
+    .wechatBox:hover img{display: block;}
     .florL li{float: left;margin: 5%;}
     video{width: 100%;height: 100%;}
+
+
+    
+    .top-navbar .nav > li > a:hover, .top-navbar .nav > li > a:focus,.navbar-header,#header_wrapper {
+    background: #BC2A87;
+}
+
   </style>
-<!-- /aki 2022 031125 -->
+<!-- /aki 2022 03092010 -->
 </head>
 <body>
 
@@ -802,12 +809,15 @@
       <div class="row">
         <div class="col-lg-12 wow fadeInLeft">	
 		 <div class="contact_info">
+
                             <div class="detail">
                               <h4 style="float: right;">
                                 <a href="#">
                                 <img class="logo2" src="AmyIMG/Amy健康島logo.png"  title="健康島" alt="" />
                                 </a></h4>
                             </div>
+
+
                             <div class="detail">
                                 <h4>whatsApp</h4>
                                 <p>852-59328723</p>
@@ -831,7 +841,7 @@
           <ul class="social_links">
 
             <li class="pinterest animated bounceIn wow delay-04s">
-              <a href="https://wa.me/85251679292?text=健康島Amy您好查詢雪泥碳天然皂"><i class="fa fa-whatsapp fa-2x"></i></a> 
+              <a href="https://wa.me/85259328723?text=健康島Amy您好查詢雪泥碳天然皂"><i class="fa fa-whatsapp fa-2x"></i></a> 
             </li> 
             <li class="">
               <a class="wechatBox"><i class="fa fa-wechat fa-2x" ></i><img src="AmyIMG/qr.png" title="健康島wechat" alt="" /></a>
@@ -884,12 +894,67 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- 202203 mokaki input change all -->
 <div id="AkiAdmin">
   <!-- 加野 -->
 
+  <p>歡迎Amy姐</p>
+
+
+
+
+  &nbsp;&nbsp;<button title="更新網站" style="font-size:24px"><i class="fa fa-cloud-upload"></i></button>
+
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <script>
+
+    // Js Base64 字符串 加密、解密 https://developer.mozilla.org/en-US/docs/Glossary/Base64
+    function utf8_to_b64( str ) {   return window.btoa(unescape(encodeURIComponent( str )));  }
+    function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( str )));  }
 
 
 
@@ -910,9 +975,6 @@
         return imgurl
       }
     }
-
-
-
     function ChangeIMG(imgNb) { //<button onclick to this
       //alert(imgNb.substr(1))
       let imgUrl = document.getElementById(imgNb).value // imgNb input is img url
@@ -931,8 +993,15 @@
 
     </script>
 </div>
+<!-- /202203090223 mokaki input change all -->
+
 </body>
 </html>
+
+
+
+
+
 
 
 
