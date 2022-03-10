@@ -49,7 +49,7 @@
 <!-- aki 2022 03061317 -->
   <!-- all txt = textareaHTML --><!-- 可選色,左中右 = ChangeCss -->
   <!-- AdminBox = UnZIPSee,GetCodeZip,ChangeCss,Send9867 -->
-  <link rel="stylesheet" href="aki22.css" />
+  <link rel="stylesheet" href="aki.css" />
   <!-- Amy健康島 -->
   <title>healthisland健康島</title>  <!-- Admin = User|客頁 -->
   <link rel="icon" type="image/png" sizes="16x16" href="AmyIMG/Amy健康島logo.png">
@@ -59,45 +59,18 @@
     /*################## index ######################*/
     /*aki*/
     @charset "UTF-8";
+    /* admin box */
     #AkiAdmin,.AdminIMGSetBox{display: none;}
-    textarea[id^="AdminSet"]{ cursor: pointer; /* http://www.flycan.com/article/css/css-cursor-209.html */
-      pointer-events: none; /* 禁編 https://stackoverflow.com/a/31513993/8008799 */
-      border: none;background: rgba(0, 0, 0, 0);
-      resize: none;
-      text-align:center;
-      position: relative;height: auto;width: auto;} /* https://zhidao.baidu.com/question/617752463977869892.html */
-
-
-
-      
-
-
-
-
-    /*Amy健康島*/
-    .logo1{width: auto;height: 7vw;}
-    .logo2{width: auto;height: 15vw;}
-    .wechatBox img{
-      background-color: #fff;margin: 5%;
-      position: fixed;
-      bottom: -20%;
-      left: 20%;
-      display: none;
-      width: 30%;
-      
-    }
-    .wechatBox:hover img{display: block;}
-    .florL li{float: left;margin: 5%;}
-    video{width: 100%;height: 100%;}
-
-
-    
-    .top-navbar .nav > li > a:hover, .top-navbar .nav > li > a:focus,.navbar-header,#header_wrapper {
-    background: #BC2A87;
-}
+      /* // all 文字 內容取 */
+      textarea[class='UpTxt']{ cursor: pointer; /* http://www.flycan.com/article/css/css-cursor-209.html */
+        pointer-events: none; /* 禁編 https://stackoverflow.com/a/31513993/8008799 */
+        border: none;background: rgba(0, 0, 0, 0);
+        resize: none;
+        text-align:center;
+        position: relative;height: auto;width: auto;} /* https://zhidao.baidu.com/question/617752463977869892.html */
 
   </style>
-<!-- /aki 2022 03092010 -->
+<!-- /aki 2022 03110038 -->
 </head>
 <body>
 
@@ -139,20 +112,152 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
 <!--AD--> 
   <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
 
     <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
         <li data-target="#carousel" data-slide-to="1"></li>
-        <li data-target="#carousel" data-slide-to="2"></li>
     </ol>
     <!-- Carousel items -->
     <div class="carousel-inner">
 
         <div class="active item">
 		<div class="caption zoomIn wow animated"> 		 
-              <h2><textarea id="AdminSet1" >全城宣傳效應</textarea><br/><strong></strong></h2>
+              <h2 ><textarea class="UpTxt">全城宣傳效應</textarea><br/><strong></strong></h2>
               </div>
 		<img id="myImg1"  class="" src="img/slide1.jpg" alt="">
     <p class="AdminIMGSetBox">
@@ -164,7 +269,7 @@
 
         <div class="item">
 		<div class="caption zoomIn wow animated"> 		 			 
-      <h2><textarea id="AdminSet2" >增值無限商機</textarea><br/><strong></strong></h2>
+      <h2 ><textarea class="UpTxt">增值無限商機</textarea><br/><strong></strong></h2>
               </div>
 
               <img id="myImg2"  class="" src="img/slide2.jpg" alt="">
@@ -173,19 +278,6 @@
               <input id="_myImg2" type="text"/>
               <button onclick="ChangeIMG('_myImg2')">Try it</button>
               </p>
-        </div>
-
-        <div class="item">
-		<div class="caption zoomIn wow animated"> 		 			
-      <h2><textarea id="AdminSet3" >馬上加盟</textarea><br/><strong></strong></h2>
-             </div>
-
-             <img id="myImg3"  class="" src="img/slide3.jpg" alt="">
-             <p class="AdminIMGSetBox">
-             任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
-             <input id="_myImg3" type="text"/>
-             <button onclick="ChangeIMG('_myImg3')">Try it</button>
-             </p>
         </div>
 
       <!-- Carousel nav -->
@@ -246,14 +338,13 @@
             <img class="logo1" src="AmyIMG/Amy健康島logo.png"  title="健康島" alt="" />
           </a></li>
 			  <li><a href="#Portfolio" class="scroll-link"><textarea id="AdminSet4" >雪泥碳天然皂</textarea></a></li>
-			  <li><a href="#okeapp" class="scroll-link"><textarea id="AdminSet5" >oke app會員</textarea></a></li>
-			  <li><a href="#service" class="scroll-link"><textarea id="AdminSet6" >適用任何年龄性別任何皮膚</textarea></a></li> 
-
-        <li><a href="#.." class="scroll-link"><textarea id="AdminSet705" >健康美食</textarea></a></li> 
-        <li><a href="#寶寶米抗疫禮包" class="scroll-link"><textarea id="AdminSet706" >寶寶米抗疫禮包</textarea></a></li> 
+			  <li><a href="#okeapp" class="scroll-link"><textarea id="AdminSet5" >okeapp免費廣告</textarea></a></li>
 
 
-			  <li><a href="#contact" class="scroll-link"><textarea id="AdminSet7" >關於我們</textarea></a></li> 
+        <li><a href="#.." class="scroll-link"><textarea id="AdminSet705" >健康天地</textarea></a></li> 
+
+
+			  <li><a href="#contact" class="scroll-link"><textarea>關於我們</textarea></a></li> 
 			</ul>
       </div>
 	 </nav>
@@ -287,7 +378,7 @@
 <section id="okeapp">
 <div class="inner_wrapper about-us okeapp-container fadeInLeft animated wow">
   <div class="container">
-    <h2><textarea id="AdminSet8" >掃碼賺禮包</textarea></h2>
+    <h2><textarea class="UpTxt">掃碼賺禮包</textarea></h2>
     <div class="inner_section">
       
  <div class="row">
@@ -301,11 +392,11 @@
 
         <br/><br/><br/>
         <ul class="about-us-list">
-          <li class="points"><textarea id="AdminSet9" >簡易登記程序</textarea></li> 
-          <li class="points"><textarea id="AdminSet10" >掃碼賺禮包</textarea></li>
-          <li class="points"><textarea id="AdminSet11" >並獲價值100元折扣券</textarea></li>
-          <li class="points"><textarea id="AdminSet12" >和10%至50%折扣優惠</textarea></li>
-          <li class="points"><textarea id="AdminSet12" >特選商戶優惠</textarea></li>
+          <li class="points"><textarea class="UpTxt">簡易登記程序</textarea></li> 
+          <li class="points"><textarea class="UpTxt">掃碼賺禮包</textarea></li>
+          <li class="points"><textarea class="UpTxt">並獲價值100元折扣券</textarea></li>
+          <li class="points"><textarea class="UpTxt">和10%至50%折扣優惠</textarea></li>
+          <li class="points"><textarea class="UpTxt">特選商戶優惠</textarea></li>
 
           
         </ul><!-- /.about-us-list -->
@@ -325,14 +416,14 @@
         </div>
 
         <div style="position: relative;">
-        <img id="myImg6" class="img-responsive" src="AmyIMG/立即登記.svg" align="" style="background-color: #BC2A87;" >
+        <img id="myImg6" class="img-responsive" src="AmyIMG/立即登記.svg" align=""  >
         <p class="AdminIMGSetBox">
           任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
           <input id="_myImg6" type="text"/>
           <button onclick="ChangeIMG('_myImg6')">Try it</button>
         </p>
       </div>
-      <textarea id="AdminSet13" >請在OKE app打開</textarea>
+      <textarea class="UpTxt">請在OKE app打開</textarea>
 
         
       
@@ -749,7 +840,7 @@
 <section id="寶寶米抗疫禮包">
   <div class="col-md-12">
     <div class="container col-md-12">
-      <h2  class="col-md-12"><textarea id="AdminSet8004" >寶寶米抗疫禮包</textarea></h2>
+      <h2  class="col-md-12"><textarea class="UpTxt">寶寶米抗疫禮包</textarea></h2>
       <img id="myImg53313"  src="AmyIMG/寶寶米抗疫禮包.png" align="">
       <p class="row">&nbsp;</p> 
     </div>
@@ -796,11 +887,11 @@
 
       <ul class="florL">
         <a href="#service" class="scroll-link"><li><textarea id="AdminSet0009" >雪泥碳天然皂</textarea></li> </a>
-        <a href="#okeapp" class="scroll-link"><li><textarea id="AdminSet00008" >oke app會員</textarea></li> </a>
-        <a href="#Portfolio" class="scroll-link"><li><textarea id="AdminSet00007" >適用任何年龄性別任何皮膚</textarea></li> </a>
+        <a href="#okeapp" class="scroll-link"><li><textarea id="AdminSet00008" >okeapp免費廣告</textarea></li> </a>
 
-        <a href="#00" class="scroll-link"><li><textarea id="AdminSet705000" >健康美食</textarea></li> </a>
-        <a href="#00" class="scroll-link"><li><textarea id="AdminSet706000" >寶寶米抗疫禮包</textarea></li> </a>
+
+        <a href="#00" class="scroll-link"><li><textarea id="AdminSet705000" >健康天地</textarea></li> </a>
+
 
         <a href="#contact" class="scroll-link"><li><textarea id="AdminSet0006" >關於我們</textarea></li> </a>
 			</ul>
@@ -855,19 +946,6 @@
     </section>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   <div class="container">
     <div class="footer_bottom">
       
@@ -908,47 +986,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- 202203 mokaki input change all -->
 <div id="AkiAdmin">
   <!-- 加野 -->
 
   <p>歡迎Amy姐</p>
-
-
-
-
-  &nbsp;&nbsp;<button title="更新網站" style="font-size:24px"><i class="fa fa-cloud-upload"></i></button>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  &nbsp;&nbsp;
+  <button title="更新網站" style="font-size:24px" onclick="MakeAndSendWEBUpData()"><i class="fa fa-cloud-upload"></i></button>
+  <textarea></textarea>
 
   <script>
 
@@ -975,12 +1055,47 @@
         return imgurl
       }
     }
-    function ChangeIMG(imgNb) { //<button onclick to this
+
+
+
+
+    //<button onclick to this
+    function ChangeIMG(imgNb) { 
       //alert(imgNb.substr(1))
       let imgUrl = document.getElementById(imgNb).value // imgNb input is img url
       if (imgUrl != ''){  // if have data
-        document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = myImg123  | _InputSel(imgUrl) return imgurl
+        document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = _myImg123 ~> myImg123  | _InputSel(imgUrl) return imgurl
       }
+    }
+
+
+
+
+    // all 文字 內容取
+    function _GetAllTxt() {   
+      let list=$(".UpTxt")  // 取文字內容
+      var allTxt = "" // 建立字串 用於取all文
+      for(let i=0;i<list.length;i++){ // loop + 字
+        allTxt = allTxt + list[i].innerHTML + ".,."
+        }
+        return allTxt
+    }
+
+
+
+
+
+    // all 內容 入文字
+    function _postAllTxt(入all字) {
+      // loop get div https://zhidao.baidu.com/question/2267122359741677188.html
+      var oDiv=document.getElementsByClassName('UpTxt'); // all Class UpTxt
+      var i=0;
+      while(i<oDiv.length)
+        {
+            $(oDiv[i]).html(入all字[i] + "豬珀") // post 每一個
+            i++;
+        }
+      return "ok"
     }
 
 
@@ -991,19 +1106,35 @@
 
 
 
+    // 網站更新
+    function MakeAndSendWEBUpData() {   
+
+      //$("#AkiAdmin textarea").html(_postAllTxt(_GetAllTxt()) )  // post div
+
+      // 易修版寫法
+      let ww = _GetAllTxt() // 取可修的所有字位 = xxx.,.xxx.,.xxx.,.
+
+
+      // get a
+
+      // get img
+      // zip other //
+
+
+      let tt = ww.split(".,."); // tt[0] // = xxx |切割字串 https://www.wibibi.com/info.php?tid=258
+      _postAllTxt(tt) // all 內容 入文字
+
+      let see = "ee" + "\n################\n" + ww
+      $("#AkiAdmin textarea").html(see)
+
+    }
+
     </script>
 </div>
 <!-- /202203090223 mokaki input change all -->
 
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 
