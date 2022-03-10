@@ -1,0 +1,12 @@
+<p >This is the copy string!</p>
+<button class="copy" type="button" onclick="copyEvent('copy')">Coertrhshyyhpy</button>
+
+<script>
+  // https://clay-atlas.com/blog/2020/03/04/html-chinese-note-copy-text-string-button-function/
+    function copyEvent(id)
+    {
+        var str = document.getElementById(id);
+        window.getSelection().selectAllChildren(str);
+        document.execCommand("Copy")
+    }
+</script>

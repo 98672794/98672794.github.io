@@ -19,7 +19,7 @@ ul {
 }
 
 img {
-    max-width: 100%;
+    width: 100%;
 }
 
 a, a:hover, a:active {
@@ -100,9 +100,6 @@ top: 64%;
   background-color: rgba(0,0,0,0);
   border: 1px solid #BC2A87;
   border-radius: 0;
-}
-.carousel-indicators .active {
-  background-color: #BC2A87;
 }
 .caption h2{
 color: #FFFFFF;
@@ -614,7 +611,6 @@ div#main-nav {
 
 #service {
     padding: 60px 0px;
-    background: #BC2A87;
 }
 #service h2{
   color: #fff;
@@ -1385,7 +1381,7 @@ transition: all .3s;
 ---------------------------------*/
 
 .footer_wrapper {
-    background: #BC2A87;
+ 
 }
 
 .footer_bottom {
@@ -1521,7 +1517,6 @@ transition: all .3s;
 }
 
 #filters ul li a:hover h5, #filters ul li a.active h5 {
-    background: #BC2A87;
     color: #FEE16F;
     text-decoration: none;
     border: #BC2A87 solid 1px;
