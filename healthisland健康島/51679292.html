@@ -256,7 +256,7 @@
           <img id="myImg5" class="img-responsive" src="AmyIMG/增值無限商機.svg" align="">
           <p class="AdminIMGSetBox">
             任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
-            <input id="_myImg5" type="text"/>
+            <input id="_myImg5" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg5')">Try it</button>
           </p>
         </div>
@@ -940,7 +940,15 @@
       let list=$(HaHa_getElementsBy)  // 取文字內容
       let allTxt = "" // 建立字串 用於取all文
       for(let i=0;i<list.length;i++){ // loop + 字
-        allTxt = allTxt + list[i].innerHTML + ".,."
+
+        if (HaHa_getElementsBy == ".UpTxt"){
+          allTxt = allTxt + list[i].innerHTML + ".,."
+        }
+
+        if (HaHa_getElementsBy == ".UpImg"){
+          allTxt = allTxt + list[i].value + ".,."
+        }
+
         }
         console.log(allTxt)
         return allTxt
@@ -957,33 +965,13 @@
       let i=0;
       while(i<oDiv.length)
         {
-          $(oDiv[i]).html(入all字[i] + "豬珀") // post 每一個
+          $(oDiv[i]).html(入all字[i] + "a0123") // post 每一個
           i++;
         }
       return "ok"
     }
 
 
-
-    
-
-
-
-
-
-    // all 內容 入文字 202203110101OK
-    function _GetImgUrl(ElementsBy) {
-      // loop get div https://zhidao.baidu.com/question/2267122359741677188.html
-      //let cxc = document.getElementById(ElementsBy).val// all Class UpTxt
-      let cxc = $(ElementsBy).val()
-      
-      console.log(cxc)
-      return cxc
-    }
-
-
-
-    
 
 
 
@@ -1002,7 +990,7 @@
 
       // get a
       // get img Url
-      let gg = _GetImgUrl("#_myImg2")
+      let gsg = _GetAllCode(".UpImg")
       console.log(gsg)
 
 
@@ -1026,7 +1014,7 @@
 
 
     // Admin網站更新
-    function AkiUpHtmlCode() {   // _GetAllCode() 
+    function AkiUpHtmlCode() {  
 
       let AllChangeCode = _GetAllCode(".UpTxt") 
       //console.log('%s \n %s \n', _postAllTxt(AllChangeCode.split(".,.")), AllChangeCode)
