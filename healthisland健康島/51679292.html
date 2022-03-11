@@ -941,11 +941,12 @@
       let allTxt = "" // 建立字串 用於取all文
       for(let i=0;i<list.length;i++){ // loop + 字
 
-        if (HaHa_getElementsBy == ".UpTxt"){
+        // 不同html tat轉
+        if (HaHa_getElementsBy == ".UpTxt"){ // .UpTxt = textarea = innerHTML
           allTxt = allTxt + list[i].innerHTML + ".,."
         }
 
-        if (HaHa_getElementsBy == ".UpImg"){
+        if (HaHa_getElementsBy == ".UpImg"){ // .UpImg = input = value
           allTxt = allTxt + list[i].value + ".,."
         }
 
@@ -959,13 +960,19 @@
 
 
     // all 內容 入文字 202203110101OK
-    function _postAllTxt(入all字) {
+    function _postAllTxt(ElementsBy,入all字) {
       // loop get div https://zhidao.baidu.com/question/2267122359741677188.html
-      let oDiv=document.getElementsByClassName('UpTxt'); // all Class UpTxt
+      let oDiv=$(ElementsBy); // all Class UpTxt
       let i=0;
       while(i<oDiv.length)
         {
-          $(oDiv[i]).html(入all字[i] + "a0123") // post 每一個
+          // 不同html tat轉
+          if (ElementsBy == ".UpTxt"){// .UpTxt = textarea = html
+            $(oDiv[i]).html(入all字[i] + "a0123") // post 每一個
+          }
+          if (ElementsBy == ".UpImg"){// .UpImg = input = val
+            $(oDiv[i]).val(入all字[i] + "a01ddd23") // post 每一個
+          }
           i++;
         }
       return "ok"
@@ -982,53 +989,41 @@
 
 
     // User網站更新
-    function UserSendCodeToMe() {   
-      // 易修版寫法
+    function UserSendCodeToMe() {  
 
-      // 取可修的所有字位 = xxx.,.xxx.,.xxx.,.
-      //let ww = _GetAllCode(".UpTxt") 
-
-      // get a
-      // get img Url
-      let gsg = _GetAllCode(".UpImg")
-      console.log(gsg)
-
-
-
-      // zip other //
-
-
-      //console.log('%s \n', gg)
-
-      
-
+      _AdminTest_GetAndPostImg()
     }
 
 
 
 
 
-
-
-    
-
-
-    // Admin網站更新
-    function AkiUpHtmlCode() {  
-
-      let AllChangeCode = _GetAllCode(".UpTxt") 
+    // Admin功能測試 PostTxt
+    function _AdminTest_GetAndPostTxt() {  
+      let AllChangeCode = _GetAllCode(".UpTxt") // get code not this
       //console.log('%s \n %s \n', _postAllTxt(AllChangeCode.split(".,.")), AllChangeCode)
 
       let AllTxt = AllChangeCode.split(".,.") // tt[0] // = xxx |切割字串 https://www.wibibi.com/info.php?tid=258
-      let OK = _postAllTxt(AllTxt)
+      let OK = _postAllTxt('.UpTxt',AllTxt)
       console.log('%s \n %s \n', OK, AllChangeCode)// all 內容 入文字 https://blog.csdn.net/qq449245884/article/details/105085580
-
-    }
-
+      }
 
 
+    // Admin功能測試 UpAndChangeImg
+    function _AdminTest_GetAndPostImg() {  
+      let AllChangeCode = _GetAllCode(".UpImg") // get code not this
+      //console.log('%s \n %s \n', _postAllTxt(AllChangeCode.split(".,.")), AllChangeCode)
 
- 
+      let AllTxt = AllChangeCode.split(".,.") // tt[0] // = xxx |切割字串 https://www.wibibi.com/info.php?tid=258
+      let OK = _postAllTxt('.UpImg',AllTxt)
+      console.log('%s \n %s \n', OK, AllChangeCode)// all 內容 入文字 https://blog.csdn.net/qq449245884/article/details/105085580
+      }
+
+
+    // Admin網站更新
+    //function AkiUpHtmlCode() {  }
+
+
     </script>
 </div>
 <!-- /202203090223 mokaki input change all -->
