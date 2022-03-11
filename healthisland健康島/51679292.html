@@ -106,6 +106,8 @@
 		<img id="myImg1"  class="" src="img/slide1.jpg" alt="">
     <p class="AdminIMGSetBox">
     任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+
+    
     <input id="_myImg1" class="UpImg" type="text"/>
     <button onclick="ChangeIMG('_myImg1')">Try it</button>
     </p>
@@ -968,27 +970,40 @@
 
 
 
+
+    // all 內容 入文字 202203110101OK
+    function _GetImgUrl(ElementsBy) {
+      // loop get div https://zhidao.baidu.com/question/2267122359741677188.html
+      //let cxc = document.getElementById(ElementsBy).val// all Class UpTxt
+      let cxc = $(ElementsBy).val()
+      
+      console.log(cxc)
+      return cxc
+    }
+
+
+
+    
+
+
+
+
+
+
+
+
+
     // User網站更新
     function UserSendCodeToMe() {   
-
-
       // 易修版寫法
 
       // 取可修的所有字位 = xxx.,.xxx.,.xxx.,.
       //let ww = _GetAllCode(".UpTxt") 
 
-
       // get a
-
       // get img Url
-      //let gg = _GetAllCode(".UpImg")
-
-      let list=$(".UpImg")  // 取文字內容
-      let allTxt = "" // 建立字串 用於取all文
-      for(let i=0;i<list.length;i++){ // loop + 字
-        allTxt = allTxt + list[i].innerHTML + ".,."
-        }
-        console.log(allTxt)
+      let gg = _GetImgUrl("#_myImg2")
+      console.log(gsg)
 
 
 
@@ -1018,17 +1033,14 @@
 
       let AllTxt = AllChangeCode.split(".,.") // tt[0] // = xxx |切割字串 https://www.wibibi.com/info.php?tid=258
       let OK = _postAllTxt(AllTxt)
-      console.log('%s \n %s \n', OK, AllChangeCode)// all 內容 入文字
+      console.log('%s \n %s \n', OK, AllChangeCode)// all 內容 入文字 https://blog.csdn.net/qq449245884/article/details/105085580
 
     }
 
 
 
 
-
-    
-
-
+ 
     </script>
 </div>
 <!-- /202203090223 mokaki input change all -->
