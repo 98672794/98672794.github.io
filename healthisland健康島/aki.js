@@ -228,11 +228,12 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
       // 如客在網址入自己userID(TEL)
       if ((location.href).indexOf('51679292') != -1){
-        alert('歡迎Amy姐'); 
-        changeStyle('#AkiAdmin', 'display', 'block'); //调用changeStyle函数
+        //alert('歡迎Amy姐'); 
+        var oDiv = document.getElementById("AkiAdmin")
+        changeStyle(oDiv, 'width', '600px'); //调用changeStyle函数
       }
       else{
-        alert('歡313迎Amy姐'); 
+        //alert('歡313迎Amy姐'); 
       }
       //alert(location.href); // https://www.wibibi.com/info.php?tid=82
     }
