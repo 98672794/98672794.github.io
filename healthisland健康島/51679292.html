@@ -38,6 +38,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 <!-- aki 2022 03061317 -->
   <!-- all txt = textareaHTML --><!-- 可選色,左中右 = ChangeCss -->
   <!-- AdminBox = UnZIPSee,GetCodeZip,ChangeCss,Send9867 -->
@@ -46,13 +57,9 @@
   <!-- Amy健康島 -->
   <title>51679292|0308healthisland健康島</title>  <!-- Admin = User|客頁 -->
   <link rel="icon" type="image/png" sizes="16x16" href="AmyIMG/Amy健康島logo.png">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
-  <style>
 
 
- 
-
-
+<style>
     /* just for admin page */
     .contact_section .florL li{position: relative;width: 13%;height: 100px;float: left;}
     .contact_section .florL li textarea{background: rgba(165, 235, 156, 0.9);
@@ -66,7 +73,8 @@
   </style>
 <!-- /aki 2022 03110037 -->
 </head>
-<body onload="javascript:讓網頁一開始就執行js();">
+
+<body>
 <!-- 202203 mokaki input change all -->
 <div id="AkiAdmin">
   <!-- 加野 -->
@@ -115,51 +123,50 @@
 
 
 
-
 <!--AD--> 
-  <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
 
-    <ol class="carousel-indicators">
-        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel" data-slide-to="1"></li>
-    </ol>
-    <!-- Carousel items -->
-    <div class="carousel-inner">
+  <ol class="carousel-indicators">
+      <li data-target="#carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel" data-slide-to="1"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
 
-        <div class="active item">
-		<div class="caption zoomIn wow animated"> 		 
-              <h2 ><textarea class="UpTxt">全城宣傳效應</textarea><br/><strong></strong></h2>
-              </div>
-		<img id="myImg1"  class="" src="img/slide1.jpg" alt="">
-    <p class="AdminIMGSetBox">
-    任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+      <div class="active item">
+  <div class="caption zoomIn wow animated"> 		 
+            <h2 ><textarea class="UpTxt">全城宣傳效應</textarea><br/><strong></strong></h2>
+            </div>
+  <img id="myImg1"  class="" src="img/slide1.jpg" alt="">
+  <p class="AdminIMGSetBox">
+  任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
 
-    
-    <input id="_myImg1" class="UpImg" type="text"/>
-    <button onclick="ChangeIMG('_myImg1')">Try it</button>
-    </p>
-        </div>
+  
+  <input id="_myImg1" class="UpImg" type="text"/>
+  <button onclick="ChangeIMG('_myImg1')">Try it</button>
+  </p>
+      </div>
 
-        <div class="item">
-		<div class="caption zoomIn wow animated"> 		 			 
-      <h2 ><textarea class="UpTxt">增值無限商機</textarea><br/><strong></strong></h2>
-              </div>
+      <div class="item">
+  <div class="caption zoomIn wow animated"> 		 			 
+    <h2 ><textarea class="UpTxt">增值無限商機</textarea><br/><strong></strong></h2>
+            </div>
 
-              <img id="myImg2" src="img/slide2.jpg" alt="">
-              <p class="AdminIMGSetBox">
-              任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
-              <input id="_myImg2" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg2')">Try it</button>
-              </p>
-        </div>
+            <img id="myImg2" src="img/slide2.jpg" alt="">
+            <p class="AdminIMGSetBox">
+            任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            <input id="_myImg2" class="UpImg" type="text"/>
+            <button onclick="ChangeIMG('_myImg2')">Try it</button>
+            </p>
+      </div>
 
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
 
-    </div>    
+  </div>    
 
-  </div>
+</div>
 <!--/AD--> 
 
 
@@ -197,32 +204,28 @@
 
 <!--Header_section-->
 <header id="header_wrapper">
-  <div class="container">
-    <div class="header_box">
-      <!--<div class="logo"><a href="#">Resume</a></div>-->
-	  <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        </div>
-	    <div id="main-nav" class="collapse navbar-collapse navStyle">
-			<ul class="nav navbar-nav" id="mainNav">
-			  <li class="active">
-          <a href="#" class="scroll-link">
-            <img class="logo1" src="AmyIMG/Amy健康島logo.png"  title="健康島" alt="" />
-          </a></li>
-			  <li><a href="#Portfolio" class="scroll-link"><textarea class="UpTxt">雪泥碳天然皂</textarea></a></li>
-			  <li><a href="#okeapp" class="scroll-link"><textarea class="UpTxt" >okeapp免費廣告</textarea></a></li>
-
-
-        <li><a href="#.." class="scroll-link"><textarea class="UpTxt" >健康天地</textarea></a></li> 
-
-
-			  <li><a href="#contact" class="scroll-link"><textarea class="UpTxt">關於我們</textarea></a></li> 
-			</ul>
+<div class="container">
+  <div class="header_box">
+    <!--<div class="logo"><a href="#">Resume</a></div>-->
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+      <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       </div>
-	 </nav>
+    <div id="main-nav" class="collapse navbar-collapse navStyle">
+    <ul class="nav navbar-nav" id="mainNav">
+      <li class="active">
+        <a href="#" class="scroll-link">
+          <img class="logo1" src="AmyIMG/Amy健康島logo.png"  title="健康島" alt="" />
+        </a></li>
+      <li><a href="#product1" class="scroll-link"><textarea class="UpTxt">雪泥碳天然皂</textarea></a></li>
+      <li><a href="#product2" class="scroll-link"><textarea class="UpTxt" >健康天地</textarea></a></li> 
+      <li><a href="#okeapp" class="scroll-link"><textarea class="UpTxt" >okeapp免費廣告</textarea></a></li>
+      <li><a href="#contact" class="scroll-link"><textarea class="UpTxt">關於我們</textarea></a></li> 
+    </ul>
     </div>
+ </nav>
   </div>
+</div>
 </header>
 <!--Header_section--> 
 
@@ -250,62 +253,268 @@
 <!--okeapp-->
 <section id="okeapp">
 <div class="inner_wrapper about-us okeapp-container fadeInLeft animated wow">
-  <div class="container">
-    <h2><textarea class="UpTxt">掃碼賺禮包</textarea></h2>
-    <div class="inner_section">
-      
- <div class="row">
-      <div class="col-md-6"> 
-        <div style="position: relative;">
-        <img id="myImg4" class="img-responsive" src="AmyIMG/馬上加盟.svg" align=""> 
-        <p class="AdminIMGSetBox">
-          任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
-          <input id="_myImg4" class="UpImg" type="text"/>
-          <button onclick="ChangeIMG('_myImg4')">Try it</button>
-        </p>
-        </div>
-        <br/><br/><br/>
-
-        <ul class="about-us-list">
-          <li class="points"><textarea class="UpTxt">簡易登記程序</textarea></li> 
-          <li class="points"><textarea class="UpTxt">掃碼賺禮包</textarea></li>
-          <li class="points"><textarea class="UpTxt">並獲價值100元折扣券</textarea></li>
-          <li class="points"><textarea class="UpTxt">和10%至50%折扣優惠</textarea></li>
-          <li class="points"><textarea class="UpTxt">特選商戶優惠</textarea></li>
-        </ul><!-- /.about-us-list -->
-        <br/><br/>
-        <a href="https://zh.okepartners.com/" style="color: #BC2A87;"><h1>下載OKE app</h1></a>
+<div class="container">
+  <h2><textarea class="UpTxt">掃碼賺禮包</textarea></h2>
+  <div class="inner_section">
+    
+<div class="row">
+    <div class="col-md-6"> 
+      <div style="position: relative;">
+      <img id="myImg4" class="img-responsive" src="AmyIMG/馬上加盟.svg" align=""> 
+      <p class="AdminIMGSetBox">
+        任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+        <input id="_myImg4" class="UpImg" type="text"/>
+        <button onclick="ChangeIMG('_myImg4')">Try it</button>
+      </p>
       </div>
+      <br/><br/><br/>
+
+      <ul class="about-us-list">
+        <li class="points"><textarea class="UpTxt">簡易登記程序</textarea></li> 
+        <li class="points"><textarea class="UpTxt">掃碼賺禮包</textarea></li>
+        <li class="points"><textarea class="UpTxt">並獲價值100元折扣券</textarea></li>
+        <li class="points"><textarea class="UpTxt">和10%至50%折扣優惠</textarea></li>
+        <li class="points"><textarea class="UpTxt">特選商戶優惠</textarea></li>
+      </ul><!-- /.about-us-list -->
+      <br/><br/>
+      <a href="https://zh.okepartners.com/" style="color: #BC2A87;"><h1>下載OKE app</h1></a>
 
 
-      <div class="col-md-6">
-        <div style="position: relative;">
-          <img id="myImg5" class="img-responsive" src="AmyIMG/增值無限商機.svg" align="">
-          <p class="AdminIMGSetBox">
-            任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
-            <input id="_myImg5" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg5')">Try it</button>
-          </p>
-        </div>
-
-        <div style="position: relative;">
-        <img id="myImg6" class="img-responsive" src="AmyIMG/立即登記.svg" align=""  >
-        <p class="AdminIMGSetBox">
-          任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
-          <input id="_myImg6" class="UpImg" type="text"/>
-          <button onclick="ChangeIMG('_myImg6')">Try it</button>
-        </p>
-      </div>
-      <textarea class="UpTxt">請在OKE app打開</textarea>
-
-        
       
     </div>
-	     </div>
-  </div> 
-  </div>
+
+    <div class="col-md-6">
+      <div style="position: relative;">
+        <img id="myImg5" class="img-responsive" src="AmyIMG/增值無限商機.svg" align="">
+        <p class="AdminIMGSetBox">
+          任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+          <input id="_myImg5" class="UpImg" type="text"/>
+          <button onclick="ChangeIMG('_myImg5')">Try it</button>
+        </p>
+      </div>
+
+      <div style="position: relative;">
+      <img id="myImg6" class="img-responsive" src="AmyIMG/立即登記.svg" align=""  >
+      <p class="AdminIMGSetBox">
+        任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+        <input id="_myImg6" class="UpImg" type="text"/>
+        <button onclick="ChangeIMG('_myImg6')">Try it</button>
+      </p>
+    </div>
+    <textarea class="UpTxt">請在OKE app打開</textarea>
+
+      
+    
+  </div><img id="myImg53313"  src="AmyIMG/寶寶米抗疫禮包.png" align="">
+     </div>
+</div> 
+</div>
 </section>
 <!--okeapp--> 
+<hr/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Portfolio -->
+<section id="product1" class="content"> 
+
+  <!-- Container -->
+  <div class="container portfolio_title"> 
+    
+    <!-- Title -->
+    <div class="section-title">
+      <h2>雪泥碳</h2>
+
+    </div>
+    <!--/Title --> 
+    
+  </div>
+  <!-- Container -->
+  
+  <div class="portfolio-top"></div>
+  
+  <!-- Portfolio Filters -->
+  <div class="portfolio"> 
+    
+    <div id="filters" class="sixteen columns">
+      <ul class="clearfix">
+
+        <li><a id="all" href="#" data-filter="*" class="active">
+          <h5>所有</h5>
+          </a></li>
+
+          <li><a class="" href="#" data-filter=".citylife">
+            <h5>天然皂</h5>
+            </a></li>
+
+          <li><a class="" href="#" data-filter=".wildlife">
+            <h5>功效</h5>
+            </a></li>
+
+        <li><a class="" href="#" data-filter=".nature">
+          <h5>影片</h5>
+          </a></li>
+
+      </ul>
+    </div>
+    <!--/Portfolio Filters --> 
+    
+    <!-- Portfolio Wrapper -->
+    <div class="isotope fadeInLeft animated wow grid" style="position: relative; overflow: hidden; height: 480px;" id="portfolio_wrapper">  
+
+      
+      
+
+
+      <!-- Portfolio Item-->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  wildlife isotope-item effect-oscar">
+        <div class="portfolio_img"> <img src="AmyIMG/h4.jpg" alt="Portfolio 1"> </div>
+        </figure>
+      <!--/Portfolio Item --> 
+      
+
+
+      <!-- Portfolio Item-->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four citylife web isotope-item effect-oscar">
+        <div class="portfolio_img"> 
+          <img src="AmyIMG/p2.jpg" alt="">
+         </div>
+      </figure>
+      <!-- Portfolio Item --> 
+
+
+
+      <!-- Portfolio Item-->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four citylife web isotope-item effect-oscar">
+        <div class="portfolio_img"> 
+          <img src="AmyIMG/p3.jpg" alt="">
+         </div>
+      </figure>
+      <!-- Portfolio Item --> 
+
+
+
+
+
+      <!-- Portfolio Item -->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  wildlife  isotope-item effect-oscar">
+        <div class="portfolio_img"> <img src="AmyIMG/h3.jpg" alt="Portfolio 1"> </div>
+        </figure>
+      <!--/Portfolio Item--> 
+      
+
+      
+      <!-- Portfolio Item -->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  wildlife isotope-item effect-oscar">
+        <div class="portfolio_img"> <img src="AmyIMG/h2.jpg" alt="Portfolio 1"> </div>
+ 
+      </figure>
+      <!--/Portfolio Item --> 
+      
+
+      
+      
+      <!-- Portfolio Item  -->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  wildlife web isotope-item effect-oscar">
+        <div class="portfolio_img"> <img src="AmyIMG/h1.jpg" alt="Portfolio 1"> </div>               
+       </figure>
+      <!--/Portfolio Item --> 
+      
+
+
+
+
+
+      <!-- Portfolio Item-->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four citylife web isotope-item effect-oscar">
+        <div class="portfolio_img"> 
+          <img src="AmyIMG/p1.jpg" alt="">
+         </div>
+      </figure>
+      <!-- Portfolio Item --> 
+
+
+
+
+
+      <!-- Portfolio Item-->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four nature web isotope-item effect-oscar">
+        <div class="portfolio_img"> 
+          <video controls>
+            <source src="AmyIMG/v2雪泥碳.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+         </div>
+      </figure>
+      <!-- Portfolio Item --> 
+
+
+
+
+    </div>
+    <!--/Portfolio Wrapper --> 
+    
+  </div>
+  <!--/Portfolio Filters -->
+  
+  <div class="portfolio_btm"></div>
+  
+  
+  <div id="project_container">
+    <div class="clear"></div>
+    <div id="project_data"></div>
+  </div>
+  
+  
+  </section>
+  <!--/Portfolio --> 
+  <hr/>
+  
+  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -338,71 +547,71 @@
 
 
 <!--適用任何年龄性別任何皮膚-->
-<section  id="service">
-  <div class="container">
-    <h2>適用任何年龄性別任何皮膚</h2>
+<section id="product2">
+<div class="container">
+  <h2>適用任何年龄性別任何皮膚</h2>
 
-    <div class="col-md-12">
-    <video controls>
-      <source src="AmyIMG/v1.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-    </video>
-    </div>
-
-
-
-    <div class="row"></div>
-  
-    <div class="service_wrapper">
-      
-      <div class="row">
-
-        <div class="col-md-3">
-          <img id="myImg7" src="AmyIMG/s1.jpg" alt="Portfolio 1">
-          <p class="AdminIMGSetBox">
-            任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
-            <input id="_myImg7" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg7')">Try it</button>
-          </p>
-        </div>
-
-        <div class="col-md-3">
-          <img id="myImg8" src="AmyIMG/s2.jpg" alt="Portfolio 1">
-          <p class="AdminIMGSetBox">
-            任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
-            <input id="_myImg8" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg8')">Try it</button>
-          </p>
-        </div>
-
-        <div class="col-md-3">
-          <img id="myImg9" src="AmyIMG/s3.jpg" alt="Portfolio 1">
-          <p class="AdminIMGSetBox">
-            任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
-            <input id="_myImg9" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg9')">Try it</button>
-          </p>
-        </div>
-
-        <div class="col-md-3">
-          <img id="myImg10" src="AmyIMG/s4.jpg" alt="Portfolio 1">
-          <p class="AdminIMGSetBox">
-            任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
-            <input id="_myImg10" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg10')">Try it</button>
-          </p>
-        </div>
-        
-
-
-
-
-
-
-      </div> 
-	 
-    </div>
+  <div class="col-md-12">
+  <video controls>
+    <source src="AmyIMG/v1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
   </div>
+
+
+
+  <div class="row"></div>
+
+  <div class="service_wrapper">
+    
+    <div class="row">
+
+      <div class="col-md-3">
+        <img id="myImg7" src="AmyIMG/s1.jpg" alt="Portfolio 1">
+        <p class="AdminIMGSetBox">
+          任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+          <input id="_myImg7" class="UpImg" type="text"/>
+          <button onclick="ChangeIMG('_myImg7')">Try it</button>
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <img id="myImg8" src="AmyIMG/s2.jpg" alt="Portfolio 1">
+        <p class="AdminIMGSetBox">
+          任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+          <input id="_myImg8" class="UpImg" type="text"/>
+          <button onclick="ChangeIMG('_myImg8')">Try it</button>
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <img id="myImg9" src="AmyIMG/s3.jpg" alt="Portfolio 1">
+        <p class="AdminIMGSetBox">
+          任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+          <input id="_myImg9" class="UpImg" type="text"/>
+          <button onclick="ChangeIMG('_myImg9')">Try it</button>
+        </p>
+      </div>
+
+      <div class="col-md-3">
+        <img id="myImg10" src="AmyIMG/s4.jpg" alt="Portfolio 1">
+        <p class="AdminIMGSetBox">
+          任何圖片網址，例: <br/>https://drive.google.com/file/d/1j3dMn4DDMw5cktUTxy4rFloE2VXMAUzj
+          <input id="_myImg10" class="UpImg" type="text"/>
+          <button onclick="ChangeIMG('_myImg10')">Try it</button>
+        </p>
+      </div>
+      
+
+
+
+
+
+
+    </div> 
+ 
+  </div>
+</div>
 </section>
 <!--適用任何年龄性別任何皮膚-->  
 
@@ -451,378 +660,77 @@
 
 
 
-<!-- Portfolio -->
-<section id="Portfolio" class="content"> 
-  
-  <!-- Container -->
-  <div class="container portfolio_title"> 
-    
-    <!-- Title -->
-    <div class="section-title">
-      <h2>Gallery</h2>
-	<h6>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum</h6>
-	  
-    </div>
-    <!--/Title --> 
-    
-  </div>
-  <!-- Container -->
-  
-  <div class="portfolio-top"></div>
-  
-  <!-- Portfolio Filters -->
-  <div class="portfolio"> 
-    
-    <div id="filters" class="sixteen columns">
-      <ul class="clearfix">
-        <li><a id="all" href="#" data-filter="*" class="active">
-          <h5>All</h5>
-          </a></li>
-        <li><a class="" href="#" data-filter=".nature">
-          <h5>Hair Style</h5>
-          </a></li>
-        <li><a class="" href="#" data-filter=".wildlife">
-          <h5>Beauty</h5>
-          </a></li>
-        <li><a class="" href="#" data-filter=".citylife">
-          <h5>Make Over</h5>
-          </a></li>
-        <li><a class="" href="#" data-filter=".animals">
-          <h5>Nature SPA</h5>
-          </a></li> 
-      </ul>
-    </div>
-    <!--/Portfolio Filters --> 
-    
-    <!-- Portfolio Wrapper -->
-    <div class="isotope fadeInLeft animated wow grid" style="position: relative; overflow: hidden; height: 480px;" id="portfolio_wrapper">  
-      <!-- Portfolio Item -->
-      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   animals isotope-item effect-oscar">
-	   
-        <div class="portfolio_img"> 
-		<img src="img/portfolio_pic1.jpg"  alt="Portfolio 1"> </div> 
-			<figcaption>		
-				<div>
-				  <a href="img/portfolio_pic1.jpg" class="fancybox"> 
-					<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-				  </a>
-				</div>
-			</figcaption>
-        </figure>
-      <!--/Portfolio Item --> 
-      
-      <!-- Portfolio Item-->
-      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  wildlife isotope-item effect-oscar">
-        <div class="portfolio_img"> <img src="img/portfolio_pic2.jpg" alt="Portfolio 1"> </div>
-        	<figcaption>		
-				<div>
-				  <a href="img/portfolio_pic2.jpg" class="fancybox"> 
-					<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-				  </a>
-				</div>
-			</figcaption>
-        </figure>
-      <!--/Portfolio Item --> 
-      
-      <!-- Portfolio Item -->
-      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  wildlife  isotope-item effect-oscar">
-        <div class="portfolio_img"> <img src="img/portfolio_pic3.jpg" alt="Portfolio 1"> </div>
-       <figcaption>		
-				<div>
-				  <a href="img/portfolio_pic3.jpg" class="fancybox"> 
-					<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-				  </a>
-				</div>
-			</figcaption>
-        </figure>
-      <!--/Portfolio Item--> 
-      
-      <!-- Portfolio Item-->
-      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  citylife  nature web isotope-item effect-oscar">
-        <div class="portfolio_img"> <img src="img/portfolio_pic4.jpg" alt="Portfolio 1"> </div>
-         <figcaption>		
-				<div>
-				  <a href="img/portfolio_pic4.jpg" class="fancybox"> 
-					<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-				  </a>
-				</div>
-			</figcaption>
-      </figure>
-      <!-- Portfolio Item --> 
-      
-      <!-- Portfolio Item -->
-      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  wildlife isotope-item effect-oscar">
-        <div class="portfolio_img"> <img src="img/portfolio_pic5.jpg" alt="Portfolio 1"> </div>
-       <figcaption>		
-				<div>
-				  <a href="img/portfolio_pic5.jpg" class="fancybox"> 
-					<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-				  </a>
-				</div>
-			</figcaption>
-      </figure>
-      <!--/Portfolio Item --> 
-      
-      <!-- Portfolio Item -->
-      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  web isotope-item effect-oscar">
-        <div class="portfolio_img"> <img src="img/portfolio_pic6.jpg" alt="Portfolio 1"> </div>
-       <figcaption>		
-				<div>
-				  <a href="img/portfolio_pic6.jpg" class="fancybox"> 
-					<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-				  </a>
-				</div>
-			</figcaption>
-      </figure>
-      <!--/Portfolio Item --> 
-      
-      <!-- Portfolio Item  -->
-      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  wildlife web isotope-item effect-oscar">
-        <div class="portfolio_img"> <img src="img/portfolio_pic7.jpg" alt="Portfolio 1"> </div>       
-       <figcaption>		
-				<div>
-				  <a href="img/portfolio_pic7.jpg" class="fancybox"> 
-					<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-				  </a>
-				</div>
-			</figcaption>
-       </figure>
-      <!--/Portfolio Item --> 
-      
-      <!-- Portfolio Item -->
-      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   citylife isotope-item effect-oscar">
-        <div class="portfolio_img"> <img src="img/portfolio_pic8.jpg" alt="Portfolio 1"> </div>       
-      <figcaption>		
-				<div>
-				  <a href="img/portfolio_pic8.jpg" class="fancybox"> 
-					<h2>Warm <span>Oscar</span></h2>
-							<p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-				  </a>
-				</div>
-			</figcaption>
-        </figure>
-      <!--/Portfolio Item --> 
-      
-    </div>
-    <!--/Portfolio Wrapper --> 
-    
-  </div>
-  <!--/Portfolio Filters -->
-  
-  <div class="portfolio_btm"></div>
-  
-  
-  <div id="project_container">
-    <div class="clear"></div>
-    <div id="project_data"></div>
-  </div>
- 
-  
-</section>
-<!--/Portfolio --> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--寶寶米抗疫禮包-->
-<section id="寶寶米抗疫禮包">
-  <div class="col-md-12">
-    <div class="container col-md-12">
-      <h2  class="col-md-12"><textarea class="UpTxt">寶寶米抗疫禮包</textarea></h2>
-      <img id="myImg53313"  src="AmyIMG/寶寶米抗疫禮包.png" align="">
-      <p class="row">&nbsp;</p> 
-    </div>
-    
-  </section>
-  <!--寶寶米抗疫禮包--> 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--Footer-->
 <footer class="footer_wrapper" id="contact">
-  <div class="container">
-    <section class="page_section contact" id="contact">
-      <div class="contact_section">
+<div class="container">
+  <section class="page_section contact" id="contact">
+    <div class="contact_section">
 
-      <ul class="florL">
-        <li> <a href="#Portfolio" class="scroll-link">雪泥碳天然皂</a><textarea class="UpTxt">雪泥碳天然皂</textarea> </li>
-        <li> <a href="#okeapp" class="scroll-link">okeapp免費廣告</a><textarea class="UpTxt" >okeapp免費廣告</textarea> </li>
-        <li> <a href="#00" class="scroll-link">健康天地</a><textarea class="UpTxt" >健康天地</textarea></li>
-        <li> <a href="#contact" class="scroll-link">關於我們</a><textarea class="UpTxt">關於我們</textarea> </li>
-	</ul>
+    <ul class="florL">
+      <li> <a href="#product1" class="scroll-link">雪泥碳天然皂</a><textarea class="UpTxt">雪泥碳天然皂</textarea> </li>
+      <li> <a href="#product2" class="scroll-link">健康天地</a><textarea class="UpTxt" >健康天地</textarea></li>
+      <li> <a href="#okeapp" class="scroll-link">okeapp免費廣告</a><textarea class="UpTxt" >okeapp免費廣告</textarea> </li>
+      <li> <a href="#contact" class="scroll-link">關於我們</a><textarea class="UpTxt">關於我們</textarea> </li>
+</ul>
 
-      </div>
-      <div class="row"></div>
-      <div class="row">
-        <div class="col-lg-12 wow fadeInLeft">	
-		 <div class="contact_info">
-
-                            <div class="detail">
-                              <h4 style="float: right;">
-                                <a href="#">
-                                <img class="logo2" src="AmyIMG/Amy健康島logo.png"  title="健康島" alt="" />
-                                </a></h4>
-                            </div>
-
-
-                            <div class="detail">
-                                <h4>whatsApp</h4>
-                                <p>852-59328723</p>
-                            </div>
-                            <div class="detail">
-                              <h4>Tel</h4>
-                              <p>852-59328723</p>
-                            </div>
-                            <div class="detail">
-                              <h4>微信ID</h4>
-                              <p>A51679292</p>
-                            </div>
-                            <div class="detail">
-                              <h4>email</h4>
-                              <p>hkhealthgroup@163.com</p>
-                            </div>
-                        </div>
-       		  
-			  
-          
-          <ul class="social_links">
-
-            <li class="pinterest animated bounceIn wow delay-04s">
-              <a href="https://wa.me/85259328723?text=健康島Amy您好查詢雪泥碳天然皂"><i class="fa fa-whatsapp fa-2x"></i></a> 
-            </li> 
-            <li class="">
-              <a class="wechatBox"><i class="fa fa-wechat fa-2x" ></i><img src="AmyIMG/qr.png" title="健康島wechat" alt="" /></a>
-            </li>
-          </ul>
-        </div>
-
-
-
-      </div>
-    </section>
-  </div>
-
-  <div class="container">
-    <div class="footer_bottom">
-      
-      <iframe align="center" width="100%" height="100%" src="../aki/copyright.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-      <span style="display: none;">Copyright © reserved,    Template by <a href="http://webthemez.com">WebThemez.com</a>. Find More <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Free Bootstrap Themes</a> </span> </div>
-      <a onclick="AkiUpHtmlCode()">.<!--/Aki Admin--></a>
     </div>
+    <div class="row"></div>
+    <div class="row">
+      <div class="col-lg-12 wow fadeInLeft">	
+   <div class="contact_info">
+
+                          <div class="detail">
+                            <h4 style="float: right;">
+                              <a href="#">
+                              <img class="logo2" src="AmyIMG/Amy健康島logo.png"  title="健康島" alt="" />
+                              </a></h4>
+                          </div>
+
+
+                          <div class="detail">
+                              <h4>whatsApp</h4>
+                              <p>852-59328723</p>
+                          </div>
+                          <div class="detail">
+                            <h4>Tel</h4>
+                            <p>852-59328723</p>
+                          </div>
+                          <div class="detail">
+                            <h4>微信ID</h4>
+                            <p>A51679292</p>
+                          </div>
+                          <div class="detail">
+                            <h4>email</h4>
+                            <p>hkhealthgroup@163.com</p>
+                          </div>
+                      </div>
+           
+      
+        
+        <ul class="social_links">
+
+          <li class="pinterest animated bounceIn wow delay-04s">
+            <a href="https://wa.me/85259328723?text=健康島Amy您好查詢雪泥碳天然皂"><i class="fa fa-whatsapp fa-2x"></i></a> 
+          </li> 
+          <li class="">
+            <a class="wechatBox"><i class="fa fa-wechat fa-2x" ></i><img src="AmyIMG/qr.jpg" title="健康島wechat" alt="" /></a>
+          </li>
+        </ul>
+      </div>
+
+
+
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <div class="footer_bottom">
+    
+    <iframe align="center" width="100%" height="100%" src="../aki/copyright.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    <span style="display: none;">Copyright © reserved,    Template by <a href="http://webthemez.com">WebThemez.com</a>. Find More <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Free Bootstrap Themes</a> </span> </div>
+    <a onclick="AkiUpHtmlCode()">.<!--/Aki Admin--></a>
+  </div>
 </footer>
 <!--/Footer-->
 
@@ -892,9 +800,171 @@
 
 
 
+<!-- 202203 mokaki input change all -->
+<div id="AkiAdmin">
+<!-- 加野 -->
+
+<p>歡迎Amy姐</p>
+&nbsp;&nbsp;
+<button title="更新網站" style="font-size:24px" onclick="UserSendCodeToMe()"><i class="fa fa-cloud-upload"></i></button>
+
+
+
+<script>
+
+  // Js Base64 字符串 加密、解密 https://developer.mozilla.org/en-US/docs/Glossary/Base64
+  function utf8_to_b64( str ) {   return window.btoa(unescape(encodeURIComponent( str )));  }
+  function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( str )));  }
+
+
+
+
+  // user input the img url, we change to be turn html api code
+
+
+  //https://www.linkedin.com/posts/williamhgates_how-to-help-refugees-aid-relief-and-donations-activity-6907410866245914624-eaMd
+  //73 sugar发布了一篇小红书笔记，快来看吧！ 😆 Wi2eKd52y4RDgNa 😆 http://xhslink.com/sA5Zcg，复制本条信息，打开【小红书】App查看精彩内容！
+  //7.66 GVL:/   https://v.douyin.com/NjQAh2A/ 复制此链接，打开Dou音搜索，直接观看视频！
+  //https://twitter.com/teslaownersSV/status/1501675466511433732?t=BQrsMYStbEcaZ2g__Caqig&s=19
+  //https://m.facebook.com/story.php?story_fbid=1416333865493440&id=100013505203886&sfnsn=mo
+  //https://youtu.be/WprE6NvGlGA
+  //https://linevoom.line.me/post/_dQaZLNM1vIpHI7r3oyLmSAcAh6qSp1OKLaz92l4/1164666160509083989
+  //點按此連結即可在 WhatsApp 瀏覽我們的商品：https://wa.me/p/5826448410763231/85298672794
+  //https://photos.app.goo.gl/CAAj5auk4rEEvbu88
+  //https://www.instagram.com/p/Ca1wc3ovlS5/?utm_medium=copy_link
+
+  function _InputSel(imgurl) {
+    // if google drive url
+    let googleIMG = 'https://drive.google.com/file/d/'  // user 共用 google drive img url
+    if (imgurl.indexOf(googleIMG) != -1){
+      let turnImgUrl = 'https://drive.google.com/uc?export=download&id=' // can in html img url
+      let dsds = imgurl.split("/")  // dsds[5] = google drive img id
+      turnImgUrl = turnImgUrl + dsds[5]
+      //alert(turnImgUrl)
+      return turnImgUrl
+    }
+    // other img
+    else{
+      return imgurl
+    }
+  }
+
+
+
+
+  //<button onclick to this
+  function ChangeIMG(imgNb) { 
+    //alert(imgNb.substr(1))
+    let imgUrl = document.getElementById(imgNb).value // imgNb input is img url
+    if (imgUrl != ''){  // if have data
+      //let turnImgUrl2 = 
+      document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = _myImg123 ~> myImg123  | _InputSel(imgUrl) return imgurl
+      //不需 來再_InputSel
+      //$("#AkiAdmin textarea").html(turnImgUrl2)
+    }
+  }
+
+
+
+
+  // all 文字 內容取  202203110101OK
+  function _GetAllCode(HaHa_getElementsBy) {   
+    let list=$(HaHa_getElementsBy)  // 取文字內容
+    let allTxt = "" // 建立字串 用於取all文
+    for(let i=0;i<list.length;i++){ // loop + 字
+
+      // 不同html tat轉
+      if (HaHa_getElementsBy == ".UpTxt"){ // .UpTxt = textarea = innerHTML
+        allTxt = allTxt + list[i].innerHTML + ".,."
+      }
+
+      if (HaHa_getElementsBy == ".UpImg"){ // .UpImg = input = value
+        allTxt = allTxt + list[i].value + ".,."
+      }
+
+      }
+      console.log(allTxt)
+      return allTxt
+  }
+
+
+
+
+
+  // all 內容 入文字 202203110101OK
+  function _postAllTxt(ElementsBy,入all字) {
+    // loop get div https://zhidao.baidu.com/question/2267122359741677188.html
+    let oDiv=$(ElementsBy); // all Class UpTxt
+    let i=0;
+    while(i<oDiv.length)
+      {
+        // 不同html tat轉
+        if (ElementsBy == ".UpTxt"){// .UpTxt = textarea = html
+          $(oDiv[i]).html(入all字[i] + "a0123") // post 每一個
+        }
+        if (ElementsBy == ".UpImg"){// .UpImg = input = val
+          $(oDiv[i]).val(入all字[i] + "a01ddd23") // post 每一個
+        }
+        i++;
+      }
+    return "ok"
+  }
+
+
+
+
+
+
+
+
+
+
+
+  // User網站更新
+  function UserSendCodeToMe() {  
+
+    _AdminTest_GetAndPostImg()
+  }
+
+
+
+
+
+  // Admin功能測試 PostTxt
+  function _AdminTest_GetAndPostTxt() {  
+    let AllChangeCode = _GetAllCode(".UpTxt") // get code not this
+    //console.log('%s \n %s \n', _postAllTxt(AllChangeCode.split(".,.")), AllChangeCode)
+
+    let AllTxt = AllChangeCode.split(".,.") // tt[0] // = xxx |切割字串 https://www.wibibi.com/info.php?tid=258
+    let OK = _postAllTxt('.UpTxt',AllTxt)
+    console.log('%s \n %s \n', OK, AllChangeCode)// all 內容 入文字 https://blog.csdn.net/qq449245884/article/details/105085580
+    }
+
+
+  // Admin功能測試 UpAndChangeImg
+  function _AdminTest_GetAndPostImg() {  
+    let AllChangeCode = _GetAllCode(".UpImg") // get code not this
+    //console.log('%s \n %s \n', _postAllTxt(AllChangeCode.split(".,.")), AllChangeCode)
+
+    let AllTxt = AllChangeCode.split(".,.") // tt[0] // = xxx |切割字串 https://www.wibibi.com/info.php?tid=258
+    let OK = _postAllTxt('.UpImg',AllTxt)
+    console.log('%s \n %s \n', OK, AllChangeCode)// all 內容 入文字 https://blog.csdn.net/qq449245884/article/details/105085580
+    }
+
+
+  // Admin網站更新
+  //function AkiUpHtmlCode() {  }
+
+
+  </script>
+</div>
+<!-- /202203090223 mokaki input change all -->
 
 </body>
 </html>
+
+
+
 
 
 

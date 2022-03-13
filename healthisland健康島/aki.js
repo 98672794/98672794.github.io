@@ -4,8 +4,7 @@
 // 202203122124 mokaki.js會員系統 98672794  
 
 //// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
-var changeStyle = function (elem, name, value) {elem.style[name] = value;}
-
+//// 只能點btn用 不能直load   function _changeStyle(css, name, value) {  let ok = $('#AkiAdmin').css('width', '600px')  return ok}
 
 
 
@@ -192,6 +191,9 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
       // img google轉coed未做 qqqqqqqq
+
+
+      
       let AllTxt = AllChangeCode.split(".,.") // tt[0] // = xxx |切割字串 https://www.wibibi.com/info.php?tid=258
       let OK = _postAllTxt('.UpImg',AllTxt)
       console.log('%s \n %s \n', OK, AllChangeCode)// all 內容 入文字 https://blog.csdn.net/qq449245884/article/details/105085580
@@ -208,32 +210,16 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
 
-
-    // User網站更新 function UserSendCodeToMe() {// 轉all html}
-
-
-    // Admin網站更新  function AkiUpHtmlCode() {  }
-
+// User網站更新  
+function UserSendCodeToMe() {// 轉all html
+  _changeStyle()
+}
 
 
+// Admin網站更新  function AkiUpHtmlCode() {  }
 
-// user login | 讓網頁一開始就執行js
-    window.onload=AutoRun();//將代碼綁定到window.onload事件
-    setTimeout("讓網頁一開始就執行js()",1000);//設置定時器
-    function AutoRun(){ 
-      // <bodyonload="javascript:讓網頁一開始就執行js();">//將代碼綁定到body.onload事件
-      // https://www.zymseo.com/big5/program_250447
 
-      //你的代碼
 
-      // 如客在網址入自己userID(TEL)
-      if ((location.href).indexOf('51679292') != -1){
-        //alert('歡迎Amy姐'); 
-        var oDiv = document.getElementById("AkiAdmin")
-        changeStyle(oDiv, 'width', '600px'); //调用changeStyle函数
-      }
-      else{
-        //alert('歡313迎Amy姐'); 
-      }
-      //alert(location.href); // https://www.wibibi.com/info.php?tid=82
-    }
+
+// user login | 讓網頁一開始就執行js https://www.zymseo.com/big5/program_250447
+  //alert(location.href); // https://www.wibibi.com/info.php?tid=82
