@@ -50,6 +50,8 @@ video{width: 100%;height: 100%;}
 
 
 /* Amy姐 healthisland健康島*/
+ 
+
 .logo1{width: auto;height: 7vw;}
 .logo2{width: auto;height: 15vw;}
 
@@ -60,7 +62,8 @@ video{width: 100%;height: 100%;}
 
 
 
-/* <section id="product1"  
-.portfolio-item .portfolio_img video {width: 100%;height: auto;}
+/* <section id="product1"  */
+.portfolio-item .portfolio_img {width: 100%;height: 300px;}
 .nature {z-index: 1;}
-*/
+
+

@@ -4,8 +4,9 @@
 // 202203122124 mokaki.js會員系統 98672794  
 
 //// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性
-//// 只能點btn用 不能直load   function _changeStyle(css, name, value) {  let ok = $('#AkiAdmin').css('width', '600px')  return ok}
-
+//// 只能點btn用 不能直load   
+function _changeStyle(css, name, value) {  let ok = $('#AkiAdmin').css('width', '600px')  
+return ok}
 
 
 
@@ -193,7 +194,7 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
       // img google轉coed未做 qqqqqqqq
 
 
-      
+
       let AllTxt = AllChangeCode.split(".,.") // tt[0] // = xxx |切割字串 https://www.wibibi.com/info.php?tid=258
       let OK = _postAllTxt('.UpImg',AllTxt)
       console.log('%s \n %s \n', OK, AllChangeCode)// all 內容 入文字 https://blog.csdn.net/qq449245884/article/details/105085580
