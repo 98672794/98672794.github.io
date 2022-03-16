@@ -18,6 +18,21 @@
 // 202203161207 mokaki.js會員系統 98672794  
 
 
+// user login | 讓網頁一開始就執行js https://www.zymseo.com/big5/program_250447
+// adminPage if user
+window.onload=isAutoRun();將代碼綁定到window.onload事件
+function isAutoRun(){
+  //你的代碼
+  if (location.href.indexOf('51679292') != -1){
+    //alert("1111")
+    console.log("51679292!");
+    $("#AkiAdmin").css("display", "flex");
+  }
+}
+
+ 
+
+
   // googleTranslate
     function googleTranslateElementInit_TWToCN() {
       // 限版
@@ -33,31 +48,6 @@
       // function googleTranslateElementInit() {
       //  new google.translate.TranslateElement({pageLanguage: 'zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');  
       //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-  // 轉css 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性     var changeStyle = function (elem, name, value) {elem.style[name] = value;}
 
 
 
@@ -258,8 +248,7 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
     function UserSendCodeToMe() {  
   
       console.log('dddddd')
-      let tt = traditionalized('简体变成繁体')
-      console.log(tt)
+      $("#AkiAdmin").css("height", "0px"); // https://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery/3730144#3730144
     }
   
   
@@ -290,6 +279,3 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
     //function AkiUpHtmlCode() {  }
 
 
-
-// user login | 讓網頁一開始就執行js https://www.zymseo.com/big5/program_250447
-  //alert(location.href); // https://www.wibibi.com/info.php?tid=82
