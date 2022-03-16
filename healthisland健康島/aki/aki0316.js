@@ -24,13 +24,14 @@ window.onload=isAutoRun();將代碼綁定到window.onload事件
 function isAutoRun(){
   //你的代碼
   if (location.href.indexOf('51679292') != -1){
-    //alert("1111")
-    console.log("51679292!");
+    console.log("user login!");
     $("#AkiAdmin").css("display", "flex");
   }
 }
 
- 
+
+
+
 
 
   // googleTranslate
@@ -52,16 +53,23 @@ function isAutoRun(){
 
 
 
+
+  
+    // User網站更新
+    function UserSendCodeToMe() {  
+  
+      console.log('dddddd')
+      $("#AkiAdmin").css("height", "0px"); // https://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery/3730144#3730144
+    }
+  
+  
+
+
+
+
+
 //////////////////////////////////////////////////
 
-
-// 202203122124 mokaki.js會員系統 98672794  
-
-//// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性  var changeStyle = function (elem, name, value) {elem.style[name] = value;}
-
-
-//// 只能點btn用 不能直load   
-//  function _changeStyle(css, name, value) {    let ok = $('#AkiAdmin').css('width', '600px')    return ok }
 
 
 
@@ -243,15 +251,7 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
   
   
   
-  
-    // User網站更新
-    function UserSendCodeToMe() {  
-  
-      console.log('dddddd')
-      $("#AkiAdmin").css("height", "0px"); // https://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery/3730144#3730144
-    }
-  
-  
+
   
   
   
