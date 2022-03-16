@@ -15,15 +15,18 @@
 
 
 
-// 202203161207 
+// 202203161207 mokaki.js會員系統 98672794  
+
 
   // googleTranslate
     function googleTranslateElementInit_TWToCN() {
+      // 限版
       // <div id="google_translate_element_簡"></div>
       // // https://www.w3schools.com/howto/howto_google_translate.asp
       // https://stackoverflow.com/a/60884979/8008799
       // GList https://cloud.google.com/translate/docs/languages
-      new google.translate.TranslateElement({pageLanguage: 'zh-TW', includedLanguages: 'zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element_1');
+      new google.translate.TranslateElement({pageLanguage: 'zh-TW', includedLanguages: 'zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false},
+       'google_translate_element_1');
       }
 
       // OVG ALL
@@ -41,12 +44,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+      
+
+  // 轉css 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性     var changeStyle = function (elem, name, value) {elem.style[name] = value;}
+
+
+
+
 //////////////////////////////////////////////////
 
 
 // 202203122124 mokaki.js會員系統 98672794  
 
-//// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性   var changeStyle = function (elem, name, value) {elem.style[name] = value;}
+//// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性  var changeStyle = function (elem, name, value) {elem.style[name] = value;}
 
 
 //// 只能點btn用 不能直load   
