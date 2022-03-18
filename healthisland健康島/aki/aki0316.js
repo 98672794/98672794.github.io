@@ -24,10 +24,32 @@ window.onload=isAutoRun();將代碼綁定到window.onload事件
 function isAutoRun(){
   //你的代碼
   if (location.href.indexOf('51679292') != -1){
-    console.log("user login!");
-    $("#AkiAdmin").css("display", "flex");
+    console.log("user login!")
+    $("#AkiAdmin").css("display", "flex")
+    $(".UpTxt,.AdminIMGSetBox").css("display", "block")
+
+
+
+    let hh = $("#ImgUrlHelp").html()
+    console.log(hh)
+    $(".ImgUrlHelp").html(hh)
+
   }
 }
+
+
+
+
+
+//  AdminBtn
+
+
+
+function amy產品業1() {
+
+}
+
+
 
 
 
@@ -54,15 +76,104 @@ function isAutoRun(){
 
 
 
+
+
+
+
+
+
+//qqq myImg1 just
+// js 实现点击按钮复制文本 
+// https://blog.csdn.net/qq_43506222/article/details/106373663
+function copyText() {
+  //var txt = $("#例Url_driveGoogle").val
+      $("#例Url_driveGoogle").select();
+      try {var state = document.execCommand("copy");}
+      catch(err){var state = false;}
+      if(state){
+        alert("複製成功\n");
+      }else{
+        alert("复制失败");
+      }
+  }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // all 文字 內容取  202203110101OK
+  function _GetAllCode(HaHa_getElementsBy) {   
+    let cont = ".,."
+    let list=$(HaHa_getElementsBy)  // 取文字內容
+    let allTxt = "" // 建立字串 用於取all文
+    for(let i=0;i<list.length;i++){ // loop + 字
+
+      // 不同html tat轉
+      if (HaHa_getElementsBy == ".UpTxt"){ // .UpTxt = textarea = innerHTML
+        allTxt = allTxt + list[i].innerHTML + cont
+      }
+
+      if (HaHa_getElementsBy == ".UpImg"){ // .UpImg = input = value
+        allTxt = allTxt + list[i].value + cont
+      }
+      else {allTxt = allTxt + list[i].innerHTML + cont}
+
+      }
+      console.log(allTxt)
+      return allTxt
+  }
+
+
+
+
+
+  
   
     // User網站更新
     function UserSendCodeToMe() {  
   
-      console.log('dddddd')
-      $("#AkiAdmin").css("height", "0px"); // https://stackoverflow.com/questions/3730035/how-to-change-css-using-jquery/3730144#3730144
+      let input = _GetAllCode(".UpTxtOVG")
+      let AllUserTxt = input.split(".,.")
+
+
+      console.log(cont)
+      console.log('/User網站更新')
     }
   
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -145,10 +256,11 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
       //alert(imgNb.substr(1))
       let imgUrl = document.getElementById(imgNb).value // imgNb input is img url
       if (imgUrl != ''){  // if have data
-        //let turnImgUrl2 = 
-        document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = _myImg123 ~> myImg123  | _InputSel(imgUrl) return imgurl
-        //不需 來再_InputSel
-        //$("#AkiAdmin textarea").html(turnImgUrl2)
+        let turnImgUrl = document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = _myImg123 ~> myImg123  | _InputSel(imgUrl) return imgurl
+        
+        // turnImgUrl UpTxt
+        let turnImgUrlBox = "#" + imgNb.substr(1) + "_"
+        $(turnImgUrlBox).val(turnImgUrl)
       }
     }
 
@@ -170,26 +282,6 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
 
-  // all 文字 內容取  202203110101OK
-  function _GetAllCode(HaHa_getElementsBy) {   
-    let cont = ".,."
-    let list=$(HaHa_getElementsBy)  // 取文字內容
-    let allTxt = "" // 建立字串 用於取all文
-    for(let i=0;i<list.length;i++){ // loop + 字
-
-      // 不同html tat轉
-      if (HaHa_getElementsBy == ".UpTxt"){ // .UpTxt = textarea = innerHTML
-        allTxt = allTxt + list[i].innerHTML + cont
-      }
-
-      if (HaHa_getElementsBy == ".UpImg"){ // .UpImg = input = value
-        allTxt = allTxt + list[i].value + cont
-      }
-
-      }
-      console.log(allTxt)
-      return allTxt
-  }
 
 
 
