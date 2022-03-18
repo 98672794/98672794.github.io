@@ -7,7 +7,7 @@
 
 
 /* admin box 0315 */
-#AkiAdmin{position: fixed;top: 25%;left: -41%;width: auto;height: auto;
+#AkiAdmin{position: fixed;top: 25%;left: -300px;width: auto;height: auto;
   opacity: .3; color: rgba(165, 235, 156, 0.9);
   padding: .1%;
   border-top-right-radius: 5px;
@@ -66,10 +66,9 @@ width: 90%;height: 100%;right: 5%;left: 5%;top: 5%;bottom: 5%;border-radius:0 5v
     width: 60%;
 }
 .wechatBox:hover img{display: block;}
-.florL li{float: left;margin: 5%;position: relative;}
+.florL li{float: left;margin: 5%;position: relative;  }
 video{width: 100%;height: 100%;}
       
-
 
 
 
@@ -113,3 +112,12 @@ video{width: 100%;height: 100%;}
 .none,.UpTxtOVGAll,.UpTxtOVG{display: none;}
 
 h2,h5{position: relative;}
+
+
+.detail p,.florL li,.navbar-inverse .navbar-nav > li > a{
+  font-size: 30px;
+  font-weight: 100;
+  
+}
+.detail h4{  font-size: 40px;
+  font-weight: 200;}

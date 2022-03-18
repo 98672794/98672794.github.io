@@ -22,8 +22,6 @@
 
 
 
-
-
 <!-- head body = aki AdminBox 2022 03061317 03181057 -->
 
   <!-- all txt = textareaHTML --><!-- 可選色,左中右 = ChangeCss -->
@@ -49,12 +47,13 @@
 }
 
 /* 副色 */
-a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
-  color:  rgb(255, 255, 255);}
+.detail p,a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a,.florL li{
+  color:  rgb(228, 0, 0);}
 
 /* 副色2 */
-.contact_info p{color: #999;}
-
+.contact_info p{color:  rgb(228, 0, 0);}
+ 
+ .detail h4{color:  rgb(75, 159, 255) ;}
 </style>
 
 
@@ -69,7 +68,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
 <div id="AkiAdmin">
   <!-- 加野 -->
   <p>
-    主色<textarea id="ChangeColoe1" class="UpTxt">rgba(165, 235, 156, 0.9)</textarea>
+    主色,背景<textarea id="ChangeColoe1" class="UpTxt">rgba(165, 235, 156, 0.9)</textarea>
     標題色<textarea id="ChangeColoe2" class="UpTxt">rgba(23, 139, 110, 0.9)</textarea>
     副色<textarea id="ChangeColoe3" class="UpTxt">rgb(255, 255, 255)</textarea>
     副色2<textarea id="ChangeColoe4" class="UpTxt">#999</textarea>
@@ -83,6 +82,13 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
   <button title="更新網站" style="font-size:24px" onclick="UserSendCodeToMe()">
     歡迎Amy姐  <i class="fa fa-cloud-upload"></i></button>
    <br/>
+
+
+   <p class="row"></p>
+   <iframe src ="Code.html" id="ifr1" name="ifr1">
+    <p>Your browser does not support iframes.</p>
+   </iframe>
+
 
 </div>
 
@@ -190,7 +196,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
   </div>
         <div class="item">
 		<div class="caption zoomIn wow animated"> 		 			 
-              <h2><textarea class="UpTxt">增值無限商機</textarea>增值無限商機</h2>
+              <h2><textarea class="UpTxt">增值無限商機</textarea>增值無限商機+qqqqqqqqqqqqqqqOKAKIILOGO</h2>
               </div>
         <img id="myImg2"  class="" src="AmyIMG/slide2.jpg" alt="">
         <p class="AdminIMGSetBox">
@@ -303,7 +309,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
             </p>
         </li>
 			  <li><textarea class="UpTxt">雪泥碳天然皂</textarea><a href="#product1" class="scroll-link">雪泥碳天然皂</a></li>
-			  <li><textarea class="UpTxt">健康天地</textarea><a href="#product2" class="scroll-link">健康天地	</a></li>
+			  <li><textarea class="UpTxt">抗疫禮包</textarea><a href="#myImg8" class="scroll-link">抗疫禮包	</a></li>
 			  <li><textarea class="UpTxt">okeapp免費廣告</textarea><a href="#okeapp" class="scroll-link">okeapp免費廣告</a></li> 
 			  <li><textarea class="UpTxt">關於我們</textarea><a href="#contact" class="scroll-link">關於我們</a></li> 
         |
@@ -382,21 +388,47 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
           <br/><br/><br/>
           <ul class="about-us-list">
             <li class="points"><textarea class="UpTxt">簡易登記程序</textarea>簡易登記程序</li> 
-            <li class="points"><textarea class="UpTxt">掃碼賺禮包</textarea>掃碼賺禮包</li>
-            <li class="points"><textarea class="UpTxt">並獲價值100元折扣券</textarea>並獲價值100元折扣券</li>
-            <li class="points"><textarea class="UpTxt">和10%至50%折扣優惠</textarea>和10%至50%折扣優惠</li>
+            <li class="points"><textarea class="UpTxt">下載OkaApp 參加遊戲 可獲贈禮包</textarea>下載OkaApp 參加遊戲 可獲贈禮包</li>
             <li class="points"><textarea class="UpTxt">特選商戶優惠</textarea>特選商戶優惠</li>
+            <li class="points"><textarea class="UpTxt">和10%至50%折扣優惠</textarea>和10%至50%折扣優惠</li>
+            
           </ul><!-- /.about-us-list -->
           <br/><br/>
-          <p><textarea class="UpTxt">下載OKEapp</textarea><a class="Aki_C2" href="https://zh.okepartners.com/" ><h1>下載OKEapp</h1></a></p>
+          <p><textarea class="UpTxt">下載OkeApp</textarea><a class="Aki_C2" href="https://zh.okepartners.com/" ><h1>qqqqqqqqqqqq轉大字//下載OkeApp</h1></a></p>
         </div>
+
+
+
+
+
+
+
+
+
 
         <div class="col-md-6">
           <div style="position: relative;"> 
+
+
+
+
+
+
+
+            
             <img id="myImg6" class="img-responsive" src="AmyIMG/增值無限商機.svg" align="">
             <p class="AdminIMGSetBox">
               Img6<br/>任何圖片網址，
               <input id="_myImg6" class="UpImg" type="text"/>
+
+
+
+
+
+
+
+
+
               <button onclick="ChangeIMG('_myImg6')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
               <textarea id="myImg6_" class="UpTxt" >AmyIMG/增值無限商機.svg</textarea>
               </p>
@@ -404,6 +436,13 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
          
           <div style="position: relative;"> 
             <img id="myImg7" class="img-responsive" src="AmyIMG/立即登記.svg" align=""  >
+
+
+
+
+
+
+
             <p class="AdminIMGSetBox">
               Img7<br/>任何圖片網址，
               <input id="_myImg7" class="UpImg" type="text"/>
@@ -488,71 +527,6 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
 
 
 
-
-<!-- AkiAdminBox0316 -->
-<!--適用任何年龄性別任何皮膚-->
-<section  id="service">
-  
-  <div class="container">
-    <h2><textarea class="UpTxt">適用任何年龄性別任何皮膚</textarea>適用任何年龄性別任何皮膚</h2>
-
-    <div class="col-md-12">
-      <video controls>
-        <source src="AmyIMG/v1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video>
-      </div>
-
-      <div class="row"></div>
-      <div class="service_wrapper">
-
-        <div class="row">
-          <div class="col-md-3">
-            <img id="myImg9" src="AmyIMG/s1.jpg" alt="Portfolio 1">
-            <p class="AdminIMGSetBox">
-              Img9<br/>任何圖片網址，
-              <input id="_myImg9" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg9')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <textarea id="myImg9_" class="UpTxt" >AmyIMG/s1.jpg</textarea>
-              </p>
-          </div>
-    
-          <div class="col-md-3">
-            <img id="myImg10" src="AmyIMG/s2.jpg" alt="Portfolio 1">
-            <p class="AdminIMGSetBox">
-              Img10<br/>任何圖片網址，
-              <input id="_myImg10" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg10')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <textarea id="myImg10_" class="UpTxt" >AmyIMG/s2.jpg</textarea>
-              </p>
-          </div>
-    
-          <div class="col-md-3">
-            <img id="myImg11" src="AmyIMG/s3.jpg" alt="Portfolio 1">
-            <p class="AdminIMGSetBox">
-              Img11<br/>任何圖片網址，
-              <input id="_myImg11" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg11')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <textarea id="myImg11_" class="UpTxt" >AmyIMG/s3.jpg</textarea>
-              </p>
-          </div>
-    
-          <div class="col-md-3">
-            <img id="myImg12" src="AmyIMG/s4.jpg" alt="Portfolio 1">
-            <p class="AdminIMGSetBox">
-              Img12<br/>任何圖片網址，
-              <input id="_myImg12" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg12')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <textarea id="myImg12_" class="UpTxt" >AmyIMG/s4.jpg</textarea>
-              </p>
-          </div>
-          
-
-
-  </div>
-</section>
-<!--適用任何年龄性別任何皮膚-->  
-<!-- /OK 03161353-->
 
 
 
@@ -656,6 +630,24 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
             </figure>
             <!-- Portfolio Item --> 
     
+
+
+
+      <!-- Portfolio Item-->
+      <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four nature web isotope-item effect-oscar">
+        <div class="portfolio_img"> 
+          <video controls>
+            <source src="AmyIMG/v2雪泥碳.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+
+          8秒封面
+          </video>
+         </div>
+      </figure>
+      <!-- Portfolio Item --> 
+
+
+
       <!-- Portfolio Item-->
       <figure style="position: absolute; left: 0px; top: 0px;transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  citylife isotope-item effect-oscar">
         <div class="portfolio_img"> <img id="myImg14" src="AmyIMG/h0.jpeg" alt="Portfolio 1"> 
@@ -734,6 +726,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
       </figure>
       <!-- Portfolio Item --> 
 
+
+
+
+
       <!-- Portfolio Item-->
       <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four nature web isotope-item effect-oscar">
         <div class="portfolio_img"> 
@@ -741,10 +737,6 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
             <source src="AmyIMG/v2雪泥碳.mp4" type="video/mp4">
           Your browser does not support the video tag.
           </video>
-
-
-          
-
          </div>
       </figure>
       <!-- Portfolio Item --> 
@@ -798,6 +790,93 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
 
 
 
+<!-- AkiAdminBox0316 -->
+<!--適用任何年龄性別任何皮膚-->
+<section  id="service">
+  
+  <div class="container">
+    <h2><textarea class="UpTxt">適用任何年龄性別任何皮膚</textarea>適用任何年龄性別任何皮膚</h2>
+
+
+      <div class="row"></div>
+      <div class="service_wrapper">
+
+        <div class="row">
+          <div class="col-md-3">
+            <img id="myImg9" src="AmyIMG/s1.jpg" alt="Portfolio 1">
+            <p class="AdminIMGSetBox">
+              Img9<br/>任何圖片網址，
+              <input id="_myImg9" class="UpImg" type="text"/>
+              <button onclick="ChangeIMG('_myImg9')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <textarea id="myImg9_" class="UpTxt" >AmyIMG/s1.jpg</textarea>
+              </p>
+          </div>
+    
+          <div class="col-md-3">
+            <img id="myImg10" src="AmyIMG/s2.jpg" alt="Portfolio 1">
+            <p class="AdminIMGSetBox">
+              Img10<br/>任何圖片網址，
+              <input id="_myImg10" class="UpImg" type="text"/>
+              <button onclick="ChangeIMG('_myImg10')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <textarea id="myImg10_" class="UpTxt" >AmyIMG/s2.jpg</textarea>
+              </p>
+          </div>
+    
+          <div class="col-md-3">
+            <img id="myImg11" src="AmyIMG/s3.jpg" alt="Portfolio 1">
+            <p class="AdminIMGSetBox">
+              Img11<br/>任何圖片網址，
+              <input id="_myImg11" class="UpImg" type="text"/>
+              <button onclick="ChangeIMG('_myImg11')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <textarea id="myImg11_" class="UpTxt" >AmyIMG/s3.jpg</textarea>
+              </p>
+          </div>
+    
+          <div class="col-md-3">
+            <img id="myImg12" src="AmyIMG/s4.jpg" alt="Portfolio 1">
+            <p class="AdminIMGSetBox">
+              Img12<br/>任何圖片網址，
+              <input id="_myImg12" class="UpImg" type="text"/>
+              <button onclick="ChangeIMG('_myImg12')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <textarea id="myImg12_" class="UpTxt" >AmyIMG/s4.jpg</textarea>
+              </p>
+          </div>
+          
+
+              
+        <div class="col-md-12">
+          <video controls>cut下isin//使用流程
+            <source src="AmyIMG/v1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+        </div>
+
+  </div>
+</section>
+<!--適用任何年龄性別任何皮膚-->  
+<!-- /OK 03161353-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!--Footer-->
@@ -811,7 +890,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
   <!-- AkiAdminBox0316 -->
       <ul class="florL">
         <li> <textarea class="UpTxt">雪泥碳天然皂</textarea><a href="#product1" class="scroll-link">雪泥碳天然皂</a></li>
-        <li> <textarea class="UpTxt">健康天地</textarea><a href="#product2" class="scroll-link">健康天地</a></li>
+        <li> <textarea class="UpTxt">抗疫禮包</textarea><a href="#myImg8" class="scroll-link">抗疫禮包</a></li>
         <li> <textarea class="UpTxt">okeapp免費廣告</textarea><a href="#okeapp" class="scroll-link">okeapp免費廣告</a></li>
         <li> <textarea class="UpTxt">關於我們</textarea><a href="#contact" class="scroll-link">關於我們</a></li>
       </ul>
@@ -841,7 +920,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
                             </div>
                             <div class="detail">
                               <h4><textarea class="UpTxt">Tel</textarea>Tel</h4>
-                              <p><textarea class="UpTxt">852-59328723</textarea>852-59328723</p>
+                              <p><textarea class="UpTxt">852-51679292</textarea>852-59328723</p>
                             </div>
                             <div class="detail">
                               <h4><textarea class="UpTxt">微信ID</textarea>微信ID</h4>

@@ -165,9 +165,9 @@ function copyText() {
     
           // change css
           $(css1).css("background",val1)
-          $(css2).css("background",val2)
-          $(css3).css("background",val3)
-          $(css4).css("background",val4)
+          $(css2).css("color",val2)
+          $(css3).css("color",val3)
+          $(css4).css("color",val4)
     
         }
 
@@ -196,17 +196,31 @@ function copyText() {
     // User網站更新
     function UserSendCodeToMe() {  
 
- 
+      console.log("ooooo")
+
+
+      console.log($("textarea[0]",document.frames('ifr1').document));
+
+      
+
+      //var data = _GetAllCode("textarea[class='UpTxt']")    // 取所有客修改內容
+      //var AllUserTxt = data.split(".,.")                   // 0~57  用.,.分隔取所有客修改內容
+
+
+      //var att = HtmlCode1+AllUserTxt[10]+HtmlCode2+AllUserTxt[0]+HtmlCode3+AllUserTxt[1]+HtmlCode4+AllUserTxt[2]+HtmlCode5+AllUserTxt[3]+HtmlCode6+AllUserTxt[4]+HtmlCode7+AllUserTxt[5]+HtmlCode8+dot+HtmlCode9+dot+HtmlCode10+AllUserTxt[6]+HtmlCode11+AllUserTxt[7]+HtmlCode12+dot+HtmlCode13+dot+HtmlCode14+AllUserTxt[8]+HtmlCode15+AllUserTxt[9]+HtmlCode16+dot+HtmlCode17+dot+HtmlCode18+AllUserTxt[10]+HtmlCode19+dot+HtmlCode20+dot+HtmlCode21+AllUserTxt[11]+HtmlCode22+AllUserTxt[12]+HtmlCode23+AllUserTxt[13]+HtmlCode24+AllUserTxt[14]+HtmlCode25+AllUserTxt[15]+HtmlCode26+AllUserTxt[16]+HtmlCode27+AllUserTxt[17]+HtmlCode28+dot+HtmlCode29+dot+HtmlCode30+AllUserTxt[18]+HtmlCode31+AllUserTxt[19]+HtmlCode32+AllUserTxt[20]+HtmlCode33+AllUserTxt[21]+HtmlCode34+AllUserTxt[22]+HtmlCode35+AllUserTxt[23]+HtmlCode36+AllUserTxt[24]+HtmlCode37+AllUserTxt[25]
+      //console.log("att")
+      //console.log(att)
 
 
       // 客修改內容 如有空 if ''
   
       
-      var data = _GetAllCode("textarea[class='UpTxt']")    // 取所有客修改內容
-      var AllUserTxt = data.split(".,.") // 用.,.分隔取所有客修改內容
+      
+      
+      
+     
 
-      console.log("data")
-      console.log(data)
+
     }
   
   
