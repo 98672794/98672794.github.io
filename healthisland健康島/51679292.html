@@ -29,7 +29,7 @@
   <!-- all txt = textareaHTML --><!-- 可選色,左中右 = ChangeCss -->
   <!-- AdminBox = UnZIPSee,GetCodeZip,ChangeCss,Send9867 -->
   <link rel="stylesheet" href="aki/aki.css" />
-
+  <script type="text/javascript" src="aki/aki0316.js"></script>
   <!-- Amy健康島 -->
   <!-- 修改色 -->
   <title>healthisland健康島</title>  <!-- Admin = User|客頁 -->
@@ -64,16 +64,28 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
 <body>
 
 
-<!-- 202203 mokaki input change all 
-<button title="歡迎admin" class="hiAdmin" onclick="GotoAdmin()">進入修改</button>-->
+
+  
 <div id="AkiAdmin">
   <!-- 加野 -->
+  <p>
+    主色<textarea id="ChangeColoe1" class="UpTxt">rgba(165, 235, 156, 0.9)</textarea>
+    標題色<textarea id="ChangeColoe2" class="UpTxt">rgba(23, 139, 110, 0.9)</textarea>
+    副色<textarea id="ChangeColoe3" class="UpTxt">rgb(255, 255, 255)</textarea>
+    副色2<textarea id="ChangeColoe4" class="UpTxt">#999</textarea>
+    <br/>
+    <a href="https://codepen.io/ikbbceme-the-sasster/full/eYyJxyN" target="_blank" >調色盤</a>
 
- 
+    <button style="font-size:24px" onclick="UserChangeCss()">換色</button>
+    <br/>
+  </p>
+
   <button title="更新網站" style="font-size:24px" onclick="UserSendCodeToMe()">
-  歡迎Amy姐  <i class="fa fa-cloud-upload"></i></button>
+    歡迎Amy姐  <i class="fa fa-cloud-upload"></i></button>
+   <br/>
 
 </div>
+
 
 
 
@@ -169,7 +181,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
     <input id="例Url_driveGoogle" onclick="copyText()" value="https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/">
     <input id="_myImg1" class="UpImg" type="text"/>
     <button onclick="ChangeIMG('_myImg1')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-    <input id="myImg1_" class="UpTxt" type="text"/>
+    <textarea id="myImg1_" class="UpTxt" >AmyIMG/slide1.jpg</textarea>
     </p>
 
 
@@ -185,7 +197,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
           Img2<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
         <input id="_myImg2" class="UpImg" type="text"/>
         <button onclick="ChangeIMG('_myImg2')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-        <input id="myImg2_" class="UpTxt" type="text"/>
+        <textarea id="myImg2_" class="UpTxt" >AmyIMG/slide2.jpg</textarea>
         </p>
       </div>
 
@@ -205,7 +217,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
               Img3<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
               <input id="_myImg3" class="UpImg" type="text"/>
               <button onclick="ChangeIMG('_myImg3')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <input id="myImg3_" class="UpTxt" type="text"/>
+              <textarea id="myImg3_" class="UpTxt" >AmyIMG/BG.png</textarea>
               </p>
             </div>
     </div>
@@ -287,7 +299,7 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
             Img4<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
             <input id="_myImg4" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg4')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-            <input id="myImg4_" class="UpTxt" type="text"/>
+            <textarea id="myImg4_" class="UpTxt" >AmyIMG/Amy健康島logo.png</textarea>
             </p>
         </li>
 			  <li><textarea class="UpTxt">雪泥碳天然皂</textarea><a href="#product1" class="scroll-link">雪泥碳天然皂</a></li>
@@ -360,10 +372,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
           <div style="position: relative;"> 
             <img id="myImg5" class="img-responsive" src="AmyIMG/馬上加盟.svg" align=""> 
             <p class="AdminIMGSetBox">
-              Img5<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+              Img5<br/>任何圖片網址，
               <input id="_myImg5" class="UpImg" type="text"/>
               <button onclick="ChangeIMG('_myImg5')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <input id="myImg5_" class="UpTxt" type="text"/>
+              <textarea id="myImg5_" class="UpTxt" >AmyIMG/馬上加盟.svg</textarea>
               </p>
           </div>
 
@@ -383,20 +395,20 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
           <div style="position: relative;"> 
             <img id="myImg6" class="img-responsive" src="AmyIMG/增值無限商機.svg" align="">
             <p class="AdminIMGSetBox">
-              Img6<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+              Img6<br/>任何圖片網址，
               <input id="_myImg6" class="UpImg" type="text"/>
               <button onclick="ChangeIMG('_myImg6')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <input id="myImg6_" class="UpTxt" type="text"/>
+              <textarea id="myImg6_" class="UpTxt" >AmyIMG/增值無限商機.svg</textarea>
               </p>
           </div>
          
           <div style="position: relative;"> 
             <img id="myImg7" class="img-responsive" src="AmyIMG/立即登記.svg" align=""  >
             <p class="AdminIMGSetBox">
-              Img7<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+              Img7<br/>任何圖片網址，
               <input id="_myImg7" class="UpImg" type="text"/>
               <button onclick="ChangeIMG('_myImg7')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <input id="myImg7_" class="UpTxt" type="text"/>
+              <textarea id="myImg7_" class="UpTxt" >AmyIMG/立即登記.svg</textarea>
               </p>
           </div>
 
@@ -410,10 +422,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
         <div class="col-md-12">
           <img id="myImg8"  src="AmyIMG/寶寶米抗疫禮包.png" align="">
           <p class="AdminIMGSetBox">
-            Img8<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            Img8<br/>任何圖片網址，
             <input id="_myImg8" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg8')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-            <input id="myImg8_" class="UpTxt" type="text"/>
+            <textarea id="myImg8_" class="UpTxt" >AmyIMG/寶寶米抗疫禮包.png</textarea>
             </p>
         </div>
 
@@ -498,40 +510,40 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
           <div class="col-md-3">
             <img id="myImg9" src="AmyIMG/s1.jpg" alt="Portfolio 1">
             <p class="AdminIMGSetBox">
-              Img9<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+              Img9<br/>任何圖片網址，
               <input id="_myImg9" class="UpImg" type="text"/>
               <button onclick="ChangeIMG('_myImg9')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <input id="myImg9_" class="UpTxt" type="text"/>
+              <textarea id="myImg9_" class="UpTxt" >AmyIMG/s1.jpg</textarea>
               </p>
           </div>
     
           <div class="col-md-3">
             <img id="myImg10" src="AmyIMG/s2.jpg" alt="Portfolio 1">
             <p class="AdminIMGSetBox">
-              Img10<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+              Img10<br/>任何圖片網址，
               <input id="_myImg10" class="UpImg" type="text"/>
               <button onclick="ChangeIMG('_myImg10')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <input id="myImg10_" class="UpTxt" type="text"/>
+              <textarea id="myImg10_" class="UpTxt" >AmyIMG/s2.jpg</textarea>
               </p>
           </div>
     
           <div class="col-md-3">
             <img id="myImg11" src="AmyIMG/s3.jpg" alt="Portfolio 1">
             <p class="AdminIMGSetBox">
-              Img11<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+              Img11<br/>任何圖片網址，
               <input id="_myImg11" class="UpImg" type="text"/>
               <button onclick="ChangeIMG('_myImg11')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <input id="myImg11_" class="UpTxt" type="text"/>
+              <textarea id="myImg11_" class="UpTxt" >AmyIMG/s3.jpg</textarea>
               </p>
           </div>
     
           <div class="col-md-3">
             <img id="myImg12" src="AmyIMG/s4.jpg" alt="Portfolio 1">
             <p class="AdminIMGSetBox">
-              Img12<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+              Img12<br/>任何圖片網址，
               <input id="_myImg12" class="UpImg" type="text"/>
               <button onclick="ChangeIMG('_myImg12')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-              <input id="myImg12_" class="UpTxt" type="text"/>
+              <textarea id="myImg12_" class="UpTxt" >AmyIMG/s4.jpg</textarea>
               </p>
           </div>
           
@@ -635,10 +647,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
               <div class="portfolio_img"> 
                 <img id="myImg13" src="AmyIMG/BG.png" alt="">
                 <p class="AdminIMGSetBox">
-                  Img13<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+                  Img13<br/>任何圖片網址，
                   <input id="_myImg13" class="UpImg" type="text"/>
                   <button onclick="ChangeIMG('_myImg13')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-                  <input id="myImg13_" class="UpTxt" type="text"/>
+                  <textarea id="myImg13_" class="UpTxt" >AmyIMG/BG.png</textarea>
                   </p>
                </div>
             </figure>
@@ -648,10 +660,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
       <figure style="position: absolute; left: 0px; top: 0px;transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  citylife isotope-item effect-oscar">
         <div class="portfolio_img"> <img id="myImg14" src="AmyIMG/h0.jpeg" alt="Portfolio 1"> 
           <p class="AdminIMGSetBox">
-            Img14<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            Img14<br/>任何圖片網址，
             <input id="_myImg14" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg14')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-            <input id="myImg14_" class="UpTxt" type="text"/>
+            <textarea id="myImg14_" class="UpTxt" >AmyIMG/h0.jpeg</textarea>
             </p>
         </div>
         </figure>
@@ -661,10 +673,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
       <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  citylife  isotope-item effect-oscar">
         <div class="portfolio_img"> <img id="myImg15" src="AmyIMG/h1.jpeg" alt="Portfolio 1">
           <p class="AdminIMGSetBox">
-            Img15<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            Img15<br/>任何圖片網址，
             <input id="_myImg15" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg15')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-            <input id="myImg15_" class="UpTxt" type="text"/>
+            <textarea id="myImg15_" class="UpTxt" >AmyIMG/h1.jpeg</textarea>
             </p> </div>
         </figure>
       <!--/Portfolio Item--> 
@@ -673,10 +685,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
       <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  citylife web isotope-item effect-oscar">
         <div class="portfolio_img"> <img id="myImg16" src="AmyIMG/h2.jpeg" alt="Portfolio 1"> 
           <p class="AdminIMGSetBox">
-            Img16<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            Img16<br/>任何圖片網址，
             <input id="_myImg16" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg16')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-            <input id="myImg16_" class="UpTxt" type="text"/>
+            <textarea id="myImg16_" class="UpTxt" >AmyIMG/h2.jpeg</textarea>
             </p></div>               
        </figure>
       <!--/Portfolio Item --> 
@@ -686,10 +698,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
         <div class="portfolio_img"> 
           <img id="myImg17" src="AmyIMG/h3.jpeg" alt="">
           <p class="AdminIMGSetBox">
-            Img17<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            Img17<br/>任何圖片網址，
             <input id="_myImg17" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg17')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-            <input id="myImg17_" class="UpTxt" type="text"/>
+            <textarea id="myImg17_" class="UpTxt" >AmyIMG/h3.jpeg</textarea>
             </p>
          </div>
       </figure>
@@ -699,10 +711,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
       <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  citylife isotope-item effect-oscar">
         <div class="portfolio_img"> <img id="myImg18" src="AmyIMG/h4.jpeg" alt="Portfolio 1">
           <p class="AdminIMGSetBox">
-            Img18<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            Img18<br/>任何圖片網址，
             <input id="_myImg18" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg18')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-            <input id="myImg18_" class="UpTxt" type="text"/>
+            <textarea id="myImg18_" class="UpTxt" >AmyIMG/h4.jpeg</textarea>
             </p> </div>
  
       </figure>
@@ -713,10 +725,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
         <div class="portfolio_img"> 
           <img id="myImg19" src="AmyIMG/h5.jpeg" alt="">
           <p class="AdminIMGSetBox">
-            Img19<br/>任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            Img19<br/>任何圖片網址，
             <input id="_myImg19" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg19')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-            <input id="myImg19_" class="UpTxt" type="text"/>
+            <textarea id="myImg19_" class="UpTxt" >AmyIMG/h5.jpeg</textarea>
             </p>
          </div>
       </figure>
@@ -815,10 +827,10 @@ a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a{
                               <h4 style="float: right;position: relative;">
                                 <img id="myImg21" class="logo2" src="AmyIMG/qr.jpg"  title="健康島wechat" alt="" />
                                 <p class="AdminIMGSetBox">
-                                  任何圖片網址，例: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+                                  任何圖片網址，
                                   <input id="_myImg21" class="UpImg" type="text"/>
                                   <button onclick="ChangeIMG('_myImg21')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
-                                  <input id="myImg21_" class="UpTxt" type="text"/>
+                                  <textarea id="myImg21_" class="UpTxt" >AmyIMG/qr.jpg</textarea>
                                   </p>
                               </h4>
                             </div>

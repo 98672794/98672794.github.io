@@ -90,98 +90,39 @@ function copyText() {
 
 
 
-// user input the img url, we change to be turn html api code
-    //https://www.linkedin.com/posts/williamhgates_how-to-help-refugees-aid-relief-and-donations-activity-6907410866245914624-eaMd
-    //73 sugar发布了一篇小红书笔记，快来看吧！ 😆 Wi2eKd52y4RDgNa 😆 http://xhslink.com/sA5Zcg，复制本条信息，打开【小红书】App查看精彩内容！
-    //7.66 GVL:/   https://v.douyin.com/NjQAh2A/ 复制此链接，打开Dou音搜索，直接观看视频！
-    //https://twitter.com/teslaownersSV/status/1501675466511433732?t=BQrsMYStbEcaZ2g__Caqig&s=19
-    //https://m.facebook.com/story.php?story_fbid=1416333865493440&id=100013505203886&sfnsn=mo
-    //https://youtu.be/WprE6NvGlGA
-    //https://linevoom.line.me/post/_dQaZLNM1vIpHI7r3oyLmSAcAh6qSp1OKLaz92l4/1164666160509083989
-    //點按此連結即可在 WhatsApp 瀏覽我們的商品：https://wa.me/p/5826448410763231/85298672794
-    //https://photos.app.goo.gl/CAAj5auk4rEEvbu88
-    //https://www.instagram.com/p/Ca1wc3ovlS5/?utm_medium=copy_link
-
-    function _InputSel(imgurl) {
-      // if google drive url
-      let googleIMG = 'https://drive.google.com/file/d/'  // user 共用 google drive img url
-      if (imgurl.indexOf(googleIMG) != -1){
-        let turnImgUrl = 'https://drive.google.com/uc?export=download&id=' // can in html img url
-        let dsds = imgurl.split("/")  // dsds[5] = google drive img id
-        turnImgUrl = turnImgUrl + dsds[5]
-        //alert(turnImgUrl)
-        return turnImgUrl
-      }
-      // other img
-      else{
-        return imgurl
-      }
-    }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    //<button onclick to this
-    function ChangeIMG(imgNb) { 
-      //alert(imgNb.substr(1))
-      let imgUrl = document.getElementById(imgNb).value // imgNb input is img url
-      if (imgUrl != ''){  // if have data
-        let turnImgUrl = document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = _myImg123 ~> myImg123  | _InputSel(imgUrl) return imgurl
-        
-        // turnImgUrl UpTxt
-        let turnImgUrlBox = "#" + imgNb.substr(1) + "_"
-        $(turnImgUrlBox).val(turnImgUrl)
-      }
-    }
-
-
-
-
-
-    //即時监听输入 Change css
-    function UserChangeCss() {  
-          // 取色碼
-          var val1 = $("#ChangeColoe1").val()
-          var val2 = $("#ChangeColoe2").val()
-          var val3 = $("#ChangeColoe3").val()
-          var val4 = $("#ChangeColoe4").val()
-    
-          var css1 = ".carousel-indicators .active,.img-responsive,#filters ul li a:hover h5,#filters ul li a.active h5,.footer_wrapper,.top-navbar .nav > li > a:hover, .top-navbar .nav > li > a:focus,#header_wrapper,#service"
-          var css2 = ".navbar-inverse .navbar-nav > li > a:hover,a:hover,.pinterest a:hover,#filters ul li a:hover h5, #filters ul li a.active h5,.about-us .points:before,.Aki_C2,.fa-cart-arrow-down,.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus"
-          var css3 = "a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a"
-          var css4 = ".contact_info p"
-    
-          // change css
-          $(css1).css("background",val1)
-          $(css2).css("background",val2)
-          $(css3).css("background",val3)
-          $(css4).css("background",val4)
-    
-        }
 
 
 
   // all 文字 內容取  202203110101OK
   function _GetAllCode(HaHa_getElementsBy) {   
-    var cont = ".,."
-    var list=$(HaHa_getElementsBy)  // 取文字內容
-    var allTxt = "" // 建立字串 用於取all文
-    for(var i=0;i<list.length;i++){ // loop + 字
-      allTxt = allTxt + list[i].value  + cont
-      
-      //console.log(list[i].value )
+
+    console.log("_GetAllCode")
+    console.log(HaHa_getElementsBy)
+
+    
+    console.log($(HaHa_getElementsBy).val())
+    console.log("//////_GetAllCode")
+
+    let cont = ".,."
+    let list=$(HaHa_getElementsBy)  // 取文字內容
+    let allTxt = "" // 建立字串 用於取all文
+    for(let i=0;i<list.length;i++){ // loop + 字
+
+      // 不同html tat轉
+      if (HaHa_getElementsBy == ".UpTxt"){ // .UpTxt = textarea = innerHTML
+        allTxt = allTxt + list[i].innerHTML + cont
+      }
+
+      if (HaHa_getElementsBy == ".UpImg"){ // .UpImg = input = value
+        allTxt = allTxt + list[i].value + cont
+      }
+      else {allTxt = allTxt + list[i].innerHTML + cont}
+
       }
       //console.log(allTxt)
       return allTxt
@@ -196,13 +137,10 @@ function copyText() {
     // User網站更新
     function UserSendCodeToMe() {  
 
- 
-
-
       // 客修改內容 如有空 if ''
   
       
-      var data = _GetAllCode("textarea[class='UpTxt']")    // 取所有客修改內容
+      var data = _GetAllCode(".UpTxt")    // 取所有客修改內容
       var AllUserTxt = data.split(".,.") // 用.,.分隔取所有客修改內容
 
       console.log("data")
@@ -262,6 +200,65 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
 
+
+
+
+
+// user input the img url, we change to be turn html api code
+    //https://www.linkedin.com/posts/williamhgates_how-to-help-refugees-aid-relief-and-donations-activity-6907410866245914624-eaMd
+    //73 sugar发布了一篇小红书笔记，快来看吧！ 😆 Wi2eKd52y4RDgNa 😆 http://xhslink.com/sA5Zcg，复制本条信息，打开【小红书】App查看精彩内容！
+    //7.66 GVL:/   https://v.douyin.com/NjQAh2A/ 复制此链接，打开Dou音搜索，直接观看视频！
+    //https://twitter.com/teslaownersSV/status/1501675466511433732?t=BQrsMYStbEcaZ2g__Caqig&s=19
+    //https://m.facebook.com/story.php?story_fbid=1416333865493440&id=100013505203886&sfnsn=mo
+    //https://youtu.be/WprE6NvGlGA
+    //https://linevoom.line.me/post/_dQaZLNM1vIpHI7r3oyLmSAcAh6qSp1OKLaz92l4/1164666160509083989
+    //點按此連結即可在 WhatsApp 瀏覽我們的商品：https://wa.me/p/5826448410763231/85298672794
+    //https://photos.app.goo.gl/CAAj5auk4rEEvbu88
+    //https://www.instagram.com/p/Ca1wc3ovlS5/?utm_medium=copy_link
+
+    function _InputSel(imgurl) {
+      // if google drive url
+      let googleIMG = 'https://drive.google.com/file/d/'  // user 共用 google drive img url
+      if (imgurl.indexOf(googleIMG) != -1){
+        let turnImgUrl = 'https://drive.google.com/uc?export=download&id=' // can in html img url
+        let dsds = imgurl.split("/")  // dsds[5] = google drive img id
+        turnImgUrl = turnImgUrl + dsds[5]
+        //alert(turnImgUrl)
+        return turnImgUrl
+      }
+      // other img
+      else{
+        return imgurl
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //<button onclick to this
+    function ChangeIMG(imgNb) { 
+      //alert(imgNb.substr(1))
+      let imgUrl = document.getElementById(imgNb).value // imgNb input is img url
+      if (imgUrl != ''){  // if have data
+        let turnImgUrl = document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = _myImg123 ~> myImg123  | _InputSel(imgUrl) return imgurl
+        
+        // turnImgUrl UpTxt
+        let turnImgUrlBox = "#" + imgNb.substr(1) + "_"
+        $(turnImgUrlBox).val(turnImgUrl)
+      }
+    }
 
 
 

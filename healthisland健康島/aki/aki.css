@@ -7,14 +7,16 @@
 
 
 /* admin box 0315 */
-#AkiAdmin{position: fixed;top: 25%;left: 0;width: auto;height: auto;opacity: .3; color: rgba(165, 235, 156, 0.9);
+#AkiAdmin{position: fixed;top: 25%;left: -41%;width: auto;height: auto;
+  opacity: .3; color: rgba(165, 235, 156, 0.9);
   padding: .1%;
   border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  justify-content: center; align-items: center;/* https://eudora.cc/posts/31492/ */ }
-#AkiAdmin:hover{opacity: 1; }
-    /* 修改頁css */
+  border-bottom-right-radius: 5px; 
+  justify-content: center; align-items: center;/* https://eudora.cc/posts/31492/ */
+ }
+#AkiAdmin:hover{opacity: 1;left: 0; }
 
+#AkiAdmin textarea{position: relative;opacity: 1;display: block;left: 0; }
 
     
 
@@ -29,10 +31,7 @@
 
 .UpTxt:hover{opacity: 1; }
 
-/* turnImgUrl */
-input[class='UpTxt']{
-  opacity: 0;pointer-events: none/*https://www.html.cn/qa/css3/18387.html*/;
-  *height: 1px;width: 1px;}
+
 
 /* // user input the img url */
  .AdminIMGSetBox{  opacity: 0.1; color: rgba(165, 235, 156, 0.9); position: absolute;
@@ -44,9 +43,11 @@ input[class='UpTxt']{
 width: 90%;height: 100%;right: 5%;left: 5%;top: 5%;bottom: 5%;border-radius:0 5vw 0 5vw;}
   
 /* // hi user  */
-#AkiAdmin,.UpTxt,.AdminIMGSetBox{z-index: 333;}
+#AkiAdmin,.UpTxt,.AdminIMGSetBox{z-index: 33333;}
 
-
+/* turnImgUrl */
+.AdminIMGSetBox textarea[class='UpTxt']{
+  opacity: 0;pointer-events: none/*https://www.html.cn/qa/css3/18387.html*/;height: 1px;width: 1px;}
 
 
 
