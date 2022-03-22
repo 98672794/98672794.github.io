@@ -22,12 +22,61 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- head body = aki AdminBox 2022 03061317 03181057 -->
 
   <!-- all txt = textareaHTML --><!-- 可選色,左中右 = ChangeCss -->
   <!-- AdminBox = UnZIPSee,GetCodeZip,ChangeCss,Send9867 -->
   <link rel="stylesheet" href="aki/aki.css" />
   <script type="text/javascript" src="aki/aki0316.js"></script>
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><!-- WsIcon --> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!-- palette -->
+
   <!-- Amy健康島 -->
   <!-- 修改色 -->
   <title>healthisland健康島</title>  <!-- Admin = User|客頁 -->
@@ -47,15 +96,11 @@
 }
 
 /* 副色 */
-.detail p,a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a,.florL li{
+.detail p,a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a,.florL li,#google_translate_element_1,.contact_info p{
   color:  rgb(228, 0, 0);}
 
-/* 副色2 */
-.contact_info p{color:  rgb(228, 0, 0);}
- 
  .detail h4{color:  rgb(75, 159, 255) ;}
-</style>
-
+</style> 
 
 <!-- 主頁廣告位 -->
 <!-- /aki 2022 03110037 -->
@@ -66,27 +111,36 @@
 
   
 <div id="AkiAdmin">
-  <!-- 加野 -->
+  
+
+
   <p>
+    <!-- 加野 -->
+
+
+
     主色,背景<textarea id="ChangeColoe1" class="UpTxt">rgba(165, 235, 156, 0.9)</textarea>
     標題色<textarea id="ChangeColoe2" class="UpTxt">rgba(23, 139, 110, 0.9)</textarea>
     副色<textarea id="ChangeColoe3" class="UpTxt">rgb(255, 255, 255)</textarea>
     副色2<textarea id="ChangeColoe4" class="UpTxt">#999</textarea>
     <br/>
-    <a href="https://codepen.io/ikbbceme-the-sasster/full/eYyJxyN" target="_blank" >調色盤</a>
+    
+    <a href="https://codepen.io/ikbbceme-the-sasster/full/eYyJxyN" target="_blank" >
+      <i class="material-icons" style="font-size:42px;line-height: 50px;color:rgb(238, 255, 0);">palette</i>
+    </a>
 
-    <button style="font-size:24px" onclick="UserChangeCss()">換色</button>
+    <a onclick="UserChangeCss()"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
     <br/>
   </p>
 
-  <button title="更新網站" style="font-size:24px" onclick="UserSendCodeToMe()">
+  <button title="更新網站" style="font-size:24px;" onclick="UserSendCodeToMe()">
     歡迎Amy姐  <i class="fa fa-cloud-upload"></i></button>
-   <br/>
+
 
 
    <p class="row"></p>
-   <iframe src ="Code.html" id="ifr1" name="ifr1">
-    <p>Your browser does not support iframes.</p>
+   <iframe src ="Code.html" id="ifr1">
+    <p>display: none Juse for userJS get code </p>
    </iframe>
 
 
@@ -186,7 +240,7 @@
       Img1<br/>任何圖片網址，例 google drive: 
     <input id="例Url_driveGoogle" onclick="copyText()" value="https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/">
     <input id="_myImg1" class="UpImg" type="text"/>
-    <button onclick="ChangeIMG('_myImg1')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+    <button onclick="ChangeIMG('_myImg1')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
     <textarea id="myImg1_" class="UpTxt" >AmyIMG/slide1.jpg</textarea>
     </p>
 
@@ -202,7 +256,7 @@
         <p class="AdminIMGSetBox">
           Img2<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
         <input id="_myImg2" class="UpImg" type="text"/>
-        <button onclick="ChangeIMG('_myImg2')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+        <button onclick="ChangeIMG('_myImg2')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
         <textarea id="myImg2_" class="UpTxt" >AmyIMG/slide2.jpg</textarea>
         </p>
       </div>
@@ -222,7 +276,7 @@
              <p class="AdminIMGSetBox">
               Img3<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
               <input id="_myImg3" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg3')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <button onclick="ChangeIMG('_myImg3')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               <textarea id="myImg3_" class="UpTxt" >AmyIMG/BG.png</textarea>
               </p>
             </div>
@@ -304,7 +358,7 @@
           <p class="AdminIMGSetBox">
             Img4<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
             <input id="_myImg4" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg4')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+            <button onclick="ChangeIMG('_myImg4')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg4_" class="UpTxt" >AmyIMG/Amy健康島logo.png</textarea>
             </p>
         </li>
@@ -380,7 +434,7 @@
             <p class="AdminIMGSetBox">
               Img5<br/>任何圖片網址，
               <input id="_myImg5" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg5')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <button onclick="ChangeIMG('_myImg5')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               <textarea id="myImg5_" class="UpTxt" >AmyIMG/馬上加盟.svg</textarea>
               </p>
           </div>
@@ -429,7 +483,7 @@
 
 
 
-              <button onclick="ChangeIMG('_myImg6')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <button onclick="ChangeIMG('_myImg6')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               <textarea id="myImg6_" class="UpTxt" >AmyIMG/增值無限商機.svg</textarea>
               </p>
           </div>
@@ -446,7 +500,7 @@
             <p class="AdminIMGSetBox">
               Img7<br/>任何圖片網址，
               <input id="_myImg7" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg7')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <button onclick="ChangeIMG('_myImg7')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               <textarea id="myImg7_" class="UpTxt" >AmyIMG/立即登記.svg</textarea>
               </p>
           </div>
@@ -463,7 +517,7 @@
           <p class="AdminIMGSetBox">
             Img8<br/>任何圖片網址，
             <input id="_myImg8" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg8')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+            <button onclick="ChangeIMG('_myImg8')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg8_" class="UpTxt" >AmyIMG/寶寶米抗疫禮包.png</textarea>
             </p>
         </div>
@@ -623,7 +677,7 @@
                 <p class="AdminIMGSetBox">
                   Img13<br/>任何圖片網址，
                   <input id="_myImg13" class="UpImg" type="text"/>
-                  <button onclick="ChangeIMG('_myImg13')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+                  <a onclick="ChangeIMG('_myImg13')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
                   <textarea id="myImg13_" class="UpTxt" >AmyIMG/BG.png</textarea>
                   </p>
                </div>
@@ -639,8 +693,6 @@
           <video controls poster="AmyIMG/v2_logo.png">
             <source src="AmyIMG/v2雪泥碳.mp4" type="video/mp4">
           Your browser does not support the video tag.
-
-          8秒封面
           </video>
          </div>
       </figure>
@@ -654,7 +706,7 @@
           <p class="AdminIMGSetBox">
             Img14<br/>任何圖片網址，
             <input id="_myImg14" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg14')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+            <button onclick="ChangeIMG('_myImg14')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg14_" class="UpTxt" >AmyIMG/h0.jpeg</textarea>
             </p>
         </div>
@@ -667,7 +719,7 @@
           <p class="AdminIMGSetBox">
             Img15<br/>任何圖片網址，
             <input id="_myImg15" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg15')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+            <button onclick="ChangeIMG('_myImg15')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg15_" class="UpTxt" >AmyIMG/h1.jpeg</textarea>
             </p> </div>
         </figure>
@@ -679,7 +731,7 @@
           <p class="AdminIMGSetBox">
             Img16<br/>任何圖片網址，
             <input id="_myImg16" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg16')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+            <button onclick="ChangeIMG('_myImg16')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg16_" class="UpTxt" >AmyIMG/h2.jpeg</textarea>
             </p></div>               
        </figure>
@@ -692,7 +744,7 @@
           <p class="AdminIMGSetBox">
             Img17<br/>任何圖片網址，
             <input id="_myImg17" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg17')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+            <button onclick="ChangeIMG('_myImg17')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg17_" class="UpTxt" >AmyIMG/h3.jpeg</textarea>
             </p>
          </div>
@@ -705,7 +757,7 @@
           <p class="AdminIMGSetBox">
             Img18<br/>任何圖片網址，
             <input id="_myImg18" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg18')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+            <button onclick="ChangeIMG('_myImg18')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg18_" class="UpTxt" >AmyIMG/h4.jpeg</textarea>
             </p> </div>
  
@@ -719,7 +771,7 @@
           <p class="AdminIMGSetBox">
             Img19<br/>任何圖片網址，
             <input id="_myImg19" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg19')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+            <button onclick="ChangeIMG('_myImg19')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg19_" class="UpTxt" >AmyIMG/h5.jpeg</textarea>
             </p>
          </div>
@@ -797,7 +849,7 @@
             <p class="AdminIMGSetBox">
               Img9<br/>任何圖片網址，
               <input id="_myImg9" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg9')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <button onclick="ChangeIMG('_myImg9')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               <textarea id="myImg9_" class="UpTxt" >AmyIMG/s1.jpg</textarea>
               </p>
           </div>
@@ -807,7 +859,7 @@
             <p class="AdminIMGSetBox">
               Img10<br/>任何圖片網址，
               <input id="_myImg10" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg10')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <button onclick="ChangeIMG('_myImg10')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               <textarea id="myImg10_" class="UpTxt" >AmyIMG/s2.jpg</textarea>
               </p>
           </div>
@@ -817,7 +869,7 @@
             <p class="AdminIMGSetBox">
               Img11<br/>任何圖片網址，
               <input id="_myImg11" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg11')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <button onclick="ChangeIMG('_myImg11')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               <textarea id="myImg11_" class="UpTxt" >AmyIMG/s3.jpg</textarea>
               </p>
           </div>
@@ -827,7 +879,7 @@
             <p class="AdminIMGSetBox">
               Img12<br/>任何圖片網址，
               <input id="_myImg12" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg12')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+              <button onclick="ChangeIMG('_myImg12')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               <textarea id="myImg12_" class="UpTxt" >AmyIMG/s4.jpg</textarea>
               </p>
           </div>
@@ -895,10 +947,10 @@
 
                               <h4 style="float: right;position: relative;">
                                 <img id="myImg21" class="logo2" src="AmyIMG/qr.jpg"  title="健康島wechat" alt="" />
-                                <p class="AdminIMGSetBox">
+                                <p class="AdminIMGSetBox" style="display: none;">
                                   任何圖片網址，
                                   <input id="_myImg21" class="UpImg" type="text"/>
-                                  <button onclick="ChangeIMG('_myImg21')"><i class="fa fa-external-link-square" style="font-size:48px;"></i></button>
+                                  <button onclick="ChangeIMG('_myImg21')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
                                   <textarea id="myImg21_" class="UpTxt" >AmyIMG/qr.jpg</textarea>
                                   </p>
                               </h4>
@@ -924,7 +976,7 @@
               
           <ul class="social_links">
             <li class="pinterest animated bounceIn wow delay-04s">
-              <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><!-- WsIcon --> 
+              
               <textarea class="UpTxt">85259328723?text=健康島Amy您好查詢雪泥碳天然皂</textarea><a href="https://wa.me/85259328723?text=健康島Amy您好查詢雪泥碳天然皂"><i class="fa fa-whatsapp fa-2x"></i></a> 
             </li> 
             <li class="">

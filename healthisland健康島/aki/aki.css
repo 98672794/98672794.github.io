@@ -18,7 +18,8 @@
 
 #AkiAdmin textarea{position: relative;opacity: 1;display: block;left: 0; }
 
-    
+#AkiAdmin iframe{display: none;}
+
 
 /* // all 文字 內容取 */
 .UpTxt{ 
@@ -114,7 +115,7 @@ video{width: 100%;height: 100%;}
 h2,h5{position: relative;}
 
 
-.detail p,.florL li,.navbar-inverse .navbar-nav > li > a{
+.detail p,.florL li,.navbar-inverse .navbar-nav > li > a,#google_translate_element_1{
   font-size: 30px;
   font-weight: 100;
   
