@@ -1,13 +1,6 @@
 
 
 
-// 202203122124 mokaki.js會員系統 98672794  
-
-//// 此函数接收３个参数：元素对象，属性名，属性值，把值赋给属性   var changeStyle = function (elem, name, value) {elem.style[name] = value;}
-
-
-//// 只能點btn用 不能直load   
-//  function _changeStyle(css, name, value) {    let ok = $('#AkiAdmin').css('width', '600px')    return ok }
 
 
 
@@ -22,14 +15,154 @@
 
 
 
+// 202203161207 mokaki.js會員系統 98672794  
 
-// Js Base64 字符串 加密、解密 https://developer.mozilla.org/en-US/docs/Glossary/Base64
-function utf8_to_b64( str ) {   return window.btoa(unescape(encodeURIComponent( str )));  }
-function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( str )));  }
+
+
+
+
+
+
+
+
+
+  
+//////////////////////////////
+//////////////////////////////
+/////////// onload ///////////
+//////////////////////////////
+//////////////////////////////
+
+
+
+
+// 讓網頁一開始就執行js https://www.zymseo.com/big5/program_250447
+window.onload=isAutoRun();//將代碼綁定到window.onload事件
+function isAutoRun(){
+
+  // user login 
+  // display adminPage if user //////////////////////
+  if (location.href.indexOf('51679292') != -1){
+    console.log("user login!")
+
+    // display Admin Box
+    $("#AkiAdmin").css("display", "flex")
+    $(".UpTxt,.AdminIMGSetBox").css("display", "block")
+
+    // all target=new page,save change data time
+    $("a").attr("target","_blank") // 修改a https://blog.csdn.net/bfboys/article/details/52810081
+
+    // get this page all html code
+      $('#ifr1').load(function(){
+        var $iframe = $(this), 
+          $contents = $iframe.contents();
+          var cc =$contents.find('.HtmlCode')
+
+        // 取得 iframe 中的元素 //https://abgne.tw/jquery/jquery-tips/jquery-access-iframe-element-func.html
+          HtmlCode = _GetAllCode(cc)
+          HtmlCode = HtmlCode.replaceAll('-0-','<')// https://www.fooish.com/javascript/string/replace.html
+          HtmlCode = HtmlCode.replaceAll('\n','')// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
+          HtmlCode = HtmlCode.split(".,.")
+      });
+
+
+
+
     
 
+  }
+
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////
+//////////////////////////////
+///////////// GET ////////////
+//////////////////////////////
+//////////////////////////////
+
+//qqq myImg1 just
+// js 实现点击按钮复制文本 
+// https://blog.csdn.net/qq_43506222/article/details/106373663
+function copyText() {
+  //var txt = $("#例Url_driveGoogle").val
+      $("#例Url_driveGoogle").select();
+      try {var state = document.execCommand("copy");}
+      catch(err){var state = false;}
+      if(state){
+        alert("複製成功\n");
+      }else{
+        alert("复制失败");
+      }
+  }  
 
 
 
@@ -70,12 +203,108 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
 
+  // all 文字 內容取  202203110101OK
+  function _GetAllCode(HaHa_getElementsBy) {   
+    var cont = ".,."
+    var list=$(HaHa_getElementsBy)  // 取文字內容
+    var allTxt = "" // 建立字串 用於取all文
+    for(var i=0;i<list.length;i++){ // loop + 字
+      allTxt = allTxt + list[i].value  + cont
+      
+      //console.log(list[i].value )
+      }
+      //console.log(allTxt)
+      return allTxt
+  }
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////
+//////////////////////////////
+/////////// Change ///////////
+//////////////////////////////
+//////////////////////////////
+
+
+// Js Base64 字符串 加密、解密 https://developer.mozilla.org/en-US/docs/Glossary/Base64
+function utf8_to_b64( str ) {   return window.btoa(unescape(encodeURIComponent( str )));  }
+function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( str )));  }
+    
+
+
+
+
+    //即時监听输入 Change css
+    function UserChangeCss() { //奉奉奉奉奉奉qqqqqqqqqqqqqqqqqqqqqqqqqqqq 
+      // 取色碼
+      var val1 = $("#ChangeColoe1").val()
+      var val2 = $("#ChangeColoe2").val()
+      var val3 = $("#ChangeColoe3").val()
+      var val4 = $("#ChangeColoe4").val()
+
+      //奉奉奉奉奉奉qqqqqqqqqqqqqqqqqqqqqqqqqqqq 
+      var 主色 = ".carousel-indicators .active,.img-responsive,#filters ul li a:hover h5, #filters ul li a.active h5,.footer_wrapper,.top-navbar .nav > li > a:hover, .top-navbar .nav > li > a:focus,#header_wrapper,#service"
+      var 標題色 = ".navbar-inverse .navbar-nav > li > a:hover,a:hover,.pinterest a:hover,#filters ul li a:hover h5, #filters ul li a.active h5,.about-us .points:before,.Aki_C2,.fa-cart-arrow-down,.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus"
+      var 副色 = ".detail p,a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a,.florL li,#google_translate_element_1,.contact_info p"
+      var 副色2 = ".detail h4"
+//奉奉奉奉奉奉qqqqqqqqqqqqqqqqqqqqqqqqqqqq 
+
+      // change css
+      $(主色).css("background",val1)
+      $(標題色).css("color",val2)
+      $(副色).css("color",val3)
+      $(副色2).css("color",val4)
+
+
+
+    }
 
 
     //<button onclick to this
@@ -83,16 +312,32 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
       //alert(imgNb.substr(1))
       let imgUrl = document.getElementById(imgNb).value // imgNb input is img url
       if (imgUrl != ''){  // if have data
-        //let turnImgUrl2 = 
-        document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = _myImg123 ~> myImg123  | _InputSel(imgUrl) return imgurl
-        //不需 來再_InputSel
-        //$("#AkiAdmin textarea").html(turnImgUrl2)
+        let turnImgUrl = document.getElementById(imgNb.substr(1)).src = _InputSel(imgUrl) // imgNb.substr(1) = imgNb[1:] = _myImg123 ~> myImg123  | _InputSel(imgUrl) return imgurl
+        
+        // turnImgUrl UpTxt
+        let turnImgUrlBox = "#" + imgNb.substr(1) + "_"
+        $(turnImgUrlBox).val(turnImgUrl)
       }
     }
 
 
 
 
+  // googleTranslate
+  function googleTranslateElementInit_TWToCN() {
+    // 限版
+    // <div id="google_translate_element_簡"></div>
+    // // https://www.w3schools.com/howto/howto_google_translate.asp
+    // https://stackoverflow.com/a/60884979/8008799
+    // GList https://cloud.google.com/translate/docs/languages
+    new google.translate.TranslateElement({pageLanguage: 'zh-TW', includedLanguages: 'zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false},
+     'google_translate_element_1');
+    }
+
+    // OVG ALL
+    // function googleTranslateElementInit() {
+    //  new google.translate.TranslateElement({pageLanguage: 'zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');  
+    //}
 
 
 
@@ -108,26 +353,183 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
 
-  // all 文字 內容取  202203110101OK
-  function _GetAllCode(HaHa_getElementsBy) {   
-    let cont = ".,."
-    let list=$(HaHa_getElementsBy)  // 取文字內容
-    let allTxt = "" // 建立字串 用於取all文
-    for(let i=0;i<list.length;i++){ // loop + 字
 
-      // 不同html tat轉
-      if (HaHa_getElementsBy == ".UpTxt"){ // .UpTxt = textarea = innerHTML
-        allTxt = allTxt + list[i].innerHTML + cont
-      }
 
-      if (HaHa_getElementsBy == ".UpImg"){ // .UpImg = input = value
-        allTxt = allTxt + list[i].value + cont
-      }
 
-      }
-      console.log(allTxt)
-      return allTxt
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+//////////////////////////////
+//////////////////////////////
+///////// User Btn ///////////
+//////////////////////////////
+//////////////////////////////
+  
+  
+    // User網站更新
+    function UserSendCodeToMe() {  
+
+      // Get user change all
+      let AllChangeCode = _GetAllCode(".UpTxt")
+      // 切割字串 https://www.wibibi.com/info.php?tid=258
+      let AllTxt = AllChangeCode.split(".,.") 
+      
+      let str = utf8_to_b64(AllTxt)
+      console.log(str)
+      console.log(b64_to_utf8( str ))
+
+      console.log('AllChangeCode.length')
+      console.log(AllTxt.length)
+      console.log(AllTxt[0])
+
+      console.log('HtmlCode.length')
+      console.log(HtmlCode.length)
+      console.log(HtmlCode[0])
+
+      // 客修改內容 如有空 if ''
+
+      
+    }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -177,28 +579,13 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
 
+    // AdminMakeCodeUrl
 
-  // GotoAdmin
-  function GotoAdmin(){
-    _changeStyle(".hiAdmin[0]", "background", "#fff");
-  changeStyle("#AkiAdmin", "display", "block");
-  }
+    
   
   
   
-  
-  
-  
-  
-    // User網站更新
-    function UserSendCodeToMe() {  
-  
-      console.log('dddddd')
-      let tt = traditionalized('简体变成繁体')
-      console.log(tt)
-    }
-  
-  
+
   
   
   
@@ -222,10 +609,27 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
       }
   
   
+
+
+
+
+
     // Admin網站更新
-    //function AkiUpHtmlCode() {  }
+    //
+    function AkiUpHtmlCode() { 
+      // upload file to github using javascript  
+      // https://medium.com/axlewebtech/upload-a-file-in-github-using-github-apis-dbb6f38cc63
+      // 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
+      // https://api.github.com/repos/98672794/98672794.github.io/healthisland健康島/contents/abc.txt
+
+      
 
 
 
-// user login | 讓網頁一開始就執行js https://www.zymseo.com/big5/program_250447
-  //alert(location.href); // https://www.wibibi.com/info.php?tid=82
+
+
+
+
+     }
+
+

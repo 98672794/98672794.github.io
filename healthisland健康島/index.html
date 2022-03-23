@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html >
 <html>
 <head>
 <meta charset="utf-8">
@@ -72,7 +72,7 @@
   <!-- all txt = textareaHTML --><!-- 可選色,左中右 = ChangeCss -->
   <!-- AdminBox = UnZIPSee,GetCodeZip,ChangeCss,Send9867 -->
   <link rel="stylesheet" href="aki/aki.css" />
-  <script type="text/javascript" src="aki/aki0316.js"></script>
+  <script type="text/javascript" src="aki/aki.js"></script>
 
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><!-- WsIcon --> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!-- palette -->
@@ -139,7 +139,7 @@
 
 
    <p class="row"></p>
-   <iframe src ="Code.html" id="ifr1">
+   <iframe src ="Code.html" id="ifr1" name="ifr1">
     <p>display: none Juse for userJS get code </p>
    </iframe>
 
@@ -237,8 +237,7 @@
 
     <img id="myImg1"  class="" src="AmyIMG/slide1.jpg" alt="">
     <p class="AdminIMGSetBox">
-      Img1<br/>任何圖片網址，例 google drive: 
-    <input id="例Url_driveGoogle" onclick="copyText()" value="https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/">
+      Img1<br/>任何圖片網址，例 google drive:<br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
     <input id="_myImg1" class="UpImg" type="text"/>
     <button onclick="ChangeIMG('_myImg1')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
     <textarea id="myImg1_" class="UpTxt" >AmyIMG/slide1.jpg</textarea>
@@ -356,7 +355,11 @@
 
 			  <li class="active"><a href="#carousel" class="scroll-link"><img id="myImg4" class="logo1" src="AmyIMG/Amy健康島logo.png"  title="健康島" alt="" /></a>
           <p class="AdminIMGSetBox">
-            Img4<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
+            Img4<br/>任何圖片網址，例 google drive: 
+            <input id="例Url_driveGoogle" onclick="copyText()" value="https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/">
+            
+            
+
             <input id="_myImg4" class="UpImg" type="text"/>
             <button onclick="ChangeIMG('_myImg4')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             <textarea id="myImg4_" class="UpTxt" >AmyIMG/Amy健康島logo.png</textarea>
@@ -1019,6 +1022,6 @@
 
   
 
-  <script type="text/javascript" src="aki/aki0316.js"></script>
+  <script type="text/javascript" src="aki/aki.js"></script>
 </body>
 </html>

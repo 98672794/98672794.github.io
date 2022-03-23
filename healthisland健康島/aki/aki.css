@@ -30,7 +30,6 @@
 } /* https://zhidao.baidu.com/question/617752463977869892.html */
 
 
-.UpTxt:hover{opacity: 1; }
 
 
 
@@ -40,8 +39,7 @@
 
 }
 .AdminIMGSetBox input{margin: 5%;}
-.AdminIMGSetBox:hover{z-index: 1; opacity: 1; padding: 5% 15% 0 15%;
-width: 90%;height: 100%;right: 5%;left: 5%;top: 5%;bottom: 5%;border-radius:0 5vw 0 5vw;}
+
   
 /* // hi user  */
 #AkiAdmin,.UpTxt,.AdminIMGSetBox{z-index: 33333;}
@@ -55,7 +53,10 @@ width: 90%;height: 100%;right: 5%;left: 5%;top: 5%;bottom: 5%;border-radius:0 5v
 #AkiAdmin,.UpTxt,.AdminIMGSetBox{display: none;background: rgba(0, 0, 0, 0.8);}
 
 
- 
+.UpTxt:hover,.AdminIMGSetBox:hover{ opacity: 1; height: 300px;width: 300px;color: #fff;}
+#AkiAdmin .UpTxt:hover{height: auto;width: auto;}
+
+
 
 /* All User css*/
 .wechatBox img{
