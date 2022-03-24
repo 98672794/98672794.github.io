@@ -76,7 +76,6 @@
 
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'><!-- WsIcon --> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!-- palette -->
-
   <!-- Amy健康島 -->
   <!-- 修改色 -->
   <title>healthisland健康島</title>  <!-- Admin = User|客頁 -->
@@ -112,13 +111,13 @@
   
 <div id="AkiAdmin">
   
-
+<!-- 加野 -->
 
   <p>
-    <!-- 加野 -->
 
-
-
+    <button title="更新網站" style="font-size:24px;" onclick="UserSendCodeToMe()">
+      歡迎Amy姐  <i class="fa fa-cloud-upload"></i></button>
+      <br/>
     主色,背景<textarea id="ChangeColoe1" class="UpTxt">rgba(165, 235, 156, 0.9)</textarea>
     標題色<textarea id="ChangeColoe2" class="UpTxt">rgba(23, 139, 110, 0.9)</textarea>
     副色<textarea id="ChangeColoe3" class="UpTxt">rgb(255, 255, 255)</textarea>
@@ -129,20 +128,19 @@
       <i class="material-icons" style="font-size:42px;line-height: 50px;color:rgb(238, 255, 0);">palette</i>
     </a>
 
-    <a onclick="UserChangeCss()"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+    <a onclick="UserChangeCss()"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;float: right;"></i></a>
     <br/>
   </p>
 
-  <button title="更新網站" style="font-size:24px;" onclick="UserSendCodeToMe()">
-    歡迎Amy姐  <i class="fa fa-cloud-upload"></i></button>
+  
 
 
-
+<!-- 
    <p class="row"></p>
    <iframe src ="Code.html" id="ifr1" name="ifr1">
     <p>display: none Juse for userJS get code </p>
    </iframe>
-
+up code 轉 url -->
 
 </div>
 
@@ -218,45 +216,34 @@
         <li data-target="#carousel" data-slide-to="1"></li>
         <li data-target="#carousel" data-slide-to="2"></li>
     </ol>
+
+    
     <!-- Carousel items -->
     <div class="carousel-inner">
+
+
         <div class=" item">
 		<div class="caption zoomIn wow animated"> 		 
-              <h2><textarea class="UpTxt">全城宣傳效應</textarea>全城宣傳效應</h2>
+              <h2 class="UpTxt">全城宣傳效應</h2>
               </div>
-			  
-
-
-
-
-
-
-
-
-
-
     <img id="myImg1"  class="" src="AmyIMG/slide1.jpg" alt="">
     <p class="AdminIMGSetBox">
       Img1<br/>任何圖片網址，例 google drive:<br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
-    <input id="_myImg1" class="UpImg" type="text"/>
-    <button onclick="ChangeIMG('_myImg1')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-    <textarea id="myImg1_" class="UpTxt" >AmyIMG/slide1.jpg</textarea>
+    <input id="_myImg1" class="UpImg UpTxt" value="AmyIMG/slide1.jpg" type="text"/>
+    <br/><button onclick="ChangeIMG('_myImg1')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
     </p>
-
-
-
-
   </div>
+
+
         <div class="item">
 		<div class="caption zoomIn wow animated"> 		 			 
-              <h2><textarea class="UpTxt">增值無限商機</textarea>增值無限商機</h2>
+              <h2 class="UpTxt">增值無限商機</h2>
               </div>
         <img id="myImg2"  class="" src="AmyIMG/slide2.jpg" alt="">
         <p class="AdminIMGSetBox">
           Img2<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
-        <input id="_myImg2" class="UpImg" type="text"/>
-        <button onclick="ChangeIMG('_myImg2')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-        <textarea id="myImg2_" class="UpTxt" >AmyIMG/slide2.jpg</textarea>
+        <input id="_myImg2" class="UpImg UpTxt" value="AmyIMG/slide2.jpg" type="text"/>
+        <br/><button onclick="ChangeIMG('_myImg2')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
         </p>
       </div>
 
@@ -270,13 +257,13 @@
 
         <div class=" active item">
 		<div class="caption zoomIn wow animated"> 		 			
-              <h2><textarea class="UpTxt">馬上加盟</textarea>馬上加盟</h2>
+              <h2 class="UpTxt">馬上加盟</h2>
              </div><img id="myImg3" class="" src="AmyIMG/BG.png" alt="">
              <p class="AdminIMGSetBox">
               Img3<br/>任何圖片網址，例 google drive: <br/>https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/
-              <input id="_myImg3" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg3')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-              <textarea id="myImg3_" class="UpTxt" >AmyIMG/BG.png</textarea>
+              <input id="_myImg3" class="UpImg UpTxt" value="AmyIMG/BG.png" type="text"/>
+              <br/><button onclick="ChangeIMG('_myImg3')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
               </p>
             </div>
     </div>
@@ -357,18 +344,15 @@
           <p class="AdminIMGSetBox">
             Img4<br/>任何圖片網址，例 google drive: 
             <input id="例Url_driveGoogle" onclick="copyText()" value="https://drive.google.com/file/d/1WZAvrFqRaMi06k1keU03AdeU6sOhq1_o/">
-            
-            
-
-            <input id="_myImg4" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg4')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-            <textarea id="myImg4_" class="UpTxt" >AmyIMG/Amy健康島logo.png</textarea>
+            <input id="_myImg4" class="UpImg UpTxt" value="AmyIMG/Amy健康島logo.png"  type="text"/>
+            <br/><button onclick="ChangeIMG('_myImg4')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
             </p>
         </li>
-			  <li><textarea class="UpTxt">雪泥碳天然皂</textarea><a href="#product1" class="scroll-link">雪泥碳天然皂</a></li>
-			  <li><textarea class="UpTxt">抗疫禮包</textarea><a href="#myImg8" class="scroll-link">抗疫禮包	</a></li>
-			  <li><textarea class="UpTxt">okeapp免費廣告</textarea><a href="#okeapp" class="scroll-link">okeapp免費廣告</a></li> 
-			  <li><textarea class="UpTxt">關於我們</textarea><a href="#contact" class="scroll-link">關於我們</a></li> 
+			  <li><a href="#product1" class="scroll-link UpTxt">雪泥碳天然皂</a></li>
+			  <li><a href="#myImg8" class="scroll-link UpTxt">抗疫禮包	</a></li>
+			  <li><a href="#okeapp" class="scroll-link UpTxt">okeapp免費廣告</a></li> 
+			  <li><a href="#contact" class="scroll-link UpTxt">關於我們</a></li> 
         |
         <li><a href="./" class="scroll-link">繁</a></li>
 			  <li><button id="google_translate_element_1" onclick="googleTranslateElementInit_TWToCN()//fa fa-language" class="scroll-link">简</button>
@@ -427,101 +411,66 @@
   <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
   <div class="container">
     <br/><br/>
-    <h2><textarea class="UpTxt">掃碼賺禮包</textarea>掃碼賺禮包</h2>
+    <h2 class="UpTxt">掃碼賺禮包</h2>
     <div class="inner_section">
       <div class="row">
         
         <div class="col-md-6"> 
           <div style="position: relative;"> 
-            <img id="myImg5" class="img-responsive" src="AmyIMG/馬上加盟.svg" align=""> 
+            <img id="myImg5" class="img-responsive" src="AmyIMG/馬上加盟.svg" > 
             <p class="AdminIMGSetBox">
               Img5<br/>任何圖片網址，
-              <input id="_myImg5" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg5')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-              <textarea id="myImg5_" class="UpTxt" >AmyIMG/馬上加盟.svg</textarea>
+              <input id="_myImg5" class="UpImg UpTxt" value="AmyIMG/馬上加盟.svg"  type="text"/>
+              <br/><button onclick="ChangeIMG('_myImg5')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
               </p>
           </div>
 
           <br/><br/><br/>
           <ul class="about-us-list">
-            <li class="points"><textarea class="UpTxt">簡易登記程序</textarea>簡易登記程序</li> 
-            <li class="points"><textarea class="UpTxt">下載OkaApp 參加遊戲 可獲贈禮包</textarea>下載OkaApp 參加遊戲 可獲贈禮包</li>
-            <li class="points"><textarea class="UpTxt">特選商戶優惠</textarea>特選商戶優惠</li>
-            <li class="points"><textarea class="UpTxt">和10%至50%折扣優惠</textarea>和10%至50%折扣優惠</li>
+            <li class="points" ><samp class="UpTxt" >簡易登記程序</samp></li> 
+            <li class="points" ><samp class="UpTxt" >下載OkaApp 參加遊戲 可獲贈禮包</li>
+            <li class="points" ><samp class="UpTxt" >特選商戶優惠</li>
+            <li class="points" ><samp class="UpTxt" >和10%至50%折扣優惠</li>
             
           </ul><!-- /.about-us-list -->
           <br/><br/>
-          <p><textarea class="UpTxt">下載OkeApp</textarea><a class="Aki_C2" href="https://zh.okepartners.com/" ><h1>下載OkeApp</h1></a></p>
+          <h1><a class="Aki_C2 UpTxt" href="https://zh.okepartners.com/" >下載OkeApp</a></h1>
         </div>
-
-
-
-
-
-
-
-
-
 
         <div class="col-md-6">
           <div style="position: relative;"> 
 
-
-
-
-
-
-
-            
-            <img id="myImg6" class="img-responsive" src="AmyIMG/增值無限商機.svg" align="">
+            <img id="myImg6" class="img-responsive" src="AmyIMG/增值無限商機.svg" >
             <p class="AdminIMGSetBox">
               Img6<br/>任何圖片網址，
-              <input id="_myImg6" class="UpImg" type="text"/>
-
-
-
-
-
-
-
-
-
-              <button onclick="ChangeIMG('_myImg6')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-              <textarea id="myImg6_" class="UpTxt" >AmyIMG/增值無限商機.svg</textarea>
+              <input id="_myImg6" class="UpImg UpTxt" value="AmyIMG/增值無限商機.svg"  type="text"/>
+              <br/><button onclick="ChangeIMG('_myImg6')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
               </p>
           </div>
          
           <div style="position: relative;"> 
-            <img id="myImg7" class="img-responsive" src="AmyIMG/立即登記.svg" align=""  >
-
-
-
-
-
-
+            <img id="myImg7" class="img-responsive" src="AmyIMG/立即登記.svg"   >
 
             <p class="AdminIMGSetBox">
               Img7<br/>任何圖片網址，
-              <input id="_myImg7" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg7')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-              <textarea id="myImg7_" class="UpTxt" >AmyIMG/立即登記.svg</textarea>
+              <input id="_myImg7" class="UpImg UpTxt" value="AmyIMG/立即登記.svg" type="text"/>
+              <br/><button onclick="ChangeIMG('_myImg7')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
               </p>
           </div>
 
-          <p><textarea class="UpTxt">請在OKEapp打開</textarea>請在OKEapp打開</p>
+          <p class="UpTxt">請在OKEapp打開</p>
           <br/><br/>
         </div>
         
-
-
-
         <div class="col-md-12">
-          <img id="myImg8"  src="AmyIMG/寶寶米抗疫禮包.png" align="">
+          <img id="myImg8" src="AmyIMG/寶寶米抗疫禮包.png" >
           <p class="AdminIMGSetBox">
             Img8<br/>任何圖片網址，
-            <input id="_myImg8" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg8')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-            <textarea id="myImg8_" class="UpTxt" >AmyIMG/寶寶米抗疫禮包.png</textarea>
+            <input id="_myImg8" class="UpImg UpTxt" value="AmyIMG/寶寶米抗疫禮包.png" type="text"/>
+            <br/><button onclick="ChangeIMG('_myImg8')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             </p>
         </div>
 
@@ -643,7 +592,7 @@
   <div class="container portfolio_title"> 
     <!-- Title -->
     <div class="section-title">
-      <h2><textarea class="UpTxt">雪泥碳</textarea>雪泥碳</h2>
+      <h2 class="UpTxt">雪泥碳</h2>
     </div>
     <!--/Title --> 
   </div>
@@ -656,15 +605,15 @@
       
       <ul class="clearfix">
         <li><a id="all" href="#" data-filter="*" class="active">
-          <h5><textarea class="UpTxt">所有</textarea>所有</h5>
+          <h5 class="UpTxt">所有</h5>
           </a></li>
 
           <li><a class="" href="#" data-filter=".citylife">
-            <h5><textarea class="UpTxt">天然皂</textarea>天然皂</h5>
+            <h5 class="UpTxt">天然皂</h5>
             </a></li>
 
         <li><a class="" href="#" data-filter=".nature">
-          <h5><textarea class="UpTxt">影片</textarea>影片</h5>
+          <h5 class="UpTxt">影片</h5>
           </a></li>
       </ul>
     </div>
@@ -679,9 +628,8 @@
                 <img id="myImg13" src="AmyIMG/BG.png" alt="">
                 <p class="AdminIMGSetBox">
                   Img13<br/>任何圖片網址，
-                  <input id="_myImg13" class="UpImg" type="text"/>
+                  <input id="_myImg13" class="UpImg UpTxt" value="AmyIMG/BG.png" type="text"/>
                   <a onclick="ChangeIMG('_myImg13')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-                  <textarea id="myImg13_" class="UpTxt" >AmyIMG/BG.png</textarea>
                   </p>
                </div>
             </figure>
@@ -708,9 +656,9 @@
         <div class="portfolio_img"> <img id="myImg14" src="AmyIMG/h0.jpeg" alt="Portfolio 1"> 
           <p class="AdminIMGSetBox">
             Img14<br/>任何圖片網址，
-            <input id="_myImg14" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg14')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-            <textarea id="myImg14_" class="UpTxt" >AmyIMG/h0.jpeg</textarea>
+            <input id="_myImg14" class="UpImg UpTxt" value="AmyIMG/h0.jpeg" type="text"/>
+            <br/><button onclick="ChangeIMG('_myImg14')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+  
             </p>
         </div>
         </figure>
@@ -721,9 +669,9 @@
         <div class="portfolio_img"> <img id="myImg15" src="AmyIMG/h1.jpeg" alt="Portfolio 1">
           <p class="AdminIMGSetBox">
             Img15<br/>任何圖片網址，
-            <input id="_myImg15" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg15')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-            <textarea id="myImg15_" class="UpTxt" >AmyIMG/h1.jpeg</textarea>
+            <input id="_myImg15" class="UpImg UpTxt" value="AmyIMG/h1.jpeg" type="text"/>
+            <br/><button onclick="ChangeIMG('_myImg15')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
             </p> </div>
         </figure>
       <!--/Portfolio Item--> 
@@ -733,9 +681,9 @@
         <div class="portfolio_img"> <img id="myImg16" src="AmyIMG/h2.jpeg" alt="Portfolio 1"> 
           <p class="AdminIMGSetBox">
             Img16<br/>任何圖片網址，
-            <input id="_myImg16" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg16')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-            <textarea id="myImg16_" class="UpTxt" >AmyIMG/h2.jpeg</textarea>
+            <input id="_myImg16" class="UpImg UpTxt" value="AmyIMG/h2.jpeg" type="text"/>
+            <br/><button onclick="ChangeIMG('_myImg16')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
             </p></div>               
        </figure>
       <!--/Portfolio Item --> 
@@ -746,9 +694,8 @@
           <img id="myImg17" src="AmyIMG/h3.jpeg" alt="">
           <p class="AdminIMGSetBox">
             Img17<br/>任何圖片網址，
-            <input id="_myImg17" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg17')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-            <textarea id="myImg17_" class="UpTxt" >AmyIMG/h3.jpeg</textarea>
+            <input id="_myImg17" class="UpImg UpTxt" value="AmyIMG/h3.jpeg" type="text"/>
+            <br/><button onclick="ChangeIMG('_myImg17')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
             </p>
          </div>
       </figure>
@@ -759,9 +706,9 @@
         <div class="portfolio_img"> <img id="myImg18" src="AmyIMG/h4.jpeg" alt="Portfolio 1">
           <p class="AdminIMGSetBox">
             Img18<br/>任何圖片網址，
-            <input id="_myImg18" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg18')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-            <textarea id="myImg18_" class="UpTxt" >AmyIMG/h4.jpeg</textarea>
+            <input id="_myImg18" class="UpImg UpTxt" value="AmyIMG/h4.jpeg" type="text"/>
+            <br/><button onclick="ChangeIMG('_myImg18')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
             </p> </div>
  
       </figure>
@@ -773,9 +720,9 @@
           <img id="myImg19" src="AmyIMG/h5.jpeg" alt="">
           <p class="AdminIMGSetBox">
             Img19<br/>任何圖片網址，
-            <input id="_myImg19" class="UpImg" type="text"/>
-            <button onclick="ChangeIMG('_myImg19')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-            <textarea id="myImg19_" class="UpTxt" >AmyIMG/h5.jpeg</textarea>
+            <input id="_myImg19" class="UpImg UpTxt" value="AmyIMG/h5.jpeg" type="text"/>
+            <br/><button onclick="ChangeIMG('_myImg19')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
+ 
             </p>
          </div>
       </figure>
@@ -840,7 +787,7 @@
 <section  id="service">
   
   <div class="container">
-    <h2><textarea class="UpTxt">適用任何年龄性別任何皮膚</textarea>適用任何年龄性別任何皮膚</h2>
+    <h2 class="UpTxt">適用任何年龄性別任何皮膚</h2>
 
 
       <div class="row"></div>
@@ -851,9 +798,8 @@
             <img id="myImg9" src="AmyIMG/s1.jpg" alt="Portfolio 1">
             <p class="AdminIMGSetBox">
               Img9<br/>任何圖片網址，
-              <input id="_myImg9" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg9')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-              <textarea id="myImg9_" class="UpTxt" >AmyIMG/s1.jpg</textarea>
+              <input id="_myImg9" class="UpImg UpTxt" value="AmyIMG/s1.jpg"  type="text"/>
+              <br/><button onclick="ChangeIMG('_myImg9')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               </p>
           </div>
     
@@ -861,9 +807,8 @@
             <img id="myImg10" src="AmyIMG/s2.jpg" alt="Portfolio 1">
             <p class="AdminIMGSetBox">
               Img10<br/>任何圖片網址，
-              <input id="_myImg10" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg10')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-              <textarea id="myImg10_" class="UpTxt" >AmyIMG/s2.jpg</textarea>
+              <input id="_myImg10" class="UpImg UpTxt" value="AmyIMG/s2.jpg"  type="text"/>
+              <br/><button onclick="ChangeIMG('_myImg10')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               </p>
           </div>
     
@@ -871,9 +816,8 @@
             <img id="myImg11" src="AmyIMG/s3.jpg" alt="Portfolio 1">
             <p class="AdminIMGSetBox">
               Img11<br/>任何圖片網址，
-              <input id="_myImg11" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg11')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-              <textarea id="myImg11_" class="UpTxt" >AmyIMG/s3.jpg</textarea>
+              <input id="_myImg11" class="UpImg UpTxt" value="AmyIMG/s3.jpg" type="text"/>
+              <br/><button onclick="ChangeIMG('_myImg11')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               </p>
           </div>
     
@@ -881,9 +825,8 @@
             <img id="myImg12" src="AmyIMG/s4.jpg" alt="Portfolio 1">
             <p class="AdminIMGSetBox">
               Img12<br/>任何圖片網址，
-              <input id="_myImg12" class="UpImg" type="text"/>
-              <button onclick="ChangeIMG('_myImg12')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-              <textarea id="myImg12_" class="UpTxt" >AmyIMG/s4.jpg</textarea>
+              <input id="_myImg12" class="UpImg UpTxt" value="AmyIMG/s4.jpg" type="text"/>
+              <br/><button onclick="ChangeIMG('_myImg12')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
               </p>
           </div>
           
@@ -934,10 +877,10 @@
 
   <!-- AkiAdminBox0316 -->
       <ul class="florL">
-        <li> <textarea class="UpTxt">雪泥碳天然皂</textarea><a href="#product1" class="scroll-link">雪泥碳天然皂</a></li>
-        <li> <textarea class="UpTxt">抗疫禮包</textarea><a href="#myImg8" class="scroll-link">抗疫禮包</a></li>
-        <li> <textarea class="UpTxt">okeapp免費廣告</textarea><a href="#okeapp" class="scroll-link">okeapp免費廣告</a></li>
-        <li> <textarea class="UpTxt">關於我們</textarea><a href="#contact" class="scroll-link">關於我們</a></li>
+        <li> <a href="#product1" class="scroll-link UpTxt">雪泥碳天然皂</a></li>
+        <li> <a href="#myImg8" class="scroll-link UpTxt">抗疫禮包</a></li>
+        <li> <a href="#okeapp" class="scroll-link UpTxt">okeapp免費廣告</a></li>
+        <li> <a href="#contact" class="scroll-link UpTxt">關於我們</a></li>
       </ul>
   
       </div>
@@ -952,28 +895,27 @@
                                 <img id="myImg21" class="logo2" src="AmyIMG/qr.jpg"  title="健康島wechat" alt="" />
                                 <p class="AdminIMGSetBox" style="display: none;">
                                   任何圖片網址，
-                                  <input id="_myImg21" class="UpImg" type="text"/>
-                                  <button onclick="ChangeIMG('_myImg21')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
-                                  <textarea id="myImg21_" class="UpTxt" >AmyIMG/qr.jpg</textarea>
+                                  <input id="_myImg21" class="UpImg UpTxt" type="text" value="AmyIMG/qr.jpg"/>
+                                  <br/><button onclick="ChangeIMG('_myImg21')"><i class="fa fa-eye" style="font-size:66px;line-height: 50px;color: #fff;cursor: pointer;"></i></a>
                                   </p>
                               </h4>
                             </div>
   
                             <div class="detail">
-                                <h4><textarea class="UpTxt">whatsApp</textarea>whatsApp</h4>
-                                <p><textarea class="UpTxt">852-59328723</textarea>852-59328723</p>
+                                <h4 class="UpTxt">whatsApp</h4>
+                                <p class="UpTxt">852-59328723</p>
                             </div>
                             <div class="detail">
-                              <h4><textarea class="UpTxt">Tel</textarea>Tel</h4>
-                              <p><textarea class="UpTxt">852-51679292</textarea>852-59328723</p>
+                              <h4 class="UpTxt">Tel</h4>
+                              <p class="UpTxt">852-59328723</p>
                             </div>
                             <div class="detail">
-                              <h4><textarea class="UpTxt">微信ID</textarea>微信ID</h4>
-                              <p><textarea class="UpTxt">A51679292</textarea>A51679292</p>
+                              <h4 class="UpTxt">微信ID</h4>
+                              <p class="UpTxt">A51679292</p>
                             </div>
                             <div class="detail">
-                              <h4><textarea class="UpTxt">email</textarea>email</h4>
-                              <p><textarea class="UpTxt">hkhealthgroup@163.com</textarea>hkhealthgroup@163.com</p>
+                              <h4 class="UpTxt">email</h4>
+                              <p class="UpTxt">hkhealthgroup@163.com</p>
                             </div>
                         </div>
               
@@ -1001,7 +943,11 @@
     <div class="footer_bottom">
       <iframe align="center" width="100%" height="100%" src="../aki/copyright.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
       <span style="display: none;">Copyright © reserved,    Template by <a href="http://webthemez.com">WebThemez.com</a>. Find More <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Free Bootstrap Themes</a> </span> </div>
-      <a onclick="AkiUpHtmlCode()">.<!--/Aki Admin--></a>
+      
+      <input id="AkiUpHtmlCode" class="AkiUpHtmlCode" type="text"
+      value="cmdiYSgxNjUsIDIzNSwgMTU2LCAwLjkpLiwucmdiYSgyMywgMTM5LCAxMTAsIDAuOSkuLC5yZ2IoMjU1LCAyNTUsIDI1NSkuLC4jOTk5Liwu5YWo5Z O5a6j5YKz5pWI5oeJLiwuQW15SU1HL3NsaWRlMS5qcGcuLC7lop7lgLznhKHpmZDllYbmqZ8uLC5BbXlJTUcvc2xpZGUyLmpwZy4sLummrOS4iuWKoOebny4sLkFteUlNRy9CRy5wbmcuLC5BbXlJTUcvQW155YGl5bq35bO2bG9nby5wbmcuLC7pm6rms6XnorPlpKnnhLbnmoIuLC7mipfnlqvnpq7ljIUJLiwub2tlYXBw5YWN6LK75buj5ZGKLiwu6Zec5pa85oiR5YCRLiwuODUyNTkzMjg3MjM__dGV4dD3lgaXlurfls7ZBbXnmgqjlpb3os7zosrfpm6rms6XnorPlpKnnhLbnmoIuLC7mjoPnorzos7rnpq7ljIUuLC5BbXlJTUcv6aas5LiK5Yqg55ufLnN2Zy4sLuewoeaYk eZu iomOeoi W6jy4sLuS4i i8iU9rYUFwcCDlj4PliqDpgYrmiLIg5Y v542y6LSI56au5YyFLiwu54m56YG45ZWG5oi25YSq5oOgLiwu5ZKMMTAl6IezNTAl5oqY5omj5YSq5oOgLiwu5LiL6LyJT2tlQXBwLiwuQW15SU1HL WinuWAvOeEoemZkOWVhuapny5zdmcuLC5BbXlJTUcv56uL5Y2z55m76KiYLnN2Zy4sLuiri WcqE9LRWFwcOaJk mWiy4sLkFteUlNRy__lr7blr7bnsbPmipfnlqvnpq7ljIUucG5nLiwu6Zuq5rOl56KzLiwu5omA5pyJLiwu5aSp54S255qCLiwu5b2x54mHLiwuQW15SU1HL0JHLnBuZy4sLkFteUlNRy9oMC5qcGVnLiwuQW15SU1HL2gxLmpwZWcuLC5BbXlJTUcvaDIuanBlZy4sLkFteUlNRy9oMy5qcGVnLiwuQW15SU1HL2g0LmpwZWcuLC5BbXlJTUcvaDUuanBlZy4sLumBqeeUqOS7u S9leW5tOm hOaAp WIpeS7u S9leearuiGmi4sLkFteUlNRy9zMS5qcGcuLC5BbXlJTUcvczIuanBnLiwuQW15SU1HL3MzLmpwZy4sLkFteUlNRy9zNC5qcGcuLC7pm6rms6XnorPlpKnnhLbnmoIuLC7mipfnlqvnpq7ljIUuLC5va2VhcHDlhY3osrvlu6PlkYouLC7pl5zmlrzmiJHlgJEuLC5BbXlJTUcvcXIuanBnLiwud2hhdHNBcHAuLC44NTItNTkzMjg3MjMuLC5UZWwuLC44NTItNTkzMjg3MjMuLC7lvq7kv6FJRC4sLkE1MTY3OTI5Mi4sLmVtYWlsLiwuaGtoZWFsdGhncm91cEAxNjMuY29tLiwuODUyNTkzMjg3MjM__dGV4dD3lgaXlurfls7ZBbXnmgqjlpb3mn6XoqaLpm6rms6XnorPlpKnnhLbnmoIuLC4="/>
+      <button class="AkiUpHtmlCode" onclick="AkiUpHtmlCode()" >.sssss</button>
+
     </div>
   </footer>
   <!--/Footer-->
