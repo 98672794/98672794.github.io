@@ -486,6 +486,7 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
       var str = utf8_to_b64(AllChangeCode)
       console.log('///Now Code b64///')
       console.log(str)
+      console.log('///純///')
       //console.log('///33333///')
       //var str = str.replaceAll('/','__')   // for js cut
       //var str = str.replaceAll('+',' ')   // wsOVG cut the "+" ,re add
