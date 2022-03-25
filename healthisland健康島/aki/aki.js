@@ -159,8 +159,8 @@ function copyText() {
       else{   console.log("value:"+tttt)  }  //  re1 textarea have
       allTxt = allTxt + tttt + cont
       }
-
-
+      console.log(allTxt)
+      return allTxt
   }
 
 
@@ -485,13 +485,11 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
       // txt zip b64
       var str = utf8_to_b64(AllChangeCode)
       console.log('///Now Code b64///')
-      var str = str.replaceAll('/','__')   // for js cut
-      var str = str.replaceAll('+',' ')   // wsOVG cut the "+" ,re add
       console.log(str)
-
-
-
-      //console.log(b64_to_utf8( str ))
+      //console.log('///33333///')
+      //var str = str.replaceAll('/','__')   // for js cut
+      //var str = str.replaceAll('+',' ')   // wsOVG cut the "+" ,re add
+      //console.log(str)
 
       // SendWsToAki
       let wsToAki = 'https://wa.me/85298672794?text=' + str
