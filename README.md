@@ -4,7 +4,7 @@ https://98672794.github.io/Demo
     
 ## 會員系統 = 98672794.github.io
 
-    <!-- ./ .?user .?userAki-->
+    <!-- . .?user .?userAki-->
 
     HTML JS CSS HTML5localStorage
 
