@@ -486,11 +486,6 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
       var str = utf8_to_b64(AllChangeCode)
       console.log('///Now Code b64///')
       console.log(str)
-      console.log('///純///')
-      //console.log('///33333///')
-      //var str = str.replaceAll('/','__')   // for js cut
-      //var str = str.replaceAll('+',' ')   // wsOVG cut the "+" ,re add
-      //console.log(str)
 
       // SendWsToAki
       let wsToAki = 'https://wa.me/85298672794?text=' + str
@@ -509,8 +504,6 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
     
     
     var val = $("#AkiUpHtmlCode").val() // <input id="AkiUpHtmlCode"><button onclick="AkiUpHtmlCode()">
-    var val = val.replaceAll(' ','+')   // wsOVG cut the "+" ,re add
-    var val = val.replaceAll('__','/')   // for js cut
 
     // Un zip Data code
     console.log("///UnzipData///")
