@@ -82,7 +82,7 @@ function isAutoRun(){
   // Admin網站更新
 
     // if '' qqqq 202203260142
-    AkiUpHtmlCode()
+      AkiUpHtmlCode()
 
 }
 
@@ -245,7 +245,7 @@ function copyText() {
       //奉奉奉奉奉奉qqqqqq 
       var 主色 = ".carousel-indicators .active,.img-responsive,#filters ul li a:hover h5, #filters ul li a.active h5,.footer_wrapper,.top-navbar .nav > li > a:hover, .top-navbar .nav > li > a:focus,#header_wrapper,#service"
       var 標題色 = ".navbar-inverse .navbar-nav > li > a:hover,a:hover,.pinterest a:hover,#filters ul li a:hover h5, #filters ul li a.active h5,.about-us .points:before,.Aki_C2,.fa-cart-arrow-down,.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus"
-      var 副色 = ".detail p,a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a,.florL li,#google_translate_element_1,.contact_info p"
+      var 副色 = "h2,.detail p,a,#filters ul li a h5,.navbar-inverse .navbar-nav > li > a,.florL li,#google_translate_element_1,.contact_info p"
       var 副色2 = ".detail h4"
 
       // change css
