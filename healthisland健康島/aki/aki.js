@@ -55,11 +55,20 @@ function isAutoRun(){
 
     // display Admin Box 
     $("#AkiAdmin").css("display", "flex")
-    $(".AdminIMGSetBox,textarea[class='UpTxt']").css("display", "block")
+    $(".AdminIMGSetBox,textarea[cl ass='UpTxt']").css("display", "block")
 
     // all target=new page,save change data time
     $(".UpTxt").attr("contenteditable","true") // 修改div https://blog.csdn.net/bfboys/article/details/52810081
     //$(".UpTxt").css("background","rgba(165, 235, 156, 0.3)")
+
+
+
+    //<!--AD--> <!-- Carousel items -->
+    //$('#addAdmin').css("display", "block")
+
+
+
+
 
     // all target=new page,save change data time
     $("a").attr("target","_blank") // 修改a https://blog.csdn.net/bfboys/article/details/52810081
@@ -82,7 +91,7 @@ function isAutoRun(){
   // Admin網站更新
 
     // if '' qqqq 202203260142
-      AkiUpHtmlCode()
+      //AkiUpHtmlCode()
 
 }
 
