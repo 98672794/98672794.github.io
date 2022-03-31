@@ -91,7 +91,7 @@ function isAutoRun(){
   // Admin網站更新
 
     // if '' qqqq 202203260142
-      //AkiUpHtmlCode()
+      AkiUpHtmlCode()
 
 }
 
