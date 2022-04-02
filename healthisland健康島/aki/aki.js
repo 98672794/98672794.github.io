@@ -55,19 +55,17 @@ function isAutoRun(){
 
     // display Admin Box 
     $("#AkiAdmin").css("display", "flex")
-    $(".AdminIMGSetBox,textarea[cl ass='UpTxt']").css("display", "block")
+    $(".AdminIMGSetBox,textarea[class='UpTxt']").css("display", "block")
 
     // all target=new page,save change data time
     $(".UpTxt").attr("contenteditable","true") // 修改div https://blog.csdn.net/bfboys/article/details/52810081
-    //$(".UpTxt").css("background","rgba(165, 235, 156, 0.3)")
 
-
-
-    //<!--AD--> <!-- Carousel items -->
-    //$('#addAdmin').css("display", "block")
-
-
-
+    
+    //<!--AD 停修用--> // https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/remove
+    $(".item").css("position", "relative")
+    const span = document.getElementById("addAdmin");
+    const classes = span.classList;
+    classes.remove("carousel-inner")
 
 
     // all target=new page,save change data time
@@ -83,15 +81,14 @@ function isAutoRun(){
     });
 
   }
+
   // aki admin display
   if (location.href.indexOf('aki') != -1){
     $(".AkiUpHtmlCode").css("display", "block")
   }
 
   // Admin網站更新
-
-    // if '' qqqq 202203260142
-      AkiUpHtmlCode()
+  AkiUpHtmlCode()
 
 }
 
