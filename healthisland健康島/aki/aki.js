@@ -1,9 +1,22 @@
 
+////////////////////////////////
+//// 用唔到
+//////////
+// 202205101644 冇flow其說法
+// 定義
 
+// User :
+//  轉字 = phone(url?User)
+//  轉圖 = phone(ImgUpGDrive);phone(url?User)
+//  change = buttUpCodeWs
 
+// 用 chrome 到 url?User
+// 圖up到GDrive取分享url
+// 修改完按鍵toAdmin(F12可看碼)
 
-
-
+// admin
+//  看新效果 = phone(url?UserAdmin)
+//  change = CodeToGithub(index(AkiUpHtmlCode))
 
 
 
@@ -40,7 +53,7 @@
 window.onload=isAutoRun();//將代碼綁定到window.onload事件
 function isAutoRun(){
 
-  //AkiUpHtmlCode() // web base data display // <input id="AkiUpHtmlCode" value="code">
+  AkiUpHtmlCode() // web base data display // <input id="AkiUpHtmlCode" value="code">
 
   //try {AkiUpHtmlCode()}
   //var AllTxt = AkiUpHtmlCode()
@@ -87,7 +100,7 @@ function isAutoRun(){
     $(".AkiUpHtmlCode").css("display", "block")
   }
 
-  // Admin網站更新
+  // Admin手機網站更新
   AkiUpHtmlCode()
 
 }
