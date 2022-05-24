@@ -632,9 +632,10 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
     // UserLogin
     let UserLogin = './?' + val
-    window.open(UserLogin,'_blank').focus()  // https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+    window.location.href = UserLogin; // 原頁轉跳 https://www.runoob.com/w3cnote/js-redirect-to-another-webpage.html
+
   }
-// OK202205241720
+// OK202205242145
 
 
 
