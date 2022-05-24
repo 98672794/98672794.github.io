@@ -64,7 +64,34 @@ textarea[class='UpTxt']{
     display: none;
     width: 60%;
 }
-.wechatBox:hover img{display: block;}
+
+
+/* 05240418 User input Login https://stackoverflow.com/a/4365272 
+OK202205241720*/
+.wechatBox div{display: none;} 
+.wechatBox:hover img,.wechatBox:hover div{display: block;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .florL li{float: left;margin: 5%;position: relative;  }
 video{width: 100%;height: 100%;}
       

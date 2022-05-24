@@ -622,10 +622,19 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
 
+// 05240418 User input Login 
+// https://stackoverflow.com/a/4365272 
 
+  // User input Login 
+  function UserInputLogin() { 
+    // get user name
+    let val = $("#UserinputLogin").val() //<input id="UserinputLogin"
 
-
-
+    // UserLogin
+    let UserLogin = './?' + val
+    window.open(UserLogin,'_blank').focus()  // https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+  }
+// OK202205241720
 
 
 
