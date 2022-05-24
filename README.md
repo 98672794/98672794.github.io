@@ -10,7 +10,7 @@ https://98672794.github.io/Demo
 
     客頁 = 98672794.github.io/客頁
 
-    客頁set = 98672794.github.io/客頁/user
+    客頁set = 98672794.github.io/客頁?user
 
     UserChange = jq(HTML textarea)
 
