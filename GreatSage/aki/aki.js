@@ -55,6 +55,7 @@ function isAutoRun(){
   var link = document.querySelector("link[rel~='icon']")
   link.href = 示
 
+
 }
 
 
@@ -82,6 +83,15 @@ function isAutoRun(){
 
 
 
+  // googleTranslate
+    // jacky0719 Dont run this script, it will cause whole html slow down for 20 secs, this script is outdated
+    // OVG ALL
+    // https://www.w3schools.com/howto/howto_google_translate.asp
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');  
+    }    
+  
+  
 
 
 
@@ -98,40 +108,6 @@ function isAutoRun(){
 
 
 
-
-
-
-
-
-
-  navigator.mediaDevices.enumerateDevices().then((devices) => {
-    let videoSourcesSelect = document.getElementById("video-source");
-    let audioSourcesSelect = document.getElementById("audio-source");
-
-    // Iterate over all the list of devices (InputDeviceInfo and MediaDeviceInfo)
-    devices.forEach((device) => {
-        let option = new Option();
-        option.value = device.deviceId;
-
-        // According to the type of media device
-        switch(device.kind){
-            // Append device to list of Cameras
-            case "videoinput":
-                option.text = device.label || `Camera ${videoSourcesSelect.length + 1}`;
-                videoSourcesSelect.appendChild(option);
-                break;
-            // Append device to list of Microphone
-            case "audioinput":
-                option.text = device.label || `Microphone ${videoSourcesSelect.length + 1}`;
-                audioSourcesSelect.appendChild(option);
-                break;
-        }
-
-        console.log(device);
-    });
-}).catch(function (e) {
-    console.log(e.name + ": " + e.message);
-});
 
 
 
@@ -139,6 +115,63 @@ function isAutoRun(){
 
   
 
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
@@ -388,15 +421,7 @@ function copyText() {
 
 
 
-  // googleTranslate
-  
-    // OVG ALL
-    // https://www.w3schools.com/howto/howto_google_translate.asp
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');  
-    }    
-  
-  
+
   
   
   //function googleTranslateElementInit_TWToCN() {

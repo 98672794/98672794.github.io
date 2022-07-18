@@ -33,6 +33,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
 
+      
 
 
 
@@ -41,38 +42,60 @@
 
 
 
-  <!-- - - - - - - - - aki - - - - - -  - -->
 
 
-  <script type="text/javascript" src="aki/aki.js"></script>
-  <link href="aki/aki.css" rel=" stylesheet">
+   <!-- ///////////////// aki ///////////////// -->
 
+   <script type="text/javascript" src="aki/aki.js"></script>
+   <link href="aki/aki.css" rel=" stylesheet">
 
-  <!-- - - - - - - -googleTranslate - - - - - - -  - --> 
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <!-- - - - - - - - /googleTranslate - - - - - - -  - -->
+   <!-- - - - - - - -fa fa - - - - - - -  - --> 
 
-    <!-- - - - - - - -aiModelIs - - - - - - -  - --> 
-    <script src="https://unpkg.com/@tensorflow/tfjs">
-      // https://zhuanlan.zhihu.com/p/268131046
+   
+
+   <!-- - - - - - - -googleTranslate - - - - - - -  - --> 
+   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   <!-- - - - - - - - /googleTranslate - - - - - - -  - -->
+
+   <!-- - - - - - - -aiModelIs - - - - - - -  - --> 
+   <script src="https://unpkg.com/@tensorflow/tfjs">
+   // https://zhuanlan.zhihu.com/p/268131046
    </script>
    <script src="https://unpkg.com/@tensorflow-models/mobilenet"> </script>
    <!-- - - - - - - - /aiModelIs - - - - - - -  - --> 
- 
- 
-
-   
-  <!-- - - - - - - - - /aki - - - - - -  - -->
-
-
-
-
-
-
-
 
    </head>
+
    <body onload="isAutoRun()" class="dashboard dashboard_1">
+      <div id="aiModelIsBox"><!-- -- - - - - - - - /aiModelIs - - - - - - -  - --> </div>
+   <!-- ///////////////// /aki ///////////////// -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="full_container">
          <div class="inner_container">
             <!-- Sidebar  -->
@@ -151,9 +174,54 @@
                      </li>
                      <li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
                      <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>
-                     <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+                     
+                     
+
+                     
+                     
+                     <li class="active">
+                        <a href="#Settings_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                           <i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
+                        <ul class="collapse list-unstyled" id="Settings_page">
+
+                        <!-- jacky0719 To select video & audio source -->
+                        <li class="btn sr-btn">
+                           <i class='fa fa-microphone'></i>
+                           <select id="audioSource"></select>
+                        </li>
+
+                        <li class="btn sr-btn">
+                           <i class="fa fa-camera"></i>
+                           <select id="videoSource"></select>
+                        </li>
+
+                        <li class="btn sr-btn "><a class="" id="google_translate_element"  >
+                        <!-- jacky0719 Dont run this script, it will cause whole html slow down for 20 secs, this script is outdated-->
+                        <!-- - - - - - - -googleTranslate - - - - - - -  - --> </a></li>
+
+                        </ul>
+                     </li>
+
+
+                  </br></br>
                   
-                     <li><a class="" id="google_translate_element"  ><!-- - - - - - - -googleTranslate - - - - - - -  - --> </a>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   
                   </ul>
                </div>
@@ -166,74 +234,42 @@
                   <nav class="navbar navbar-expand-lg navbar-light">
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
-
-
+                        
+                        
+                        
                         <div class="logo_section">
+                          <!-- ///////////////// aki ///////////////// -->
                            <!--  search form start -->
-                              <form action="" onsubmit="return false" class="pull-right position search_inbox">
-                                 <!-- 当输入框获取焦点时 https://www.runoob.com/try/try.php?filename=tryjsref_onfocus -->
-                                 <input name="term_1" id="結果input字v" onfocus="当输入框获取焦点时(true)" class="sr-input" placeholder="Search" type="text">
-                                 <select name="field_1" id="option">
-                                 <option value="https://www.ask.com/web?q=">ask.com</option>
-                                 <option value="https://www.baidu.com/s?=baidu&wd=">baidu</option>
-                                 <option value="https://www.bing.com/search?q=">bing</option>
-                                 <option value="https://duckduckgo.com/?q=">duckduckgo</option>
-                                 <option value="https://www.google.com/search?q=" selected="selected">google</option>
-                                 <option value="https://www.google.com.tw/maps/search/">google maps</option>
-                                 <option value="https://trends.google.com.hk/trends/explore?q=">google trends</option>
-                                 <option value="https://www.instagram.com/explore/search/keyword/?q=">instagram</option>
-                                 <option value="https://millionshort.com/search?keywords=">millionshort</option>
-                                 <option value="https://wikipedia.org/w/index.php?search=">wikipedia</option>
-                                 <option value="https://hk.search.yahoo.com/search?p=">yahoo</option>
-                                 <option value="https://you.com/search?q=rrerewrer">you.com</option>
-                                 </select>
-                                 <button class="btn sr-btn" type="button" onclick=search()><i class="fa fa-search"></i></button>
-                                 <button class="btn sr-btn" type="reset" onclick=当输入框获取焦点时(false)><i class="fa fa-refresh"></i></button>
-                                 <!--  <input value="Reset" type="reset" onclick="当输入框获取焦点时(false)"> -->
-                              </form>
-                           <!--  search form end -->
-
-
-                           <label>Select Video Source (Camera)</label>
-
-                           <select id="video-source"></select>
-                           
-                           <label>Select Audio Source (Microphone)</label>
-                           
-                           <select id="audio-source"></select>
-
+                           <form action="" onsubmit="return false" class="pull-right position search_inbox">
+                              <!-- 当输入框获取焦点时 https://www.runoob.com/try/try.php?filename=tryjsref_onfocus -->
+                              <input name="term_1" id="結果input字v" onfocus="当输入框获取焦点时(true)" class="sr-input" placeholder="Search" type="text">
+                              <select name="field_1" id="option">
+                              <option value="https://www.ask.com/web?q=">ask.com</option>
+                              <option value="https://www.baidu.com/s?=baidu&wd=">baidu</option>
+                              <option value="https://www.bing.com/search?q=">bing</option>
+                              <option value="https://duckduckgo.com/?q=">duckduckgo</option>
+                              <option value="https://www.google.com/search?q=" selected="selected">google</option>
+                              <option value="https://www.google.com.tw/maps/search/">google maps</option>
+                              <option value="https://trends.google.com.hk/trends/explore?q=">google trends</option>
+                              <option value="https://www.instagram.com/explore/search/keyword/?q=">instagram</option>
+                              <option value="https://millionshort.com/search?keywords=">millionshort</option>
+                              <option value="https://wikipedia.org/w/index.php?search=">wikipedia</option>
+                              <option value="https://hk.search.yahoo.com/search?p=">yahoo</option>
+                              <option value="https://you.com/search?q=rrerewrer">you.com</option>
+                              </select>
+                              <button class="btn sr-btn" type="button" onclick=search()><i class="fa fa-search"></i></button>
+                              <button class="btn sr-btn" type="reset" onclick=当输入框获取焦点时(false)><i class="fa fa-refresh"></i></button>
+                           </form>
+                        <!--  search form end -->
+                        <!-- ///////////////// /aki ///////////////// -->
                         </div>
+
 
 
                         <div class="right_topbar">
 
+                           
 
-
-                           <div class="icon_info">
-                              <ul>
-                                 <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
-                                 <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
-                                 <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
-
-
-
-
-
-
-
-                              </ul>
-                              <ul class="user_profile_dd">
-                                 <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
-                                    <div class="dropdown-menu">
-                                       <a class="dropdown-item" href="profile.html">My Profile</a>
-                                       <a class="dropdown-item" href="settings.html">Settings</a>
-                                       <a class="dropdown-item" href="help.html">Help</a>
-                                       <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
                         </div>
                      </div>
                   </nav>
@@ -242,53 +278,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                <!-- dashboard inner -->
                <div class="midde_cont">
-                  
-
-
-                    <!-- - - - - - - - aiModelIs - - - - - - -  - - - --> 
-                     <video id="鏡頭video" >你的設備沒有鏡頭</video>
-                     <img id="ai取圖img" />
-                     <!-- -- - - - - - - - /aiModelIs - - - - - - -  - --> 
-
                   <div class="container-fluid">
                      <div class="row column_title">
                         <div class="col-md-12">
@@ -298,21 +289,49 @@
                         </div>
                      </div>
                      <div class="row column1">
+
+
+
+
                         <div class="col-md-6 col-lg-3">
                            <div class="full counter_section margin_bottom_30">
+
+
                               <div class="couter_icon">
                                  <div> 
-                                    <i class="fa fa-user yellow_color"></i>
+                                    <i class="fa fa-pie-chart"></i>
                                  </div>
                               </div>
+
+
                               <div class="counter_no">
-                                 <div>
-                                    <p class="total_no">2500</p>
-                                    <p class="head_couter">Welcome</p>
-                                 </div>
+                                 <!-- ///////////////// aki ///////////////// -->
+                                 <div id="結果字p"><!-- - - - - - - - aiModelIs - - - - - - -  - - --> </div>
+                                 <!-- ///////////////// /aki ///////////////// -->
                               </div>
+
+
                            </div>
                         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="col-md-6 col-lg-3">
                            <div class="full counter_section margin_bottom_30">
                               <div class="couter_icon">
@@ -514,19 +533,18 @@
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
                                     <h2>Progress Bar</h2>
-                                    
+                                 </div>
                               </div>
                               <div class="full progress_bar_inner">
                                  <div class="row">
                                     <div class="col-md-12">
                                        <div class="progress_bar">
-
-
-                                          <div id="結果字p"><!-- - - - - - - - aiModelIs - - - - - - -  - - --> </div>
-
-
-
-
+                                          <!-- Skill Bars -->
+                                          <span class="skill" style="width:73%;">Facebook <span class="info_valume">73%</span></span>                  
+                                          <div class="progress skill-bar ">
+                                             <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%;">
+                                             </div>
+                                          </div>
                                           <span class="skill" style="width:62%;">Twitter <span class="info_valume">62%</span></span>   
                                           <div class="progress skill-bar">
                                              <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%;">
@@ -537,7 +555,7 @@
                                              <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100" style="width: 54%;">
                                              </div>
                                           </div>
-                                          <span class="skill" style="width:100%;">Google plus <span class="info_valume">82%</span></span>
+                                          <span class="skill" style="width:82%;">Google plus <span class="info_valume">82%</span></span>
                                           <div class="progress skill-bar">
                                              <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="width: 82%;">
                                              </div>
@@ -669,13 +687,6 @@
       <script src="js/chart_custom_style1.js"></script>
    </body>
 
-
-
-
-     <!-- - - - - - - -aiModelIs - - - - - - -  - --> 
-  <script type="text/javascript" src="aki/aiModelIs.js"></script>
-  <!-- - - - - - - -/aiModelIs - - - - - - -  - --> 
-
-
-
+   <script type="text/javascript" src="aki/aiModelIs.js">//aiModelIs </script>
+  
 </html>
