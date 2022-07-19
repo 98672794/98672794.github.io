@@ -32,11 +32,8 @@ section{opacity: .5;}
 }
 
 
-/*nav右box*/
-.user_profile_dd li{position: relative;}
-.user_profile_dd li .dropdown-menu {
-top: -150px;
-}
+
+.sr-input,#option{width: 100px;}
 
 /*searchBox*/
 .logo_section{
@@ -48,13 +45,12 @@ top: -150px;
 #Settings_page{
     width: auto;
     height: auto;
-    margin-top: -180px;
+    position: fixed;
+    bottom: 30px;
+    right: 0;
     display: none;
     background: rgba(0, 0, 0, 0.6);
-
     z-index: 9999;
-    transform: rotate(360deg);
-    /*bug解_z-index*/
     
 }
 #Settings_page li{display: block; }
@@ -63,7 +59,7 @@ top: -150px;
     display: block;
 }
 
-
+#Op_Settings_page{text-align: center;line-height: 40px;}
 
 
 
