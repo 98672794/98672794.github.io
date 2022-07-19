@@ -47,6 +47,7 @@
    <!-- ///////////////// aki ///////////////// -->
 
    <script type="text/javascript" src="aki/aki.js"></script>
+   
    <link href="aki/aki.css" rel=" stylesheet">
 
    <!-- - - - - - - -fa fa - - - - - - -  - --> 
@@ -71,9 +72,10 @@
    <!-- ///////////////// /aki ///////////////// -->
 
 
+      <!-- 回收站 -->
+      <div id="recycle"><i class='fa fa-trash' style="font-size: 48px;"></i></div>
 
-
-
+                  
 
 
 
@@ -178,29 +180,7 @@
                      
 
                      
-                     
-                     <li class="active">
-                        <a href="#Settings_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                           <i class="fa fa-cog yellow_color"></i> <span>Settings</span></a>
-                        <ul class="collapse list-unstyled" id="Settings_page">
 
-                        <!-- jacky0719 To select video & audio source -->
-                        <li class="btn sr-btn">
-                           <i class='fa fa-microphone'></i>
-                           <select id="audioSource"></select>
-                        </li>
-
-                        <li class="btn sr-btn">
-                           <i class="fa fa-camera"></i>
-                           <select id="videoSource"></select>
-                        </li>
-
-                        <li class="btn sr-btn "><a class="" id="google_translate_element"  >
-                        <!-- jacky0719 Dont run this script, it will cause whole html slow down for 20 secs, this script is outdated-->
-                        <!-- - - - - - - -googleTranslate - - - - - - -  - --> </a></li>
-
-                        </ul>
-                     </li>
 
 
                   </br></br>
@@ -259,6 +239,44 @@
                               </select>
                               <button class="btn sr-btn" type="button" onclick=search()><i class="fa fa-search"></i></button>
                               <button class="btn sr-btn" type="reset" onclick=当输入框获取焦点时(false)><i class="fa fa-refresh"></i></button>
+
+
+
+
+
+
+
+
+
+
+
+
+                              <a id="Op_Settings_page" class="fa fa-cog yellow_color "></a>
+                              <div id="Settings_page" >
+
+                                 <!-- jacky0719 To select video & audio source -->
+                                 <li class="btn sr-btn">
+                                    <i class='fa fa-microphone'></i>
+                                    <select id="audioSource"></select>
+                                 </li>
+         
+                                 <li class="btn sr-btn">
+                                    <i class="fa fa-camera"></i>
+                                    <select id="videoSource"></select>
+                                 </li>
+         
+                                 <li class="btn sr-btn "><a class="" id="google_translate_element"  >
+                                 <!-- jacky0719 Dont run this script, it will cause whole html slow down for 20 secs, this script is outdated-->
+                                 <!-- - - - - - - -googleTranslate - - - - - - -  - --> </a></li>
+         
+         
+         
+                                 </div>
+
+
+
+
+
                            </form>
                         <!--  search form end -->
                         <!-- ///////////////// /aki ///////////////// -->
@@ -287,33 +305,45 @@
                               <h2>Dashboard</h2>
                            </div>
                         </div>
+
+
+                        
+
+
                      </div>
+
+
                      <div class="row column1">
 
 
 
 
-                        <div class="col-md-6 col-lg-3">
-                           <div class="full counter_section margin_bottom_30">
 
 
-                              <div class="couter_icon">
+
+                        <!-- ///////////////// qqqqqqqq ///////////////// -->
+
+                        <div class="col-md-6 col-lg-3 SmsBox" draggable="true">
+                           <div class="full counter_section margin_bottom_30 ">
+
+                              <div class="couter_icon ">
                                  <div> 
                                     <i class="fa fa-pie-chart"></i>
                                  </div>
                               </div>
 
-
+                              
                               <div class="counter_no">
                                  <!-- ///////////////// aki ///////////////// -->
                                  <div id="結果字p"><!-- - - - - - - - aiModelIs - - - - - - -  - - --> </div>
                                  <!-- ///////////////// /aki ///////////////// -->
                               </div>
-
-
-                           </div>
+                        </div>
                         </div>
 
+                        <!-- ///////////////// qqqqqqqq ///////////////// -->
+  
+                        
 
 
 
@@ -328,11 +358,7 @@
 
 
 
-
-
-
-
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-3 SmsBox" draggable="true">
                            <div class="full counter_section margin_bottom_30">
                               <div class="couter_icon">
                                  <div> 
@@ -347,7 +373,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-3 SmsBox" draggable="true">
                            <div class="full counter_section margin_bottom_30">
                               <div class="couter_icon">
                                  <div> 
@@ -362,7 +388,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-3 SmsBox" draggable="true">
                            <div class="full counter_section margin_bottom_30">
                               <div class="couter_icon">
                                  <div> 
@@ -377,9 +403,19 @@
                               </div>
                            </div>
                         </div>
+
+
+
+
                      </div>
+
+
+
+                  
+
+
                      <div class="row column1 social_media_section">
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-3 SmsBox" draggable="true">
                            <div class="full socile_icons fb margin_bottom_30">
                               <div class="social_icon">
                                  <i class="fa fa-facebook"></i>
@@ -398,7 +434,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-3 SmsBox" draggable="true">
                            <div class="full socile_icons tw margin_bottom_30">
                               <div class="social_icon">
                                  <i class="fa fa-twitter"></i>
@@ -417,7 +453,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-3 SmsBox" draggable="true">
                            <div class="full socile_icons linked margin_bottom_30">
                               <div class="social_icon">
                                  <i class="fa fa-linkedin"></i>
@@ -436,7 +472,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-3 SmsBox" draggable="true">
                            <div class="full socile_icons google_p margin_bottom_30">
                               <div class="social_icon">
                                  <i class="fa fa-google-plus"></i>
@@ -688,5 +724,6 @@
    </body>
 
    <script type="text/javascript" src="aki/aiModelIs.js">//aiModelIs </script>
+   <script type="text/javascript" src="aki/other.js">//回收站</script>
   
 </html>

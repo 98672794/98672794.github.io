@@ -27,6 +27,7 @@ section{opacity: .5;}
 /*上nav轉下*/
 .topbar {
     position: fixed;top: calc(100% - 50px);
+    
     background: yellow;
 }
 
@@ -41,4 +42,58 @@ top: -150px;
 .logo_section{
     margin: 10px 0px 10px 10px;
 }
+
+
+
+#Settings_page{
+    width: auto;
+    height: auto;
+    margin-top: -180px;
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+
+    z-index: 9999;
+    transform: rotate(360deg);
+    /*bug解_z-index*/
+    
+}
+#Settings_page li{display: block; }
+
+#Op_Settings_page:hover ~ #Settings_page,#Settings_page:hover{
+    display: block;
+}
+
+
+
+
+
+#recycle{
+    /* 回收站 */
+    opacity: .6;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    text-align:center;
+    
+    /* http://www.layerstyles.org/builder.html */
+border: 1px solid rgb(247, 0, 0);
+background-image: -webkit-gradient(linear, center top, center bottom, from(#fcfcfc), to(#bfbfbf), color-stop(3%, #f7f7f7), color-stop(12%, #f2f2f2), color-stop(90%, #d9d9d9));
+background-image: -webkit-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+background-image: -moz-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+background-image: -o-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+background-image: -ms-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+background-image: linear-gradient(to bottom, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+-webkit-box-shadow: 0 0 77px 40px rgba(237,75,17,0.64);
+-moz-box-shadow: 0 0 77px 40px rgba(237,75,17,0.64);
+box-shadow: 0 0 77px 40px rgba(237,75,17,0.64);
+    
+background: rgba(255, 0, 0, 0.868);
+}
+
 
