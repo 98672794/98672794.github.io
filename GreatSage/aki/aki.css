@@ -13,12 +13,12 @@ section{opacity: .5;}
 #ai取圖img{display: none;}
 */
 
-
+/*aiModelIs*/
 #鏡頭video {position: fixed;width: 100%;height: 100%;top: 0;bottom: 0;left: 0;right: 0;z-index: -1;}
 #ai取圖img{display: none;}
 
 
-
+/***************************************/
 /* for 0715交互数据管理系统响应式网页模板*/
 .full_container{opacity: .5;}
 .full_conta111iner:hover{opacity: .99}
@@ -31,17 +31,14 @@ section{opacity: .5;}
     background: yellow;
 }
 
-
-
+/* nav中 searchBox*/
 .sr-input,#option{width: 100px;}
-
-/*searchBox*/
 .logo_section{
     margin: 10px 0px 10px 10px;
 }
 
 
-
+/* nav右 SettingsBox*/
 #Settings_page{
     width: auto;
     height: auto;
@@ -63,33 +60,22 @@ section{opacity: .5;}
 
 
 
-#recycle{
-    /* 回收站 */
-    opacity: .6;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: auto;
-    height: 100%;
-    z-index: 9999;
-    display: none;
-    align-items: center;
-    text-align:center;
-    
-    /* http://www.layerstyles.org/builder.html */
-border: 1px solid rgb(247, 0, 0);
-background-image: -webkit-gradient(linear, center top, center bottom, from(#fcfcfc), to(#bfbfbf), color-stop(3%, #f7f7f7), color-stop(12%, #f2f2f2), color-stop(90%, #d9d9d9));
-background-image: -webkit-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
-background-image: -moz-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
-background-image: -o-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
-background-image: -ms-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
-background-image: linear-gradient(to bottom, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
--webkit-box-shadow: 0 0 77px 40px rgba(237,75,17,0.64);
--moz-box-shadow: 0 0 77px 40px rgba(237,75,17,0.64);
-box-shadow: 0 0 77px 40px rgba(237,75,17,0.64);
-    
-background: rgba(255, 0, 0, 0.868);
+
+
+/* index */
+.SmsBox{position: relative;}
+
+.SmsBoxClose{position: absolute;display: none;
+right: 10px;top: 0;bottom: 20%;text-align: center;vertical-align: middle;
+opacity: .8;
+justify-content: center; 
+align-items: center; }
+
+.SmsBox:hover .SmsBoxClose,.SmsBoxClose:hover{display: flex; 
+
+    box-shadow: inset -50px 10px 30px 48px #BD5959,-50px -2px 100px -9px #FF0000;
+-webkit-box-shadow: inset -50px 10px 30px 48px #BD5959,-50px -2px 100px -9px #FF0000;
+-moz-box-shadow: inset -50px 10px 30px 48px #BD5959,-50px -2px 100px -9px #FF0000;
+-o-box-shadow: inset -50px 10px 30px 48px #BD5959,-50px -2px 100px -9px #FF0000;
+
 }
-
-

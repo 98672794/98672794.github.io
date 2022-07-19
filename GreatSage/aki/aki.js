@@ -149,11 +149,14 @@ function isAutoRun(){
 
 
 
+// 移除父元素 JavaScript
+// https://www.learnfk.com/question/jquery/6647736.html
+// https://api.jquery.com/closest/
 
-
-
-
-
+$(".SmsBoxClose").click(function() {
+  event.preventDefault();
+  $(this).closest('.SmsBox').remove();
+});
 
 
 
