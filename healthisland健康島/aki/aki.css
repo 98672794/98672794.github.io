@@ -11,7 +11,7 @@
 
 /* admin box 0315 */
 #AkiAdmin{position: fixed;top: 25%;left: -100px;width: auto;height: auto;
-  opacity: .3; color: rgba(165, 235, 156, 0.9);
+  opacity: .5; color: rgba(165, 235, 156, 0.9);
   padding: .1%;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px; 
@@ -29,7 +29,7 @@ textarea[class='UpTxt']{
   text-align:center;
   position: absolute;
   height: auto;width: auto;
- left: 10%;opacity: .1; 
+ left: 10%;opacity: .5; 
 } /* https://zhidao.baidu.com/question/617752463977869892.html */
 
 
@@ -37,7 +37,7 @@ textarea[class='UpTxt']{
 
 
 /* // user input the img url */
- .AdminIMGSetBox{  opacity: 0.1; color: rgba(165, 235, 156, 0.9); position: absolute;
+ .AdminIMGSetBox{  opacity: 0.5; color: rgba(165, 235, 156, 0.9); position: absolute;
   height: 100px; right: 30%;top: 20%;left: 30%; overflow: hidden;word-wrap:break-word;resize: both/*https://blog.csdn.net/weixin_41192489/article/details/121396794*/;
 }
 .AdminIMGSetBox input{margin: 5%;}

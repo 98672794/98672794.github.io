@@ -182,36 +182,45 @@ function copyText() {
 
 
 
-
-  
-
-
-
-        // 202207261301 cant get new val , 
-      //  .value =不找 now div|.innerHTML =不找 now input
-  function _GetAllCode(HaHa_getElementsBy) {     
+  // all 文字 內容取  2022003242322OK
+  function _GetA00000llCode(HaHa_getElementsBy) {   
 
     var cont = ".,."
     var list=$(HaHa_getElementsBy)  // 取文字內容
-
     var allTxt = "" // 建立字串 用於取all文
 
     for(var i=0;i<list.length;i++){          //  loop + 字
 
+
+
       // 202203242137 if undefined           //  不同html tat轉
-      var tttt = list[i].innerHTML               //  1 先找textarea var
+      //var tttt = list[i].value               //  1 先找textarea var
+      //if (typeof tttt == 'undefined'){       //  if not 
+      //  var tttt = list[i].innerHTML         //  2 再找div
+      //  console.log("innerHTML:"+tttt)  
 
 
-      if (typeof tttt == 'undefined'){       //  if not 
-        var tttt = list[i].value         //  2 再找div
-        if (typeof tttt == 'undefined'){ 
-
-        }
-
-        console.log("innerHTML:"+tttt)  
-      } // https://flaviocopes.com/how-to-check-undefined-property-javascript/
-      else{   console.log("innerHTML:"+tttt)  }  //  re1 textarea have
+      var tttt = list[i].innerHTML        
+      
+      console.log("bmsss2231:"+tttt) 
       allTxt = allTxt + tttt + cont
+
+      // 202207261301 cant get new val , 
+      //  .value =不找 now div|.innerHTML =不找 now input
+
+
+
+      //if   HaHa_getElementsBy = input
+                                        //  不同html tat轉
+      //var tttt = list[i].value               //  1 先找div var
+      //if (typeof tttt == 'undefined'){       //  if not 
+      //  var tttt = list[i].innerHTML         //  2 再找textarea
+      //  console.log("innerHTML:"+tttt)  
+
+      //} // https://flaviocopes.com/how-to-check-undefined-property-javascript/
+      //else{   console.log("value:"+tttt)  }  //  re1 textarea have
+      //allTxt = allTxt + tttt + cont
+
       }
       console.log(allTxt)
       return allTxt
@@ -221,11 +230,32 @@ function copyText() {
 
 
 
+  // all 文字 內容取  2022003242322OK
+  function _222GetAllCode(HaHa_getElementsBy) {   
+
+    var cont = ".,."
+    var list=$(HaHa_getElementsBy)  // 取文字內容
+    var allTxt = "" // 建立字串 用於取all文
+
+    for(var i=0;i<list.length;i++){          //  loop + 字
+
+      // 202203242137 if undefined           //  不同html tat轉
+      var tttt = list[i].innerHTML               //  1 先找textarea var
+      if (typeof tttt == 'undefined'){       //  if not 
+        var tttt = list[i].value         //  2 再找div
+        console.log("value:"+tttt)  
+      } // https://flaviocopes.com/how-to-check-undefined-property-javascript/
+      else{   console.log("innerHTML:"+tttt)  }  //  re1 textarea have
+
+      allTxt = allTxt + tttt + cont
+      }
+      console.log(allTxt)
+      return allTxt
+  }
 
 
 
-
-  // OVG  all 文字 內容取  2022003242322OK
+  // all 文字 內容取  2022003242322OK
   function _qqqqqGetAllCode(HaHa_getElementsBy) {   
 
     var cont = ".,."
@@ -583,13 +613,13 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
   function AkiUpHtmlCode() { 
 
     // get Data code
-    var ListCodeVal = $("#AkiUpHtmlCode").val() // <input id="AkiUpHtmlCode"><button onclick="AkiUpHtmlCode()">
+    var val = $("#AkiUpHtmlCode").val() // <input id="AkiUpHtmlCode"><button onclick="AkiUpHtmlCode()">
 
     console.log("AkiUpHtmlCode val")
-    console.log(ListCodeVal)
+    console.log(val)
     // Un zip Data code
     console.log("///UnzipData///")
-    var AllTxt = b64_to_utf8( ListCodeVal )     // UpZIP b64
+    var AllTxt = b64_to_utf8( val )     // UpZIP b64
     console.log(AllTxt)
 
     // post Data code
