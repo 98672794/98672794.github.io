@@ -1,0 +1,6 @@
+/*上nav轉下*/
+.topbar {
+    position: fixed;top: calc(100% - 50px);
+    
+    background: yellow;
+}
