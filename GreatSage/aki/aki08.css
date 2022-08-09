@@ -1,0 +1,94 @@
+
+
+
+
+     
+/*
+ * aki.css
+ * 
+ * Copyright (c) 2012, Aki <                                                                
+
+*/
+
+
+/***************************************/
+/* for 0715交互数据管理系统响应式网页模板*/
+
+
+/*上nav轉下*/
+.topbar {
+    position: fixed;top: calc(100% - 58px);
+    
+    background: yellow;
+}
+.right_topbar{/*右logo置中*/margin-top: -.1%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Admin_index */
+
+/*
+col-lg-3">
+|
+col-lg-3 SmsBox">
+<a class="SmsBoxClose recycle btn ">
+<i class='fa fa-trash' style="font-size: 18px;"><!-- 回收站 --></i></a>
+
+ */
+.SmsBox{position: relative;}
+.SmsBoxBtn,.SmsBox ul,h4 .SmsBoxBtn{display: none;}
+
+.SmsBoxBtn{
+    /*position: fixed;
+    top: 100px;bottom: 100px;right: 0;
+    */
+    text-align: center;vertical-align: middle;
+    opacity: .9;
+    justify-content: center; 
+    align-items: center; 
+    }
+
+    .SmsBoxBtn,h4 .SmsBoxBtn{    font-size: 2em;
+        /* http://www.layerstyles.org/builder.html   */
+    border: 1px solid black;
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#fcfcfc), to(#bfbfbf), color-stop(3%, #f7f7f7), color-stop(12%, #f2f2f2), color-stop(90%, #d9d9d9));
+    background-image: -webkit-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+    background-image: -moz-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+    background-image: -o-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+    background-image: -ms-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+    background-image: linear-gradient(to bottom, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+    -webkit-box-shadow: -28px 0 31px 6px rgba(41,158,51,0.75);
+    -moz-box-shadow: -28px 0 31px 6px rgba(41,158,51,0.75);
+    box-shadow: -28px 0 31px 6px rgba(41,158,51,0.75);}
+
+
+h4 .SmsBoxBtn,.SmsBox:hover{
+    background: #289c3fa4;
+}
+h4 .SmsBoxBtn button{
+    color: #289c3fa4;background: initial;
+}
+
+.SmsBoxClose{
+    background: #FF0000;
+
+}
+
+
+
+

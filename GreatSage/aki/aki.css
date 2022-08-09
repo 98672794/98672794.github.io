@@ -18,8 +18,11 @@ section{opacity: .5;}
 #ai取圖img{display: none;}
 
 
+.leftFloat00{float: left;margin: 1%;}
+
 /***************************************/
 /* for 0715交互数据管理系统响应式网页模板*/
+
 .full_container{opacity: .5;}
 .full_conta111iner:hover{opacity: .99}
 
@@ -59,7 +62,9 @@ section{opacity: .5;}
 #Op_Settings_page{text-align: center;line-height: 40px;}
 
 
-
+.progress_bar{display: flex; justify-content: center; 
+    align-items: center;
+    text-align: center;vertical-align: middle;}
 
 
 /* index */
