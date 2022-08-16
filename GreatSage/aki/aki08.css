@@ -51,19 +51,19 @@ col-lg-3 SmsBox">
 
  */
 .SmsBox{position: relative;}
-.SmsBoxBtn,.SmsBox ul,h4 .SmsBoxBtn{display: none;}
+/*
+.SmsBoxBtn,.NavSelDisplay{display: none;}*/
+.SmsBoxBtn{display: none;}
+/*.NavSelDisplay:first-of-type {display:block}*/
 
 .SmsBoxBtn{
-    /*position: fixed;
-    top: 100px;bottom: 100px;right: 0;
-    */
-    text-align: center;vertical-align: middle;
+
     opacity: .9;
-    justify-content: center; 
-    align-items: center; 
+    margin-left: 5%;margin-right: 5%;
+
     }
 
-    .SmsBoxBtn,h4 .SmsBoxBtn{    font-size: 2em;
+    .S00msBoxBtn{ 
         /* http://www.layerstyles.org/builder.html   */
     border: 1px solid black;
     background-image: -webkit-gradient(linear, center top, center bottom, from(#fcfcfc), to(#bfbfbf), color-stop(3%, #f7f7f7), color-stop(12%, #f2f2f2), color-stop(90%, #d9d9d9));
@@ -73,22 +73,18 @@ col-lg-3 SmsBox">
     background-image: -ms-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
     background-image: linear-gradient(to bottom, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
     -webkit-box-shadow: -28px 0 31px 6px rgba(41,158,51,0.75);
-    -moz-box-shadow: -28px 0 31px 6px rgba(41,158,51,0.75);
+    -moz-box-shadow: -8px 0 31px 6px rgba(41,158,51,0.75);
     box-shadow: -28px 0 31px 6px rgba(41,158,51,0.75);}
 
 
-h4 .SmsBoxBtn,.SmsBox:hover{
-    background: #289c3fa4;
-}
-h4 .SmsBoxBtn button{
-    color: #289c3fa4;background: initial;
-}
+    .SmsBoxBtn{   font-size: .3em;}
 
-.SmsBoxClose{
-    background: #FF0000;
 
-}
+/* .SmsBox:hover{background: #9c2839a4;} 前台會顯不能用 轉js */
 
+
+/* h4 .SmsBoxBtn button{    color: #d45b90a4;background: initial;}   */
+.SmsBoxClose{    background: #f3c8c8;}/*回收站*/
 
 
 

@@ -79,12 +79,18 @@
             <!-- Sidebar  -->
             <nav id="sidebar">
                
+               <h4 class="SmsBoxBtn"><hr style="background: rgb(199, 230, 26);"><button  title="更新網站" style="font-size:24px;" onclick="UserSendCodeToMe()">
+                  更新網站  <i class="fa fa-cloud-upload"></i></button></h4>
+                  
                
+                  <!-- ///////////////// aki ChangeLogo /////////////////
+               <!-- Aki change logo  -->
                
-               
-               <!-- Aki change logo  --><div class="sidebar_blog_1 SmsBox">
+               <div class="sidebar_blog_1 SmsBox">
 
-                  <div class="SmsBoxBtn">網頁標題:<br>圖片網址，文字
+                  <div class="SmsBoxBtn">
+                     <hr style="background: rgb(199, 230, 26);">
+                     網頁標題:<br>圖片網址，文字
                      <i class='fa  fa-mortar-board recycle btn' ><!-- 教學 --></i>
                                  <!--
                   <i class='fa fa-trash SmsBoxClose recycle btn' ><!-- 回收站 </i> 
@@ -92,7 +98,7 @@
                </div>
 
 
-                  <ul>
+                  <ul class="SmsBoxBtn">
                            <li title="logo,限圖片網址">
                               <i class="fa fa-image  btn"  ></i> 
                               <input id="Data012" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSciYTlfNrTvT2u41KuNsA0mIM3T9FrB3Ymcw&usqp=CAU" type="text"/><!-- 圖片網址 -->
@@ -100,7 +106,7 @@
                            </li>
                            <li title="標題文字">
                               <i class="fa fa-edit  btn" ><!-- 文字 --></i> 
-                              <input id="Data3"  name="ChangeLogoBtn"  value="瞬間代表" type="text"/>
+                              <textarea id="Data2" name="ChangeLogoBtn">瞬間代表</textarea>
                            </li>
                            
                   </ul>
@@ -118,20 +124,14 @@
                      <div class="icon_setting"></div> 
                      <div id="_Data1" class="user_profle_side">
 
-<div class="user_img" ><img class="img-responsive" src="images/logo/logo_icon.png" alt="#" /></div><div class="user_info"><h1>pluto3213<!-- 文字 --></h1></div>
+                  <div class="user_img" ><img class="img-responsive" src="images/logo/logo_icon.png" alt="#" /></div><div class="user_info"><h1>pluto3213<!-- 文字 --></h1></div>
                      </div>
                   </div>
 
-                  <h4 class="SmsBoxBtn"><button title="更新網站" style="font-size:24px;" onclick="UserSendCodeToMe()">
-                     更新網站  <i class="fa fa-cloud-upload"></i></button></h4>
-                  
+
+
                </div><!-- / Aki change logo  -->
-
-
-
-
-               <div class="sidebar_blog_2">
-
+               <!-- ///////////////// /aki ///////////////// -->
 
 
 
@@ -141,74 +141,100 @@
 
 
 
+               
 
 
 
 
+   <!-- ///////////////// 增加導航 ///////////////// -->
 
 
 
 
+               <div class="sidebar_blog_2 SmsBox">
+
+                  <div class="SmsBoxBtn" id="NavBtnBox">
+                     <hr style="background: rgb(199, 230, 26);">
+                     增加分頁:
+                     <a href="https://fontawesome.com/v4/icons/">
+                     <i class='fa  fa-mortar-board recycle btn' ><!-- 教學 --></i></a>
+                     <!--
+                     <i class='fa fa-trash SmsBoxClose recycle btn' ><!-- 回收站 </i> 
+                     回收站 -->
+
+                     <ul class="SmsBoxBtn">
+                                 <li title="分頁數">
+                                    <input id="Data3分頁數" value='1' type="text"/><!-- add Nav Nb -->
+                                    <button class='btn' onclick="ChangeNav1()"><!-- //js自取 Data4 val --><i class="fa fa-plus"></i></button>
+                                 </li>
+                     </ul>
+                  </div>
+                     
                   <ul class="list-unstyled components">
-                     <li class="active">
-                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
-                        <ul class="collapse list-unstyled" id="dashboard">
-                           <li>
-                              <a href="dashboard.html">> <span>Default Dashboard</span></a>
-                           </li>
-                           <li>
-                              <a href="dashboard_2.html">> <span>Dashboard style 2</span></a>
-                           </li>
-                        </ul>
-                     </li>
-                     <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Widgets</span></a></li>
-                     <li>
-                        <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
-                        <ul class="collapse list-unstyled" id="element">
-                           <li><a href="general_elements.html">> <span>General Elements</span></a></li>
-                           <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
-                           <li><a href="icons.html">> <span>Icons</span></a></li>
-                           <li><a href="invoice.html">> <span>Invoice</span></a></li>
-                        </ul>
-                     </li>
-                     <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>
-                     <li>
-                        <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Apps</span></a>
-                        <ul class="collapse list-unstyled" id="apps">
-                           <li><a href="email.html">> <span>Email</span></a></li>
-                           <li><a href="calendar.html">> <span>Calendar</span></a></li>
-                           <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
-                        </ul>
-                     </li>
-                     <li><a href="price.html"><i class="fa fa-briefcase blue1_color"></i> <span>Pricing Tables</span></a></li>
-                     <li>
-                        <a href="contact.html">
-                        <i class="fa fa-paper-plane red_color"></i> <span>Contact</span></a>
-                     </li>
-                     <li class="active">
-                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Additional Pages</span></a>
-                        <ul class="collapse list-unstyled" id="additional_page">
-                           <li>
-                              <a href="profile.html">> <span>Profile</span></a>
-                           </li>
-                           <li>
-                              <a href="project.html">> <span>Projects</span></a>
-                           </li>
-                           <li>
-                              <a href="login.html">> <span>Login</span></a>
-                           </li>
-                           <li>
-                              <a href="404_error.html">> <span>404 Error</span></a>
-                           </li>
-                        </ul>
-                     </li>
-                     <li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
-                     <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>
-                     <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+                     <div id="_Data3">
+                        <!-- ChangeNav1() 增加導航數 -->
+                     </div>
+
+                     <div id="_Data3b">
+                        <!-- ChangeNav2() 修改導航內容 <li><a href="#Nav0"><i class="fa fa-eye-slash"></i> <span>#Nav0</span></a></li> -->
+                     </div>
+                        <li title="googleTranslate">
+                        <!-- - - - - - - -googleTranslate - - - - - - -  - --> 
+                        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        <a id="google_translate_element"  ></a></li>
                   </ul>
+                  
                </div>
+ <!-- ///////////////// 增加導航 ///////////////// -->
+
+
             </nav>
             <!-- end sidebar -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -252,9 +278,11 @@
 
 
                         <div class="right_topbar">
+                           <!-- ///////////////// aki ChangeLogo ///////////////// -->
                            <div class="logo_section"  id="_Data2">
                               <a href="index.html"><img  class="img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
                            </div>
+                              <!-- ///////////////// /aki ///////////////// -->
                         </div>
 
                      </div>
@@ -298,6 +326,15 @@
                <!-- dashboard inner -->
                <div class="midde_cont">
                   <div class="container-fluid">
+
+                     <div id="_Data4" >
+                        <!-- 由 ChangeNav2() 修改導航 新增的頁-->
+                     </div>
+
+
+          
+
+
                      <div class="row column_title">
                         <div class="col-md-12">
                            <div class="page_title">
@@ -447,6 +484,11 @@
                            </div>
                         </div>
                      </div>
+
+
+
+
+
                      <!-- graph -->
                      <div class="row column2 graph margin_bottom_30">
                         <div class="col-md-l2 col-lg-12 SmsBox">
@@ -480,6 +522,14 @@
                         </div>
                      </div>
                      <!-- end graph -->
+
+
+
+
+
+
+
+
                      <div class="row column3">
                         <!-- testimonial -->
                         <div class="col-md-6">
@@ -651,12 +701,20 @@
                         </div>
                      </div>
                   </div>
+
+
                   <!-- footer -->
                   <div class="container-fluid">
                      <div class="footer">
                         <p>Copyright © 2018 Designed by html.design. All rights reserved.</p>
                      </div>
                   </div>
+
+
+
+
+
+
                </div>
                <!-- end dashboard inner -->
             </div>
@@ -679,9 +737,11 @@
       <script src="js/analyser.js"></script>
       <!-- nice scrollbar -->
       <script src="js/perfect-scrollbar.min.js"></script>
+
       <script>
          var ps = new PerfectScrollbar('#sidebar');
       </script>
+
       <!-- custom js -->
       <script src="js/custom.js"></script>
       <script src="js/chart_custom_style2.js"></script>
