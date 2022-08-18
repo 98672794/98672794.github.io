@@ -340,7 +340,11 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
 
-
+//////////////////////////////
+//////////////////////////////
+/////////// 導航 ///////////
+//////////////////////////////
+//////////////////////////////
 
 
       
@@ -412,7 +416,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
         // make 客睇航btn
         //??222 let NewNav = '<li><a href="#Nav'+Data3分頁數nb+'"><i class="fa fa-eye-'+導航的圖+'"></i> <span>'+導航名+'</span></a></li>'
-        let NewNav = '<li><a onclick="_SelNavSee('+Data3分頁數nb+')"><i class="'+導航的圖+'"></i> <span>'+導航名+'</span></a></li>'
+        let NewNav = '<li id="客睇航btn'+Data3分頁數nb+'"><a onclick="_SelNavSee('+Data3分頁數nb+')"><i class="'+導航的圖+'"></i> <span>'+導航名+'</span></a></li>'
         // <li><a href="#Nav0"><i class="fa fa-eye-####"></i> <span>####</span></a></li>
        // <li><a href="#Nav0"><i class="fa fa-eye-slash"></i> <span>#Nav0</span></a></li>
         document.getElementById("_Data3b").insertAdjacentHTML("beforeEnd", NewNav);   // 後入
@@ -420,32 +424,74 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
        //  增加分頁   // _SelNavSee = class.none id.block
 
-      let page1a = '<div class="row NavSelDisplay" id="Nav'
-      //+Data3分頁數nb+
-      let page1a2 ='">'
-      let page1b = '   <div class="col-md-12">'
-      let page1c = '        <div class="page_title"><h2>'
-      let page1d = '<i class="'
-      //+導航的圖+
-      let page1d2 = '"></i>  '
-      //導航名
-      let page2 = ' </h2></div>        '
-      //導航名
-      let page3 = '    </div></div>'
+      /*
+        P0819巨 =
+          <div class="row NavSelDisplay" id="Nav
+          0
+          "><div class="col-md-12"><div class="page_title"><h2><i class="
+          fa fa-eye-slash
+          "></i>  
+          Nav0
+          </h2></div>
+          Nav0
+          <div class="SmsBoxB2tn"><hr style="background: rgb(199, 230, 26);">
+          排版:<i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>
+          <select id="SelPageFlow
+          0
+          "><option value="1">1</option><option value="2">2</option>
+          <option value="4">4</option></select><button class="btn" onclick="ChangeNav3PageFlow(
+          0
+          )"><i class="fa fa-plus"></i></button><a title="分頁刪除" onclick="_DelNav(
+          0
+          )" class="SmsBoxClose recycle btn "><i class="fa fa-trash" ><!-- 分頁刪除 --></i></a>
+          </div></div><br/></div>
 
-      // <div class="row NavSelDisplay" id="Nav0" style="display: block;">   
-      //  <div class="col-md-12">
-      //        <div class="page_title"><h2><i class="fa fa-eye-slash"></i>  Nav0123 </h2></div>
-      //        Nav0123
-      //    </div></div>
+      */
 
-      let page = page1a+Data3分頁數nb+page1a2+page1b+page1c+page1d+導航的圖+page1d2+導航名+page2+導航名+page3
+      let P0819巨1 ='<div class="row NavSelDisplay" id="Nav'
+       //+Data3分頁數nb+
+      let P0819巨2 ='"><div class="col-md-12"><div class="page_title"><h2><i class="'
+       //+導航的圖+
+      let P0819巨3 ='"></i>  '
+       //導航名
+      let P0819巨4a ='</h2></div>'
+        //導航名
+      let P0819巨4a2 ='<div class="SmsBoxB2tn"><hr style="background: rgb(199, 230, 26);">'
+      let P0819巨4b ='排版:<i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>'
+      let P0819巨4c ='<select id="SelPageFlow'
+        //+Data3分頁數nb
+      let P0819巨5a ='"><option value="1">1</option><option value="2">2</option>'
+      let P0819巨5b ='<option value="4">4</option></select><button class="btn" onclick="ChangeNav3PageFlow('
+        //Data3分頁數nb
+      let P0819巨6 =')"><i class="fa fa-plus"></i></button><a title="分頁刪除" onclick="_DelNav('
+        //Data3分頁數nb
+      let P0819巨7a =')" class="SmsBoxClose recycle btn "><i class="fa fa-trash" ><!-- 分頁刪除 --></i></a>'
+      let P0819巨7b ='</div>'
+      let P0819巨8 = '</div><br/></div>' 
+
+      let page = P0819巨1+Data3分頁數nb+P0819巨2+導航的圖+P0819巨3+導航名+P0819巨4a+導航名+P0819巨4a2+
+                  P0819巨4b+P0819巨4c+Data3分頁數nb+P0819巨5a+P0819巨5b+Data3分頁數nb+ P0819巨6+
+                  Data3分頁數nb+P0819巨7a+P0819巨7b+P0819巨8
+
       document.getElementById("_Data4").insertAdjacentHTML("beforeEnd", page);   // 後入
-
        _NoneDiv('#增加導航btn'+Data3分頁數nb) // 不顯示 修改導航內容btn
       }
 
 
+
+
+
+
+
+
+
+        
+
+
+  //// 修改導航後,增加分頁 202208172317 ////  //User流程4
+  function  ChangeNav3PageFlow(cont) {   // 
+        console.log("///修改導航",cont)
+      }
 
 
 
@@ -457,7 +503,6 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
         let ChangePage = document.querySelector(pageId)
         $(".NavSelDisplay").css("display", "none")
         $('#Nav'+sel).css("display", "block")
-      
         }
 
 
@@ -466,21 +511,18 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
 
-      
-  function _DelNav(sel) { 
+      //// 刪除分頁 ////
+  function _DelNav(sel) {  
+    console.log("///_DelNav",sel)
     _DelDiv('#增加導航btn'+sel) // 删除 修改導航內容btn
-    _NoneDiv('#NavLi'+sel) // 不顯示 真導航方便 删除 修改導航內容btn 人操作
-  
+    _NoneDiv('#Nav'+sel)// // 不顯示 真導航方便 删除 修改導航內容btn 人操作
+    _NoneDiv('#客睇航btn'+sel)
     }
 
     
 
 
-  function _DelNav(sel) { 
-  _DelDiv('#增加導航btn'+sel) // 删除 修改導航內容btn
-  _NoneDiv('#NavLi'+sel) // 不顯示 真導航方便 删除 修改導航內容btn 人操作
 
-  }
 
   //删除指定元素  防重id  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_remove
   function _DelDiv(IdVal) {  
