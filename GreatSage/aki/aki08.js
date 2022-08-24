@@ -8,6 +8,8 @@
 ////////// all html demo just change this ////////
 //////////////////////////////////////////////////
 
+
+
 題 = "NKOL - 202208062338"
 示 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdti7rZ1sn-fCY3rOS2s-6lcR20mR_oKl9QA&usqp=CAU"
 
@@ -66,7 +68,14 @@
 //////////////////////////////
 //////////////////////////////
 
+/*
 
+
+讓網頁一開始就執行js
+
+
+
+*/
 
 
 // 讓網頁一開始就執行js https://www.zymseo.com/big5/program_250447
@@ -100,7 +109,9 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
   // 用現url做user login 
   if (location.href.indexOf(死撚莫) != -1){
-    console.log("user login!")
+
+    _AdminSay("isAutoRun()=user login!","會員登入編輯模式")
+
 
     // display Admin Box 
     $(".SmsBoxBtn,.SmsBox ul").css("display", "block")
@@ -120,7 +131,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
   }
   else{
-    console.log("WorkIn user!")
+    _AdminSay("WorkIn user!","匿名瀏覽")
   }// url沒user 
 
   // aki admin display
@@ -288,7 +299,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
             //sel2 是logo
             if (ImgVar_Id == 'Data012'){   // Data012 是logo = _Data0,ImgDsp_1,ImgDsp_2
               
-
+              _AdminSay("ChangeLogo(ImgVar_Id)=change logo&title!","編輯模式//查看更新:圖標標語**未保存**")
               // change html 
                 // html 轉tit 
                 document.title = Logotxt
@@ -351,12 +362,12 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
       /////// Change nav 202208151513 ///////  //User流程2
 
   function  ChangeNav1() {  // 增加導航數btn
-    console.log("///增加導航")
+    //console.log("///增加導航")
 
     // get
     let 分頁數 = document.getElementById("Data3分頁數").value  // 取分頁數 val //<input id="Data3分頁數" value='5' type="text"/>
     
-    if(分頁數 >= 3)    return;//限制分頁數  https://jsfiddle.net/opL1gb7d/
+    if(分頁數 >= 6)    return;//限制分頁數  https://jsfiddle.net/opL1gb7d/  //////限制分頁數
     for(var i=0;i<分頁數;i++){          //  分頁數loop  //用於auto ,
       /****************** 要轉的位 *********************/
       /* for 0715交互数据管理系统响应式网页模板*/
@@ -391,8 +402,12 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     
     _NoneDiv('#NavBtnBox') // 不顯示 增加導航數btn
 
-      }
+    let tt1 = "ChangeNav1()=Make"+分頁數+"Nav"
+    let tt2 = "編輯模式//已增加"+分頁數+"個導航**未保存**"
 
+    _AdminSay(tt1,tt2) // 管理員說話
+
+      }
 
 
 
@@ -401,8 +416,13 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
       
 
   //// 修改導航名,增加分頁 202208162243OK ////  //User流程3
+
+  /* 做錯了 User流程4 轉用板引入id */
+
   function  ChangeNav2(Data3分頁數nb) {   // 
-        console.log("///修改導航",Data3分頁數nb)
+
+        //console.log("///修改導22航",Data3分頁數nb)
+
       
         // get
         let IDTxt = "Data3分頁數"+ Data3分頁數nb // 分頁/導航名 // '<textarea id="Data3分頁數'
@@ -423,75 +443,79 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
        //  增加分頁   // _SelNavSee = class.none id.block
-
-      /*
-        P0819巨 =
-          <div class="row NavSelDisplay" id="Nav
-          0
-          "><div class="col-md-12"><div class="page_title"><h2><i class="
-          fa fa-eye-slash
-          "></i>  
-          Nav0
-          </h2></div>
-          Nav0
-          <div class="SmsBoxB2tn"><hr style="background: rgb(199, 230, 26);">
-          排版:<i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>
-          <select id="SelPageFlow
-          0
-          "><option value="1">1</option><option value="2">2</option>
-          <option value="4">4</option></select><button class="btn" onclick="ChangeNav3PageFlow(
-          0
-          )"><i class="fa fa-plus"></i></button><a title="分頁刪除" onclick="_DelNav(
-          0
-          )" class="SmsBoxClose recycle btn "><i class="fa fa-trash" ><!-- 分頁刪除 --></i></a>
-          </div></div><br/></div>
-
-      */
-
-      let P0819巨1 ='<div class="row NavSelDisplay" id="Nav'
-       //+Data3分頁數nb+
-      let P0819巨2 ='"><div class="col-md-12"><div class="page_title"><h2><i class="'
-       //+導航的圖+
-      let P0819巨3 ='"></i>  '
-       //導航名
-      let P0819巨4a ='</h2></div>'
-        //導航名
-      let P0819巨4a2 ='<div class="SmsBoxB2tn"><hr style="background: rgb(199, 230, 26);">'
-      let P0819巨4b ='排版:<i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>'
-      let P0819巨4c ='<select id="SelPageFlow'
-        //+Data3分頁數nb
-      let P0819巨5a ='"><option value="1">1</option><option value="2">2</option>'
-      let P0819巨5b ='<option value="4">4</option></select><button class="btn" onclick="ChangeNav3PageFlow('
-        //Data3分頁數nb
-      let P0819巨6 =')"><i class="fa fa-plus"></i></button><a title="分頁刪除" onclick="_DelNav('
-        //Data3分頁數nb
-      let P0819巨7a =')" class="SmsBoxClose recycle btn "><i class="fa fa-trash" ><!-- 分頁刪除 --></i></a>'
-      let P0819巨7b ='</div>'
-      let P0819巨8 = '</div><br/></div>' 
-
-      let page = P0819巨1+Data3分頁數nb+P0819巨2+導航的圖+P0819巨3+導航名+P0819巨4a+導航名+P0819巨4a2+
-                  P0819巨4b+P0819巨4c+Data3分頁數nb+P0819巨5a+P0819巨5b+Data3分頁數nb+ P0819巨6+
-                  Data3分頁數nb+P0819巨7a+P0819巨7b+P0819巨8
+      
+      // 合成html模板= turnSelPageFlow == 1 = _about_section
+      let page = _html模板(Data3分頁數nb,導航的圖,導航名,'page')
 
       document.getElementById("_Data4").insertAdjacentHTML("beforeEnd", page);   // 後入
        _NoneDiv('#增加導航btn'+Data3分頁數nb) // 不顯示 修改導航內容btn
+      
+      
+      let tt1 = "ChangeNav2(Data3分頁數nb)=Make"+Data3分頁數nb+"Page"
+      let tt2 = "編輯模式//已增加"+Data3分頁數nb+"號分頁**未保存**"
+       _AdminSay(tt1,tt2) // 管理員說話
+      
       }
 
 
 
 
 
+  //// 加分頁風格 202208241919 ////  //User流程4
+  function  ChangeNav3PageFlow(cont) {   // 加入版板到 Nav0TruePage // <select id="SelPageFlow2" onchange="ChangeNav3PageFlow(2)">
+    //console.log("///修改導航",cont)
+    
+    //xxxxxxxxx let SelPageFlow = "SelPageFlow"+cont // id SelPageFlow
+
+    // get
+    let turnSelPageFlow = document.getElementById("SelPageFlow"+cont).value, // 風格 // 1分頁數=1風格
+      // 字串合成html id
+      客睇頁 = "Nav"+cont+"TruePage", // id name // <div id="Nav0TruePage">
+      turnId = document.querySelector("#"+客睇頁),
+
+
+
+      // TruePage內容
+      TruePage_Data4 = document.getElementById("Nav"+cont+"TruePage_Data4").value,  // 內容圖
+      TruePage_Data5 = document.getElementById("Nav"+cont+"TruePage_Data5").value,  // 標題
+      TruePage_Data6 = document.getElementById("Nav"+cont+"TruePage_Data6").value,  // 內容 3
+      TruePage_Data7 = document.getElementById("Nav"+cont+"TruePage_Data7").value,  // 按鈕圖
+      TruePage_Data8 = document.getElementById("Nav"+cont+"TruePage_Data8").value,  // 按鈕文字
+      TruePage_Data9 = document.getElementById("Nav"+cont+"TruePage_Data9").value,  // 按鈕網址
+
+
+      // 合成html模板= turnSelPageFlow == 1 = _about_section
+      _about_section = _html模板(客睇頁,TruePage_Data4,TruePage_Data5,TruePage_Data6,TruePage_Data7,TruePage_Data8,TruePage_Data9,turnSelPageFlow)
+
+    // 加入版板到NavTruePage
+    turnId.innerHTML = _about_section+''
+
+    //}
+
+    // 管理員說話
+    let tt1 = "ChangeNav3PageFlow()=Make"+cont+"Page風格="+turnSelPageFlow,
+        tt2 = "編輯模式//Make"+cont+"Page風格="+turnSelPageFlow+"**未保存**"
+    _AdminSay(tt1,tt2)
+    
+
+    return turnSelPageFlow
+  }
+
+
+  
 
 
 
 
-        
 
 
-  //// 修改導航後,增加分頁 202208172317 ////  //User流程4
-  function  ChangeNav3PageFlow(cont) {   // 
-        console.log("///修改導航",cont)
-      }
+
+
+
+
+
+
+
 
 
 
@@ -504,6 +528,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
         $(".NavSelDisplay").css("display", "none")
         $('#Nav'+sel).css("display", "block")
         }
+
 
 
 
@@ -626,6 +651,226 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
 
+//////////////////////////////
+//////////////////////////////
+/////////// html模板 /////////
+//////////////////////////////
+//////////////////////////////
+
+
+function _html模板() {
+
+  // 如果使用太多參數（超過聲明的參數）調用函數 arguments
+  // https://www.w3schools.com/js/js_function_parameters.asp
+  // for (let i = 0; i < arguments.length; i++) {    console.log('arguments[' + i + ']: ' + arguments[i]);    }
+  // console.log('arguments[da2]: ' + arguments[arguments.length - 1]); 
+
+
+  let page = '\
+          <div class="row NavSelDisplay" id="Nav'+arguments[0]+'">\
+            <div class="col-md-12">\
+            <div class="page_title">\
+                <h2>\
+                    <i class="'+arguments[1]+'"></i>'+arguments[2]+'\
+                </h2>\
+            </div>\
+            \
+            '+arguments[2]+'\
+            <div class="SmsBox2Btn">\
+                <hr style="background: rgb(199, 230, 26);">\
+               \
+                \
+                <hr style="background: rgb(9, 9, 9);">\
+              <ul>\
+              <li title="'+arguments[2]+'內容">內容<br/>\
+              圖<input title="'+arguments[2]+'內容圖,限圖片網址" id="Nav'+arguments[0]+'TruePage_Data4" value="https://i.ppfocus.com/2020/7/101496f.jpg" type="text"/>\
+                  <!-- 圖片網址 --><i class="fa fa-image  btn"  ></i> \
+                  <br/>\
+                  標題<textarea id="Nav'+arguments[0]+'TruePage_Data5">'+arguments[2]+'標題</textarea>\
+                  內文<textarea id="Nav'+arguments[0]+'TruePage_Data6">'+arguments[2]+'內文</textarea>\
+                  <hr style="background: rgb(9, 9, 9);">\
+              </li>\
+              <li title="'+arguments[2]+'按鈕內容">按鈕<br/>\
+              圖<input id="Nav'+arguments[0]+'TruePage_Data7"  title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
+                <a href="https://fontawesome.com/v4/icons/" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a><br/>\
+                按鈕文字<textarea id="Nav'+arguments[0]+'TruePage_Data8">'+arguments[2]+'按鈕文字</textarea>\
+                按鈕網址<textarea id="Nav'+arguments[0]+'TruePage_Data9">'+arguments[2]+'按鈕網址</textarea>\
+              </li>\
+              </ul>\
+        \
+              </div>\
+        \
+        \
+        \
+        \
+        <h4>編輯'+arguments[2]+'的內容:</h4>\
+                \
+                風格:<br/><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>\
+                <select id="SelPageFlow'+arguments[0]+'" onchange="ChangeNav3PageFlow('+arguments[0]+')" >\
+                    <option value="1">選擇風格</option><option value="1">1</option>\
+                    <option value="2">2</option>\
+                </select>\
+                <a title="分頁刪除" onclick="_DelNav('+arguments[0]+')" class="SmsBoxClose recycle btn ">\
+                <i class="fa fa-trash" ><!-- 分頁刪除 --></i></a></div>\
+                \
+                \
+                \
+                <div id="Nav'+arguments[0]+'TruePage"><!-- _html模板放這 -->\<h3>未有內容</h3></div>\
+            </div>\
+          </div>\
+          </div><br/>'
+
+  , _about_section1 = '  \
+      <!-- about section1 -->\
+      \
+      <section class="about_section layout_padding">\
+      \
+              \
+        <div class="container">\
+          <div class="row">\
+          <!-- 左 -->\
+          <div class="col-lg-6">\
+            <div class="img-box">\
+              <img src="'+arguments[1]+'" alt="" style="width: 100%; " />\
+            </div>\
+          </div>\
+          <!-- /左 -->\
+            <!-- 右 -->\
+            <div class="col-lg-6">\
+              <div class="detail-box">\
+                <div class="heading_container">\
+                  <h2>\
+                    '+arguments[2]+'\
+                    <hr>\
+                  </h2>\
+                </div>\
+                <p>'+arguments[3]+'</p>\
+                <a href="'+arguments[6]+'" target="_blank">\
+                  <span><i class="'+arguments[4]+'"></i>\
+                  '+arguments[5]+'\
+                  </span>\
+                </a>\
+              </div>\
+            </div>\
+            <!-- /右 -->\
+          </div>\
+        </div>\
+      </section>\
+    \
+      <!-- end about section -->\
+'
+
+
+  , _about_section2 = '  \
+      <!-- about section2 -->\
+      \
+        <section class="about_section layout_padding">\
+          <div class="container">\
+            <div class="row">\
+              <!-- 右 -->\
+              <div class="col-lg-6">\
+                <div class="detail-box">\
+                  <div class="heading_container">\
+                    <h2>\
+                      '+arguments[2]+'\
+                      <hr>\
+                    </h2>\
+                  </div>\
+                  <p>'+arguments[3]+'</p>\
+                  <a href="'+arguments[6]+'" target="_blank">\
+                  <span><i class="'+arguments[4]+'"></i>\
+                    '+arguments[5]+'\
+                    </span>\
+                  </a>\
+                </div>\
+              </div>\
+              <!-- /右 -->\
+              <!-- 左 -->\
+              <div class="col-lg-6">\
+                <div class="img-box">\
+                  <img src="'+arguments[1]+'" alt="" style="width: 100%; " />\
+                </div>\
+              </div>\
+              <!-- /左 -->\
+            </div>\
+          </div>\
+        </section>\
+      \
+        <!-- end about section -->\
+  '
+
+  // list get https://flexiple.com/javascript/get-last-array-element-javascript/
+  let _lastSet = arguments[arguments.length - 1];
+    if (_lastSet == 'page') {return page}
+    if (_lastSet == 1) {return _about_section1}
+    if (_lastSet == 2) {return _about_section2}
+
+      
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+// onclick="UserSendCodeToMe() 更新網站
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////
+//////////////////////////////
+/////////// ??? /////////
+//////////////////////////////
+//////////////////////////////
+
     //<button onclick to this
     function ________________ChangeIMG(imgNb) { // <button onclick="ChangeIMG('_myImg1')">
       //alert(imgNb.substr(1))
@@ -646,6 +891,129 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////
+//////////////////////////////
+/////////// hi admin😊 //////
+//////////////////////////////
+//////////////////////////////
+
+
+      
+/////// 程式碼模式 202208232217 ///////  //admin睇 要清楚現做緊乜,概
+
+
+
+
+  function _AdminSay(標題,內容){  //html  <button onclick="_Admi0nSay()">  //js _Admin0Say()
+    //console.log("///_AdminSay",標題,內容)
+    console.log("//hi admin😊/////\
+    ",標題," ////\
+    ",內容," ////\
+    ///////////////")
+  }
 
 
 
