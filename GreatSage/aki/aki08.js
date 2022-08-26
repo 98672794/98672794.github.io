@@ -8,7 +8,7 @@
 ////////// all html demo just change this ////////
 //////////////////////////////////////////////////
 
-
+AkiWs = 'https://wa.me/85298672794?text='
 
 題 = "NKOL - 202208062338"
 示 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdti7rZ1sn-fCY3rOS2s-6lcR20mR_oKl9QA&usqp=CAU"
@@ -21,6 +21,38 @@
 // User Data
 死撚莫 = "0123"
 
+
+
+
+
+
+
+
+
+
+//////////////////////////////
+//////////////////////////////
+//////////// select //////////
+//////////////////////////////
+//////////////////////////////
+
+/**
+ * 
+ * @param {控制用按鈕} 標題 
+ * @param {*} 內容 
+ */
+
+    // display Admin Box 
+    function  _Btn_displayAdminBox (htmlTit) {  // 打開會員編輯功能
+      $(htmlTit).css("display", "block")
+      return true
+    }
+
+
+
+
+    // do whet function // 一鍵打開關閉all功能 _Btn_AkiSel
+    function  _一鍵打開關閉all功能 () {        return false    }
 
 
 
@@ -93,20 +125,6 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     CopyrightBox.innerHTML = 權
 
 
-  // Admin手機網站更新時關 *********************
-  //  自動按code轉頁面內容,可用做payPage
-  //  change Github page code, pass to AkiUpHtmlCode
-  ////////AkiUpHtmlCode() // web base data display // <input id="AkiUpHtmlCode" value="code">
-  // Admin手機網站更新時關 *********************
-
-  //try {AkiUpHtmlCode()}
-  //var AllTxt = AkiUpHtmlCode()
-  //console.log("AllTxt")
-  //console.log(AllTxt)
-
-  // user login display
-  // display adminPage if user //////////////////////
-
   // 用現url做user login 
   if (location.href.indexOf(死撚莫) != -1){
 
@@ -114,11 +132,8 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
     // display Admin Box 
-    $(".SmsBoxBtn,.SmsBox ul").css("display", "block")
-    $(".SmsBox div").css("opacity", ".8")
+    console.log("///打開會員編輯功能///",_Btn_displayAdminBox(".SmsBoxBtn,.SmsBox ul"))
 
-    //$(".SmsBox:hover").css("background", "#9c2839a4") //not work
-    
 
     // all target=new page,save change data time
     $("a").attr("target","_blank") // 修改a https://blog.csdn.net/bfboys/article/details/52810081
@@ -127,24 +142,18 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     // js f5/關閉視窗提示 txt ing 
     // 編輯時 頁面離開或f5或者瀏覽器關閉的時候給予提示 防止用戶誤操作 離開當前頁面未保存數據可能丟失 
     // https://www.geeksforgeeks.org/how-to-detect-browser-or-tab-closing-in-javascript/
-    //########qqqqqqq######## window.addEventListener('beforeunload', function (e) {  e.preventDefault(); e.returnValue = ''; });
+    window.addEventListener('beforeunload', function (e) {  e.preventDefault(); e.returnValue = ''; });
 
   }
   else{
     _AdminSay("WorkIn user!","匿名瀏覽")
   }// url沒user 
 
-  // aki admin display
-  if (location.href.indexOf('aki') != -1){
-    $(".AkiUpHtmlCode").css("display", "block")
+
+  // 自動按 <textarea id="AkiUpHtmlCode" val 更新網頁內容
+  if(_一鍵打開關閉all功能() == true) {
+    console.log("///按 AkiUpHtmlCode 更新網頁內容///",AkiUpHtmlCode())
   }
-
-  // Admin手機網站更新 // 自動按 <input id="AkiUpHtmlCode"> 碼更新 qqq
-  // ChangeLogo // ChangeNav 
-  //QQAkiUpHtmlCodeQQ??
-
-  AkiUpHtmlCode()
-
 }
 
 
@@ -152,10 +161,39 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
 
- // jquery 实现顶部导航下滑消失，上滑显示动画 - 掘金
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////
+//////////////////////////////
+/////////// jquery 实现顶部导航下滑消失，上滑显示动画 - 掘金 ///////////
+//////////////////////////////
+//////////////////////////////
  // https://juejin.cn/post/6844903978518446087
- var scrollTopLast = 0;
- window.onscroll=function(e){
+var scrollTopLast = 0;
+window.onscroll=function(e){
      var scrollTop = e.target.scrollingElement.scrollTop;
      if(scrollTop > scrollTopLast){
          console.log("滑轮向下滚动");
@@ -174,59 +212,6 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 //链接：https://juejin.cn/post/6844903978518446087
 //来源：稀土掘金
 //著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -276,6 +261,140 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////
+//////////////////////////////
+/////////// Change ///////////
+//////////////////////////////
+//////////////////////////////
 
 
 
@@ -377,10 +496,10 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
       
       nav導航標題格1 = '<div id="增加導航btn'
       nav導航標題格2 = '"><input id="Data3分頁各圖'
-      nav導航標題格3a = '"  title="導航的圖" value="fa fa-eye-slash" type="text"/><!-- 圖片網址 -->'
+      nav導航標題格3a = '"  class="UpTxt" title="導航的圖" value="fa fa-eye-slash" type="text"/><!-- 圖片網址 -->'
       nav導航標題格3b = '<a href="https://fontawesome.com/v4/icons/" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a>'
       nav導航標題格3c = '<textarea id="Data3分頁數'
-      nav導航標題格4 = '"  title="導航名">Nav'
+      nav導航標題格4 = '" class="UpTxt" title="導航名">Nav'
       nav導航標題格5 = '</textarea><!-- add Nav Nb 內修 btn --><button class="btn" onclick="ChangeNav2('
       nav導航標題格6 = ')"><!-- 睇圖 --><i class="fa fa-eye"></i></button></div>'
       // nav導航標題格1 ~6 =
@@ -400,6 +519,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
       document.getElementById("_Data3").insertAdjacentHTML("beforeEnd", nav導航標題格);   // 後入 https://jsfiddle.net/opL1gb7d/
     }
     
+    //qqqq//btn// 
     _NoneDiv('#NavBtnBox') // 不顯示 增加導航數btn
 
     let tt1 = "ChangeNav1()=Make"+分頁數+"Nav"
@@ -448,6 +568,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
       let page = _html模板(Data3分頁數nb,導航的圖,導航名,'page')
 
       document.getElementById("_Data4").insertAdjacentHTML("beforeEnd", page);   // 後入
+       //qqqq//btn// 
        _NoneDiv('#增加導航btn'+Data3分頁數nb) // 不顯示 修改導航內容btn
       
       
@@ -567,8 +688,8 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
       // if have 圖url
   function _inputDataHave(val) { 
-        if (val != ''){var HaveData = '///轉已data'}
-        else{ var HaveData = '///已not data'}
+        if (val != ''){var HaveData = '///OK'}
+        else{ var HaveData = '///沒圖'}
         return HaveData
       }
 
@@ -678,23 +799,23 @@ function _html模板() {
             '+arguments[2]+'\
             <div class="SmsBox2Btn">\
                 <hr style="background: rgb(199, 230, 26);">\
-               \
+              \
                 \
                 <hr style="background: rgb(9, 9, 9);">\
               <ul>\
               <li title="'+arguments[2]+'內容">內容<br/>\
-              圖<input title="'+arguments[2]+'內容圖,限圖片網址" id="Nav'+arguments[0]+'TruePage_Data4" value="https://i.ppfocus.com/2020/7/101496f.jpg" type="text"/>\
+              圖<input title="'+arguments[2]+'內容圖,限圖片網址" id="Nav'+arguments[0]+'TruePage_Data4" class="UpTxt" value="https://i.ppfocus.com/2020/7/101496f.jpg" type="text"/>\
                   <!-- 圖片網址 --><i class="fa fa-image  btn"  ></i> \
                   <br/>\
-                  標題<textarea id="Nav'+arguments[0]+'TruePage_Data5">'+arguments[2]+'標題</textarea>\
-                  內文<textarea id="Nav'+arguments[0]+'TruePage_Data6">'+arguments[2]+'內文</textarea>\
+                  標題<textarea id="Nav'+arguments[0]+'TruePage_Data5" class="UpTxt" >'+arguments[2]+'標題</textarea>\
+                  內文<textarea id="Nav'+arguments[0]+'TruePage_Data6" class="UpTxt" >'+arguments[2]+'內文</textarea>\
                   <hr style="background: rgb(9, 9, 9);">\
               </li>\
               <li title="'+arguments[2]+'按鈕內容">按鈕<br/>\
-              圖<input id="Nav'+arguments[0]+'TruePage_Data7"  title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
+              圖<input id="Nav'+arguments[0]+'TruePage_Data7" class="UpTxt" title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
                 <a href="https://fontawesome.com/v4/icons/" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a><br/>\
-                按鈕文字<textarea id="Nav'+arguments[0]+'TruePage_Data8">'+arguments[2]+'按鈕文字</textarea>\
-                按鈕網址<textarea id="Nav'+arguments[0]+'TruePage_Data9">'+arguments[2]+'按鈕網址</textarea>\
+                按鈕文字<textarea id="Nav'+arguments[0]+'TruePage_Data8" class="UpTxt">'+arguments[2]+'按鈕文字</textarea>\
+                按鈕網址<textarea id="Nav'+arguments[0]+'TruePage_Data9" class="UpTxt">'+arguments[2]+'按鈕網址</textarea>\
               </li>\
               </ul>\
         \
@@ -706,7 +827,7 @@ function _html模板() {
         <h4>編輯'+arguments[2]+'的內容:</h4>\
                 \
                 風格:<br/><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>\
-                <select id="SelPageFlow'+arguments[0]+'" onchange="ChangeNav3PageFlow('+arguments[0]+')" >\
+                <select id="SelPageFlow'+arguments[0]+'" class="UpTxt" onchange="ChangeNav3PageFlow('+arguments[0]+')" >\
                     <option value="1">選擇風格</option><option value="1">1</option>\
                     <option value="2">2</option>\
                 </select>\
@@ -827,6 +948,131 @@ function _html模板() {
 
 
 
+  
+
+
+  
+//////////////////////////////
+//////////////////////////////
+///////// User Btn ///////////
+//////////////////////////////
+//////////////////////////////
+
+    // User網站更新
+    /*f 只需 要的t i 加 .UpTxt{*/
+    function UserSendCodeToMe() {  
+
+      ChangeLogo('Data012') // 客更手動未必需要
+
+      // Get user change all
+      // 客修改內容 如有空 if '' 不會空,預txt
+      var AllChangeCode = _GetAllCode("UpTxt")
+      console.log('///Get All UpTxt Data ed///')
+      console.log(AllChangeCode)
+
+      // txt zip b64
+      var str = utf8_to_b64(AllChangeCode)
+      console.log('///Now Code b64///')
+      console.log(str)
+
+      // SendWsToAki
+      let wsToAki = AkiWs + str
+      window.open(wsToAki, '_blank').focus() // https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+
+    }
+
+
+
+
+// 202208260024  get all code
+function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
+
+  var cont = ".,."
+  ,   allTxt = "" // 建立字串 用於取all文
+
+  // get all class // https://jsfiddle.net/Keammoort/cd5cwvs5/
+  ,   list = document.getElementsByClassName(HaHa_getElementsBy)
+
+
+  for(var i=0;i<list.length;i++){          //  loop + 字
+      var tttt = list[i].value         //  textarea input
+    allTxt = allTxt + tttt + cont
+    }
+    console.log(allTxt)
+    return allTxt
+}
+
+
+
+
+
+  // Admin網站更新
+
+  function AkiUpHtmlCode() { 
+
+    // get Data code
+    var ListCodeVal = $("#AkiUpHtmlCode").val() // <input id="AkiUpHtmlCode"><button onclick="AkiUpHtmlCode()">
+
+    console.log("///數位///",ListCodeVal.length)
+    if (ListCodeVal.length <2) {return true}  // 沒value不動作 // https://www.codegrepper.com/code-examples/javascript/javascript+check+if+input+value+is+not+empty
+
+    console.log("AkiUpHtmlCode val")
+    console.log(ListCodeVal)
+    // Un zip Data code
+    console.log("///UnzipData///")
+    var AllTxt = b64_to_utf8( ListCodeVal )     // UpZIP b64
+    console.log(AllTxt)
+
+    // post Data code
+    var AllTxtB = AllTxt.split(".,.")   // 切割字串 https://www.wibibi.com/info.php?tid=258
+
+
+    // 先加分頁 入AllTxtB[2]; ChangeNav1
+    document.querySelector("#Data3分頁數").value = AllTxtB[2]
+    ChangeNav1() // 點加導航數
+    var OK = _postAllTxt('.UpTxt',AllTxtB) // 插入導航字 // 插入所有資料1
+    for(let i=0;i<AllTxtB[2];i++){ChangeNav2(i)}// 點加分頁
+        
+    
+
+
+
+    var OK = _postAllTxt('.UpTxt',AllTxtB) // 插入所有資料2
+
+    // 選擇風格
+    for(let i=0;i<AllTxtB[2];i++){ChangeNav3PageFlow(i)}// sel已插入 loop ChangeNav3PageFlow auto get val
+
+    // Change Css
+    //UserChangeCss()
+
+    // Change IMG(_myImg1~36) just雙數
+    ChangeLogo('Data012')
+
+    // qqqqqqqqqq 用
+    console.log("///暫OK0156///")
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+  
+//////////////////////////////
+//////////////////////////////
+//////////// Save ////////////
+//////////////////////////////
+//////////////////////////////
+
+// Js Base64 字符串 加密、解密 https://developer.mozilla.org/en-US/docs/Glossary/Base64
+function utf8_to_b64( str ) {   return window.btoa(unescape(encodeURIComponent( str )));  }
+function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( str )));  }
 
 
 
@@ -838,8 +1084,30 @@ function _html模板() {
 
 
 
-// qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-// onclick="UserSendCodeToMe() 更新網站
+//////////////////////////////
+//////////////////////////////
+//////////// Post ////////////
+//////////////////////////////
+//////////////////////////////
+
+    // all 內容 入文字 202203110101OK
+    function _postAllTxt(ElementsBy,入all字) {
+      //console.log('_postAllTxt')
+      // loop get div htt ps://zhidao.baidu.com/question/2267122359741677188.html
+      let oDiv=$(ElementsBy); // all Class UpTxt
+      let i=0;
+      while(i<oDiv.length)
+        {
+          $(oDiv[i]).val(入all字[i])  // textarea input
+          $(oDiv[i]).html(入all字[i]) // div
+          i++;
+        }
+      return "ok"
+    }
+
+
+
+
 
 
 
@@ -888,28 +1156,6 @@ function _html模板() {
     }
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
