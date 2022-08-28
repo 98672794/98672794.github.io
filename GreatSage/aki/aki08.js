@@ -813,7 +813,7 @@ function _html模板() {
               </li>\
               <li title="'+arguments[2]+'按鈕內容">按鈕<br/>\
               圖<input id="Nav'+arguments[0]+'TruePage_Data7" class="UpTxt" title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
-                <a href="https://fontawesome.com/v4/icons/" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a><br/>\
+                <a href="https://fontawesome.com/v4/icons/" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> # fa fa-eye-slash" style="background: rgb(199, 230, 26);<br/>\
                 按鈕文字<textarea id="Nav'+arguments[0]+'TruePage_Data8" class="UpTxt">'+arguments[2]+'按鈕文字</textarea>\
                 按鈕網址<textarea id="Nav'+arguments[0]+'TruePage_Data9" class="UpTxt">'+arguments[2]+'按鈕網址</textarea>\
               </li>\
@@ -828,7 +828,7 @@ function _html模板() {
                 \
                 風格:<br/><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>\
                 <select id="SelPageFlow'+arguments[0]+'" class="UpTxt" onchange="ChangeNav3PageFlow('+arguments[0]+')" >\
-                    <option value="1">選擇風格</option><option value="1">1</option>\
+                    <option value="0">選擇風格</option><option value="1">1</option>\
                     <option value="2">2</option>\
                 </select>\
                 <a title="分頁刪除" onclick="_DelNav('+arguments[0]+')" class="SmsBoxClose recycle btn ">\
@@ -923,7 +923,7 @@ function _html模板() {
   // list get https://flexiple.com/javascript/get-last-array-element-javascript/
   let _lastSet = arguments[arguments.length - 1];
     if (_lastSet == 'page') {return page}
-    if (_lastSet == 1) {return _about_section1}
+    if (_lastSet <2) {return _about_section1}
     if (_lastSet == 2) {return _about_section2}
 
       
@@ -960,9 +960,9 @@ function _html模板() {
 
     // User網站更新
     /*f 只需 要的t i 加 .UpTxt{*/
-    function UserSendCodeToMe() {  
+    function UserSendCodeToMe() {  // <button onclick="UserSendCodeToMe()">更新網站 
 
-      ChangeLogo('Data012') // 客更手動未必需要
+      ChangeLogo('Data012') // 點轉換logo
 
       // Get user change all
       // 客修改內容 如有空 if '' 不會空,預txt
@@ -984,6 +984,9 @@ function _html模板() {
 
 
 
+
+
+
 // 202208260024  get all code
 function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
 
@@ -992,7 +995,6 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
 
   // get all class // https://jsfiddle.net/Keammoort/cd5cwvs5/
   ,   list = document.getElementsByClassName(HaHa_getElementsBy)
-
 
   for(var i=0;i<list.length;i++){          //  loop + 字
       var tttt = list[i].value         //  textarea input
@@ -1030,27 +1032,32 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
     // 先加分頁 入AllTxtB[2]; ChangeNav1
     document.querySelector("#Data3分頁數").value = AllTxtB[2]
     ChangeNav1() // 點加導航數
-    var OK = _postAllTxt('.UpTxt',AllTxtB) // 插入導航字 // 插入所有資料1
+   _postAllTxt('.UpTxt',AllTxtB) // 插入導航字 // 插入所有資料1
     for(let i=0;i<AllTxtB[2];i++){ChangeNav2(i)}// 點加分頁
-        
+
+    _postAllTxt('.UpTxt',AllTxtB) // 插入所有資料2
+
+    // 選擇風格 202208282355OK
+    for(let i=0;i<AllTxtB[2];i++){
+      document.getElementById("SelPageFlow"+i).value
+      ChangeNav3PageFlow(i);    
+    }// sel已插入 loop ChangeNav3PageFlow auto get val
+
+    /*
     
-
-
-
-    var OK = _postAllTxt('.UpTxt',AllTxtB) // 插入所有資料2
-
-    // 選擇風格
-    for(let i=0;i<AllTxtB[2];i++){ChangeNav3PageFlow(i)}// sel已插入 loop ChangeNav3PageFlow auto get val
-
     // Change Css
     //UserChangeCss()
+*/
 
-    // Change IMG(_myImg1~36) just雙數
     ChangeLogo('Data012')
 
-    // qqqqqqqqqq 用
-    console.log("///暫OK0156///")
 
+    // 管理員說話
+    let tt1 = "AkiUpHtmlCode()=自動按code轉頁面內容",
+        tt2 = "已進入店舖"+AllTxtB[1]+""
+    _AdminSay(tt1,tt2)
+    
+    
 
   }
 
@@ -1059,6 +1066,24 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
@@ -1099,7 +1124,6 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
       while(i<oDiv.length)
         {
           $(oDiv[i]).val(入all字[i])  // textarea input
-          $(oDiv[i]).html(入all字[i]) // div
           i++;
         }
       return "ok"
