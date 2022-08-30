@@ -610,11 +610,12 @@ window.onscroll=function(e){
       TruePage_Data5 = document.getElementById("Nav"+cont+"TruePage_Data5").value,  // 標題
       TruePage_Data6 = document.getElementById("Nav"+cont+"TruePage_Data6").value,  // 內容 3
       TruePage_Data7 = document.getElementById("Nav"+cont+"TruePage_Data7").value,  // 按鈕圖
-      TruePage_Data8 = document.getElementById("Nav"+cont+"TruePage_Data8").value,  // 按鈕文字
+      TruePage_Data8 = document.getElementById("Nav"+cont+"TruePage_Data8").value,  // 按鈕文字 // HTML DIY
       TruePage_Data9 = document.getElementById("Nav"+cont+"TruePage_Data9").value,  // 按鈕網址
 
 
-      // 合成html模板= turnSelPageFlow == 1 = _about_section
+      // 合成html模板= turnSelPageFlow == 1 / 2  = _about_section
+      // 3 = html  diy
       _about_section = _html模板(客睇頁,TruePage_Data4,TruePage_Data5,TruePage_Data6,TruePage_Data7,TruePage_Data8,TruePage_Data9,turnSelPageFlow)
 
     // 加入版板到NavTruePage
@@ -833,6 +834,7 @@ function _html模板() {
                 <select id="SelPageFlow'+arguments[0]+'" class="UpTxt" onchange="ChangeNav3PageFlow('+arguments[0]+')" >\
                     <option value="0">選擇風格</option><option value="1">1</option>\
                     <option value="2">2</option>\
+                    <option value="99">HTML DIY</option>\
                 </select></div>\
                 </div>\
                 \
@@ -930,7 +932,7 @@ function _html模板() {
   <button class="btn" onclick="ChangeNav2('+arguments[0]+')"><!-- 睇圖 --><i class="fa fa-eye"></i></button>\
   </div>'
 
-
+  , _diyBox = arguments[5] // HTML DIY
 
 
 
@@ -942,6 +944,7 @@ function _html模板() {
     if (_lastSet <2) {return _about_section1}
     if (_lastSet == 2) {return _about_section2}
     if (_lastSet == 'nav導航標題格') {return _nav導航標題格}
+    if (_lastSet == 99) {return _diyBox}
 
       
   }
