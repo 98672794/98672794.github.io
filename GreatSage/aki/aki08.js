@@ -131,7 +131,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
     // display Admin Box 
-    console.log("///打開會員編輯功能///",_Btn_displayAdminBox(".SmsBoxBtn,.SmsBox ul"))
+    console.log("///打開會員編輯功能///",_Btn_displayAdminBox(".SmsBoxBtn,.SmsBox ul,.SmsBox0830"))
 
 
     // all target=new page,save change data time
@@ -145,6 +145,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
   }
   else{
+    //$('.SmsBox0830').css("display", "none")
     _AdminSay("WorkIn user!","匿名瀏覽")
   }// url沒user 
 
@@ -494,16 +495,12 @@ window.onscroll=function(e){
       
     document.getElementById("Data3分頁數").value = cont總分頁數 // <li style="display: none;">\<input id="Data3分頁數" 
 
-      console.log("//最大分頁數",(a分頁max數))// - 1)) // 客睇
+      console.log("//最大分頁數",(a分頁max數- 1)) // 客睇
       console.log("//現總分頁數",cont總分頁數)
 
       let nav導航標題格 = _html模板(cont總分頁數,'nav導航標題格')
 
         document.getElementById("_Data3").insertAdjacentHTML("beforeEnd", nav導航標題格);   // 後入 https://jsfiddle.net/opL1gb7d/
-      
-      //qqqq//btn// 
-      //_NoneDiv('#NavBtnBox') // 不顯示 增加導航數btn
-      console.log("//_NoneDiv('#NavBtnBox') // 不顯示 增加導航數btn")
 
       let tt1 = "ChangeNav1()=Make"+cont總分頁數+"Nav"
       let tt2 = "編輯模式//已增加"+cont總分頁數+"個導航**未保存**"
@@ -579,9 +576,7 @@ window.onscroll=function(e){
         //  增加分頁   // _SelNavSee = class.none id.block
         
         document.getElementById("_Data4").insertAdjacentHTML("beforeEnd", page);   // 後入
-        //qqqq//btn// 
-        //_NoneDiv('#增加導航btn'+Data3分頁數nb) // 不顯示 修改導航內容btn
-        console.log("//_NoneDiv('#增加導航btn'+Data3分頁數nb) // 不顯示 修改導航內容btn")
+
         
         let tt1 = "ChangeNav2(Data3分頁數nb)=Make"+Data3分頁數nb+"Page"
         , tt2 = "編輯模式//已增加"+Data3分頁數nb+"號分頁**未保存**"
@@ -671,9 +666,9 @@ window.onscroll=function(e){
 
 
 
-      //// 刪除分頁 ////
+      //// 刪除分頁 202208301538OK ////
   function _DelNav() {  
-    // qqqqqqqqqqqqqqqqq del add nonono 08301432
+    
 
     cont總分頁數 = cont總分頁數-1
 
@@ -684,20 +679,8 @@ window.onscroll=function(e){
     _DelDiv('#Nav'+cont總分頁數)
     _DelDiv('#客睇航btn'+cont總分頁數)
     
-    
     document.getElementById("Data3分頁數").value = cont總分頁數BB // <li style="display: none;">\<input id="Data3分頁數" 
-
-
-
-    //_NoneDiv('#Nav'+sel)// // 不顯示 真導航方便 删除 修改導航內容btn 人操作
-    //_NoneDiv('#客睇航btn'+sel)
-    console.log("//不顯示 真導航方便 删除 修改導航內容btn 人操作")
     }
-
-    
-
-
-
 
   //删除指定元素  防重id  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_remove
   function _DelDiv(IdVal) {  
@@ -707,11 +690,13 @@ window.onscroll=function(e){
 
 
 
+
+/*
   function _NoneDiv(IdVal) { 
     let element = document.querySelector(IdVal)
     $(element).css("display", "none")
     }
-  
+  */
   
 
 
@@ -819,15 +804,8 @@ function _html模板() {
   let page = '\
           <div class="row NavSelDisplay" id="Nav'+arguments[0]+'">\
             <div class="col-md-12">\
-            <div class="page_title">\
-                <h2>\
-                    <i class="'+arguments[1]+'"></i>'+arguments[2]+'\
-                </h2>\
-            </div>\
             \
-            '+arguments[2]+'\
-            <div class="SmsBox2Btn">\
-                <hr style="background: rgb(199, 230, 26);">\
+            <div class="SmsBox0830">\
               \
                 \
                 <hr style="background: rgb(9, 9, 9);">\
@@ -848,18 +826,15 @@ function _html模板() {
               </li>\
               </ul>\
         \
-              </div>\
         \
         \
-        \
-        \
-        <h4>編輯'+arguments[2]+'的內容:</h4>\
                 \
                 風格:<br/><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>\
                 <select id="SelPageFlow'+arguments[0]+'" class="UpTxt" onchange="ChangeNav3PageFlow('+arguments[0]+')" >\
                     <option value="0">選擇風格</option><option value="1">1</option>\
                     <option value="2">2</option>\
                 </select></div>\
+                </div>\
                 \
                 \
                 \
@@ -946,7 +921,7 @@ function _html模板() {
       \
         <!-- end about section -->\
   '
-  , _nav導航標題格 = ' <div id="增加導航btn'+arguments[0]+'">\
+  , _nav導航標題格 = ' <div id="增加導航btn'+arguments[0]+'" class="SmsBox0830" >\
   <input id="Data3分頁各圖'+arguments[0]+'"  class="UpTxt" title="導航的圖" value="fa fa-eye-slash" type="text"/>\
   <!-- 圖片網址 --><a href="https://fontawesome.com/v4/icons/" target="_blank">\
   <i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a>\
@@ -1072,7 +1047,7 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
 
 
     // 20220830OK   先加分頁 入AllTxtB[2]; ChangeNav1
-    for(let i=0;i<=AllTxtB[2];i++){     ///qqqqqqq 0830 del qqqq nono =
+    for(let i=0;i<=AllTxtB[2];i++){     
       ChangeNav1() // 點加導航數
       console.log("///Add Nav Nb///",'點加導航數',(i+1))
     }
@@ -1105,7 +1080,18 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
         tt2 = "已進入店舖"+AllTxtB[1]+""
     _AdminSay(tt1,tt2)
     
+
     
+    // 用現url做user login //User流程1 
+  if (location.href.indexOf(死撚莫) != -1){
+    // display Admin Box 
+    console.log("///打開會員編輯功能///",_Btn_displayAdminBox(".SmsBoxBtn,.SmsBox ul,.SmsBox0830"))
+  }
+  else{
+    $('.SmsBox0830').css("display", "none")
+    _AdminSay("WorkIn user!","匿名瀏覽")
+  }// url沒user
+
 
   }
 
