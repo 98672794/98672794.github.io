@@ -19,7 +19,7 @@ AkiWs = 'https://wa.me/85298672794?text='
 
 
 // User Data
-死撚莫 = "0123"
+UserLoginKey = "eb62f6b9306db575c2d596b1279627a4" // 0123
 
 
  /////// Change nav /////
@@ -81,7 +81,12 @@ cont總分頁數 = 0 // nav,page數
 
 
 
-
+  
+//////////////////////////////
+//////////////////////////////
+/////////// UserLogin 套裝///////////2222222222222222222222222222222222222222222222222222222222222222222222222222
+//////////////////////////////
+//////////////////////////////
 
 
 
@@ -125,9 +130,10 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
   // 用現url做user login //User流程1 
-  if (location.href.indexOf(死撚莫) != -1){
+  if (location.href.indexOf(UserLoginKey) != -1){
 
     _AdminSay("isAutoRun()=user login!","會員登入編輯模式")
+    $('#UserLoginAki0830').css("display", "none")
 
 
     // display Admin Box 
@@ -141,7 +147,8 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     // js f5/關閉視窗提示 txt ing 
     // 編輯時 頁面離開或f5或者瀏覽器關閉的時候給予提示 防止用戶誤操作 離開當前頁面未保存數據可能丟失 
     // https://www.geeksforgeeks.org/how-to-detect-browser-or-tab-closing-in-javascript/
-    //#########btn############ window.addEventListener('beforeunload', function (e) {  e.preventDefault(); e.returnValue = ''; });
+    //#########btn############ 
+    window.addEventListener('beforeunload', function (e) {  e.preventDefault(); e.returnValue = ''; });
 
   }
   else{
@@ -162,11 +169,24 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
 
+// 05240418 User input Login 
+// https://stackoverflow.com/a/4365272 
 
+  // User input Login 
+  function UserInputLogin() {  // user input loginKey change md5
+    // get user name
+    let val = $("#UserLoginKey").val() //<input id="UserLoginKey" placeholder="YourKey"  type="text"/>
 
+    , md5HaHa = md5(val)
+    //console.log("md5HaHa",md5HaHa)
 
-
-
+   // md5  <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"> // 通过JS使用MD5加密 
+    if (md5HaHa == UserLoginKey) {
+      // UserLogin
+      window.location.href = location.href+'?' + md5HaHa; // 原頁轉跳 https://www.runoob.com/w3cnote/js-redirect-to-another-webpage.html
+    }
+  }
+// OK202205242145
 
 
 
@@ -1086,7 +1106,7 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
 
     
     // 用現url做user login //User流程1 
-  if (location.href.indexOf(死撚莫) != -1){
+  if (location.href.indexOf(UserLoginKey) != -1){
     // display Admin Box 
     console.log("///打開會員編輯功能///",_Btn_displayAdminBox(".SmsBoxBtn,.SmsBox ul,.SmsBox0830"))
   }
@@ -1135,6 +1155,13 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
 // Js Base64 字符串 加密、解密 https://developer.mozilla.org/en-US/docs/Glossary/Base64
 function utf8_to_b64( str ) {   return window.btoa(unescape(encodeURIComponent( str )));  }
 function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( str )));  }
+
+
+
+
+
+
+
 
 
 
