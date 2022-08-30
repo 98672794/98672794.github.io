@@ -22,10 +22,9 @@ AkiWs = 'https://wa.me/85298672794?text='
 死撚莫 = "0123"
 
 
-
-
-
-
+ /////// Change nav /////
+a分頁max數 = 11 // 10 >= 11
+cont總分頁數 = 0 // nav,page數
 
 
 
@@ -125,7 +124,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     CopyrightBox.innerHTML = 權
 
 
-  // 用現url做user login 
+  // 用現url做user login //User流程1 
   if (location.href.indexOf(死撚莫) != -1){
 
     _AdminSay("isAutoRun()=user login!","會員登入編輯模式")
@@ -142,7 +141,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     // js f5/關閉視窗提示 txt ing 
     // 編輯時 頁面離開或f5或者瀏覽器關閉的時候給予提示 防止用戶誤操作 離開當前頁面未保存數據可能丟失 
     // https://www.geeksforgeeks.org/how-to-detect-browser-or-tab-closing-in-javascript/
-    window.addEventListener('beforeunload', function (e) {  e.preventDefault(); e.returnValue = ''; });
+    //#########btn############ window.addEventListener('beforeunload', function (e) {  e.preventDefault(); e.returnValue = ''; });
 
   }
   else{
@@ -398,9 +397,9 @@ window.onscroll=function(e){
 
 
 
-      /////// ChangeLogoOK202208092207 ///////  //User流程1
+      /////// ChangeLogoOK202208092207 ///////  //User流程1a // _Change之一
 
-      function ChangeLogo(ImgVar_Id) { 
+      function ChangeLogo(ImgVar_Id) { // <button onclick="ChangeLogo('Data012')">
 
         // <input id="Data012" value="AmyIMG/slide2.jpg" type="text"/>
         // <button onclick="ChangeLogo('Data012')">
@@ -477,57 +476,66 @@ window.onscroll=function(e){
 //////////////////////////////
 
 
-      
-      /////// Change nav 202208151513 ///////  //User流程2
-
+  /////// nav 轉每個加 20220830OK /////////User流程2
   function  ChangeNav1() {  // 增加導航數btn
-    //console.log("///增加導航")
 
-    // get
-    let 分頁數 = document.getElementById("Data3分頁數").value  // 取分頁數 val //<input id="Data3分頁數" value='5' type="text"/>
-    
-    if(分頁數 >= 6)    return;//限制分頁數  https://jsfiddle.net/opL1gb7d/  //////限制分頁數
-    for(var i=0;i<分頁數;i++){          //  分頁數loop  //用於auto ,
-      /****************** 要轉的位 *********************/
-      /* for 0715交互数据管理系统响应式网页模板*/
-      
-      // 用js make 修改導航btn,後入
-          //nav導航標題格OUT = '<div id="增加導航btn'+i+'"><textarea id="Data3分頁數'+i+'"><li id="NavLi'+i+'"><a href="#Nav'+i+'"><i class="fa fa-eye-slash"></i> <span>#Nav'+i+'</span></a><a class="SmsBoxClose recycle btn SmsBox" onclick="_DelNav('+i+')"><i class="fa fa-trash"><!-- 回收站 --></i></a></li></textarea><!-- add Nav Nb 內修 --><button class="btn" onclick="ChangeNav2('+i+')"><!-- 睇圖 --><i class="fa fa-eye"></i></button></div>'
-      
-      nav導航標題格1 = '<div id="增加導航btn'
-      nav導航標題格2 = '"><input id="Data3分頁各圖'
-      nav導航標題格3a = '"  class="UpTxt" title="導航的圖" value="fa fa-eye-slash" type="text"/><!-- 圖片網址 -->'
-      nav導航標題格3b = '<a href="https://fontawesome.com/v4/icons/" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a>'
-      nav導航標題格3c = '<textarea id="Data3分頁數'
-      nav導航標題格4 = '" class="UpTxt" title="導航名">Nav'
-      nav導航標題格5 = '</textarea><!-- add Nav Nb 內修 btn --><button class="btn" onclick="ChangeNav2('
-      nav導航標題格6 = ')"><!-- 睇圖 --><i class="fa fa-eye"></i></button></div>'
-      // nav導航標題格1 ~6 =
-      // <div id="增加導航btn0"><input id="Data3分頁各圖0"  title="導航的圖" value="fa fa-eye-slash" type="text"><!-- 圖片網址 -->
-      // <a href="https://fontawesome.com/v4/icons/" target="_blank"><i class="fa  fa-mortar-board recycle btn"><!-- 教學 --></i></a>
-      // <textarea id="Data3分頁數0" title="導航名">Nav0</textarea><!-- add Nav Nb 內修 btn --><button class="btn" onclick="ChangeNav2(0)"><!-- 睇圖 -->
-      // <i class="fa fa-eye"></i></button></div>
+    //限制分頁數  https://jsfiddle.net/opL1gb7d/  //////限制分頁數
+    if(cont總分頁數 >= a分頁max數) return;
 
-      
-      nav導航標題格 =  nav導航標題格1+i+
-                      nav導航標題格2+i+
-                      nav導航標題格3a+nav導航標題格3b+nav導航標題格3c+i+
-                      nav導航標題格4+i+
-                      nav導航標題格5+i+
-                      nav導航標題格6
-      
-      document.getElementById("_Data3").insertAdjacentHTML("beforeEnd", nav導航標題格);   // 後入 https://jsfiddle.net/opL1gb7d/
+    for(var i=0;i<cont總分頁數;i++){
     }
+
+    if ($('#Data3分頁數'+cont總分頁數).length > 0) {
+      console.log("已有分頁數不make照++"+cont總分頁數)
+    }
+    else{
+      console.log("沒有分頁數"+cont總分頁數)
     
-    //qqqq//btn// 
-    _NoneDiv('#NavBtnBox') // 不顯示 增加導航數btn
+      
+    document.getElementById("Data3分頁數").value = cont總分頁數 // <li style="display: none;">\<input id="Data3分頁數" 
 
-    let tt1 = "ChangeNav1()=Make"+分頁數+"Nav"
-    let tt2 = "編輯模式//已增加"+分頁數+"個導航**未保存**"
+      console.log("//最大分頁數",(a分頁max數))// - 1)) // 客睇
+      console.log("//現總分頁數",cont總分頁數)
 
-    _AdminSay(tt1,tt2) // 管理員說話
+      let nav導航標題格 = _html模板(cont總分頁數,'nav導航標題格')
 
-      }
+        document.getElementById("_Data3").insertAdjacentHTML("beforeEnd", nav導航標題格);   // 後入 https://jsfiddle.net/opL1gb7d/
+      
+      //qqqq//btn// 
+      //_NoneDiv('#NavBtnBox') // 不顯示 增加導航數btn
+      console.log("//_NoneDiv('#NavBtnBox') // 不顯示 增加導航數btn")
+
+      let tt1 = "ChangeNav1()=Make"+cont總分頁數+"Nav"
+      let tt2 = "編輯模式//已增加"+cont總分頁數+"個導航**未保存**"
+      _AdminSay(tt1,tt2) // 管理員說話
+    }
+      cont總分頁數++
+    
+     
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -535,48 +543,54 @@ window.onscroll=function(e){
 
       
 
+    //// 存在分頁 202208301107 //// 
   //// 修改導航名,增加分頁 202208162243OK ////  //User流程3
 
   /* 做錯了 User流程4 轉用板引入id */
 
   function  ChangeNav2(Data3分頁數nb) {   // 
 
-        //console.log("///修改導22航",Data3分頁數nb)
+    // get
+    let IDTxt = "Data3分頁數"+ Data3分頁數nb // 分頁/導航名 // '<textarea id="Data3分頁數'
+    , 導航名 = document.getElementById(IDTxt).value 
+    , _img = "Data3分頁各圖"+ Data3分頁數nb // 分頁/導航圖 // <input id="Data3分頁各圖'
+    , 導航的圖 = document.getElementById(_img).value 
 
-      
-        // get
-        let IDTxt = "Data3分頁數"+ Data3分頁數nb // 分頁/導航名 // '<textarea id="Data3分頁數'
+    // make 客睇航btn
+    , NewNav = '<li id="客睇航btn'+Data3分頁數nb+'">\
+                  <a onclick="_SelNavSee('+Data3分頁數nb+')">\
+                  <i class="'+導航的圖+'"></i> <span>'+導航名+'</span>\
+                  </a></li>'
 
-        let 導航名 = document.getElementById(IDTxt).value 
-
-        let _img = "Data3分頁各圖"+ Data3分頁數nb // 分頁/導航圖 // <input id="Data3分頁各圖'
-
-        let 導航的圖 = document.getElementById(_img).value 
+    // 合成html模板= turnSelPageFlow == 1 = _about_section
+    , page = _html模板(Data3分頁數nb,導航的圖,導航名,'page')
 
 
-        // make 客睇航btn
-        //??222 let NewNav = '<li><a href="#Nav'+Data3分頁數nb+'"><i class="fa fa-eye-'+導航的圖+'"></i> <span>'+導航名+'</span></a></li>'
-        let NewNav = '<li id="客睇航btn'+Data3分頁數nb+'"><a onclick="_SelNavSee('+Data3分頁數nb+')"><i class="'+導航的圖+'"></i> <span>'+導航名+'</span></a></li>'
-        // <li><a href="#Nav0"><i class="fa fa-eye-####"></i> <span>####</span></a></li>
-       // <li><a href="#Nav0"><i class="fa fa-eye-slash"></i> <span>#Nav0</span></a></li>
+      // 判断 id 或元素是否存在 https://www.runoob.com/w3cnote/jquery-check-id-is-exists.html
+      if ($('#Nav'+Data3分頁數nb).length > 0) {
+        console.log("///已存在",'#Nav'+Data3分頁數nb+"\修改後更新網站看新內容///")
+        let 客睇航btn轉 = document.querySelector("#客睇航btn"+Data3分頁數nb)
+        客睇航btn轉.innerHTML = NewNav
+      } 
+      else{   // 不存在
+        console.log("///不存在",'#Nav'+Data3分頁數nb+"後入///")
         document.getElementById("_Data3b").insertAdjacentHTML("beforeEnd", NewNav);   // 後入
 
-
-       //  增加分頁   // _SelNavSee = class.none id.block
-      
-      // 合成html模板= turnSelPageFlow == 1 = _about_section
-      let page = _html模板(Data3分頁數nb,導航的圖,導航名,'page')
-
-      document.getElementById("_Data4").insertAdjacentHTML("beforeEnd", page);   // 後入
-       //qqqq//btn// 
-       _NoneDiv('#增加導航btn'+Data3分頁數nb) // 不顯示 修改導航內容btn
-      
-      
-      let tt1 = "ChangeNav2(Data3分頁數nb)=Make"+Data3分頁數nb+"Page"
-      let tt2 = "編輯模式//已增加"+Data3分頁數nb+"號分頁**未保存**"
-       _AdminSay(tt1,tt2) // 管理員說話
-      
+        //  增加分頁   // _SelNavSee = class.none id.block
+        
+        document.getElementById("_Data4").insertAdjacentHTML("beforeEnd", page);   // 後入
+        //qqqq//btn// 
+        //_NoneDiv('#增加導航btn'+Data3分頁數nb) // 不顯示 修改導航內容btn
+        console.log("//_NoneDiv('#增加導航btn'+Data3分頁數nb) // 不顯示 修改導航內容btn")
+        
+        let tt1 = "ChangeNav2(Data3分頁數nb)=Make"+Data3分頁數nb+"Page"
+        , tt2 = "編輯模式//已增加"+Data3分頁數nb+"號分頁**未保存**"
+        _AdminSay(tt1,tt2) // 管理員說話
       }
+  }
+
+
+
 
 
 
@@ -658,11 +672,26 @@ window.onscroll=function(e){
 
 
       //// 刪除分頁 ////
-  function _DelNav(sel) {  
-    console.log("///_DelNav",sel)
-    _DelDiv('#增加導航btn'+sel) // 删除 修改導航內容btn
-    _NoneDiv('#Nav'+sel)// // 不顯示 真導航方便 删除 修改導航內容btn 人操作
-    _NoneDiv('#客睇航btn'+sel)
+  function _DelNav() {  
+    // qqqqqqqqqqqqqqqqq del add nonono 08301432
+
+    cont總分頁數 = cont總分頁數-1
+
+    let cont總分頁數BB = cont總分頁數-1
+
+    console.log("///_DelNav最後一分頁刪除",cont總分頁數)
+    _DelDiv('#增加導航btn'+cont總分頁數) // 删除 修改導航內容btn
+    _DelDiv('#Nav'+cont總分頁數)
+    _DelDiv('#客睇航btn'+cont總分頁數)
+    
+    
+    document.getElementById("Data3分頁數").value = cont總分頁數BB // <li style="display: none;">\<input id="Data3分頁數" 
+
+
+
+    //_NoneDiv('#Nav'+sel)// // 不顯示 真導航方便 删除 修改導航內容btn 人操作
+    //_NoneDiv('#客睇航btn'+sel)
+    console.log("//不顯示 真導航方便 删除 修改導航內容btn 人操作")
     }
 
     
@@ -830,9 +859,7 @@ function _html模板() {
                 <select id="SelPageFlow'+arguments[0]+'" class="UpTxt" onchange="ChangeNav3PageFlow('+arguments[0]+')" >\
                     <option value="0">選擇風格</option><option value="1">1</option>\
                     <option value="2">2</option>\
-                </select>\
-                <a title="分頁刪除" onclick="_DelNav('+arguments[0]+')" class="SmsBoxClose recycle btn ">\
-                <i class="fa fa-trash" ><!-- 分頁刪除 --></i></a></div>\
+                </select></div>\
                 \
                 \
                 \
@@ -919,12 +946,27 @@ function _html模板() {
       \
         <!-- end about section -->\
   '
+  , _nav導航標題格 = ' <div id="增加導航btn'+arguments[0]+'">\
+  <input id="Data3分頁各圖'+arguments[0]+'"  class="UpTxt" title="導航的圖" value="fa fa-eye-slash" type="text"/>\
+  <!-- 圖片網址 --><a href="https://fontawesome.com/v4/icons/" target="_blank">\
+  <i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a>\
+  <textarea id="Data3分頁數'+arguments[0]+'" class="UpTxt" title="導航名">Nav'+arguments[0]+'</textarea>\
+  <!-- add Nav Nb 內修 btn -->\
+  <button class="btn" onclick="ChangeNav2('+arguments[0]+')"><!-- 睇圖 --><i class="fa fa-eye"></i></button>\
+  </div>'
+
+
+
+
+
+
 
   // list get https://flexiple.com/javascript/get-last-array-element-javascript/
   let _lastSet = arguments[arguments.length - 1];
     if (_lastSet == 'page') {return page}
     if (_lastSet <2) {return _about_section1}
     if (_lastSet == 2) {return _about_section2}
+    if (_lastSet == 'nav導航標題格') {return _nav導航標題格}
 
       
   }
@@ -1029,16 +1071,22 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
     var AllTxtB = AllTxt.split(".,.")   // 切割字串 https://www.wibibi.com/info.php?tid=258
 
 
-    // 先加分頁 入AllTxtB[2]; ChangeNav1
-    document.querySelector("#Data3分頁數").value = AllTxtB[2]
-    ChangeNav1() // 點加導航數
+    // 20220830OK   先加分頁 入AllTxtB[2]; ChangeNav1
+    for(let i=0;i<=AllTxtB[2];i++){     ///qqqqqqq 0830 del qqqq nono =
+      ChangeNav1() // 點加導航數
+      console.log("///Add Nav Nb///",'點加導航數',(i+1))
+    }
+
    _postAllTxt('.UpTxt',AllTxtB) // 插入導航字 // 插入所有資料1
-    for(let i=0;i<AllTxtB[2];i++){ChangeNav2(i)}// 點加分頁
+
+
+
+    for(let i=0;i<=AllTxtB[2];i++){ChangeNav2(i)}// 點加分頁 // cont總分頁數=1
 
     _postAllTxt('.UpTxt',AllTxtB) // 插入所有資料2
 
     // 選擇風格 202208282355OK
-    for(let i=0;i<AllTxtB[2];i++){
+    for(let i=0;i<AllTxtB[2];i++){ // cont總分頁數=1
       document.getElementById("SelPageFlow"+i).value
       ChangeNav3PageFlow(i);    
     }// sel已插入 loop ChangeNav3PageFlow auto get val
@@ -1083,7 +1131,7 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
 
 
 
-  
+
 
 
 
