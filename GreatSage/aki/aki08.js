@@ -20,6 +20,7 @@ AkiWs = 'https://wa.me/85298672794?text='
 
 // User Data
 UserLoginKey = "eb62f6b9306db575c2d596b1279627a4" // 0123
+TrueUserUrl = './NKOL.html'
 
 
  /////// Change nav /////
@@ -155,6 +156,20 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     //$('.SmsBox0830').css("display", "none")
     _AdminSay("WorkIn user!","匿名瀏覽")
   }// url沒user 
+
+
+
+  // 按網址自動更換頁面 0908EOK
+  if (location.href.indexOf('?@@?') != -1){
+    
+    var UrlToCode = location.href.split('?@@?')
+    , kk = UrlToCode[1] // 逗後純code
+    console.log("按網址自動更換頁面\\",kk)
+    document.getElementById("AkiUpHtmlCode").value = kk
+    AkiUpHtmlCode()
+  }
+
+  
 
 
   // 自動按 <textarea id="AkiUpHtmlCode" val 更新網頁內容
@@ -421,7 +436,6 @@ window.onscroll=function(e){
       /////// ChangeLogoOK202208092207 ///////  //User流程1a // _Change之一
 
       function ChangeLogo(ImgVar_Id) { // <button onclick="ChangeLogo('Data012')">
-
         // <input id="Data012" value="AmyIMG/slide2.jpg" type="text"/>
         // <button onclick="ChangeLogo('Data012')">
         // <img id="_Data0" src="images/logo/logo_icon.png">
@@ -453,19 +467,13 @@ window.onscroll=function(e){
               var Logo3 = document.querySelector("#_Data2")
 
               /* for 0715交互数据管理系统响应式网页模板*/
-              Logo1.innerHTML = '<a title="'+Logotxt+'" href="NKOL.html"><img class="logo_icon img-responsive" src="'+turnImgUrl+'" alt="'+Logotxt+'" /></a>'
+              Logo1.innerHTML = '<a title="'+Logotxt+'" href="'+TrueUserUrl+'><img class="logo_icon img-responsive" src="'+turnImgUrl+'" alt="'+Logotxt+'" /></a>'
               Logo2.innerHTML = '<div class="user_img" ><img title="'+Logotxt+'" class="img-responsive" src="'+turnImgUrl+'" alt="'+Logotxt+'" /></div><div class="user_info"><h1>'+Logotxt+'<!-- 文字 --></h1></div>'
-              Logo3.innerHTML = '<a title="'+Logotxt+'" href="NKOL.html"><img  class="img-responsive" src="'+turnImgUrl+'" alt="'+Logotxt+'" /></a>'
+              Logo3.innerHTML = '<a title="'+Logotxt+'" href="'+TrueUserUrl+'"><img  class="img-responsive" src="'+turnImgUrl+'" alt="'+Logotxt+'" /></a>'
               
-              // qqqqqqqqqqqq href="#"
-
-              //console.log("///is Data012")
             }
-            //else{console.log("///not Data012")}
 
           console.log(HaveData+"///"+turnImgUrl)
-
-
       }
 
 
@@ -673,11 +681,15 @@ window.onscroll=function(e){
 
   //// 點左導航,右顯隱page = class.none id.block ////
       function _SelNavSee(sel) { 
+
+        console.log("_SelNavSee")
         //pageId
         let pageId = '#Nav'+sel
         let ChangePage = document.querySelector(pageId)
         $(".NavSelDisplay").css("display", "none")
         $('#Nav'+sel).css("display", "block")
+
+        console.log("_SelNavS22ee")
         }
 
 
@@ -723,7 +735,7 @@ window.onscroll=function(e){
 
       // if have 圖url
   function _inputDataHave(val) { 
-        if (val != ''){var HaveData = '///OK'}
+        if (val != ''){var HaveData = '///9678OK'}
         else{ var HaveData = '///沒圖'}
         return HaveData
       }
@@ -841,7 +853,7 @@ function _html模板() {
               </li>\
               <li title="'+arguments[2]+'按鈕內容">按鈕<br/>\
               圖<input id="Nav'+arguments[0]+'TruePage_Data7" class="UpTxt" title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
-                <a href="https://fontawesome.com/v4/icons/" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> # fa fa-eye-slash" style="background: rgb(199, 230, 26);<br/>\
+                <a href="./_icons.html" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> # fa fa-eye-slash" style="background: rgb(199, 230, 26);<br/>\
                 按鈕文字<textarea id="Nav'+arguments[0]+'TruePage_Data8" class="UpTxt">'+arguments[2]+'按鈕文字</textarea>\
                 按鈕網址<textarea id="Nav'+arguments[0]+'TruePage_Data9" class="UpTxt">'+arguments[2]+'按鈕網址</textarea>\
               </li>\
@@ -945,7 +957,7 @@ function _html模板() {
   '
   , _nav導航標題格 = ' <div id="增加導航btn'+arguments[0]+'" class="SmsBox0830" >\
   <input id="Data3分頁各圖'+arguments[0]+'"  class="UpTxt" title="導航的圖" value="fa fa-eye-slash" type="text"/>\
-  <!-- 圖片網址 --><a href="https://fontawesome.com/v4/icons/" target="_blank">\
+  <!-- 圖片網址 --><a href="./_icons.html" target="_blank">\
   <i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a>\
   <textarea id="Data3分頁數'+arguments[0]+'" class="UpTxt" title="導航名">Nav'+arguments[0]+'</textarea>\
   <!-- add Nav Nb 內修 btn -->\
@@ -985,11 +997,7 @@ function _html模板() {
 
 
 
-
-
-
-  
-
+ 
 
   
 //////////////////////////////
@@ -998,10 +1006,9 @@ function _html模板() {
 //////////////////////////////
 //////////////////////////////
 
-    // User網站更新
+    // User網站更新0831
     /*f 只需 要的t i 加 .UpTxt{*/
     function UserSendCodeToMe() {  // <button onclick="UserSendCodeToMe()">更新網站 
-
       ChangeLogo('Data012') // 點轉換logo
 
       // Get user change all
@@ -1010,16 +1017,79 @@ function _html模板() {
       console.log('///Get All UpTxt Data ed///')
       console.log(AllChangeCode)
 
-      // txt zip b64
-      var str = utf8_to_b64(AllChangeCode)
-      console.log('///Now Code b64///')
-      console.log(str)
+      , ZipCodeOK = _lzStringZipTxt(AllChangeCode,'zip')
 
-      // SendWsToAki
-      let wsToAki = AkiWs + str
-      window.open(wsToAki, '_blank').focus() // https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+      console.log('///_lzStringZipTxt_ZIP1///',ZipCodeOK )
 
+      //20220901轉二進位
+      , 二進位Code = toBinary(ZipCodeOK) 
+      , NewUrl =TrueUserUrl + '?@@?' + 二進位Code +'?@@?' // 新版網頁網址
+
+      console.log('///二進位Url///',NewUrl )
+      //console.log('///解二進位11///',fromBinary(二進位Code) )
+      //console.log('///lz-string111///',_lzStringZipTxt(fromBinary(二進位Code),'unzip') )
+
+      // makeCode
+      makeCode (NewUrl)
+
+      console.log('///打開新版網頁///')
+      window.open(NewUrl, '_blank')
+
+      // make updata aki ws
+      , wsToAki = AkiWs + NewUrl //NewUrl
+
+      document.getElementById("_VIP更新0831").href=wsToAki; // CHANGE href
     }
+
+
+
+
+
+
+
+    // qrcode
+    // https://github.com/davidshimjs/qrcodejs/blob/master/index.html
+    function makeCode (Data) {		
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width : 128 * 5,
+        height : 128 *5,
+        colorDark : "#000",
+        colorLight : "#fff",
+        correctLevel: QRCode.CorrectLevel.L 
+        // 由低到高 .L M Q H https://www.cnblogs.com/whkl-m/p/10797776.html
+      });
+      
+      //qr 排
+      $("#qrcode > img").css({"margin":"5% auto 5% auto"});
+      
+      qrcode.makeCode(Data)
+    }
+    
+
+
+
+
+
+
+//qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+
+// myImg1 just 202203240309OK
+// js 实现点击按钮复制文本 
+// https://blog.csdn.net/qq_43506222/article/details/106373663
+function copyText() {
+  //var txt = $("#例Url_driveGoogle").val
+      $("#例Url_driveGoogle").select();
+      try {var state = document.execCommand("copy");}
+      catch(err){var state = false;}
+      if(state){
+        alert("複製成功\n");
+      }else{
+        alert("复制失败");
+      }
+  }  
+
+
+
 
 
 
@@ -1053,17 +1123,25 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
   function AkiUpHtmlCode() { 
 
     // get Data code
-    var ListCodeVal = $("#AkiUpHtmlCode").val() // <input id="AkiUpHtmlCode"><button onclick="AkiUpHtmlCode()">
+    var ListCodeVal09021 = $("#AkiUpHtmlCode").val() // <input id="AkiUpHtmlCode"><button onclick="AkiUpHtmlCode()">
 
-    console.log("///數位///",ListCodeVal.length)
-    if (ListCodeVal.length <2) {return true}  // 沒value不動作 // https://www.codegrepper.com/code-examples/javascript/javascript+check+if+input+value+is+not+empty
+    console.log("///數位///",ListCodeVal09021.length)
+    if (ListCodeVal09021.length <2) {return true}  // 沒value不動作 // https://www.codegrepper.com/code-examples/javascript/javascript+check+if+input+value+is+not+empty
 
-    console.log("AkiUpHtmlCode val")
-    console.log(ListCodeVal)
+    console.log("AkiUpHtmlCode val",ListCodeVal09021)
     // Un zip Data code
-    console.log("///UnzipData///")
-    var AllTxt = b64_to_utf8( ListCodeVal )     // UpZIP b64
-    console.log(AllTxt)
+    
+    //var AllTxt = b64_to_utf8( ListCodeVal09021 )     // UpZIP b64
+
+    // var AllTxt = fromBinary( ListCodeVal09021 )   0902 // 1. 引用lz-string
+
+
+    // 解二進位
+    var 解二進位 = fromBinary(ListCodeVal09021)
+
+    var AllTxt = _lzStringZipTxt(解二進位,'unzip')
+
+    console.log("///AllTxt///",AllTxt)
 
     // post Data code
     var AllTxtB = AllTxt.split(".,.")   // 切割字串 https://www.wibibi.com/info.php?tid=258
@@ -1146,15 +1224,63 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
 
 
   
+
+
+
+  
 //////////////////////////////
 //////////////////////////////
 //////////// Save ////////////
 //////////////////////////////
 //////////////////////////////
-
+/* 20220901轉二進位
 // Js Base64 字符串 加密、解密 https://developer.mozilla.org/en-US/docs/Glossary/Base64
 function utf8_to_b64( str ) {   return window.btoa(unescape(encodeURIComponent( str )));  }
 function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( str )));  }
+*/
+
+
+
+
+
+
+
+
+
+//編碼 UTF8 ⇢ 二進制  
+//https://stackoverflow.com/questions/30106476/using-javascripts-atob-to-decode-base64-doesnt-properly-decode-utf-8-strings/30106551#30106551
+// convert a Unicode string to a string in which
+// each 16-bit unit occupies only one byte
+
+//編碼 UTF8 ⇢ 二進制 
+function toBinary(string) {
+  const codeUnits = new Uint16Array(string.length);
+  for (let i = 0; i < codeUnits.length; i++) {
+    codeUnits[i] = string.charCodeAt(i);
+  }
+
+  //let encode二進制d = toBinary('data') // "EycgAOAAIABsAGEAIABtAG8AZABlAA=="
+  //console.log('encode二進制d',encode二進制d)
+
+  return btoa(String.fromCharCode(...new Uint8Array(codeUnits.buffer)));
+}
+// 用 a string that contains characters occupying > 1 byte
+
+/////////////////////////////////
+// 解碼二進位 ⇢ UTF-8
+function fromBinary(encode二進制d) {
+  const binary = atob(encode二進制d);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < bytes.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+
+  // 解 our previous Base64-encode二進制d string
+  //let decoded解碼二進位 = fromBinary(encode二進制d) // "✓ à la mode"
+  //console.log('decoded解碼二進位',decoded解碼二進位)
+
+  return String.fromCharCode(...new Uint16Array(bytes.buffer));
+}
 
 
 
@@ -1167,6 +1293,68 @@ function b64_to_utf8( str ) {   return decodeURIComponent(escape(window.atob( st
 
 
 
+   // 1. 引用lz-string；
+   // 2. 使用compress壓縮資料；
+   // 3. 使用decompress解壓縮資料
+
+   function _lzStringZipTxt(txt,sel) {
+
+        // qqqqqqqqq222qqqqqqqqqqqqqqqqqqqqqqq
+
+        //console.log("原文長: " + txt.length);
+        //console.log("壓後長: " + NowZipTxt.length);
+        //console.log("壓文: " + NowZipTxt);
+        //console.log("解文: " + TrueTxt);
+
+        if (sel == "zip") {
+            var NowZipTxt = LZString.compress(txt)
+            return NowZipTxt; // 壓縮文
+        }
+        else if (sel == "unzip") {
+          var TrueTxt = LZString.decompress(txt)
+            return TrueTxt; // 解壓縮原文
+        }
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+   function _MakeShortURL(url,sel) {
+    // https://www.tutorialspoint.com/writing-a-custom-url-shortener-function-in-javascript#
+
+      //const url = 'https://www.qtutorialspoint.com/writing-a-custom-url-shortener-function-in-javascript#';
+      const obj = {};
+      const urlShortener = (longURL = '') => {
+        let shortURL = TrueUserUrl + "/" + longURL.replace(/[^a-z]/g,'').slice(-8);
+        if(!obj[shortURL]){
+            obj[shortURL] = longURL;
+        };
+        return shortURL;
+        }
+        const urlRedirector = (shortURL = '') => {
+        return obj[shortURL];
+      };
+      const short = urlShortener(url);
+      const original = urlRedirector(short);
+      console.log('短網',short);
+      console.log('短網解',original);
+
+      if (sel == "short") {
+        return short; // 短網
+      }
+      else if (sel == "original") {
+          return original; // 原網
+      }
+    
+  }
 
 
 
