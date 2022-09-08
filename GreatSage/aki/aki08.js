@@ -1051,8 +1051,8 @@ function _html模板() {
     // https://github.com/davidshimjs/qrcodejs/blob/master/index.html
     function makeCode (Data) {		
       var qrcode = new QRCode(document.getElementById("qrcode"), {
-        width : 128 * 5,
-        height : 128 *5,
+        width : 128 * 3,
+        height : 128 *3,
         colorDark : "#000",
         colorLight : "#fff",
         correctLevel: QRCode.CorrectLevel.L 
@@ -1078,7 +1078,7 @@ function _html模板() {
 // https://blog.csdn.net/qq_43506222/article/details/106373663
 function copyText() {
   //var txt = $("#例Url_driveGoogle").val
-      $("#例Url_driveGoogle").select();
+      $(".fw_icon").select();
       try {var state = document.execCommand("copy");}
       catch(err){var state = false;}
       if(state){
