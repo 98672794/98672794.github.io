@@ -19,7 +19,7 @@ AkiWs = 'https://wa.me/85298672794?text='
 
 
 // User Data
-UserLoginKey = "eb62f6b9306db575c2d596b1279627a4" // 0123
+UserLoginKey = "eb62f6b9306db575c2d596b1279627a4" // md5(0123)
 TrueUserUrl = './NKOL.html'
 
 
@@ -1051,8 +1051,8 @@ function _html模板() {
     // https://github.com/davidshimjs/qrcodejs/blob/master/index.html
     function makeCode (Data) {		
       var qrcode = new QRCode(document.getElementById("qrcode"), {
-        width : 128 * 3,
-        height : 128 *3,
+        width : 400,
+        height : 400,
         colorDark : "#000",
         colorLight : "#fff",
         correctLevel: QRCode.CorrectLevel.L 
