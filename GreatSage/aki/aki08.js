@@ -1051,8 +1051,8 @@ function _html模板() {
     // https://github.com/davidshimjs/qrcodejs/blob/master/index.html
     function makeCode (Data) {		
       var qrcode = new QRCode(document.getElementById("qrcode"), {
-        width : 400,
-        height : 400,
+        width : 380,
+        height : 380,
         colorDark : "#000",
         colorLight : "#fff",
         correctLevel: QRCode.CorrectLevel.L 
