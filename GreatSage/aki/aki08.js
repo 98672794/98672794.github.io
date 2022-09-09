@@ -24,8 +24,8 @@ TrueUserUrl = './NKOL.html'
 
 
  /////// Change nav /////
-a分頁max數 = 11 // 10 >= 11
-cont總分頁數 = 1 // nav,page數
+a分頁max數 = 10 // 10 >= 11
+cont總分頁數 = 0 // nav,page數
 
 
 
@@ -701,7 +701,7 @@ window.onscroll=function(e){
 
       //// 刪除分頁 202208301538OK ////
   function _DelNav() {  
-    if(cont總分頁數 > 1 ){
+    if(cont總分頁數 > 0 ){
       cont總分頁數 = cont總分頁數-1
 
       let cont總分頁數BB = cont總分頁數-1
