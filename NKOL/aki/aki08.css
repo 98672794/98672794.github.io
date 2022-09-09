@@ -16,57 +16,19 @@
 
 
  
-/*上nav轉下*/
-.topbar {
-    position: fixed;top: calc(100% - 58px);
-}
-.right_topbar{/*右logo置中*/margin-top: -.1%;}
 
-
-
-
-
-
-
-
-
+.topbar {/*上nav轉下*/    position: fixed;top: calc(100% - 58px);}
+.right_topbar{/*右logo*/    margin-top: -.1%;}
 
 /* Admin_index */
-
-/*
-col-lg-3">
-|
-col-lg-3 SmsBox">
-<a class="SmsBoxClose recycle btn ">
-<i class='fa fa-trash' style="font-size: 18px;"><!-- 回收站 --></i></a>
-
- */
+.SmsBoxBtn p{ color: rgb(255, 255, 255); font-size: 5em; font-weight: bold; line-height: 1.5em; margin: 0; padding: 0; }
+.SmsBoxBtn textarea,.SmsBoxBtn input{ width: 100%; height: auto; margin: 0 auto; font-size: 5em;  }
+#_Data3 input{ width: 80%;}
 .SmsBox{position: relative;}
-/*
-.SmsBoxBtn,.NavSelDisplay{display: none;}*/
 .SmsBoxBtn,.AkiUpHtmlCode{display: none;}
-/*.NavSelDisplay:first-of-type {display:block}*/
-
-.SmsBoxBtn{
-    opacity: .9;
-    margin-left: 5%;margin-right: 5%;
-    font-size: .3em;
-}
-
-
-/* .SmsBox:hover{background: #9c2839a4;} 前台會顯不能用 轉js */
-
-
-/* h4 .SmsBoxBtn button{    color: #d45b90a4;background: initial;}   */
+.SmsBoxBtn{    opacity: .9;    margin-left: 5%;margin-right: 5%;    font-size: .3em;}
 .SmsBoxClose{    background: #ff0101;}/*回收站*/
-
-
-
-
-
-
-
-/* 0830 */
-
 textarea{ resize: both;}
+
+
 
