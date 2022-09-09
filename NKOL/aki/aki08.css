@@ -1,0 +1,72 @@
+
+
+
+
+     
+/*
+ * aki.css
+ * 
+ * Copyright (c) 2012, Aki <                                                                
+
+*/
+
+
+/***************************************/
+/* for 0715交互数据管理系统响应式网页模板*/
+
+
+ 
+/*上nav轉下*/
+.topbar {
+    position: fixed;top: calc(100% - 58px);
+}
+.right_topbar{/*右logo置中*/margin-top: -.1%;}
+
+
+
+
+
+
+
+
+
+
+/* Admin_index */
+
+/*
+col-lg-3">
+|
+col-lg-3 SmsBox">
+<a class="SmsBoxClose recycle btn ">
+<i class='fa fa-trash' style="font-size: 18px;"><!-- 回收站 --></i></a>
+
+ */
+.SmsBox{position: relative;}
+/*
+.SmsBoxBtn,.NavSelDisplay{display: none;}*/
+.SmsBoxBtn,.AkiUpHtmlCode{display: none;}
+/*.NavSelDisplay:first-of-type {display:block}*/
+
+.SmsBoxBtn{
+    opacity: .9;
+    margin-left: 5%;margin-right: 5%;
+    font-size: .3em;
+}
+
+
+/* .SmsBox:hover{background: #9c2839a4;} 前台會顯不能用 轉js */
+
+
+/* h4 .SmsBoxBtn button{    color: #d45b90a4;background: initial;}   */
+.SmsBoxClose{    background: #ff0101;}/*回收站*/
+
+
+
+
+
+
+
+/* 0830 */
+
+textarea{ resize: both;}
+
