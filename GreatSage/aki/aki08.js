@@ -283,6 +283,34 @@ window.onscroll=function(e){
 
 
 
+//onclick Change css
+function UserChangeCss() { 
+  // 取色碼
+  var val1 = $("#ChangeColoe1").val()
+  , val2 = $("#ChangeColoe2").val()
+  , val3 = $("#ChangeColoe3").val()
+  , val4 = $("#ChangeColoe4").val()
+  , val5 = $("#ChangeColoe5").val()
+  , val6 = $("#ChangeColoe6").val()
+  
+  , 導航背景 = '#sidebar'
+  , 網頁標題 = '#sidebar h1'
+  , 導航文字 = '#_Data3b span'
+  , 內文背景 = "#content"
+  , 內文標題 = "h2"
+  , 內文文字 = ".detail-box p"
+  
+  // change css
+  $(導航背景).css("background",val1)
+  $(網頁標題).css("color",val2)
+  $(導航文字).css("color",val3)
+  $(內文背景).css("background",val4)
+  $(內文標題).css("color",val5)
+  $(內文文字).css("color",val6)
+}
+
+
+
   // googleTranslate 0815
     // jacky0719 Dont run this script, it will cause whole html slow down for 20 secs, this script is outdated
     // OVG ALL
@@ -852,7 +880,7 @@ function _html模板() {
               </li>\
               <li title="'+arguments[2]+'按鈕內容">按鈕<br/>\
               圖<input id="Nav'+arguments[0]+'TruePage_Data7" class="UpTxt" title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
-                <a href="./_icons.html" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> # fa fa-eye-slash" style="background: rgb(199, 230, 26);<br/>\
+                <a href="./_icons.html" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> ** fa fa-eye-slash" style="color: rgb(199, 230, 26);<br/>\
                 按鈕文字<textarea id="Nav'+arguments[0]+'TruePage_Data8" class="UpTxt">'+arguments[2]+'按鈕文字</textarea>\
                 按鈕網址<textarea id="Nav'+arguments[0]+'TruePage_Data9" class="UpTxt">'+arguments[2]+'按鈕網址</textarea>\
               </li>\
@@ -1166,11 +1194,10 @@ function _GetAllCode(HaHa_getElementsBy) {     // UpTxt
       ChangeNav3PageFlow(i);    
     }// sel已插入 loop ChangeNav3PageFlow auto get val
 
-    /*
     
     // Change Css
-    //UserChangeCss()
-*/
+    UserChangeCss()
+
 
     ChangeLogo('Data012')
 
