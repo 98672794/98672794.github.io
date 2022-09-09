@@ -25,7 +25,7 @@ TrueUserUrl = './NKOL.html'
 
  /////// Change nav /////
 a分頁max數 = 11 // 10 >= 11
-cont總分頁數 = 0 // nav,page數
+cont總分頁數 = 1 // nav,page數
 
 
 
@@ -701,19 +701,18 @@ window.onscroll=function(e){
 
       //// 刪除分頁 202208301538OK ////
   function _DelNav() {  
-    
+    if(cont總分頁數 > 1 ){
+      cont總分頁數 = cont總分頁數-1
 
-    cont總分頁數 = cont總分頁數-1
+      let cont總分頁數BB = cont總分頁數-1
 
-    let cont總分頁數BB = cont總分頁數-1
-
-    console.log("///_DelNav最後一分頁刪除",cont總分頁數)
-    _DelDiv('#增加導航btn'+cont總分頁數) // 删除 修改導航內容btn
-    _DelDiv('#Nav'+cont總分頁數)
-    _DelDiv('#客睇航btn'+cont總分頁數)
-    
-    document.getElementById("Data3分頁數").value = cont總分頁數BB // <li style="display: none;">\<input id="Data3分頁數" 
+      console.log("///_DelNav最後一分頁刪除",cont總分頁數)
+      _DelDiv('#增加導航btn'+cont總分頁數) // 删除 修改導航內容btn
+      _DelDiv('#Nav'+cont總分頁數)
+      _DelDiv('#客睇航btn'+cont總分頁數)
+      document.getElementById("Data3分頁數").value = cont總分頁數BB // <li style="display: none;">\<input id="Data3分頁數" 
     }
+  }
 
   //删除指定元素  防重id  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_remove
   function _DelDiv(IdVal) {  
@@ -1051,8 +1050,8 @@ function _html模板() {
     // https://github.com/davidshimjs/qrcodejs/blob/master/index.html
     function makeCode (Data) {		
       var qrcode = new QRCode(document.getElementById("qrcode"), {
-        width : 360,
-        height : 360,
+        width : 320,
+        height : 320,
         colorDark : "#000",
         colorLight : "#fff",
         correctLevel: QRCode.CorrectLevel.L 
