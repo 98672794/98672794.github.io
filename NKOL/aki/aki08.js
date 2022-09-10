@@ -1052,7 +1052,7 @@ function _html模板() {
 
       //20220901轉二進位
       , 二進位Code = toBinary(ZipCodeOK) 
-      , NewUrl =TrueUserUrl + '?@@?' + 二進位Code +'?@@?' // 新版網頁網址
+      , NewUrl =TrueUserUrl + '?@@?' + 二進位Code +'?@@?@' // 新版網頁網址
 
       console.log('///二進位Url///',NewUrl )
       //console.log('///解二進位11///',fromBinary(二進位Code) )
