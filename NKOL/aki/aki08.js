@@ -29,7 +29,7 @@ AkiWs = 'https://wa.me/85298672794?text='
 //////////////////////////////
 
 
-UserLoginKey = "eb62f6b9306db575c2d596b1279627a4" // md5(0123)
+UserLoginKey = $("#_UserLoginKey00").val()
 TrueUserUrl = './'
 
 
@@ -161,14 +161,12 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
 
 
-  // 按網址自動更換頁面 0908EOK
+  // 將網址code入#AkiUpHtmlCode,用於AkiUpHtmlCode自動更換頁面 0908EOK
   if (location.href.indexOf('?@@?') != -1){
-    
     var UrlToCode = location.href.split('?@@?')
     , kk = UrlToCode[1] // 逗後純code
     console.log("按網址自動更換頁面\\",kk)
     document.getElementById("AkiUpHtmlCode").value = kk
-    AkiUpHtmlCode()
   }
 
   
@@ -178,7 +176,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
   if(_一鍵打開關閉all功能() == true) {
     console.log("///按 AkiUpHtmlCode 更新網頁內容///",AkiUpHtmlCode())
   }
-
+  // 按code自動更換頁面 0911EOK
   AkiUpHtmlCode()
 }
 
@@ -193,6 +191,9 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
 
   // User input Login 
   function UserInputLogin() {  // user input loginKey change md5
+
+    //console.log("UserLoginKey",UserLoginKey)
+
     // get user name
     let val = $("#UserLoginKey").val() //<input id="UserLoginKey" placeholder="YourKey"  type="text"/>
 
@@ -311,6 +312,8 @@ function UserChangeCss() {
   $(內文背景).css("background",val4)
   $(內文標題).css("color",val5)
   $(內文文字).css("color",val6)
+
+  console.log("UserChangeCss()")
 }
 
 
