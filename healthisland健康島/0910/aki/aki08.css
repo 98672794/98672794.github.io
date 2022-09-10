@@ -1,0 +1,34 @@
+
+
+
+
+     
+/*
+ * aki.css
+ * 
+ * Copyright (c) 2012, Aki <                                                                
+
+*/
+
+
+/***************************************/
+/* for 0715交互数据管理系统响应式网页模板*/
+
+
+ 
+
+.topbar {/*上nav轉下*/    position: fixed;top: calc(100% - 58px);}
+.right_topbar{/*右logo*/    margin-top: -.1%;}
+
+/* Admin_index */
+.SmsBoxBtn p{ color: rgb(255, 255, 255); font-size: 5em; font-weight: bold; line-height: 1.5em; margin: 0; padding: 0; }
+.SmsBoxBtn textarea,.SmsBoxBtn input{ width: 100%; height: auto; margin: 0 auto; font-size: 5em;  }
+#_Data3 input{ width: 80%;}
+.SmsBox{position: relative;}
+.SmsBoxBtn,.AkiUpHtmlCode{display: none;}
+.SmsBoxBtn{    opacity: .9;    margin-left: 5%;margin-right: 5%;    font-size: .3em;}
+.SmsBoxClose{    background: #ff0101;}/*回收站*/
+textarea{ resize: both;}
+
+
+#_Data3b span{font-size: 1.5em; font-weight: bold; line-height: 1.5em; }
