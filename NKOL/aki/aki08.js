@@ -1058,8 +1058,7 @@ function _html模板() {
       //console.log('///解二進位11///',fromBinary(二進位Code) )
       //console.log('///lz-string111///',_lzStringZipTxt(fromBinary(二進位Code),'unzip') )
 
-      // makeCode
-      makeCode (NewUrl)
+
 
       console.log('///打開新版網頁///')
       window.open(NewUrl, '_blank')
@@ -1068,6 +1067,10 @@ function _html模板() {
       , wsToAki = AkiWs + NewUrl //NewUrl
 
       document.getElementById("_VIP更新0831").href=wsToAki; // CHANGE href
+
+      // makeCode  qqqqqq0910 太長not work
+      makeCode (NewUrl)
+
     }
 
 
