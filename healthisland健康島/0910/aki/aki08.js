@@ -11,7 +11,7 @@
 AkiWs = 'https://wa.me/85298672794?text='
 題 = "NKOL - 202208062338"
 示 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdti7rZ1sn-fCY3rOS2s-6lcR20mR_oKl9QA&usqp=CAU"
-權 = '<iframe align="center" width="100%" height="100%" src="../aki/copyright.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>'
+權 = '<iframe align="center" width="100%" height="100%" src="../../aki/copyright.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>'
 
 
 
@@ -29,7 +29,7 @@ AkiWs = 'https://wa.me/85298672794?text='
 //////////////////////////////
 
 
-UserLoginKey = "caf6520a03bb0ebdd34abe406e245866" // md5(5167)
+UserLoginKey = $("#_UserLoginKey00").val()
 TrueUserUrl = './'
 
 
@@ -168,7 +168,6 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     , kk = UrlToCode[1] // 逗後純code
     console.log("按網址自動更換頁面\\",kk)
     document.getElementById("AkiUpHtmlCode").value = kk
-    AkiUpHtmlCode()
   }
 
   

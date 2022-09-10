@@ -28,7 +28,7 @@
 .SmsBoxBtn,.AkiUpHtmlCode{display: none;}
 .SmsBoxBtn{    opacity: .9;    margin-left: 5%;margin-right: 5%;    font-size: .3em;}
 .SmsBoxClose{    background: #ff0101;}/*回收站*/
-textarea{ resize: both;}
+textarea{ resize: both;overflow: auto;}
 
 
 #_Data3b span{font-size: 1.5em; font-weight: bold; line-height: 1.5em; }
