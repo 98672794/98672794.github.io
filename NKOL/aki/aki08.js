@@ -178,6 +178,8 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
   if(_一鍵打開關閉all功能() == true) {
     console.log("///按 AkiUpHtmlCode 更新網頁內容///",AkiUpHtmlCode())
   }
+
+  AkiUpHtmlCode()
 }
 
 
@@ -195,7 +197,7 @@ function isAutoRun(){ //   <body onload="isAutoRun()"
     let val = $("#UserLoginKey").val() //<input id="UserLoginKey" placeholder="YourKey"  type="text"/>
 
     , md5HaHa = md5(val)
-    //console.log("md5HaHa",md5HaHa)
+    console.log("md5HaHa",md5HaHa)
 
    // md5  <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"> // 通过JS使用MD5加密 
     if (md5HaHa == UserLoginKey) {
