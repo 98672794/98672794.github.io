@@ -887,7 +887,7 @@ function _html模板() {
               </li>\
               <li title="'+arguments[2]+'按鈕內容">按鈕<br/>\
               圖<input id="Nav'+arguments[0]+'TruePage_Data7" class="UpTxt" title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
-                <a href="./icons.html" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> ** fa fa-eye-slash" style="color: rgb(199, 230, 26);<br/>\
+                <a href="https://98672794.github.io/NKOL/icons.html" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> ** fa fa-eye-slash" style="color: rgb(199, 230, 26);<br/>\
                 按鈕文字<textarea id="Nav'+arguments[0]+'TruePage_Data8" class="UpTxt">'+arguments[2]+'按鈕文字</textarea>\
                 按鈕網址<textarea id="Nav'+arguments[0]+'TruePage_Data9" class="UpTxt">'+arguments[2]+'按鈕網址</textarea>\
               </li>\
@@ -991,7 +991,7 @@ function _html模板() {
   '
   , _nav導航標題格 = ' <div id="增加導航btn'+arguments[0]+'" class="SmsBox0830" >\
   <input id="Data3分頁各圖'+arguments[0]+'"  class="UpTxt" title="導航的圖" value="fa fa-eye-slash" type="text"/>\
-  <!-- 圖片網址 --><a href="./icons.html" target="_blank">\
+  <!-- 圖片網址 --><a href="https://98672794.github.io/NKOL/icons.html" target="_blank">\
   <i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a>\
   <textarea id="Data3分頁數'+arguments[0]+'" class="UpTxt" title="導航名">Nav'+arguments[0]+'</textarea>\
   <!-- add Nav Nb 內修 btn -->\
