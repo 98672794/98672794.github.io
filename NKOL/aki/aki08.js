@@ -298,10 +298,10 @@ function UserChangeCss() {
   , val5 = $("#ChangeColoe5").val()
   , val6 = $("#ChangeColoe6").val()
   
-  , 導航背景 = '#sidebar'
+  , 導航背景 = '#sidebar,.full'
   , 網頁標題 = '#sidebar h1'
   , 導航文字 = '#_Data3b span'
-  , 內文背景 = "#content"
+  , 內文背景 = "#content,#sidebarCollapse"
   , 內文標題 = "h2"
   , 內文文字 = ".detail-box p"
   
@@ -1092,7 +1092,7 @@ function _html模板() {
         height : 320,
         colorDark : "#000",
         colorLight : "#fff",
-        correctLevel: QRCode.CorrectLevel.L 
+        correctLevel: QRCode.CorrectLevel.L
         // 由低到高 .L M Q H https://www.cnblogs.com/whkl-m/p/10797776.html
       });
       
