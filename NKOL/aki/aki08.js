@@ -684,7 +684,46 @@ function UserChangeCss() {
     // 加入版板到NavTruePage
     turnId.innerHTML = _about_section+''
 
-    //}
+
+
+
+
+
+
+
+
+
+
+
+    // TruePage內容編輯位顯示 0926OK
+    if (turnSelPageFlow < 3) { 
+      $(".Nav"+cont+"HTMLNoneBox").css("display", "block")
+      $(".Nav"+cont+"ADloopNoneBox").css("display", "block") 
+
+      document.querySelector("#Nav"+cont+"InputHTMLbox").innerHTML = '按鈕文字'
+
+      document.querySelectorAll(".Nav"+cont+"ADloopImg")[0].innerHTML = '內容圖'
+      document.querySelectorAll(".Nav"+cont+"ADloopImg")[1].innerHTML = '標題'   
+      document.querySelectorAll(".Nav"+cont+"ADloopImg")[2].innerHTML = '內文'
+    }
+
+
+    if (turnSelPageFlow == 3) { // _ADloopPage
+      $(".Nav"+cont+"HTMLNoneBox").css("display", "block")
+      
+      document.querySelectorAll(".Nav"+cont+"ADloopImg")[0].innerHTML = '廣告圖1'  
+      document.querySelectorAll(".Nav"+cont+"ADloopImg")[1].innerHTML = '廣告圖2'   
+      document.querySelectorAll(".Nav"+cont+"ADloopImg")[2].innerHTML = '廣告圖3'
+
+      $(".Nav"+cont+"ADloopNoneBox").css("display", "none") 
+    }
+
+
+    if (turnSelPageFlow == 99) {
+      $(".Nav"+cont+"ADloopNoneBox").css("display", "block") 
+      document.querySelector("#Nav"+cont+"InputHTMLbox").innerHTML = 'HTML code'
+      $(".Nav"+cont+"HTMLNoneBox").css("display", "none") 
+    }
 
     // 管理員說話
     let tt1 = "ChangeNav3PageFlow()=Make"+cont+"Page風格="+turnSelPageFlow,
@@ -871,46 +910,48 @@ function _html模板() {
   let page = '\
           <div class="row NavSelDisplay" id="Nav'+arguments[0]+'">\
             <div class="col-md-12">\
-            \
+              \
             <div class="SmsBox0830">\
               \
-                \
+              \
                 <hr style="background: rgb(9, 9, 9);">\
+                <div class="Nav'+arguments[0]+'HTMLNoneBox">\
               <ul>\
-              <li title="'+arguments[2]+'內容">內容<br/>\
-              圖<input title="'+arguments[2]+'內容圖,限圖片網址" id="Nav'+arguments[0]+'TruePage_Data4" class="UpTxt" value="https://i.ppfocus.com/2020/7/101496f.jpg" type="text"/>\
-                  <!-- 圖片網址 --><i class="fa fa-image  btn"  ></i> \
-                  <br/>\
-                  標題<textarea id="Nav'+arguments[0]+'TruePage_Data5" class="UpTxt" >'+arguments[2]+'標題</textarea>\
-                  內文<textarea id="Nav'+arguments[0]+'TruePage_Data6" class="UpTxt" >'+arguments[2]+'內文</textarea>\
-                  <hr style="background: rgb(9, 9, 9);">\
-              </li>\
-              <li title="'+arguments[2]+'按鈕內容">按鈕<br/>\
-              圖<input id="Nav'+arguments[0]+'TruePage_Data7" class="UpTxt" title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
-                <a href="https://98672794.github.io/NKOL/icons.html" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> ** fa fa-eye-slash" style="color: rgb(199, 230, 26);<br/>\
-                按鈕文字<textarea id="Nav'+arguments[0]+'TruePage_Data8" class="UpTxt">'+arguments[2]+'按鈕文字</textarea>\
-                按鈕網址<textarea id="Nav'+arguments[0]+'TruePage_Data9" class="UpTxt">'+arguments[2]+'按鈕網址</textarea>\
-              </li>\
+                <li title="'+arguments[2]+'內容"><samp class="Nav'+arguments[0]+'ADloopImg">內容圖</samp><br/>\
+                <input title="'+arguments[2]+'內容圖,限圖片網址" id="Nav'+arguments[0]+'TruePage_Data4" class="UpTxt" value="https://i.ppfocus.com/2020/7/101496f.jpg" type="text"/>\
+                    <!-- 圖片網址 --><i class="fa fa-image  btn"  ></i> \
+                    <br/>\
+                    <samp class="Nav'+arguments[0]+'ADloopImg">標題</samp><br/><textarea id="Nav'+arguments[0]+'TruePage_Data5" class="UpTxt" >'+arguments[2]+'標題</textarea><br/>\
+                    <samp class="Nav'+arguments[0]+'ADloopImg">內文</samp><br/><textarea id="Nav'+arguments[0]+'TruePage_Data6" class="UpTxt" >'+arguments[2]+'內文</textarea>\
+                </li>\
+                <li class="Nav'+arguments[0]+'ADloopNoneBox" title="'+arguments[2]+'按鈕內容"><samp class="Nav'+arguments[0]+'ADloopImg">按鈕圖</samp><br/>\
+                <input id="Nav'+arguments[0]+'TruePage_Data7" class="UpTxt" title="'+arguments[2]+'按鈕圖" value="fa fa-eye-slash" type="text"/>\
+                <br/><a href="https://98672794.github.io/NKOL/icons.html" target="_blank"><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i></a> ** fa fa-eye-slash" style="color: rgb(199, 230, 26);<br/>\
+                  </div><br/>\
+                  <samp id="Nav'+arguments[0]+'InputHTMLbox" class="Nav'+arguments[0]+'ADloopNoneBox" >按鈕文字</samp><br/><textarea id="Nav'+arguments[0]+'TruePage_Data8" class="UpTxt Nav'+arguments[0]+'ADloopNoneBox">'+arguments[2]+'按鈕文字</textarea>\
+                  <samp class="Nav'+arguments[0]+'HTMLNoneBox Nav'+arguments[0]+'ADloopNoneBox">按鈕網址<br/><textarea id="Nav'+arguments[0]+'TruePage_Data9" class="UpTxt">'+arguments[2]+'按鈕網址</textarea></samp>\
+                </li>\
               </ul>\
-        \
-        \
-        \
-                \
-                風格:<br/><i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>\
+              \
+              \
+                <br/>風格:<i class="fa  fa-mortar-board recycle btn" ><!-- 教學 --></i>\
                 <select id="SelPageFlow'+arguments[0]+'" class="UpTxt" onchange="ChangeNav3PageFlow('+arguments[0]+')" >\
-                    <option value="0">選擇風格</option><option value="1">1</option>\
-                    <option value="2">2</option>\
-                    <option value="99">HTML DIY</option>\
+                    <option value="0">選擇風格</option>\
+                    <option value="1">上圖下文</option>\
+                    <option value="2">上文下圖</option>\
+                    <option value="3">循環廣告</option>\
+                    <option value="99">HTML code</option>\
                 </select></div>\
-                </div>\
-                \
-                \
-                \
-                <div id="Nav'+arguments[0]+'TruePage"><!-- _html模板放這 -->\<h3>未有內容</h3></div>\
+            </div>\
+              \
+              \
+              \
+                <div id="Nav'+arguments[0]+'TruePage"><!-- _html模板放這 -->\</div>\
             </div>\
           </div>\
           </div><br/>'
 
+  // 1 = 上圖下文
   , _about_section1 = '  \
       <!-- about section1 -->\
       \
@@ -951,7 +992,7 @@ function _html模板() {
       <!-- end about section -->\
 '
 
-
+  // 2 = 上文下圖
   , _about_section2 = '  \
       <!-- about section2 -->\
       \
@@ -989,6 +1030,88 @@ function _html模板() {
       \
         <!-- end about section -->\
   '
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // 3 = 循環廣告 0926OK // https://blog.51cto.com/u_15127655/4185318
+  // https://codepen.io/98672794/pen/RwyjRgE?editors=1000
+  , _ADloopPage = '\
+      <style>\
+        #container {\
+            width: 100%;\
+            height: 300px;\
+            overflow: hidden;\
+        }\
+    \
+        #photo {\
+            width: calc(100% * 3);\
+            animation: switch 5s ease-out infinite;\
+        }\
+    \
+        #photo > img {\
+            float: left;\
+            width: calc(100% / 3); \
+            height: 300px;\
+        }\
+    \
+        @keyframes switch {\
+            0%, 25% {margin-left: 0;}\
+            35%, 60% {margin-left: -100%;}\
+            70%, 100% {margin-left: -200%;}\
+        }\
+      </style>\
+      <div id="container">\
+          <div id="photo">\
+              <img src="'+arguments[1]+'" />\
+              <img src="'+arguments[2]+'" />\
+              <img src="'+arguments[3]+'" />\
+          </div>\
+      </div>\
+      '
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // 99 = HTML DIY
+  , _diyBox = arguments[5] 
+
+
   , _nav導航標題格 = ' <div id="增加導航btn'+arguments[0]+'" class="SmsBox0830" >\
   <input id="Data3分頁各圖'+arguments[0]+'"  class="UpTxt" title="導航的圖" value="fa fa-eye-slash" type="text"/>\
   <!-- 圖片網址 --><a href="https://98672794.github.io/NKOL/icons.html" target="_blank">\
@@ -998,20 +1121,19 @@ function _html模板() {
   <button class="btn" onclick="ChangeNav2('+arguments[0]+')"><!-- 睇圖 --><i class="fa fa-eye"></i></button>\
   </div>'
 
-  , _diyBox = arguments[5] // HTML DIY
-
-
 
 
 
   // list get https://flexiple.com/javascript/get-last-array-element-javascript/
-  let _lastSet = arguments[arguments.length - 1];
+  , _lastSet = arguments[arguments.length - 1];
     if (_lastSet == 'page') {return page}
+
     if (_lastSet <2) {return _about_section1}
     if (_lastSet == 2) {return _about_section2}
-    if (_lastSet == 'nav導航標題格') {return _nav導航標題格}
+    if (_lastSet == 3) {return _ADloopPage}
+    
     if (_lastSet == 99) {return _diyBox}
-
+    if (_lastSet == 'nav導航標題格') {return _nav導航標題格}
       
   }
 
