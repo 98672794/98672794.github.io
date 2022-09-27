@@ -32,3 +32,8 @@ textarea{ resize: both;}
 
 
 #_Data3b span{font-size: 1.5em; font-weight: bold; line-height: 1.5em; }
+
+
+/* User index */
+/* nav https://zho.tidewaterschool.org/437063-how-to-select-multiple-ids-WRKZGG */
+[id^='客睇航'] ,button { cursor: pointer; } 
