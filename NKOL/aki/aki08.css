@@ -37,3 +37,8 @@ textarea{ resize: both;}
 /* User index */
 /* nav https://zho.tidewaterschool.org/437063-how-to-select-multiple-ids-WRKZGG */
 [id^='客睇航'] ,button { cursor: pointer; } 
+
+
+/* Nav背 */
+.sidebar_user_info{ background: #00000000; }
+/* other = UserChangeCss() */
