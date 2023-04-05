@@ -1,52 +1,23 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>ChatGPT API Demo</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  </head>
-  <body>
-    <h1>ChatGPT API Demo</h1>
-    <p>請輸入您的問題:</p>
-    <input type="text" id="question" name="question">
-    <button onclick="askQuestion()">提交</button>
-    <br><br>
-    <div id="answer"></div>
-    <script>
-      var eqweqe = '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'
-
-      
-      function askQuestion() {
-        var question = $('#question').val();
-        var apiUrl = 'https://api.openai.com/v1/engines/davinci-codex/completions';
-        var prompt = '問題：' + question + '\n回答：';
-        $.ajax({
-          type: 'POST',
-          url: apiUrl,
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+ eqweqe
-          },
-          data: JSON.stringify({
-            prompt: prompt,
-            max_tokens: 60,
-            n: 1,
-            stop: '\n'
-          }),
-          success: function(result) {
-            var answer = result.choices[0].text;
-            $('#answer').html('<p><b>答案：</b>' + answer + '</p>');
-          }
-
-          
-        });
-
-
-
-
-
-      }
-
-      
-    </script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT 4 Test3333</title>
+</head>
+<body>
+    <div>
+        <h1>ChatGPT 4 API Test</h1>
+        <form id="chat-form">
+            <label for="mytext">Enter your message:</label>
+            <input type="text" id="mytext" style="width: 50%;" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div>
+            <h2>Response:</h2>
+            <textarea id="response" rows="20" style="width: 80%;" readonly></textarea>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
