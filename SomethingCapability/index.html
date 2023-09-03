@@ -9,7 +9,7 @@
 
 	<!-- ============ Aki Web3Js ============ -->
     <title>Something capability</title>
-	<script src="web3.min.js"></script>
+
 
 	
 
@@ -18,8 +18,9 @@
 	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
 
-	
-	<script src="js/CryptocurrencyQuotesAKI.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+
+
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -30,19 +31,94 @@
     <!-- Squad theme CSS -->
     <link href="css/style.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
-
-
+	
+	<!--  CSS icon-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
 		.none{ display: none;}
 	</style>
 
+
+
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom" onload="startTime()">
 	<!-- Preloader -->
 	<div id="preloader">
 	  <div id="load"></div>
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
@@ -74,61 +150,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		<!-- ============ Login  MetaMask ============ -->
         <li class="dropdown" style="float: right;">
           <a class="dropdown-toggle" data-toggle="dropdown">
@@ -140,29 +161,7 @@
 
             <li>
 			<a >STC balance : <samp id="STC餘額" >0.00 STC<!-- ============ STC 代幣餘額 display ============ --></samp></a>
-				<script>
-					var web3js;
-			  
-					function getERC20TokenBalance(tokenAddress, walletAddress, callback) {
-					  let minABI = [
-						{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"type":"function"},
-						{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"type":"function"}
-					  ];
-					  let contract = new web3js.eth.Contract(minABI, tokenAddress);
-					  contract.methods.balanceOf(walletAddress).call((error, balance) => {
-						contract.methods.decimals().call((error, decimals) => {
-						  console.log(balance);
-						  console.log(decimals);
-						  balance = balance / (10**decimals);
-						  callback(balance);
-						});
-					  });
-					}
-					window.onload = function() {
-					  web3js = new Web3(Web3.givenProvider);
-					  console.log(web3js.version);
-					}
-				  </script>
+			
 			</li>
 			
 
@@ -171,128 +170,9 @@
 				<a id='loginButton' onclick="" title="Login Ethereum">
 				<img src="https://mir-s3-cdn-cf.behance.net/projects/404/eb5c0f131767869.Y3JvcCwxMDI0LDgwMCwwLDExMQ.png" 
 				width="50em"/>Login Ethereum</a></li>
-				<script>
-					window.userWalletAddress = null
-					const loginButton = document.getElementById('loginButton')
-					const userWallet = document.getElementById('userWallet')
-				
-					function toggleButton() {
-					  if (!window.ethereum) {
-						loginButton.innerText = '需要以太坊支持瀏覽器或 Ethereum'
-						return false
-					  }
-				
-					  loginButton.addEventListener('click', loginWithMetaMask)
-					}
-				
-					async function loginWithMetaMask() {
-					  const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-						.catch((e) => {
-						  console.error(e.message)
-						  return
-						})
-					  if (!accounts) { return }
-				
-					  window.userWalletAddress = accounts[0]
-					  userWallet.innerText = window.userWalletAddress
-					  loginButton.innerText = '退出 Ethereum'
-
-					  //<!-- ============ 用STC餘額 ============ -->
-					  var str = $( "#我的錢包2222" ).val(accounts[0]);
-
-					  //<!-- ============ 切割字串 https://www.fooish.com/javascript/string/substr.html ============ -->
-					  $( "#錢包menu" ).html( accounts[0].substr(0, 5) );
-						
-
-					//<!-- ============ STC 代幣餘額 ============ -->
-					let tokenAddress = $( "#STC合約地址" ).val(); //STC合約地址
-					let walletAddress = $( "#我的錢包2222" ).val(); //我的錢All包
-					getERC20TokenBalance(tokenAddress, walletAddress, (balance) => {
-						document.getElementById('STC餘額').innerText = balance.toString();
-					});
-
-					  loginButton.removeEventListener('click', loginWithMetaMask)
-					  setTimeout(() => {
-						loginButton.addEventListener('click', signOutOfMetaMask)
-					  }, 200)
-			  
-					}
-				
-					function signOutOfMetaMask() {
-					  window.userWalletAddress = null
-					  userWallet.innerText = ''
-					  loginButton.innerText = '使用 Ethereum 登錄'
-					  //<!-- ============ 用STC餘額 html 靜態 Copy dd Js Aki ============ -->
-					  var str = $( "#我的錢包2222" ).val("0x0"); //val=input
-					  $( "#錢包menu" ).html( '登錄我的錢包');
-					  //<!-- ============ / https://jsfiddle.net/mokaki/yu0n2r7z/1/ ============ -->
-			  
-					  loginButton.removeEventListener('click', signOutOfMetaMask)
-					  setTimeout(() => {
-						loginButton.addEventListener('click', loginWithMetaMask)
-					  }, 200)
-					}
-				
-					window.addEventListener('DOMContentLoaded', () => {
-					  toggleButton()
-					});
-				  </script>
 				  <!-- ============ /Login  MetaMask ============ -->
 		  </ul>
         </li>
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -320,24 +200,16 @@
 
 
 
-
-
-
-
-
-
-
-        <li><a href="#getSTC">get STC</a></li>
+        <li><a href="#getSTC">STC price Today</a></li>
 		<li><a href="#cryptoPrice">Cryptocurrency Quotes</a></li>
-		<li><a href="#contact">STC應用</a></li>
-		<li><a href="#contact">企業</a></li>
+		<li><a href="#STC應用">STC應用</a></li>
+		<li><a href="#contact">企業名冊</a></li>
 		<li><a href="#contact">開發者</a></li>
 		<li><a href="#contact">責任</a></li>
 		<li><a href="#contact">願境</a></li>
 		<li><a href="https://github.com/98672794/blockchain2022">wallet import STC</a></li>
 		<li><a href="#contact">社群</a></li>
 		<li><a href="#contact">教程</a></li>
-		<li class="active"><a href="#intro">香港區塊鏈技術應用 STC</a></li>
 
 		
       </ul>
@@ -347,11 +219,6 @@
         <!-- /.container -->
 
 
-
-
-
-			
-			
 	
     </nav>
 
@@ -482,7 +349,7 @@
 
 	<!-- Section: cryptoPrice -->
     <section id="cryptoPrice">
-		<iframe src="https://hk.widgets.investing.com/top-cryptocurrencies?theme=darkTheme&roundedCorners=true" width="100%" height="480px" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe>
+		<iframe src="https://www.widgets.investing.com/top-cryptocurrencies?theme=darkTheme&hideTitle=true&roundedCorners=true" width="100%" height="480px" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe>
 	</section>
 	<!-- /Section: cryptoPrice -->
 
@@ -691,60 +558,7 @@
 				<hr class="marginbot-50">
 			</div>
 		</div>
-        <div class="row">
-            <div class="col-sm-3 col-md-3">
-				<div class="wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-1.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Print</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-2.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Web Design</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-3.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Photography</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInRight" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-4.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Cloud System</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-        </div>		
+	
 		</div>
 	</section>
 	<!-- /Section: services -->
@@ -787,15 +601,15 @@
 
 
 
-	<!-- Section: contact -->
-    <section id="contact" class="home-section text-center">
+	<!-- Section: STC應用 -->
+    <section id="STC應用" class="home-section text-center">
 		<div class="heading-contact">
 			<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 					<div class="section-heading">
-					<h2>Get in touch</h2>
+					<h2>STC應用</h2>
 					<i class="fa fa-2x fa-angle-down"></i>
 
 					</div>
@@ -811,85 +625,102 @@
 				<hr class="marginbot-50">
 			</div>
 		</div>
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="boxed-grey">
-                <form id="contact-form">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                Subject</label>
-                            <select id="subject" name="subject" class="form-control" required="required">
-                                <option value="na" selected="">Choose One:</option>
-                                <option value="service">General Customer Service</option>
-                                <option value="suggestions">Suggestions</option>
-                                <option value="product">Product Support</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                                placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
-                            Send Message</button>
-                    </div>
-                </div>
-                </form>
-            </div>
-        </div>
-		
-		<div class="col-lg-4">
-			<div class="widget-contact">
-				<h5>Main Office</h5>
-				
-				<address>
-				  <strong>Squas Design, Inc.</strong><br>
-				  Tower 795 Folsom Ave, Beautiful Suite 600<br>
-				  San Francisco, CA 94107<br>
-				  <abbr title="Phone">P:</abbr> (123) 456-7890
-				</address>
 
-				<address>
-				  <strong>Email</strong><br>
-				  <a href="mailto:#">email.name@example.com</a>
-				</address>	
-				<address>
-				  <strong>We're on social networks</strong><br>
-                       	<ul class="company-social">
-                            <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
-                            <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>	
-				</address>					
+
+
+		<div class="row">
+            <div class="col-sm-3 col-md-3">
+				<div class="wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="service-box">
+					<div class="service-icon">
+						<i class="fa fa-bullhorn" style="font-size:36px"></i>
+					</div>
+					<div class="service-desc">
+						<h5>投放廣告</h5>
+						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+					</div>
+                </div>
+				</div>
+            </div>
+			<div class="col-sm-3 col-md-3">
+				<div class="wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service-box">
+					<div class="service-icon">
+						<i class="fa fa-sign-in" aria-hidden="true" style="font-size:36px"></i>
+					</div>
+					<div class="service-desc">
+						<h5>加入名冊</h5>
+						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+					</div>
+                </div>
+				</div>
+            </div>
+			<div class="col-sm-3 col-md-3">
+				<div class="wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service-box">
+					<div class="service-icon">
+						<i class="fa fa-exchange" aria-hidden="true" style="font-size:36px"></i>
+					</div>
+					<div class="service-desc">
+						<h5>會員轉讓</h5>
+						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+					</div>
+                </div>
+				</div>
+            </div>
+			<div class="col-sm-3 col-md-3">
+				<div class="wow fadeInRight" data-wow-delay="0.2s">
+                <div class="service-box">
+					<div class="service-icon">
+						<i class="fa fa-arrows-alt" aria-hidden="true" style="font-size:36px"></i>
+					</div>
+					<div class="service-desc">
+						<h5>更多應用</h5>
+						<p>商戶持有STC後，即可永久免費使用原價$7,000/每年的商業輔助程式，助你效率提升和業務增長！</p>
+					</div>
+                </div>
+				</div>
+            </div>
+        </div>	
+		<br><br><br><br>
+    <div class="row">
+		<div class="col-lg-12">
+			<div class="widget-contact">
+				<h3>SOMETHING CAPABILITY</h3>
+				是新一代的商業分類網站!<br>
+				我們給合區塊鏈+AI技術，協助商家拓展線上業務。<br>
+				我們多元的服務，由線上廣告、零售業解決方案、網路應用程式至品牌推廣，應有盡有。<br>
+				助你洞悉宣傳趨勢、定制多元化廣告。務求為你搶佔商機，開拓市場!
 			
 			</div>	
 		</div>
     </div>	
+	<br><br>
+	<h1><a href="https://wa.me/85252718959?text=get STC">contact us</a></h1>
+
+
+	
 
 		</div>
 	</section>
-	<!-- /Section: contact -->
+	<!-- /Section: STC應用 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -957,13 +788,15 @@
 
 
 	<!-- Section: getSTC -->
-    <section id="getSTC" class="home-section text-center">
+    <section id="getSTC" class="home-section text-center bg-gray">
 		<div class="heading-contact">
 			<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 					<div class="section-heading">
+
+						<h2>STC price Today</h2>
 					<i class="fa fa-2x fa-angle-down"></i>
 
 					</div>
@@ -975,58 +808,63 @@
 		<div class="container">
 
 		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
+			<div class="col-lg-8 col-lg-offset-2">
+				<h3><div id="time"></div>
+				</br>
+				<label for="CurrentPrice">1 STC = </label>
+				</h3>
+				<span class="input-group-addon"><samp id="STCtoETH">0.04</samp> ETH</span>
+				<span id="STCtoUSD" class="input-group-addon"></span>
+				<span id="STCtoHKD" class="input-group-addon"></span>
 			</div>
 		</div>
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="boxed-grey">
-                <form id="contact-form">
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <div class="form-group">
-                            <label for="CurrentPrice">
-                                STC price </label>
-								1STC = 
-							</br>
-                            <div class="input-group"></br>
-
-                                <span class="input-group-addon"><samp id="STCtoETH">0.02</samp> ETH</span>
-                                <span id="STCtoUSD" class="input-group-addon"></span>
-								<span id="STCtoHKD" class="input-group-addon"></span>
-								
-                        </div>
-						</br>
-
-                        <div class="form-group">
-							
+		</br>
+		<h1><a href="https://wa.me/85252718959?text=get STC">get STC</a></h1>
 
 
-							<h1>發送以太幣</h1>
-							<input id="amount" step="0.01" type="number" placeholder="AVAX Amount...." ref="input" required>
-							<button onclick="getFunds();">Deposit</button>
 
-							<script src="web3.min.js"></script>
-							<script src="js/CryptocurrencyQuotesAKI.js"></script>
 
-                        </div>
 
-                    </div>
-					
-               
-                </div>
-                </form>
-            </div>
-        </div>
-		
 
-    </div>	
+
+
+
+
 
 		</div>
 	</section>
 	<!-- /Section: getSTC -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1094,7 +932,8 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
 
-	
+	<script src="js/CryptocurrencyQuotesAKI.js"></script>
+	<script src="web3.min.js"></script>
 
 </body>
 
