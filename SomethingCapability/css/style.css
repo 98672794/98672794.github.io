@@ -790,3 +790,11 @@ Parallax
 	}
 	
 }
+
+
+
+
+
+/* aki 0904 BusinessRosterIndexBox*/
+.BusinessRosterIndexBox:hover{background-color: #00000042;}
+#All:hover,#科技:hover,#健康:hover,#電腦:hover,#課程:hover{cursor: pointer; }
