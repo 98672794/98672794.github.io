@@ -179,12 +179,6 @@ setInterval("time()", 1000);
 
 
 
-
-
-
-
-
-
 //  getSTC  Current price<
 
 
@@ -220,16 +214,47 @@ $(document).ready(function() {
 
 
 
+// 企業名冊 div 隱顯
+// https://www.runoob.com/jquery/jquery-hide-show.html
+// css #All:hover,#科技:hover,#健康:hover{cursor: pointer; }
+// <li><a id="科技">科技</a></li>
+// <div class="col-lg-12 BusinessRosterIndexBox 科技">
+
+    $("#All").click(function(){
+		$(".科技,.健康,.電腦,.課程,.食品,.燈飾").show();
+    });
+
+    $("#科技").click(function(){
+		$(".電腦,.健康,.課程,.食品,.燈飾").hide();
+		$(".科技").show();
+    });
 
 
+    $("#健康").click(function(){
+		$(".電腦,.科技,.課程,.食品,.燈飾").hide();
+		$(".健康").show();
+    });
 
+    $("#電腦").click(function(){
+		$(".健康,.科技,.課程,.食品,.燈飾").hide();
+		$(".電腦").show();
+	});
 
+    $("#課程").click(function(){
+		$(".健康,.科技,.電腦,.食品,.燈飾").hide();
+		$(".課程").show();
+	});
 
+    $("#食品").click(function(){
+		$(".健康,.科技,.電腦,.課程,.燈飾").hide();
+		$(".食品").show();
+	});
 
-
-
-
-
+    $("#燈飾").click(function(){
+		$(".健康,.科技,.電腦,.課程,.食品").hide();
+		$(".燈飾").show();
+	});
+	
 
 
 
