@@ -1,4 +1,15 @@
 
+
+
+
+
+
+
+
+
+// all故只轉這 **********
+
+
 let 故名 = 'samchan的故事'
 
 let 故文 = [
@@ -30,10 +41,31 @@ let 故文 = [
 ]
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 讓網頁一開始就執行js 
 // https://www.zymseo.com/big5/program_250447 
 // <body id="body" onLoad="指定故事()">
 
-function _指定故事轉runAKIjs() {
-    指定故事()
-}
+function 指定故事轉runAKIjsFun() {    _指定故事()}
