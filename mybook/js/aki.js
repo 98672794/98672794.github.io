@@ -1,6 +1,6 @@
 
 
-// 202310150142 **************
+// 202310150247K **************
 // aki.js ~book.js ***********
 // 先用akiJs引入故事內容js ****
 // 再在故內js行回akiJs的fun ***
@@ -63,6 +63,9 @@ document.write("<script type='text/javascript' src='"+故事號+"/book.js'></scr
 
 // 故js來run
 function _指定故事() {
+
+    // jq change tit https://stackoverflow.com/a/7173641
+    $(document).prop('title', 故名)
     $('#asd').html(故名)
     
     // 用故文计加故事box
