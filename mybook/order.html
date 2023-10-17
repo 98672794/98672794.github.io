@@ -23,6 +23,9 @@
   <!--Favicon-->
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
 
+  
+
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 </head><body id="body">
   
 <!-- preloader start -->
@@ -104,22 +107,83 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <h2 class="font-weight-bold mb-4">Contact</h2>
-        <form action="#" method="POST" class="row">
-          <div class="col-lg-6 mb-3">
-            <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Your Name" required>
+        <h2 class="font-weight-bold mb-4">訂製故事圖書送獨立圖書網址 = <samp id="原價" style="color: violet; font-size: 60px;">$888</samp></h2>
+
+
+
+
+        <div class="row mb-40">
+          <div class="col-md-6 text-center mb-5 mb-lg-0 text-md-left">
+            <li style="font-size: 16px;">Bitcoin<br>
+              3Bwdrz4H25sW7zFtLWTKhtrRwKg2i6o9GF</li>
+              <br>
+              <li style="font-size: 16px;">轉數快<br>
+                98672794</li>
+                <br>
+            <img class="img-fluid" src="https://tool2023.github.io/static/pay/payme.jpeg" alt="">
           </div>
-          <div class="col-lg-6 mb-3">
-            <input type="email" class="form-control mb-2" id="email" name="email" placeholder="Your Email" required>
+
+          <div class="col-md-6 align-self-center text-center text-md-left">
+              <li style="font-size: 16px;">Ethereum<br>
+                0x84CfF0d94fAAd23439186A050aD175E6242E5161</li>
+                <br>
+            <img class="img-fluid" src="https://tool2023.github.io/static/pay/alipay.jpeg" alt="">
           </div>
+        </div>
+
+
+
+
+        <hr>
+        <table class="row">
+          <div class="col-lg-12 mb-3">
+            故事名稱
+            <input type="text" class="form-control mb-2" id="故事名稱" name="故事名稱" placeholder="請填寫故事名稱" required>
+          </div>
+
+          <div class="col-lg-12 mb-3">
+            角色照片網址
+            <input type="text" class="form-control mb-2" id="角色照片網址" name="角色照片網址" placeholder="角色照片網址 (最少1張) / 或直接whatsapp發送給客服" required>
+          </div>
+
+          <div class="col-lg-12 mb-3">
+            圖片風格
+            <select id="圖片風格" class="form-control mb-2" title="圖片風格" name="圖片風格">
+              <option value="真實照片">真實照片</option>
+              <option value="像素">像素</option>
+              <option value="插圖" selected>插圖</option>
+              <option value="塗鴉" disabled>塗鴉</option>
+              <option value="卡通">卡通</option>
+              <option value="可愛">可愛</option>
+            </select>
+          </div>
+
           <div class="col-12 mb-3">
-            <textarea name="message" id="message" class="form-control mb-2" placeholder="故事內容 1000字內" required></textarea>
+            故事頁數
+            <input name="故事頁數" id="故事頁數" class="form-control mb-2" placeholder="每本標準故事圖書最多10頁一本，額外每$80加一頁。" title="每本標準故事圖書最多10頁一本，$80加一頁。" value="10" required>
           </div>
+
+          <div class="col-12 mb-3">
+            故事內容
+            <textarea name="故事內容" id="故事內容" class="form-control mb-2" placeholder="故事內容 1000字內" maxlength="1000" required></textarea>
+          </div>
+
+
+          <div class="col-lg-12 mb-3">
+            是否要製作實體書
+            <select id="實體書"  class="form-control mb-2" title="是否要製作實體書" name="實體書">
+              <option value="y">要製作實體書</option>
+              <option value="n" selected>否</option>
+            </select>
+          </div>
+
           <div class="col-12 text-right">
-            <h2 class="font-weight-bold mb-4">總金額:  <samp>$00.00</samp></h2>
-            <button type="submit" value="send" class="btn btn-main btn-main-sm">訂購</button>
+            <h2 class="font-weight-bold mb-4">總金額:  <samp id="總金額">$00.00</samp></h2>
+            <button id="訂購" type="submit" class="btn btn-main btn-main-sm">發送訂單</button>
           </div>
-        </form>
+
+        </table>
+
       </div>
     </div>
   </div>
@@ -167,3 +231,5 @@
     </div>
   </div>
 </footer>
+
+<script type="text/javascript" src="js/aki.js"></script>
