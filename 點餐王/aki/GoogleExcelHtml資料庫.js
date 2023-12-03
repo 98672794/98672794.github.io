@@ -22,7 +22,7 @@
 
 
 
-fetch('https://sheets.googleapis.com/v4/spreadsheets/e/2PACX-1vTjQTq9vb6Hy1s8saRbLGxJEVLFbIQri0u4pxB4CnrNseIbKaQORr0E8ipXpOU4CGoLyjykmRwkaO3Y/values/test?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM')
+fetch('https://sheets.googleapis.com/v4/spreadsheets/2PACX-1vTjQTq9vb6Hy1s8saRbLGxJEVLFbIQri0u4pxB4CnrNseIbKaQORr0E8ipXpOU4CGoLyjykmRwkaO3Y/values/test?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM')
       .then(res => res.json())
       .then(res => {
         console.log(res)
