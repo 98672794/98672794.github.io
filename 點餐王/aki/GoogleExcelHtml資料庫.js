@@ -15,20 +15,6 @@
   
 
   https://sheets.googleapis.com/v4/spreadsheets/2PACX-1vTjQTq9vb6Hy1s8saRbLGxJEVLFbIQri0u4pxB4CnrNseIbKaQORr0E8ipXpOU4CGoLyjykmRwkaO3Y/values/test?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM
-
-
-
-https://docs.google.com/spreadsheets/d/
-
-1Rr9FSD7oVUDxzoIB7tIsVh3GrDSOHp63bLTGh8oCipg
-
-/edit?usp=drivesdk
-
-https://sheets.googleapis.com/v4/spreadsheets/1Rr9FSD7oVUDxzoIB7tIsVh3GrDSOHp63bLTGh8oCipg/values/test?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM
-
-
-
-
 */
 
 
@@ -36,9 +22,10 @@ https://sheets.googleapis.com/v4/spreadsheets/1Rr9FSD7oVUDxzoIB7tIsVh3GrDSOHp63b
 
 
 
-fetch('https://sheets.googleapis.com/v4/spreadsheets/1Rr9FSD7oVUDxzoIB7tIsVh3GrDSOHp63bLTGh8oCipg/values/test?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM')
+fetch('https://sheets.googleapis.com/v4/spreadsheets/2PACX-1vTjQTq9vb6Hy1s8saRbLGxJEVLFbIQri0u4pxB4CnrNseIbKaQORr0E8ipXpOU4CGoLyjykmRwkaO3Y/values/test?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM')
       .then(res => res.json())
       .then(res => {
+        console.log('123')
         console.log(res)
         //alert(res)
       })
