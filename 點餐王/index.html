@@ -22,9 +22,9 @@
     <title>點餐王</title>
     <meta name="description" content="點餐王介紹" />
     <link rel="stylesheet" href="aki/aki.css" /><!-- aki -->
-
-    
     <script src="aki/GoogleExcelHtml資料庫.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
+    
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="aki/favicon.ico" />
@@ -105,30 +105,16 @@
         <!-- Menu -->
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <br>
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">點餐王</span>
-            </a>
-
- 
+            <!-- js _整all類List(數,料) logo -->
           </div>
 
           <div class="menu-inner-shadow"></div>
 
-          <ul class="menu-inner py-1">
-            <!-- Dashboard -->
+          <ul id="all類" class="menu-inner py-1">
+            <!-- js _整all類List(數,料) 類名menu -->
 
-            
-            <!-- Components -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
-            <!-- Cards -->
-            <li class="menu-item">
-              <a href="cards-basic.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Cards</div>
-              </a>
-            </li>
+
             
           </ul>
         </aside>
@@ -418,5 +404,7 @@
     <script src="aki/main.js"></script>
 
     
+
+
   </body>
 </html>

@@ -87,8 +87,6 @@ function 用G資料(data) {
   // 用data總數计加左類Menu // 0是不用
   for(var count=0 ; count < data.values.length ; count++){
 
-
-    
     // for加box
     // https://www.mmxiaowu.com/article/58481d53d4352863efb55443
     $('#all類').append(_整all類List(count,data))
@@ -111,6 +109,17 @@ function 用G資料(data) {
 
 
 
+// JS循环遍历数组去掉其中的重复值
+// https://blog.csdn.net/weixin_42400729/article/details/106712156
+function _unique1(arr){
+  var hash=[];
+  for (var i = 0; i < arr.length; i++) {
+    if(hash.indexOf(arr[i])==-1){
+      hash.push(arr[i]);
+    }
+  }
+  return hash;
+}
 
 
 
@@ -126,7 +135,10 @@ function _整all類List(數,料) {
 
   let 類名 = 料.values[數][0]
 
-  // 如何排除数组中的null、undefined和不存在的元素
+
+
+
+
 
   // logo
   if (數 === 1){
@@ -137,8 +149,13 @@ function _整all類List(數,料) {
     '
   }
   
+
+
+
   // 類名menu
   if (數 > 2){
+
+
     var 類List = '\
       <!-- '+類名+' -->\
       <li class="menu-item" title="'+類名+'">\
@@ -148,6 +165,10 @@ function _整all類List(數,料) {
       </li>\
     '
   }
+
+
+  
+  
 
   return 類List
 }
