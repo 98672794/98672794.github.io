@@ -30,6 +30,12 @@ let menu, animate;
     });
   });
 
+
+
+
+  
+
+
   // Display menu toggle (layout-menu-toggle) on hover with delay
   let delay = function (elem, callback) {
     let timeout = null;
@@ -56,6 +62,23 @@ let menu, animate;
       }
     });
   }
+
+  // , .menu-link ///qqqqqqqqqqqqqqqqqq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Display in main menu when menu scrolls
   let menuInnerContainer = document.getElementsByClassName('menu-inner'),
@@ -116,3 +139,6 @@ let menu, animate;
   // Auto update menu collapsed/expanded based on the themeConfig
   window.Helpers.setCollapsed(true, false);
 })();
+
+
+
