@@ -9,13 +9,10 @@
     
     
 
-    <title>點餐2王</title>
+    <title>點餐王</title>
     <meta name="description" content="點餐王介紹" />
     <link rel="stylesheet" href="aki/aki.css" /><!-- aki -->
-    
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
-    
-
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="aki/favicon.ico" />
 
@@ -187,10 +184,6 @@
                     Search 備/ -->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
-
-
-
                         <li id="google_translate_element" style="margin-top: 20px; height: 25px;overflow: hidden;">
                             <!-- ============ Aki Web3Js ============ -->
                             <!-- =======html翻譯======= -->
@@ -202,10 +195,8 @@
                             </script>
                             <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                         </li>
-
-                        
                         <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
+                        <li  class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="導大btn" >🍽️</span>
@@ -214,26 +205,14 @@
                                 <span class="badge badge-danger badge-counter">3+</span>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            <div id="已點產品" class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" >
-                                    餸1
-                                    <span class="badge badge-danger badge-counter" style="float: right;">3+</span>
-                                </a>
-                                <a class="dropdown-item" >
-                                    餸2
-                                </a>
-                                <a class="dropdown-item" >
-                                    餸3
-                                </a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     埋單
                                 </a>
                             </div>
                         </li>
-
                     </ul>
                 </nav>
                 <!-- / 低導航 -->
@@ -253,10 +232,59 @@
 
 
 
-                <div class="container-fluid" id="all產品">
-                    <!-- js _整all類List(數,料) 加入產品書籤 '<hr id="'+類名+'">'' -->
-                    <!-- js _整all類List(數,料) 加入每產品  -->
-                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 
@@ -264,11 +292,17 @@
 
 
 
+                <div class="container-fluid" >
+                  <div class="row" id="all產品">
+                            <!-- js _整all類List(數,料) 加入產品書籤 '<hr id="'+類名+'">'' -->
+                            <!-- js _整all類List(數,料) 加入每產品  -->
+                  </div>
+                </div>
 
 
 
 
-
+                
 
 
 
