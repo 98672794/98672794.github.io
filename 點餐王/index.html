@@ -13,6 +13,7 @@
     <meta name="description" content="點餐王介紹" />
     <link rel="stylesheet" href="aki/aki.css" /><!-- aki -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!-- fa faIcon --> 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="aki/favicon.ico" />
 
@@ -23,10 +24,158 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="aki/sb-admin-2.min.css" rel="stylesheet">
+
+    
 </head>
 <body id="page-top">
+
+
+
+
+
+
+
+  <div id="購買流程">
+
+
+
+    <div class="row">
+                    <!-- Area Chart -->
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">品名</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                              <img src="aki/NoIMG.jpg" style="height: auto;width: 100%;max-width: 300px;display: block;margin: auto;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pie Chart -->
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card shadow mb-4">
+                            
+                            <div class="card-body">
+                              <h7 class="m-0 font-weight-bold text-primary">味道</h7>
+                              <p>
+                                <input type="radio" name="gender" id="male">
+                                <label for="male">
+                                    <span class="text">男</span>
+                                </label>
+                                <input type="radio" name="gender" id="female">
+                                <label for="female">
+                                    <span class="text">女</span>
+                                </label>
+                              </p>
+                            
+                              <h7 class="m-0 font-weight-bold text-primary">味道</h7>
+                              <p>
+                                <input type="radio" name="gender2" id="male2">
+                                <label for="male2">
+                                    <span class="text">男</span>
+                                </label>
+                                <input type="radio" name="gender2" id="female2">
+                                <label for="female2">
+                                    <span class="text">女</span>
+                                </label>
+                              </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="btn btn-primary btn-lg" style="width: 90%;display: block;margin: auto;" type="button">Button</a>
+                
+                    <a class="fa fa-times" style="font-size: 48px;"></a>    
+                </div>
+                
+
+    
+
+                
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Page Wrapper -->
     <div id="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -199,19 +348,11 @@
                         <li  class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="導大btn" >🍽️</span>
+                                <span class="導2大btn fa fa-shopping-cart" style="font-size:36px;"></span>
                                 
-                                <!-- 已點產品 -->
-                                <span class="badge badge-danger badge-counter">3+</span>
+                                <!-- 已點產品數 -->
+                                <span id="已點產品數" class="badge badge-danger badge-counter" style="font-size:24px;border-radius: 50%;"></span>
                             </a>
-                            <!-- Dropdown - User Information -->
-                            <div id="已點產品" class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    埋單
-                                </a>
-                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -322,22 +463,23 @@
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+                    <!--  回頂  /--> 
+                    <a class="" href="#page-top" style="float: left;">
+                      <i class="fa fa-arrow-up" > Top </i>
+                    </a>
+                    <!-- /回頂 /-->
+                    <div class="copyright text-center my-auto " style="float: right;">
                         &copy;<script>document.write(new Date().getFullYear());</script> 
                         All rights reserved by <script>document.write(location.hostname)</script>
                     </div>
                 </div>
-            </footer><br><br>
+            </footer>
             <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
-    <!--  回頂 備用 
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-    回頂 備用 /-->
+
 
 
 

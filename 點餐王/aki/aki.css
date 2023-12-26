@@ -11,7 +11,7 @@
 
 /* Menu*/
 
-.導大btn{font-size: xx-large;}
+.導大btn{color: #4E73DF;}
 
 /*左 Menu*/
 #all類{position: fixed;top: 0;bottom: 0;left: -50px;overflow-y: scroll;overflow-x: hidden;}
@@ -24,6 +24,7 @@
   left: 0;right: 0;
 }
 
+footer{margin-bottom: 30px;background: rgba(0, 0, 0, 0);}
 /* /Menu*/
 
 
@@ -50,6 +51,7 @@ https://juejin.cn/post/6844903613936959496*/
   border-radius: 3px;
   background: rgba(0,0,0,0);
   -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.0);
+  
 }
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
@@ -85,13 +87,16 @@ https://juejin.cn/post/6844903613936959496*/
 
 
 
+
+
+
 .產品鍵{border: 2px solid #4E73DF;
   border-radius: 5px;margin:1% ;padding: .5%;
   float: left;height: 180px; max-width:180px;width: 48%;
 position: relative;overflow: hidden;background: #000;}
 
 .產品鍵 img/*,.類名 img*/{position: absolute;top: 0;left: 0;
-  width: auto;height: 100%;opacity: .8;}
+  width: auto;height: 100%;opacity: 1;}
   
 .產品鍵 h5{
   color: #fff;
@@ -119,7 +124,7 @@ position: relative;overflow: hidden;background: #000;}
 button{background: rgba(0,0,0,0.0);}
 
 #已點產品{background: rgba(0, 0, 0, 0.8);
-  width: calc(80vw);;position:fixed;
+  width: calc(80vw);position:fixed;
   bottom: 70px;top: 50px;
   overflow-y: scroll;overflow-x: hidden;}
 
@@ -131,3 +136,64 @@ button{background: rgba(0,0,0,0.0);}
 
 
 /* /all產品 */
+
+#已點產品數{display: none;
+  animation: 闪烁 1s infinite;/*https://juejin.cn/s/css%E4%B8%80%E9%97%AA%E4%B8%80%E9%97%AA%E6%95%88%E6%9E%9C*/
+}
+
+
+
+#購買流程{display: none;}
+#購買流程 .row{background: rgba(0, 0, 0, 0.2);
+border-radius: 1%;
+  z-index: 99;
+  position:fixed;
+  top: 0;left: 0;bottom: 0;right: 0;
+  padding: 10%;
+  overflow-y: scroll;overflow-x: hidden;
+  
+}
+
+
+
+
+/*  label 美化 https://blog.csdn.net/lvh98/article/details/126143901 */
+span{
+  cursor: pointer;
+}
+
+label{display: block;height: 50px;width: 100%;
+  border: .5px solid #05f;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;}
+
+input[type="radio"]:checked+label .text{
+  color: #fff;font-size: xx-large;
+  
+}
+input[type="radio"]:checked+label{
+  background: #05f;}
+
+
+
+
+input[type="radio"]{
+  display: none;
+}
+
+
+
+
+/* 定义闪烁动画效果 */
+@keyframes 闪烁 {
+  30% {
+    opacity: .2;
+  }
+  60% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 1;
+  }
+}

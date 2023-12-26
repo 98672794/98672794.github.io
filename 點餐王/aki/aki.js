@@ -240,30 +240,32 @@ function 用G資料(data) {
 
 
 
-// 生成all類List
+// 生成all網data
+// var 加購流程 = 0 GEcl轉必填
 function _data入網(數,料) {
 
-  // get分類名
+  // get分類名 ////////////////////////////
   let 類名 = 料.values[數][0]
-  let 類圖 = 料.values[數][1]
-
-  let 品名 = String(料.values[數][2]).replace(/\s*/g,"") // 刪空
+  let 加購流程 = 料.values[數][1]
+  let 類圖 = 料.values[數][2]
+  let 品名 = String(料.values[數][4]).replace(/\s*/g,"") // 刪空
+  let 產品價錢 = 料.values[數][5]
+  let 產品圖 = 料.values[數][6]
   let NoIMG = "'aki/NoIMG.jpg'" // monica : How to display a default image if the img tag fails to load an image in JavaScript?
   let dot = "'" // 用於html的 ' 
 
-  // 加入分類 ////////////////////////////
+
+  // 加入類名menu ////////////////////////////
   if (類名.length > 0) {  //類名空不顯
-    
-    if (數 === 1){  // 公司名
+    // 公司名
+    if (數 === 1){  
       var 類List = '\
       <a id="公司名" class="sidebar-brand d-flex align-items-center justify-content-center" href="./">\
         '+類名+'\
       </a>\
       <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
       '
-
     }
-
     // 類名menu
     if (數 > 2){ //不要exl的說明標題
       var 類List = '\
@@ -279,7 +281,7 @@ function _data入網(數,料) {
   }
 
   $('#all類').append(類List)
-  //加入分類END ////////////////////////////
+
 
   //加入產品 ////////////////////////////
   if (數 > 2) {  //不要exl的說明標題
@@ -289,18 +291,16 @@ function _data入網(數,料) {
         <hr id="'+類名+'" style="clear:both; width: 100%;background: #4E73DF;">\
         <!-- '+類名+'書籤 -->\
         <h1 class="h3 mb-0 text-gray-800">'+類名+'</h1>\
-        <hr style="clear:both; width: 100%;opacity: 0;">\
+        <hr id="_flow_'+加購流程+'" style="clear:both; width: 100%;opacity: 0;">\
         '
       $('#all產品').append(類書籤)
     }
-
     // 加入每產品
-
     var 每產品 = '\
-      <button class="產品鍵" onclick="買野(1,'+ dot +品名+ dot +')">\
-      <img src="'+ 料.values[數][4]+'" alt="'+品名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
+      <button class="產品鍵" onclick="買野(1,'+ dot +品名+ dot +','+ 加購流程 +')">\
+      <img src="'+ 產品圖 +'" alt="'+品名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
         <h5>'+品名+'</h5>\
-        <p>$ '+ 料.values[數][3]+'</p>\
+        <p>$ '+ 產品價錢 +'</p>\
       </button>\
     '
     $('#all產品').append(每產品)
@@ -365,8 +365,48 @@ function _data入網(數,料) {
 
 
 // 買野btn動作
-function 買野(動,id) {
+function 買野(動,id,流程) {
   
+  if (選版 == '餐廳'){ // 餐廳版
+
+    var 真id = '#'+id+'BuyNmb' // 合 已點 真id
+    var 總原 = $('#已點產品數').text() // 取原價
+    var 總新 = 總原
+    console.log('已點all產品數=',總新)
+
+
+    // 已點產品數加1
+    if (動>0){
+      總新 = ~~總原+1 // ~~ = str轉int
+      $('#已點產品數').text(總新)
+      console.log(總新)
+
+      // if 流程
+      // 彈出加購流程
+      $('#購買流程').show()
+      $("#wrapper").css({"filter": "blur(5px)"}) // 模糊背景
+    }
+
+    // 0不顯
+    if (總新==0){ 
+      $('#已點產品數').hide()
+    }
+    else{ 
+      $('#已點產品數').show()
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
   if (選版 == '火鍋'){ // 火鍋版
     // qqqqqqqqqqq 火鍋未完成 qqqqqqqqqqq
     var 真id = '#'+id+'BuyNmb' // 合 已點 真id
@@ -403,9 +443,63 @@ function 買野(動,id) {
     // qqqqqqqqqqq 火鍋未完成 qqqqqqqqqqq
   }
 
-  if (選版 == '餐廳'){ // 餐廳版
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
