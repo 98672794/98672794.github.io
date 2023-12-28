@@ -291,13 +291,13 @@ function _data入網(數,料) {
         <hr id="'+類名+'" style="clear:both; width: 100%;background: #4E73DF;">\
         <!-- '+類名+'書籤 -->\
         <h1 class="h3 mb-0 text-gray-800">'+類名+'</h1>\
-        <hr id="_flow_'+加購流程+'" style="clear:both; width: 100%;opacity: 0;">\
+        <hr id="_flow_'+加購流程+'_'+類名+'" style="clear:both; width: 100%;opacity: 0;">\
         '
       $('#all產品').append(類書籤)
     }
     // 加入每產品
     var 每產品 = '\
-      <button class="產品鍵" onclick="買野(1,'+ dot +品名+ dot +','+ 加購流程 +')">\
+      <button id="'+品名+'_'+數+'_'+'" class="產品鍵" onclick="買野(1,'+ dot +品名+'_'+數+'_'+ dot +','+ 加購流程 +')">\
       <img src="'+ 產品圖 +'" alt="'+品名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
         <h5>'+品名+'</h5>\
         <p>$ '+ 產品價錢 +'</p>\
@@ -360,53 +360,68 @@ function _data入網(數,料) {
 
 
 
-
+// buttons
 
 
 
 // 買野btn動作
+
+// QQQQ 已選購LIST[].append
 function 買野(動,id,流程) {
+
+  console.log('已選購=',{動},{id},{流程})
   
   if (選版 == '餐廳'){ // 餐廳版
 
-    var 真id = '#'+id+'BuyNmb' // 合 已點 真id
+    var 真id = '#'+id // 合 已點 真id
     var 總原 = $('#已點產品數').text() // 取原價
     var 總新 = 總原
-    console.log('已點all產品數=',總新)
-
 
     // 已點產品數加1
     if (動>0){
       總新 = ~~總原+1 // ~~ = str轉int
       $('#已點產品數').text(總新)
-      console.log(總新)
+      console.log('已點產品數=',{總新})
 
-      // if 流程
-      // 彈出加購流程
-      $('#購買流程').show()
-      $("#wrapper").css({"filter": "blur(5px)"}) // 模糊背景
+      /* **********************
+      在GExl用1234...做加購流程
+      如選購的產品有加流程
+      流程號+1檢查網內有沒下一流程的ID
+      如有彈出加購流程
+      ********************** */
+      // if GExl有加流程
+      if ( $(流程).length > 0 ) {
+
+        // if有下個流程
+        下個流程 = ~~流程+1
+        if ( $('hr[id^="_flow_'+下個流程+'_"]').length > 0 ) {
+          // jQuery判断元素存在与否 https://www.cnblogs.com/asplover/p/14470731.html
+          // jq id模糊查询 https://blog.csdn.net/qq_24909089/article/details/100026008
+
+          let 流程ID= $('hr[id^="_flow_'+下個流程+'_"]').attr('id')
+          // jQuery获取div的id值 https://blog.csdn.net/vancyf/article/details/77881830
+          let 流程ID2 = 流程ID.slice(8)
+          // js 截取字符串 https://www.runoob.com/w3cnote/js-extract-string.html
+          console.log('下個流程==',{流程ID2})
+
+          // 轉 購買流程 內容
+          $('#購買流程 h2').text('請問您需要加購'+流程ID2+'嗎?')
+          $('#購買流程 a').eq(0).text('加購'+流程ID2).attr("href",'#'+流程ID2)
+          開關購買流程() // 彈出加購流程
+          }
+        
+      }
+
     }
 
-    // 0不顯
-    if (總新==0){ 
-      $('#已點產品數').hide()
-    }
-    else{ 
-      $('#已點產品數').show()
-    }
+    // 購物車顯已點產品數
+    if (總新==0){   $('#已點產品數').hide()  }
+    else{   $('#已點產品數').show()  }
 
   }
 
 
-
-
-
-
-
-
-
-
-
+/*
   if (選版 == '火鍋'){ // 火鍋版
     // qqqqqqqqqqq 火鍋未完成 qqqqqqqqqqq
     var 真id = '#'+id+'BuyNmb' // 合 已點 真id
@@ -442,28 +457,140 @@ function 買野(動,id,流程) {
     }
     // qqqqqqqqqqq 火鍋未完成 qqqqqqqqqqq
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 購買流程btn
+function 開關購買流程(sel) {
+  if (sel==0){  // 關
+    $('#購買流程').hide()
+    $('#all類,#all產品,#低導航').css({'filter': 'blur(0px)'})
+  }
+  else{ // 開
+    // 彈出確定訂單
+    $('#購買流程').show()
+    $("#all類,#all產品,#低導航").css({"filter": "blur(5px)"}) // 模糊背景
+    // filter 導致 position 失效 https://shinyu0430.github.io/2021/09/18/filterchildproblem/
+  }
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 確定訂單
+function 確定訂單() {
+  // 轉 確定訂單 內容
+  $('#購買流程 h2').text('確定訂單')
+  開關購買流程() // 彈出確定訂單
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

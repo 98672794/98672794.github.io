@@ -9,21 +9,63 @@
 
 
 
-/* Menu*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 色統*/
 .導大btn{color: #4E73DF;}
 
-/*左 Menu*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Menu*/
 #all類{position: fixed;top: 0;bottom: 0;left: -50px;overflow-y: scroll;overflow-x: hidden;}
 #accordionSidebar{z-index: 3;}
-
-
 #低導航{position: fixed;
   z-index: 2;
   bottom: -30px;
   left: 0;right: 0;
 }
-
 footer{margin-bottom: 30px;background: rgba(0, 0, 0, 0);}
 /* /Menu*/
 
@@ -41,24 +83,12 @@ footer{margin-bottom: 30px;background: rgba(0, 0, 0, 0);}
 
 
 
-/* 滚动槽 
-https://juejin.cn/post/6844903613936959496*/
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  border-radius: 3px;
-  background: rgba(0,0,0,0);
-  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.0);
-  
-}
-/* 滚动条滑块 */
-::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-  background: rgba(0,0,0,0);
-  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0);
-}
+
+
+
+
+
+
 
 
 
@@ -80,15 +110,6 @@ https://juejin.cn/post/6844903613936959496*/
   */
 
 #all產品{z-index: 0;}
-
-
-
-
-
-
-
-
-
 
 .產品鍵{border: 2px solid #4E73DF;
   border-radius: 5px;margin:1% ;padding: .5%;
@@ -121,6 +142,16 @@ position: relative;overflow: hidden;background: #000;}
 
 
 
+
+
+
+
+
+
+
+
+
+
 button{background: rgba(0,0,0,0.0);}
 
 #已點產品{background: rgba(0, 0, 0, 0.8);
@@ -143,48 +174,135 @@ button{background: rgba(0,0,0,0.0);}
 
 
 
-#購買流程{display: none;}
-#購買流程 .row{background: rgba(0, 0, 0, 0.2);
-border-radius: 1%;
-  z-index: 99;
-  position:fixed;
-  top: 0;left: 0;bottom: 0;right: 0;
-  padding: 10%;
-  overflow-y: scroll;overflow-x: hidden;
-  
+
+/* 購買流程 */
+#購買流程{display: none;
+  background: rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    position:fixed;
+    top: 0;left: 0;bottom: 0;right: 0;
+    
+  }
+#購買流程 .row{ position: absolute; left: 5%;right: 5%;bottom: 5%;
+padding: 10%;background: rgba(0, 0, 0, 0);
+border: none;word-break: break-all;
+overflow-y: scroll;overflow-x: hidden;}
+#購買流程 h2{padding: 10%;text-align: center;
 }
+/* /購買流程 */
 
 
 
 
-/*  label 美化 https://blog.csdn.net/lvh98/article/details/126143901 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 美化 */
+
+/*  label https://blog.csdn.net/lvh98/article/details/126143901 */
 span{
   cursor: pointer;
 }
-
 label{display: block;height: 50px;width: 100%;
   border: .5px solid #05f;
   text-align: center;
   line-height: 50px;
   border-radius: 5px;}
-
 input[type="radio"]:checked+label .text{
   color: #fff;font-size: xx-large;
   
 }
 input[type="radio"]:checked+label{
   background: #05f;}
-
-
-
-
 input[type="radio"]{
   display: none;
 }
 
 
+/* 滚动槽 
+https://juejin.cn/post/6844903613936959496*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: rgba(0,0,0,0);
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.0);
+  
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(0,0,0,0);
+  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0);
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 動晝 */
 /* 定义闪烁动画效果 */
 @keyframes 闪烁 {
   30% {
