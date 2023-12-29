@@ -169,9 +169,10 @@ button{background: rgba(0,0,0,0.0);}
 /* /all產品 */
 
 #已點產品數{display: none;
-  animation: 闪烁 1s infinite;/*https://juejin.cn/s/css%E4%B8%80%E9%97%AA%E4%B8%80%E9%97%AA%E6%95%88%E6%9E%9C*/
+  animation: 闪烁 1s infinite;
+  /*https://juejin.cn/s/css%E4%B8%80%E9%97%AA%E4%B8%80%E9%97%AA%E6%95%88%E6%9E%9C*/
 }
-
+.fa-shopping-cart:hover ~ #已點產品數,#已點產品數:hover{animation: none;}
 
 
 
@@ -185,10 +186,12 @@ button{background: rgba(0,0,0,0.0);}
   }
 #購買流程 .row{ position: absolute; left: 5%;right: 5%;bottom: 5%;
 padding: 10%;background: rgba(0, 0, 0, 0);
+mix-blend-mode: difference;font-weight: 1900;
 border: none;word-break: break-all;
 overflow-y: scroll;overflow-x: hidden;}
 #購買流程 h2{padding: 10%;text-align: center;
 }
+#購買流程 a{color: #fff;}
 /* /購買流程 */
 
 
@@ -305,13 +308,25 @@ https://juejin.cn/post/6844903613936959496*/
 /* 動晝 */
 /* 定义闪烁动画效果 */
 @keyframes 闪烁 {
-  30% {
-    opacity: .2;
+  49% {
+    opacity: 1;width: auto;height: auto;
+  }
+  50% {
+    opacity: .9;width: 40px;height: 40px;
   }
   60% {
-    opacity: .8;
+    opacity: .7;width: 120px;height: 120px;
+  }
+  70% {
+    opacity: .5;width: 200px;height: 200px;
+  }
+  80% {
+    opacity: .3;width: 280px;height: 280px;
+  }
+  90% {
+    opacity: .1;width: 360px;height: 360px;
   }
   100% {
-    opacity: 1;
+    opacity: 0;;width: 400px;height: 400px;right: 30%;
   }
 }
