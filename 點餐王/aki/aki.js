@@ -175,7 +175,6 @@ function _data入網_加入類名menu(類名,數) {
 
 
 
-var NoIMG = "'aki/NoIMG.jpg'" // monica : How to display a default image if the img tag fails to load an image in JavaScript?
 function _data入網_加入產品(類名,數) {
 
   let 加購流程 = 總Data.values[數][1],
@@ -219,7 +218,8 @@ function _data入網_加入產品(類名,數) {
 
 
 
-
+var NoIMG = "'aki/NoIMG.jpg'" // monica : How to display a default image if the img tag fails to load an image in JavaScript?
+var dot = "'"
 function _data入網_整div(sel,run,box_name,data) {
 
   let 公司名 = '\
@@ -267,9 +267,27 @@ function _data入網_整div(sel,run,box_name,data) {
         </div>\
     </div>\
   '
+
+  let 選項表 = '\
+    <!-- 選項 -->\
+    <div class="card shadow mb-4">\
+      <div class="card-body">\
+        <input type="radio" name="Sel_'+data[0]+'_" >\
+          <label for="Sel_'+data[0]+'_" id="Sel_'+data[0]+'_label" onclick="toggleCheckbox('+data[1]+','+data[2]+')">\
+            <span class="text">'+data[3]+'</span>'+data[4]+'\
+          </label>'+data[5]+'\
+      </div>\
+    </div>\
+  '
+
+  var 選項頁btn = '\
+    <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">確認</a>\
+    <a onclick="開關購買流程(0)" class="btn btn-block btn-lg">取消</a>\
+  '
+
   // 執行儲存為字串的 JavaScript 程式碼 https://stackoverflow.com/a/939343
   // append = [run] https://chateverywhere.app/
-  $(box_name)[run](eval(sel))
+  $(box_name)[run]([eval(sel)])
 
 }
 
@@ -310,7 +328,6 @@ function _data入網_整div(sel,run,box_name,data) {
 
 
 // 買野btn動作
-// QQQQ 已選購LIST[].append
 function 買野(動,id) {
 
   // 選版
@@ -365,6 +382,11 @@ function _買野_餐廳版(id) {
   if (!!可選項) _買野_產品選項(品名,id) 
   // 如果想判断一个值不是undefined、null和空字符串中的一种，则用 !! 就可以 
   https://blog.csdn.net/m0_38039437/article/details/127791259
+
+  // qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq 轉 購買流程 內容
+
+
+
 
   /* **********************
   在GExl用1234...做加購流程
@@ -428,74 +450,41 @@ function _買野_產品選項(品名,id) {
 
   _data入網_整div('選項頁','html','#購買流程 .row',[品名,總Data.values[id][5],總Data.values[id][6]]) 
 
-  // 循环取止沒產品選項
-  var 唉 = // 選項名號
-  沒 = 7,
   
-  //選價 = 唉+1
-  止 = 0
-  
-  do {
-
-    if (!總Data.values[id][唉])  止+=1 // 3次 undefined out
+  let 唉 = 7  // 選項1名號
+  ,止 = 0  
+  do { 
+    // 循环取止沒產品選項
+    if (!總Data.values[id][唉])  止+=1 // 選項名 3次 undefined out
     else {
-      let 選項價 = 總Data.values[id][唉+1],
-      選項價samp = ''
-      if (!!選項價) 選項價samp = '<samp >$'+選項價+'</samp>'
+      // 有選項名
+      let 選項價 = 總Data.values[id][唉+1]
+      ,選項名2 = 總Data.values[id][唉+2]
+      ,選項價2 = 總Data.values[id][唉+3]
+      ,選項價samp = 選項價samp2 = 選項2全 = ''
+      ,_label1 = dot+'Sel_'+唉+'_label'+dot // 用於點完再點=取消
+      ,_label2 = dot+'Sel_'+唉+'_2label'+dot  // 用於點完再點=取消
 
-      let 選項表 = '\
-      <!-- 選項 -->\
-      <div class="card shadow mb-4">\
-        <div class="card-body">\
-          <input type="radio" name="gender" id="Sel_'+唉+'_">\
-            <label for="male">\
-              <span class="text">'+總Data.values[id][唉]+'</span>'+選項價samp+'\
-            </label>\
-          <input type="radio" name="gender" id="female">\
-            <label for="female">\
-              <span class="text">\女</span>\
-            </label>\
-        </div>\
-      </div>\
-      '
-      $('#購買流程 .row').append(選項表)
+      if (!!選項價) 選項價samp = '<samp >$'+選項價+'</samp>' // 沒價不顯
+      if (!!選項價2) 選項價samp2 = '<samp >$'+選項價2+'</samp>'
+      if (!!選項名2) 選項2全 = '\
+        <input type="radio" name="Sel_'+唉+'_" >\
+        <label for="Sel_'+唉+'_2" id="Sel_'+唉+'_2label" onclick="toggleCheckbox('+_label2+','+_label1+')">\
+          <span class="text">'+選項名2+'</span>'+選項價samp2+'</span>\
+        </label>\
+        ' // 選項2名 沒不顯
+
+        _data入網_整div('選項表','append','#購買流程 .row',[唉,_label1,_label2,總Data.values[id][唉],選項價samp,選項2全]) 
     }
-    唉+=2  
+    唉+=4
   } while (止<4)
 
-  沒=唉-8
-  /*
-  var 選項表 = '\
-  <!-- 選項 -->\
-    <div class="card shadow mb-4">\
-        <div class="card-body">\
-            <input type="radio" name="gender" id="male">\
-            <label for="male">\
-                <span class="text">\男</span>\
-            </label>\
-            <input type="radio" name="gender" id="female">\
-            <label for="female">\
-                <span class="text">\女</span>\
-            </label>\
-        </div>\
-  </div>\
-  '
-  $('#購買流程 .row').append(選項表)
-  */
 
-
-  var 選項頁 = '\
-  <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">確認</a>\
-  <a onclick="開關購買流程(0)" class="btn btn-block btn-lg">取消</a>\
-  '
-  $('#購買流程 .row').append(選項頁)
-
-
-
+  _data入網_整div('選項頁btn','append','#購買流程 .row',0)
   開關購買流程() // 彈出產品選項
 
 
-  
+  // qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq 
   /*
   console.log('產品選項END')
 
@@ -565,7 +554,6 @@ function _買野_火鍋版(動,id) {
         $(真id+' span').show()
         $(真id+' button').eq(1).show()  
       }
-      // qqqqqqqqqqq 火鍋未完成 qqqqqqqqqqq
     }
   */
 }
@@ -690,12 +678,30 @@ function 開關購買流程(sel) {
 
 
 
+// qqqqqqqqqqqqqqqqqq 要點2次
+let isChecked = false;
+function toggleCheckbox(id1,id2) {
+  isChecked = !isChecked;
 
+  let id1OK = '#'+id1
+  let id2OK = '#'+id2
+  
+  if (isChecked) {
+    // 执行选中后的操作
+    console.log("已选中");
+    $(id1OK).css({'background': '#05f'})
+    $(id1OK+' .text').css({'color': '#fff','font-size': 'xx-large'})
 
+    $(id2OK).css({'background': 'initial'})
+    $(id2OK+' .text').css({'color': 'initial','font-size': 'medium'})
 
-
-
-
+  } else {
+    // 执行取消选中后的操作
+    console.log("已取消选中");
+    $(id1OK).css({'background': 'initial'})
+    $(id1OK+' .text').css({'color': 'initial','font-size': 'medium'})
+  }
+}
 
 
 

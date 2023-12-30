@@ -187,7 +187,7 @@ button{background: rgba(0,0,0,0.0);}
     overflow-y: scroll;overflow-x: hidden;
     
   }
-  
+
   /* 6楼  如果您可以设置内容的环绕div的高度
   https://blog.csdn.net/p15097962069/article/details/103506957 */
   #購買流程::before{
@@ -252,8 +252,6 @@ border: none;word-break: break-all;
 
 
 
-
-
 /* 美化 */
 
 /*  label https://blog.csdn.net/lvh98/article/details/126143901 */
@@ -262,16 +260,17 @@ span{
 }
 label{display: block;height: 50px;width: 100%;
   border: .5px solid #05f;
+  cursor: pointer;
   text-align: center;
   line-height: 50px;
   border-radius: 5px;}
+/*
 input[type="radio"]:checked+label .text{
   color: #fff;font-size: xx-large;
-  
 }
 input[type="radio"]:checked+label{
   background: #05f;}
-input[type="radio"]{
+*/input[type="radio"]{
   display: none;
 }
 
