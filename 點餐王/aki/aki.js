@@ -107,6 +107,13 @@ fetch(GEcl).then(res => res.json()).then(res => {
 
 
 
+
+
+
+
+
+
+
 /* **********************************************************************
 *************************************************************************
 *********************************************************** 生成all網data 
@@ -120,6 +127,8 @@ fetch(GEcl).then(res => res.json()).then(res => {
 
 
 function _data入網(數) {
+  if (MOK) console.log('_data入網(數)')
+
   // get分類名
   let 類名 = 總Data.values[數][0]
 
@@ -147,6 +156,7 @@ function _data入網(數) {
 
 
 function _data入網_加入類名menu(類名,數) {
+  if (MOK) console.log('_data入網_加入類名menu(類名,數)')
 
   if (類名.length < 1) return  //類名空pass
 
@@ -154,7 +164,7 @@ function _data入網_加入類名menu(類名,數) {
   if (數 === 1){  _data入網_整div('公司名','append','#all類',[類名]) }
 
   // 類名menu
-  if (數 > 2){   _data入網_整div('類名menu','append','#all類',[類名])   }
+  if (數 > 2){   _data入網_整div('類名menu','append','#all類',[類名]) }
   //不要exl的說明標題 pass
   
 
@@ -176,6 +186,7 @@ function _data入網_加入類名menu(類名,數) {
 
 
 function _data入網_加入產品(類名,數) {
+  if (MOK) console.log('_data入網_加入產品(類名,數)')
 
   let 加購流程 = 總Data.values[數][1],
   類圖 = 總Data.values[數][2],
@@ -183,7 +194,8 @@ function _data入網_加入產品(類名,數) {
   產品價錢 = 總Data.values[數][5],
   產品圖 = 總Data.values[數][6]
 
-  if (數 <= 2) return  //不要exl的說明標題 pass
+  //不要exl的說明標題 pass
+  if (數 <= 2) return  
 
   // 加入產品書籤
   if (類名.length > 0){ _data入網_整div('類書籤','append','#all產品',[類名,加購流程])  } //類名空不顯
@@ -221,6 +233,8 @@ function _data入網_加入產品(類名,數) {
 var NoIMG = "'aki/NoIMG.jpg'" // monica : How to display a default image if the img tag fails to load an image in JavaScript?
 var dot = "'"
 function _data入網_整div(sel,run,box_name,data) {
+  if (MOK) console.log('_data入網_整div(sel,run,box_name,data)')
+  //console.log('_data入網_整div=',sel,run,box_name,data)
 
   let 公司名 = '\
     <a id="公司名" class="sidebar-brand d-flex align-items-center justify-content-center" href="./">\
@@ -229,7 +243,7 @@ function _data入網_整div(sel,run,box_name,data) {
     <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '
 
-  let 類名menu = '\
+  , 類名menu = '\
     <!-- '+data[0]+' -->\
     <li class="nav-item " title="'+data[0]+'" >\
       <a class="類名 nav-link " href="#'+data[0]+'" >\
@@ -239,14 +253,14 @@ function _data入網_整div(sel,run,box_name,data) {
     <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '// <img src="'+類圖+'" alt="'+類名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
 
-  let 類書籤 = '\
+  , 類書籤 = '\
     <hr id="'+data[0]+'" style="clear:both; width: 100%;background: #4E73DF;">\
     <!-- '+data[0]+'書籤 -->\
     <h1 class="h3 mb-0 text-gray-800">'+data[0]+'</h1>\
     <hr id="_flow_'+data[1]+'_'+data[0]+'" style="clear:both; width: 100%;opacity: 0;">\
   '
 
-  let 餐廳每產品 = '\
+  , 餐廳每產品 = '\
     <button class="產品鍵" onclick="買野(1,'+data[0]+')">\
     <img src="'+data[1]+'" alt="'+data[2]+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
       <h5>'+data[2]+'</h5>\
@@ -254,7 +268,7 @@ function _data入網_整div(sel,run,box_name,data) {
     </button>\
   '
 
-  let 選項頁 = '\
+  , 選項頁 = '\
     <!-- 產品資料 -->\
     <div class="card shadow mb-4">\
         <!-- Card Header - Dropdown -->\
@@ -268,22 +282,28 @@ function _data入網_整div(sel,run,box_name,data) {
     </div>\
   '
 
-  let 選項表 = '\
+  , 選項表 = '\
     <!-- 選項 -->\
     <div class="card shadow mb-4">\
       <div class="card-body">\
         <input type="radio" name="Sel_'+data[0]+'_" >\
-          <label for="Sel_'+data[0]+'_" id="Sel_'+data[0]+'_label" onclick="toggleCheckbox('+data[1]+','+data[2]+')">\
+          <label for="Sel_'+data[0]+'_" id="Sel_'+data[0]+'_label" onclick="label點轉色('+data[1]+','+data[1]+','+data[2]+')">\
             <span class="text">'+data[3]+'</span>'+data[4]+'\
           </label>'+data[5]+'\
       </div>\
     </div>\
   '
 
-  var 選項頁btn = '\
-    <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">確認</a>\
-    <a onclick="開關購買流程(0)" class="btn btn-block btn-lg">取消</a>\
+  , 選項頁btn = '\
+    <a onclick="開關購買流程(0);加購流程('+data[0]+')" class="btn btn-primary btn-block btn-lg">確認</a>\
+    <a onclick="開關購買流程(0);加購流程('+data[0]+')" class="btn btn-block btn-lg">取消</a>\
   '
+
+  , 加購流程頁 = '\
+    <h2 class="m-0 font-weight-bold text-primary">嗎?</h2>\
+    <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">加購</a>\
+    <a onclick="確定訂單()" class="btn btn-block btn-lg">no了</a>\
+'
 
   // 執行儲存為字串的 JavaScript 程式碼 https://stackoverflow.com/a/939343
   // append = [run] https://chateverywhere.app/
@@ -315,9 +335,20 @@ function _data入網_整div(sel,run,box_name,data) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /* **********************************************************************
 *************************************************************************
-***************************************************************** buttons 
+************************************************************** 買野btn動作 
 *************************************************************************
 *************************************************************************/
 
@@ -325,106 +356,23 @@ function _data入網_整div(sel,run,box_name,data) {
 
 
 
-
-
-// 買野btn動作
-function 買野(動,id) {
-
-  // 選版
-  if (選版 == '餐廳') _買野_餐廳版(id)
-  if (選版 == '火鍋') _買野_火鍋版(動,id)
-
-  // 購物車顯已點產品數
-  let 原已點 = $('#已點產品數').text() // 取原價
-  ,新已點 = 原已點
-  新已點 = ~~新已點+1 // ~~ = str轉int
-  $('#已點產品數').text(新已點)
-  //console.log('已點產品數=',總新)
-  if (新已點==0){   $('#已點產品數').hide()  }
-  else{   $('#已點產品數').show()  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // _買野_餐廳版
 function _買野_餐廳版(id) {
+  if (MOK) console.log('_買野_餐廳版(id)')
 
   let 品名 = String(總Data.values[id][4]).replace(/\s*/g,"") // 刪空
-  ,加購流程 = ~~總Data.values[id][1]+0 // 轉數字
   ,產品價錢 = 總Data.values[id][5]
   ,可選項 = 總Data.values[id][7]
-  console.log('品名=',品名,'價錢=',產品價錢)
+
+  console.log('*** 品名=',品名,'$$=',產品價錢,' ***')
 
   //如有可選項
-  if (!!可選項) _買野_產品選項(品名,id) 
+  if (!!可選項) {_買野_產品選項(品名, id)}
+  else {確定訂單()}
   // 如果想判断一个值不是undefined、null和空字符串中的一种，则用 !! 就可以 
-  https://blog.csdn.net/m0_38039437/article/details/127791259
+  // https://blog.csdn.net/m0_38039437/article/details/127791259
 
-  // qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq 轉 購買流程 內容
-
-
-
-
-  /* **********************
-  在GExl用1234...做加購流程
-  如選購的產品有加流程
-  流程號+1檢查網內有沒下一流程的ID
-  如有彈出加購流程
-  ********************** */
-  // if GExl有加流程
-  if ( $(加購流程).length === 0 ) return 
-  // https://jessie75919.medium.com/儘早-return-函數-讓-if-邏輯條件判斷不再一層又一層
-
-  // if有下個流程
-  下個流程 = ~~加購流程+1
-  if ( $('hr[id^="_flow_'+下個流程+'_"]').length === 0 ) return
-  // jQuery判断元素存在与否 https://www.cnblogs.com/asplover/p/14470731.html
-  // jq id模糊查询 https://blog.csdn.net/qq_24909089/article/details/100026008
-
-  let 流程ID= $('hr[id^="_flow_'+下個流程+'_"]').attr('id')
-  // jQuery获取div的id值 https://blog.csdn.net/vancyf/article/details/77881830
-  ,流程ID2 = 流程ID.slice(8)
-  // js 截取字符串 https://www.runoob.com/w3cnote/js-extract-string.html
-  //console.log('下個流程==',流程ID2)
-
-  // 轉 購買流程 內容
-  $('#購買流程 h2').text('請問您需要加購'+流程ID2+'嗎?')
-  $('#購買流程 a').eq(0).text('加購'+流程ID2).attr("href",'#'+流程ID2)
-  開關購買流程() // 彈出加購流程
-
-  }
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -445,8 +393,9 @@ function _買野_餐廳版(id) {
 
 // 產品選項
 function _買野_產品選項(品名,id) {
+  if (MOK) console.log('_買野_產品選項(品名,id)')
 
-  console.log('可選項',總Data.values[id][7])
+  console.log('可選項=')
 
   _data入網_整div('選項頁','html','#購買流程 .row',[品名,總Data.values[id][5],總Data.values[id][6]]) 
 
@@ -465,11 +414,13 @@ function _買野_產品選項(品名,id) {
       ,_label1 = dot+'Sel_'+唉+'_label'+dot // 用於點完再點=取消
       ,_label2 = dot+'Sel_'+唉+'_2label'+dot  // 用於點完再點=取消
 
+      console.log(總Data.values[id][唉],選項名2)
+
       if (!!選項價) 選項價samp = '<samp >$'+選項價+'</samp>' // 沒價不顯
       if (!!選項價2) 選項價samp2 = '<samp >$'+選項價2+'</samp>'
       if (!!選項名2) 選項2全 = '\
         <input type="radio" name="Sel_'+唉+'_" >\
-        <label for="Sel_'+唉+'_2" id="Sel_'+唉+'_2label" onclick="toggleCheckbox('+_label2+','+_label1+')">\
+        <label for="Sel_'+唉+'_2" id="Sel_'+唉+'_2label" onclick="label點轉色('+_label2+','+_label2+','+_label1+')">\
           <span class="text">'+選項名2+'</span>'+選項價samp2+'</span>\
         </label>\
         ' // 選項2名 沒不顯
@@ -479,22 +430,9 @@ function _買野_產品選項(品名,id) {
     唉+=4
   } while (止<4)
 
-
-  _data入網_整div('選項頁btn','append','#購買流程 .row',0)
+  let str = '' + id // Monica JavaScript 中的數字轉換為字串
+  _data入網_整div('選項頁btn','append','#購買流程 .row',str)
   開關購買流程() // 彈出產品選項
-
-
-  // qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq 
-  /*
-  console.log('產品選項END')
-
-  var 選項頁 = '\
-  <h2 class="m-0 font-weight-bold text-primary">嗎?</h2>\
-  <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">加購</a>\
-  <a onclick="確定訂單()" class="btn btn-block btn-lg">no了</a>\
-  '
-  $('#購買流程 .row').html(選項頁)
-  */
 
 }
 
@@ -515,11 +453,8 @@ function _買野_產品選項(品名,id) {
 
 
 
-
-
-
-
 function _買野_火鍋版(動,id) {
+  if (MOK) console.log('_買野_火鍋版(動,id))')
   /*
     if (選版 == '火鍋'){ // 火鍋版
       // qqqqqqqqqqq 火鍋未完成 qqqqqqqqqqq
@@ -586,10 +521,97 @@ function _買野_火鍋版(動,id) {
 
 
 
+
+
+/* **********************************************************************
+*************************************************************************
+********************************************************************* btn 
+*************************************************************************
+*************************************************************************/
+
+
+
+
+// 買野btn動作
+function 買野(動,id) {
+  if (MOK) console.log('買野(動,id)')
+
+  // 選版
+  if (選版 == '餐廳') _買野_餐廳版(id)
+  if (選版 == '火鍋') _買野_火鍋版(動,id)
+
+  // 購物車顯已點產品數
+  let 原已點 = $('#已點產品數').text() // 取原價
+  ,新已點 = 原已點
+  新已點 = ~~新已點+1 // ~~ = str轉int
+  $('#已點產品數').text(新已點)
+  //console.log('已點產品數=',總新)
+  if (新已點==0){   $('#已點產品數').hide()  }
+  else{   $('#已點產品數').show()  }
+
+}
+
+
+
+
+
+
+
+
+
+
+function 加購流程(id) {
+  if (MOK) console.log('加購流程(id)')
+
+  _data入網_整div('加購流程頁','html','#購買流程 .row','0')
+
+  let 加購流程 = ~~總Data.values[id][1]+0 // 轉數字
+  /* **********************
+  在GExl用1234...做加購流程
+  如選購的產品有加流程
+  流程號+1檢查網內有沒下一流程的ID
+  如有彈出加購流程
+  ********************** */
+  // if GExl有加流程
+  if ( $(加購流程).length === 0 ) return 
+  // https://jessie75919.medium.com/儘早-return-函數-讓-if-邏輯條件判斷不再一層又一層
+
+  // if有下個流程
+  下個流程 = ~~加購流程+1
+  if ( $('hr[id^="_flow_'+下個流程+'_"]').length === 0 ) return
+  // jQuery判断元素存在与否 https://www.cnblogs.com/asplover/p/14470731.html
+  // jq id模糊查询 https://blog.csdn.net/qq_24909089/article/details/100026008
+
+  let 流程ID= $('hr[id^="_flow_'+下個流程+'_"]').attr('id')
+  // jQuery获取div的id值 https://blog.csdn.net/vancyf/article/details/77881830
+  ,流程ID2 = 流程ID.slice(8)
+  // js 截取字符串 https://www.runoob.com/w3cnote/js-extract-string.html
+  //console.log('下個流程==',流程ID2)
+
+  // 轉 購買流程 內容
+  $('#購買流程 h2').text('請問您需要加購'+流程ID2+'嗎?')
+  $('#購買流程 a').eq(0).text('加購'+流程ID2).attr("href",'#'+流程ID2)
+  開關購買流程() // 彈出加購流程
+
+}
+
+
+
+
+
+
+
+
+
+
 // 確定訂單
 function 確定訂單() {
+  if (MOK) console.log('確定訂單()')
+
   // 轉 確定訂單 內容
   $('#購買流程 h2').text('確定訂單')
+  $('#購買流程 a').eq(0).text('立即下單')
+  $('#購買流程 a').eq(1).text('一陣先').attr("onclick",'開關購買流程(0)')
   開關購買流程() // 彈出確定訂單
 }
 
@@ -608,45 +630,10 @@ function 確定訂單() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 購買流程btn
 function 開關購買流程(sel) {
+  if (MOK) console.log('開關購買流程(sel)')
+
   if (sel==0){  // 關
     $('#購買流程').hide()
     $('#all類,#all產品,#低導航').css({'filter': 'blur(0px)'})
@@ -678,30 +665,50 @@ function 開關購買流程(sel) {
 
 
 
-// qqqqqqqqqqqqqqqqqq 要點2次
-let isChecked = false;
-function toggleCheckbox(id1,id2) {
-  isChecked = !isChecked;
 
-  let id1OK = '#'+id1
-  let id2OK = '#'+id2
-  
-  if (isChecked) {
-    // 执行选中后的操作
-    console.log("已选中");
-    $(id1OK).css({'background': '#05f'})
-    $(id1OK+' .text').css({'color': '#fff','font-size': 'xx-large'})
+
+
+// label點轉色
+let lastClickedLabel = null;
+function label點轉色(labelId, id1, id2) {
+  // https://chateverywhere.app/ 50%
+  if (MOK) console.log('label點轉色(labelId, id1, id2)')
+
+  let id1OK = '#' + id1;
+  let id2OK = '#' + id2;
+
+  if (lastClickedLabel === labelId) {
+    // 取消選中
+    console.log('取消選中');
+    $(id1OK).css({ 'background': 'initial' });
+    $(id1OK + ' .text').css({ 'color': 'initial', 'font-size': 'medium' });
+
+    lastClickedLabel = null;
+  } else {
+    // 選中
+    console.log('選中');
+    if (lastClickedLabel) {
+      // 取消上一個選中的標籤
+      $(lastClickedLabel).css({ 'background': 'initial' });
+      $(lastClickedLabel + ' .text').css({ 'color': 'initial', 'font-size': 'medium' });
+    }
+
+    $(id1OK).css({ 'background': '#05f' });
+    $(id1OK + ' .text').css({ 'color': '#fff', 'font-size': 'xx-large' });
 
     $(id2OK).css({'background': 'initial'})
     $(id2OK+' .text').css({'color': 'initial','font-size': 'medium'})
 
-  } else {
-    // 执行取消选中后的操作
-    console.log("已取消选中");
-    $(id1OK).css({'background': 'initial'})
-    $(id1OK+' .text').css({'color': 'initial','font-size': 'medium'})
+    lastClickedLabel = labelId;
   }
 }
+
+
+
+
+
+
+
 
 
 
@@ -725,6 +732,7 @@ function toggleCheckbox(id1,id2) {
 *************************************************************************
 *************************************************************************/
 
-let 選版 = '餐廳' 
+let MOK = !true // admin
+,選版 = '餐廳' 
 // 餐廳
 // 火鍋
