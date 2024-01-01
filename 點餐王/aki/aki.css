@@ -28,8 +28,6 @@
 
 
 
-/* 色統*/
-.導大btn{color: #4E73DF;}
 
 
 
@@ -51,14 +49,20 @@
 
 
 
+/********************************************************************
+*********************************************************************
+ Menu
 
+        :::   :::       ::::::::::       ::::    :::      :::    :::
+      :+:+: :+:+:      :+:              :+:+:   :+:      :+:    :+:
+    +:+ +:+:+ +:+     +:+              :+:+:+  +:+      +:+    +:+
+   +#+  +:+  +#+     +#++:++#         +#+ +:+ +#+      +#+    +:+
+  +#+       +#+     +#+              +#+  +#+#+#      +#+    +#+
+ #+#       #+#     #+#              #+#   #+#+#      #+#    #+#
+###       ###     ##########       ###    ####       ########
 
-
-
-
-
-
-/* Menu*/
+*********************************************************************
+*********************************************************************/
 #all類{position: fixed;top: 0;bottom: 0;left: -50px;overflow-y: scroll;overflow-x: hidden;}
 #accordionSidebar{z-index: 3;}
 #低導航{position: fixed;
@@ -101,7 +105,20 @@ footer{margin-bottom: 30px;background: rgba(0, 0, 0, 0);}
 
 
 
-/* all產品 */
+/********************************************************************************************************** 
+***********************************************************************************************************
+all產品
+
+          :::        :::        :::             :::::::::::   :::::::::::           :::          :::   :::
+       :+: :+:      :+:        :+:                 :+:           :+:             :+: :+:       :+:+: :+:+:
+     +:+   +:+     +:+        +:+                 +:+           +:+            +:+   +:+     +:+ +:+:+ +:+
+   +#++:++#++:    +#+        +#+                 +#+           +#+           +#++:++#++:    +#+  +:+  +#+
+  +#+     +#+    +#+        +#+                 +#+           +#+           +#+     +#+    +#+       +#+
+ #+#     #+#    #+#        #+#                 #+#           #+#           #+#     #+#    #+#       #+#
+###     ###    ########## ##########      ###########       ###           ###     ###    ###       ###
+
+***********************************************************************************************************
+***********************************************************************************************************/
 
 /*.nav-item  {background-image: url('NoIMG.jpg');
   background-repeat: no-repeat, repeat;
@@ -111,34 +128,37 @@ footer{margin-bottom: 30px;background: rgba(0, 0, 0, 0);}
 
 #all產品{z-index: 0;}
 
-.產品鍵{border: 2px solid #4E73DF;
-  border-radius: 5px;margin:1% ;padding: .5%;
-  float: left;height: 180px; max-width:180px;width: 48%;
-position: relative;overflow: hidden;background: #000;}
 
-.產品鍵 img/*,.類名 img*/{position: absolute;top: 0;left: 0;
-  width: auto;height: 100%;opacity: 1;}
-  
+
+
+
+.產品鍵{border: 2px solid var(--bg-網Base_color);
+  border-radius: 5px;margin:1% ;padding: 0%;
+  float: left;height: var(--產品鍵圖尺寸); max-width:var(--產品鍵圖尺寸);width: 48%;
+  position: relative;overflow: hidden;
+  }
+
+.產品鍵 img/*,.類名 img*/{
+  width: 100%;height: auto;
+  opacity: 1;}
+
 .產品鍵 h5{
   color: #fff;
+  /*
   mix-blend-mode: difference;
-  /*神奇的 CSS，让文字智能适配背景颜色 https://www.cnblogs.com/coco1s/p/16012545.html*/
-  background: linear-gradient(to right , rgba(78, 114, 223, 0.8) ,  rgba(0, 0, 0, 0));
+  神奇的 CSS，让文字智能适配背景颜色 https://www.cnblogs.com/coco1s/p/16012545.html
+  */
+  background: linear-gradient(to right , rgba(78, 114, 223, 1) ,  rgba(0, 0, 0, .5));
   width: 100%;text-align: left;padding: 0 5%;
-  font-weight: 900;font-size: 150%;
-  position: absolute;top: 5%;left: 0;
+  font-weight: 900;font-size: 140%;
+  position: absolute;top: 0;left: 0;
 }
 
-.產品鍵 p{color: #4E73DF;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0) , rgba(255, 255, 255, 0.8));
-  width: 80%;text-align: right;padding: 0 5%;
+.產品鍵 p{color: var(--bg-網Base_color);
+  background: linear-gradient(to right, rgba(0, 0, 0, .5) , rgba(255, 255, 255, .9));
+  width: 100%;text-align: right;padding: 0 5%;
   font-weight: 500;font-size: 140%;
-  position: absolute;bottom: 5%;right: 0;}
-
-
-  #購買流程 samp{color: #4E73DF;font-size: 140%;
-    text-align: right;}
-  
+  position: absolute;bottom: -16px;right: 0;}
 
 
 
@@ -146,12 +166,8 @@ position: relative;overflow: hidden;background: #000;}
 
 
 
-
-
-
-
-
-
+#購買流程 samp{color: var(--bg-網Base_color);font-size: 140%;
+  text-align: right;}
 
 button{background: rgba(0,0,0,0.0);}
 
@@ -160,24 +176,41 @@ button{background: rgba(0,0,0,0.0);}
   bottom: 70px;top: 50px;
   overflow-y: scroll;overflow-x: hidden;}
 
-/*
-.己點{position: absolute;right: 0;top: -20px;z-index: 1;}
-
-*/
-
-
-
-/* /all產品 */
 
 #已點產品數{display: none;
-  animation: 闪烁 1s infinite;
+  animation: 闪1烁 1s infinite;
   /*https://juejin.cn/s/css%E4%B8%80%E9%97%AA%E4%B8%80%E9%97%AA%E6%95%88%E6%9E%9C*/
 }
 .fa-shopping-cart:hover ~ #已點產品數,#已點產品數:hover{animation: none;}
 
 
 
-/* 購買流程 */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ********************************************************************************************************
+***********************************************************************************************************
+購買流程
+
+      :::::::::      :::    :::   :::::::::::        ::::::::::       :::        ::::::::     :::       :::
+     :+:    :+:     :+:    :+:       :+:            :+:              :+:       :+:    :+:    :+:       :+:
+    +:+    +:+     +:+    +:+       +:+            +:+              +:+       +:+    +:+    +:+       +:+
+   +#++:++#+      +#+    +:+       +#+            :#::+::#         +#+       +#+    +:+    +#+  +:+  +#+
+  +#+    +#+     +#+    +#+       +#+            +#+              +#+       +#+    +#+    +#+ +#+#+ +#+
+ #+#    #+#     #+#    #+#       #+#            #+#              #+#       #+#    #+#     #+#+# #+#+#
+#########       ########        ###            ###              ########## ########       ###   ###
+
+***********************************************************************************************************
+***********************************************************************************************************/
 #購買流程{display: none;
   background: rgba(0, 0, 0, 0.4);
     z-index: 99;
@@ -185,35 +218,37 @@ button{background: rgba(0,0,0,0.0);}
     height: 100%;
     top: 0;left: 0;bottom: 0;right: 0;
     overflow-y: scroll;overflow-x: hidden;
-    
-  }
+}
 
-  /* 6楼  如果您可以设置内容的环绕div的高度
-  https://blog.csdn.net/p15097962069/article/details/103506957 */
-  #購買流程::before{
-    display:inline-block;
-    content:'';
-    height:100%;
-    vertical-align:bottom;
-  }
+/* 6楼  如果您可以设置内容的环绕div的高度
+https://blog.csdn.net/p15097962069/article/details/103506957 */
+#購買流程::before{
+  display:inline-block;
+  content:'';
+  height:100%;
+  vertical-align:bottom;
+}
 
 #購買流程 .row{display:inline-block;
   width: 100%;
-padding: 10%;background: rgba(0, 0, 0, 0);
-mix-blend-mode: difference;font-weight: 1900;
-border: none;word-break: break-all;
-    
-
+  padding: 10%;background: rgba(0, 0, 0, 0);
+  mix-blend-mode: difference;font-weight: 1900;
+  border: none;word-break: break-all;
 }
 
 
 
 
 
-#購買流程 h2{padding: 10%;text-align: center;
-}
+#購買流程 h2{padding: 10%;text-align: center;}
 #購買流程 a{color: #fff;}
-/* /購買流程 */
+
+
+
+
+
+
+#清空購物車{display: none;}
 
 
 
@@ -242,17 +277,20 @@ border: none;word-break: break-all;
 
 
 
+/* ***************************************************************************************************************************
+******************************************************************************************************************************
+美化 
 
+      :::::::::       ::::::::::           :::       :::    :::   :::::::::::       :::::::::::       ::::::::::    :::   :::
+     :+:    :+:      :+:                :+: :+:     :+:    :+:       :+:               :+:           :+:           :+:   :+:
+    +:+    +:+      +:+               +:+   +:+    +:+    +:+       +:+               +:+           +:+            +:+ +:+
+   +#++:++#+       +#++:++#         +#++:++#++:   +#+    +:+       +#+               +#+           :#::+::#        +#++:
+  +#+    +#+      +#+              +#+     +#+   +#+    +#+       +#+               +#+           +#+              +#+
+ #+#    #+#      #+#              #+#     #+#   #+#    #+#       #+#               #+#           #+#              #+#
+#########       ##########       ###     ###    ########        ###           ###########       ###              ###
 
-
-
-
-
-
-
-
-
-/* 美化 */
+******************************************************************************************************************************
+******************************************************************************************************************************/
 
 /*  label https://blog.csdn.net/lvh98/article/details/126143901 */
 span{
@@ -299,32 +337,6 @@ https://juejin.cn/post/6844903613936959496*/
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 動晝 */
 /* 定义闪烁动画效果 */
 @keyframes 闪烁 {
@@ -350,3 +362,66 @@ https://juejin.cn/post/6844903613936959496*/
     opacity: 0;;width: 400px;height: 400px;right: 30%;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ************************************************************
+***************************************************************
+色統
+
+      :::::::::           :::        ::::::::       ::::::::::
+     :+:    :+:        :+: :+:     :+:    :+:      :+:
+    +:+    +:+       +:+   +:+    +:+             +:+
+   +#++:++#+       +#++:++#++:   +#++:++#++      +#++:++#
+  +#+    +#+      +#+     +#+          +#+      +#+
+ #+#    #+#      #+#     #+#   #+#    #+#      #+#
+#########       ###     ###    ########       ##########
+
+***************************************************************
+***************************************************************/
+
+/* CSS 變數的基本語法https://muki.tw/native-css-variables/  */
+:root {
+  --bg-網Base_color: #4E73DF;
+  --產品鍵圖尺寸: 200px;
+}
+
+
+
+.導大btn{color: var(--bg-網Base_color);}
+
+
+
+
