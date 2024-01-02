@@ -303,15 +303,15 @@ function _data入網_整div(sel,run,box_name,data) {
     <!-- 選項 -->\
     <div class="card shadow mb-4">\
       <div class="card-body">\
-        <input type="radio" name="Sel_'+data[0]+'_" >\
-          <label for="Sel_'+data[0]+'_" id="Sel_'+data[0]+'_label" onclick="label點轉色('+data[1]+','+data[1]+','+data[2]+')">\
+        <input type="radio" name="Sel_'+data[0]+'" >\
+          <label for="Sel_'+data[0]+'" id="Sel_'+data[0]+'" onclick="選項頁Sel_label('+data[1]+','+data[2]+')">\
             <span class="text">'+data[3]+'</span>'+data[4]+'\
           </label>'+data[5]+'\
       </div>\
     </div>\
   '
   , 選項頁btn = '\
-    <a onclick="選項頁btn組合btn('+data[0]+')" class="btn btn-primary btn-block btn-lg">確認</a>\
+    <a onclick="選項頁的確認btn組合('+data[0]+')" class="btn btn-primary btn-block btn-lg">確認</a>\
     <a onclick="開關購買流程(1)" class="btn btn-block btn-lg">取消</a>\
   '
   , 加購流程頁 = '\
@@ -323,22 +323,22 @@ function _data入網_整div(sel,run,box_name,data) {
 
   // 確定訂單頁
   , 清空購物車 = '<a id="清空購物車" onclick="清空購物車()" class="btn btn-danger btn-block btn-lg">刪除所有</a><br>'
-  
   , 確定訂單頁 = '\
     <div class="card shadow mb-4">\
       <div class="card-body">\
         <div class="table-responsive">\
           <table class=" " width="100%" cellspacing="0" >\
-            <tbody style="text-align: center;">\
+            <tbody>\
               <tr>\
-                  <td style="text-align: left; font-weight: 900;font-size: 140%;">'+data[0]+'</td>\
-                  <td style="text-align: right; font-weight: 500;font-size: 140%;">$ '+data[1]+'</td>\
-                  <td class="btn btn-primary" onclick="刪除單個購物車產品('+dot+data[2]+dot+',0)">修改</td>\
+                  <td style="float: left;" class="btn btn-danger" onclick="刪除單個購物車產品('+dot+data[2]+dot+',1)">刪除</td>\
               </tr>\
-              <br>\
               <tr>\
-                  <td colspan="2">選項選項選項選項選項</td>\
-                  <td class="btn btn-danger" onclick="刪除單個購物車產品('+dot+data[2]+dot+',1)">刪除</td>\
+                  <td style="float: left; font-weight: 900;font-size: 140%;">'+data[0]+'</td>\
+                  <td style="float: right; ">$ '+data[1]+'</td>\
+              </tr>\
+              <tr>\
+                  <td style="float: left;" >'+data[3]+'</td>\
+                  <td style="float: right; font-weight: 500;font-size: 140%;" >$ 總金</td>\
               </tr>\
             </tbody>\
           </table>\
@@ -350,7 +350,7 @@ function _data入網_整div(sel,run,box_name,data) {
     <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">確定訂單</a>\
     <a onclick="開關購買流程(0)" class="btn btn-block btn-lg">一陣先</a>\
   '
-
+  // qqq 結算
 
 
   // 執行儲存為字串的 JavaScript 程式碼 https://stackoverflow.com/a/939343
@@ -468,16 +468,19 @@ function _買野_產品選項(品名,id) {
       ,選項名2 = 總Data.values[id][唉+2]
       ,選項價2 = 總Data.values[id][唉+3]
       ,選項價samp = 選項價samp2 = 選項2全 = ''
-      ,_label1 = dot+'Sel_'+唉+'_label'+dot // 用於點完再點=取消
-      ,_label2 = dot+'Sel_'+唉+'_2label'+dot  // 用於點完再點=取消
+      ,_label1 = dot+'Sel_'+唉+dot // 用於點完再點=取消
+      唉2 = 唉+2
+
+      ,_label2 = dot+'Sel_'+唉2+dot  // 用於點完再點=取消
+      //,_label2 = dot+'Sel_'+唉+'_2label'+dot  // 用於點完再點=取消
 
       console.log(總Data.values[id][唉],選項名2)
 
       if (!!選項價) 選項價samp = '<samp >$'+選項價+'</samp>' // 沒價不顯
       if (!!選項價2) 選項價samp2 = '<samp >$'+選項價2+'</samp>'
       if (!!選項名2) 選項2全 = '\
-        <input type="radio" name="Sel_'+唉+'_" >\
-        <label for="Sel_'+唉+'_2" id="Sel_'+唉+'_2label" onclick="label點轉色('+_label2+','+_label2+','+_label1+')">\
+        <input type="radio" name="Sel_'+唉+'" >\
+        <label for="Sel_'+唉2+'" id="Sel_'+唉2+'" onclick="選項頁Sel_label('+_label2+','+_label1+')">\
           <span class="text">'+選項名2+'</span>'+選項價samp2+'</span>\
         </label>\
         ' // 選項2名 沒不顯
@@ -520,8 +523,22 @@ function 購物車顯已點產品數(料) {
 
   if (新已點!=0)  $('#已點產品數').show()
 
+  let 料321 = 料+','+已選項組 // +已選項
+  let 料王 = 料321.split(',') // 分割 轉為數組
+
+  /*
+  console.log('+++++++++++++++++++++++++++++++++++')
+  console.log('料321',料321)
+  console.log('料王[0]',料王[0])
+  console.log('料王',料王)
+  */
+
   // 存儲在本地的瀏覽器
-  localStorage.setItem("購買產品"+新已點, 料)
+  localStorage.setItem("購買產品"+新已點, 料王) 
+
+  // 清空已選項組
+  已選項組.length = 0 
+
 
 }
 
@@ -549,7 +566,6 @@ function _買野_火鍋版(動,id) {
   if (MOK) console.log('_買野_火鍋版(動,id))')
   /*
     if (選版 == '火鍋'){ // 火鍋版
-      // qqqqqqqqqqq 火鍋未完成 qqqqqqqqqqq
       var 真id = '#'+id+'BuyNmb' // 合 已點 真id
       var 原 = $(真id+' span').text() // 取原價
       var 新 = 原
@@ -642,7 +658,47 @@ function 買野(動,id) {
   if (選版 == '餐廳') _買野_餐廳版(id)
   if (選版 == '火鍋') _買野_火鍋版(動,id)
 
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+let 已選項組 = []
+function 選項頁Sel_label(id1, id2) {
+
+  // id label點轉色
+  $('#' + id1).css({ 'background': '#05f' });
+  $('#' + id1 + ' .text').css({ 'color': '#fff', 'font-size': 'xx-large' });
+  $('#' + id2).css({'background': 'initial'})
+  $('#' + id2+' .text').css({'color': 'initial','font-size': 'medium'})
+
+  // 查 已選項組
+  if (已選項組.indexOf(id2) !== -1) { 
+    // 選 id1時刪id2
+    已選項組.splice(已選項組.indexOf(id2), 1)
+    console.log('已刪除=',id2)
+  }
+
+  if (已選項組.indexOf(id1) !== -1) { 
+    // 重選 id1時刪id1
+    已選項組.splice(已選項組.indexOf(id1), 1)
+    console.log('已刪除=',id1)
+
+    // id1 label 重點轉冇色
+    $('#' + id1).css({'background': 'initial'})
+    $('#' + id1+' .text').css({'color': 'initial','font-size': 'medium'})
+  }
+  // 已選加入
+  else{ console.log('已選項=',id1);已選項組.push(id1)  }
 
 }
 
@@ -655,11 +711,32 @@ function 買野(動,id) {
 
 
 
+
+
+
+
+
+function 選項頁的確認btn組合(data) {
+  console.log('data=',data)
+  console.log('已選項組=',已選項組)
+  購物車顯已點產品數(data)  
+
+  開關購買流程(0)
+  加購流程(data) 
+}
+
+
+
+
+
+
+
+
+
+
+
 function 加購流程(id) {
   if (MOK) console.log('加購流程(id)')
-
-  console.log('加購dddd流程(id)')
-
   _data入網_整div('加購流程頁','html','#購買流程 .row','0')
 
   let 加購流程 = ~~總Data.values[id][1]+0 // 轉數字
@@ -702,28 +779,122 @@ function 加購流程(id) {
 
 
 
+
+
+
+function 清空購物車() {
+  localStorage.clear()
+  開關購買流程(0)
+  $('#已點產品數').text(0)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function 刪除單個購物車產品(data,sel) {
+  // console.log('刪除單個購物車產品=',data,sel)
+
+  sel = ~~sel+0
+  console.log('刪除單個購物車產品__data',data)
+
+  // 分割 localStorage 轉為數組
+  let 刪除產品的id = localStorage.getItem(data).split(',') 
+
+  console.log('刪除產品的id2222',刪除產品的id)
+
+  let 名 = 總Data.values[刪除產品的id[0]][4]
+  localStorage.removeItem(data)
+  console.log('已刪除---------------------')
+  console.log('已刪除',名)
+  
+  let 購物數 = ~~localStorage.getItem("購物車內")-1
+  localStorage.setItem("購物車內",購物數)
+  $('#已點產品數').text(購物數)
+
+
+  /* 
+  // 確定訂單 修改  no
+  // 刪了上一個
+  <td style="float: right;" class="btn btn-primary" onclick="刪除單個購物車產品('+dot+data[2]+dot+',0)">修改</td>\
+  if(sel===0) 買野(1,刪除產品的id[0]) 
+  else 確定訂單()
+  */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 確定訂單
 function 確定訂單() {
   if (MOK) console.log('確定訂單()')
 
   // 清頁面
   _data入網_整div('清空購物車','html','#購買流程 .row','0')
+  // 購物車有產品才顯示
   if (localStorage.length > 1)  $('#清空購物車').css({'display': 'block'})
 
+  //console.log('localStorage.length',localStorage.length)
   // all 訂單 內容
   for(var i=0; i<localStorage.length;i++){
     // 读取第一条数据的变量名(键值 https://blog.csdn.net/wy_Blog/article/details/77945410
+    //console.log('localStorage Key=',localStorage.key(i))
+    //console.log('localStorage Var=',localStorage.getItem(localStorage.key(i[1])))
+
+    // 分割 localStorage 轉為數組
+    let 真產品加分類Data = localStorage.getItem(localStorage.key(i)).split(',') 
 
     if (localStorage.key(i) != '購物車內' ){
 
-      let id =  localStorage.getItem(localStorage.key(i))
-        ,品名 = String(總Data.values[id][4]).replace(/\s*/g,"") // 刪空
+      
+      let id =  真產品加分類Data[0]
+        ,品名 = (總Data.values[id][4]).replace(/\s*/g,"") // 刪空
         ,產品價錢 = 總Data.values[id][5]
+        ,加all選項 = ''
+
+        // 取選項
+        for(var jj=1; jj<真產品加分類Data.length;jj++){
+          let 真選項 = 真產品加分類Data[jj].split('_') 
+          , 真選項價 = ~~真選項[1]+1
+
+          , 真選項價2 = 總Data.values[id][真選項價]
+          
+          if (!真選項價2) 真選項價2 = 0
+          //選項如有++
+          if(!!總Data.values[id][真選項[1]]){ 加all選項 = 加all選項 + 總Data.values[id][真選項[1]]+ '($' + 真選項價2 + ')' + ','}
+        }
+
       if (!產品價錢) 產品價錢 = 0 // 沒寫價 = 0
 
       // 加 確定訂單頁 
-      // qqqqqqqqqqqqqq 選項選項選項選項選項
-      _data入網_整div('確定訂單頁','append','#購買流程 .row',[品名,產品價錢,localStorage.key(i),id])
+      _data入網_整div('確定訂單頁','append','#購買流程 .row',[品名,產品價錢,localStorage.key(i),加all選項])
     
     }
   }
@@ -733,6 +904,9 @@ function 確定訂單() {
 
   // 彈出確定訂單
   開關購買流程() 
+
+  console.log('+++++++++++++++++ 請確定訂單 ++++++++++++++++++')
+  
 }
 
 
@@ -776,106 +950,11 @@ function 開關購買流程(sel) {
 
 
 
-function 清空購物車() {
-  localStorage.clear()
-  開關購買流程(0)
-  $('#已點產品數').text(0)
-}
-
-
-
-function 選項頁btn組合btn(data) {
-  購物車顯已點產品數(data)  
-  開關購買流程(0)
-  加購流程(data) 
-}
-
-
-function 刪除單個購物車產品(data,sel) {
-  // console.log('刪除單個購物車產品=',data,sel)
-
-  if(sel===1) {
-  let 名 = 總Data.values[localStorage.getItem(localStorage.key(data))][4]
-  localStorage.removeItem(data)
-  console.log('已刪除',名)
-  
-  let 購物數 = ~~localStorage.getItem("購物車內")-1
-  localStorage.setItem("購物車內",購物數)
-  $('#已點產品數').text(購物數)
-
-  確定訂單()
-}
 
 
 
 
 
-/*  qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq 修改 not ok
-*/
-
-  else{ 
-
-    console.log('修改',data)
-    console.log('修改',localStorage.getItem(localStorage.key(data)))
-    console.log('修改重買',總Data.values[localStorage.getItem(localStorage.key(data))][4])
-
-    //localStorage.removeItem(data)
-
-
-  //買野(1,localStorage.getItem(localStorage.key(data))) 
-
-
-  
-}
-
-}
-
-
-
-
-
-
-
-
-
-
-
-// label點轉色
-let lastClickedLabel = null;
-function label點轉色(labelId, id1, id2) {
-  // https://chateverywhere.app/ 95%
-  if (MOK) console.log('label點轉色(labelId, id1, id2)')
-  // qqq console.log('現點id');
-
-  let id1OK = '#' + id1;
-  let id2OK = '#' + id2;
-
-  if (lastClickedLabel === labelId) {
-    // 取消選中
-    console.log('取消');
-    $(id1OK).css({ 'background': 'initial' });
-    $(id1OK + ' .text').css({ 'color': 'initial', 'font-size': 'medium' });
-
-    lastClickedLabel = null;
-  } else {
-    // 選中
-    console.log('選中');
-    /*
-    if (lastClickedLabel) {
-      // 取消上一個選中的標籤
-      $(lastClickedLabel).css({ 'background': 'initial' });
-      $(lastClickedLabel + ' .text').css({ 'color': 'initial', 'font-size': 'medium' });
-    }
-    */
-    $(id1OK).css({ 'background': '#05f' });
-    $(id1OK + ' .text').css({ 'color': '#fff', 'font-size': 'xx-large' });
-
-    $(id2OK).css({'background': 'initial'})
-    $(id2OK+' .text').css({'color': 'initial','font-size': 'medium'})
-
-    lastClickedLabel = labelId;
-  }
-}
 
 
 
@@ -921,9 +1000,13 @@ let MOK = !true // admin
 // 餐廳
 // 火鍋
 
+// 版權
+$('.copyright').text('©'+new Date().getFullYear()+' All rights reserved by '+location.hostname).css({'font-size': 'medium'})
+
 
 
 //遍历并输出localStorage里存储的名字和值
+/**/
 for(var i=0; i<localStorage.length;i++){
   console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
 }

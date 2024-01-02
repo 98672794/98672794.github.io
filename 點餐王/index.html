@@ -365,19 +365,14 @@
             <hr>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
-
-                <a onclick="localStorage.clear();">清空localStorage</a>
-
-                
                 <div class="container my-auto">
                     <!--  回頂  /--> 
                     <a class="" href="#page-top" style="float: left;">
-                      <i class="fa fa-arrow-up" > Top </i>
+                        <i class="fa fa-arrow-up" > Top </i>
                     </a>
                     <!-- /回頂 /-->
                     <div class="copyright text-center my-auto " style="float: right;">
-                        &copy;<script>document.write(new Date().getFullYear());</script> 
-                        All rights reserved by <script>document.write(location.hostname)</script>
+                        <script>$('.copyright').text('©'+new Date().getFullYear()+' All rights reserved by '+location.hostname).css({'font-size': 'medium'})</script>
                     </div>
                 </div>
             </footer>
