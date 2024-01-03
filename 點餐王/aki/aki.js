@@ -1007,6 +1007,6 @@ $('.copyright').text('©'+new Date().getFullYear()+' All rights reserved by '+lo
 
 //遍历并输出localStorage里存储的名字和值
 /**/
-for(var i=0; i<localStorage.length;i++){
-  console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
-}
+//for(var i=0; i<localStorage.length;i++){
+//  console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
+//}
