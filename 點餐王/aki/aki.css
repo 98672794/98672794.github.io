@@ -1,6 +1,6 @@
 /*
 * aki
-* 202312110009
+* 202401032346
 */
 
 
@@ -245,8 +245,12 @@ https://blog.csdn.net/p15097962069/article/details/103506957 */
 
 
 
-
-
+#本單加總金{text-align: right;padding: 2%;border-radius: 5px;
+  
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) , rgba(255, 255, 255, .9));
+  }
+#本單加總金 span{color: var(--bg-網Base_color);
+  font-weight: 1500;font-size: 200%;}
 
 #清空購物車{display: none;}
 
