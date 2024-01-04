@@ -781,9 +781,18 @@ function 加購流程(id) {
 
 function 清空購物車() {
   if (MOK) console.log('清空購物車()')
-  localStorage.clear()
+
+  // 確認清空購物車
+  let r=confirm("你是否要清空購物車!!")
+
+	if (r==true){
+    localStorage.clear()
+    $('#已點產品數').text(0)	
+  }
+  // 确认框 https://www.runoob.com/js/js-popup.html
+
   開關購買流程(0)
-  $('#已點產品數').text(0)
+
 }
 
 
