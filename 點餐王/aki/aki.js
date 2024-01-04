@@ -354,7 +354,7 @@ function _data入網_整div(sel,run,box_name,data) {
     </div>\
   '
   , 確定訂單頁btn = '\
-    <p id="本單加總金">總金額 $ <span >9,999,999,999,999,999,999,999.88</span></p>\
+    <p id="本單加總金">總金額 $ <span >'+data[0]+'</span></p>\
     <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">確定訂單</a>\
     <a onclick="開關購買流程(0)" class="btn btn-block btn-lg">一陣先</a>\
   '
@@ -530,6 +530,9 @@ function 購物車顯已點產品數(料) {
 
   // 存儲在本地的瀏覽器
   localStorage.setItem("購買產品"+新已點, 料王) 
+  
+  // 已選購
+  console.log("已購第"+localStorage.getItem('購物車內'),'個產品==',(總Data.values[料][4]).replace(/\s*/g,""))
 
   // 清空已選項組
   已選項組.length = 0 
@@ -649,8 +652,6 @@ function _買野_火鍋版(動,id) {
 function 買野(動,id) {
   if (MOK) console.log('買野(動,id)')
 
-  console.log('已選購=',(總Data.values[id][4]).replace(/\s*/g,"") )
-
   // 選版
   if (選版 == '餐廳') _買野_餐廳版(id)
   if (選版 == '火鍋') _買野_火鍋版(動,id)
@@ -715,8 +716,6 @@ function 選項頁Sel_label(id1, id2) {
 
 function 選項頁的確認btn組合(data) {
   if (MOK) console.log('選項頁的確認btn組合(',{data},')')
-
-  console.log('已選購=',(總Data.values[data][4]).replace(/\s*/g,"") )
 
   購物車顯已點產品數(data)  
   開關購買流程(0)
@@ -855,53 +854,52 @@ function 刪除單個購物車產品(data,sel) {
 function 確定訂單() {
   if (MOK) console.log('確定訂單()')
 
+  let 訂單總金 = 0
   // 清頁面
   _data入網_整div('清空購物車','html','#購買流程 .row','0')
   // 購物車有產品才顯示
   if (localStorage.length > 1)  $('#清空購物車').css({'display': 'block'})
 
-  //console.log('localStorage.length',localStorage.length)
   // all 訂單 內容
   for(var i=0; i<localStorage.length;i++){
     // 读取第一条数据的变量名(键值 https://blog.csdn.net/wy_Blog/article/details/77945410
-    //console.log('localStorage Key=',localStorage.key(i))
-    //console.log('localStorage Var=',localStorage.getItem(localStorage.key(i[1])))
 
-    // 分割 localStorage 轉為數組
+    // 分割 localStorage 轉為數組 取購產品id
     let 真產品加分類Data = localStorage.getItem(localStorage.key(i)).split(',') 
+    // 真產品加分類Data = [已選購產品id,選項1_id,選項2_id...]
 
     if (localStorage.key(i) != '購物車內' ){
 
-      
-      let id =  真產品加分類Data[0]
-        , 品名 = (總Data.values[id][4]).replace(/\s*/g,"") // 刪空
-        , 產品價錢 = 總Data.values[id][5]
+      let 已選購產品id =  真產品加分類Data[0]
+        , 品名 = (總Data.values[已選購產品id][4]).replace(/\s*/g,"") // 刪空
+        , 產品價錢 = 總Data.values[已選購產品id][5]
         , 加all選項 = ''
         , 加選項總金 = 0
         , 本產品總金 = 0
 
-        // 取選項
+        // 取選項 不要0的id
         for(var jj=1; jj<真產品加分類Data.length;jj++){
-          let 真選項 = 真產品加分類Data[jj].split('_') 
+          let 真選項 = 真產品加分類Data[jj].split('_') //只取sel_後的
           , 真選項價 = ~~真選項[1]+1
-          , 真選項價2 = 總Data.values[id][真選項價]
+          , 真選項價2 = 總Data.values[已選購產品id][真選項價]
           
           if (!真選項價2) 真選項價2 = 0
 
           //顯示選項用 多項+後
-          if(!!總Data.values[id][真選項[1]]){
-            加all選項 = 加all選項 + 總Data.values[id][真選項[1]] + '($' + 真選項價2 + ')' + ','  
+          if(!!總Data.values[已選購產品id][真選項[1]]){ // 如該選項的GEcl非空
+            加all選項 = 加all選項 + 總Data.values[已選購產品id][真選項[1]] + '($' + 真選項價2 + ')' + ','  
           }
 
-          // 加選項總金額
-          加選項總金 = 加選項總金+~~真選項價2+0 
+          // 如有選項 加選項總金額
+          // 保留两位小数 https://chateverywhere.app/
+          if (加all選項 != '') 加選項總金 = (parseFloat(加選項總金)+parseFloat(真選項價2)).toFixed(2)
 
         }
 
       if (!產品價錢) 產品價錢 = 0 // 沒寫價 = 0
 
       // 加本產品總金
-      本產品總金 = 加選項總金+~~產品價錢 
+      本產品總金 = (parseFloat(加選項總金)+parseFloat(產品價錢)).toFixed(2)
 
       // 加 確定訂單頁 
       _data入網_整div(
@@ -909,18 +907,19 @@ function 確定訂單() {
         ,[品名,產品價錢,localStorage.key(i),加all選項,本產品總金]
       )
     
+      // 本單加總金 轉結算
+      訂單總金 = (parseFloat(訂單總金)+parseFloat(本產品總金)).toFixed(2)
+
     }
   }
 
-  // qqq 本單加總金 轉結算
-  
   // 加 確定訂單 btn
-  _data入網_整div('確定訂單頁btn','append','#購買流程 .row','0')
+  _data入網_整div('確定訂單頁btn','append','#購買流程 .row',[訂單總金])
 
   // 彈出確定訂單
   開關購買流程() 
 
-  console.log(' +++請確定訂單+++ ')
+  console.log(' ++++請確定訂單++++ ')
   
 }
 
