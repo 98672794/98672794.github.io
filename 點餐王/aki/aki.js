@@ -89,11 +89,11 @@ fetch(GEcl).then(res => res.json()).then(res => {
   總Data = res
 
   // page title icon
-  $('title').html(總Data.values[1][0])  //總Data.values[直][橫]
-  $('link[rel="shortcut icon"]').attr('href',總Data.values[1][4])
+  $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
+  $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
 
   // 用data總數计加左類Menu // 0是不用
-  for(var 數=0 ; 數 < 總Data.values.length ; 數++){  _data入網(數)  }
+  for(var 數=docsGoogle開始數 ; 數 < 總Data.values.length ; 數++){  _data入網(數)  }
 })
 
 
@@ -184,13 +184,13 @@ function _data入網(數) {
 function _data入網_加入類名menu(類名,數) {
   if (MOK) console.log('_data入網_加入類名menu(類名,數)')
 
-  if (類名.length < 1) return  //類名空pass
+  if (!類名) return  //類名空pass
 
   // 公司名
-  if (數 === 1){  _data入網_整div('公司名','append','#all類',[類名]) }
+  if (數 === docsGoogle開始數){  _data入網_整div('公司名','append','#all類',[類名]) }
 
   // 類名menu
-  if (數 > 2){   _data入網_整div('類名menu','append','#all類',[類名]) }
+  if (數 > (docsGoogle開始數+1)){   _data入網_整div('類名menu','append','#all類',[類名]) }
   //不要exl的說明標題 pass
   
 
@@ -222,10 +222,10 @@ function _data入網_加入產品(類名,數) {
   if (!產品價錢) 產品價錢 = 0 // 沒寫價 = 0
 
   //不要exl的說明標題 pass
-  if (數 <= 2) return  
+  if (數 <= (docsGoogle開始數+1)) return  
 
   // 加入產品書籤
-  if (類名.length > 0){ _data入網_整div('類書籤','append','#all產品',[類名,加購流程])  } //類名空不顯
+  if (!!類名){ _data入網_整div('類書籤','append','#all產品',[類名,加購流程])  } //類名空不顯
   
   // 加入每產品
   if (選版 == '餐廳'){   _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])   }
@@ -430,7 +430,7 @@ function _買野_餐廳版(id) {
 
   //如有可選項
   if (!!可選項) {_買野_產品選項(品名, id)}  
-  else {購物車顯已點產品數([id]);確定訂單()}
+  else {購物車顯已點產品數(id);確定訂單()}
   // 如果想判断一个值不是undefined、null和空字符串中的一种，则用 !! 就可以 
   // https://blog.csdn.net/m0_38039437/article/details/127791259
 
@@ -1025,7 +1025,7 @@ let 網all按鍵 = 'btn-warning'
   */
   
   // 轉主css
-  , 網色1號 = "#b4b2a5"
+  , 網色1號 = "#ffd600"
   , 左Menu下色 = "#9c27b0"
   , 網字色1號 = "#111"
   , 網字色2號 = "#999"
@@ -1081,5 +1081,6 @@ let 網all按鍵 = 'btn-warning'
 let MOK = !true   
 // admin
 
-, 選版 = '餐廳' 
-// 餐廳 // 火鍋
+  , docsGoogle開始數= 1 //客名位
+  , 選版 = '餐廳' 
+  // 餐廳 // 火鍋
