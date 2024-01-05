@@ -264,15 +264,15 @@ function _data入網_整div(sel,run,box_name,data) {
 
   // 網頁data
   let 公司名 = '\
-    <a id="公司名" class="sidebar-brand d-flex align-items-center justify-content-center" href="./">\
+    <a id="公司名" style="color: '+網字色1號+'" class="sidebar-brand d-flex align-items-center justify-content-center" href="./">\
     '+data[0]+'\
     </a>\
     <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '
   , 類名menu = '\
     <!-- '+data[0]+' -->\
-    <li class="nav-item " title="'+data[0]+'" >\
-      <a class="類名 nav-link " href="#'+data[0]+'" >\
+    <li class="nav-item"  title="'+data[0]+'" >\
+      <a style="color: '+網字色1號+'" class="類名 nav-link " href="#'+data[0]+'" >\
         <span style="font-size: 150%;">'+data[0]+'</span>\
         </a>\
     </li>\
@@ -319,12 +319,12 @@ function _data入網_整div(sel,run,box_name,data) {
   '
   , 選項頁btn = '\
     <a onclick="選項頁的確認btn組合('+data[0]+')" class="btn btn-block btn-lg '+網all按鍵+'">確認</a>\
-    <a onclick="開關購買流程(1)" class="btn btn-block btn-lg">取消</a>\
+    <a onclick="開關購買流程(1)" class="no了 btn btn-block btn-lg">取消</a>\
   '
   , 加購流程頁 = '\
-    <h2 class="m-0 font-weight-bold text-primary">嗎?</h2>\
+    <h2 class="m-0 font-weight-bold">嗎?</h2>\
     <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+網all按鍵+'">加購</a>\
-    <a onclick="確定訂單()" class="btn btn-block btn-lg">no了</a>\
+    <a onclick="確定訂單()" class="no了 btn btn-block btn-lg">no了</a>\
   '
 
 
@@ -356,7 +356,7 @@ function _data入網_整div(sel,run,box_name,data) {
   , 確定訂單頁btn = '\
     <p id="本單加總金">總金額 $ <span >'+data[0]+'</span></p>\
     <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+網all按鍵+'">確定訂單</a>\
-    <a onclick="開關購買流程(0)" class="btn btn-block btn-lg">一陣先</a>\
+    <a onclick="開關購買流程(0)" class="no了 btn btn-block btn-lg">一陣先</a>\
   '
   // qqq 結算
 
@@ -673,16 +673,10 @@ function 買野(動,id) {
 let 已選項組 = []
 function 選項頁Sel_label(id1, id2) {
 
-  // id label點轉色 
-  
-  
-
-
-
-  //$('#' + id1).attr('class', '主hr');
-  $('#' + id1).css({ 'background': '#'+網主_color })
-  $('#' + id1 + ' .text').css({ 'color': '#fff', 'font-size': 'xx-large' })
-  $('#' + id1 + ' .Price').css({ 'color': '#'+左Menu下_color })
+  // id label點轉色
+  $('#' + id1).css({ 'background': 網色1號 })
+  $('#' + id1 + ' .text').css({ 'color': 網字色1號, 'font-size': 'xx-large' })
+  $('#' + id1 + ' .Price').css({ 'color': 左Menu下色 })
   $('#' + id2).css({'background': 'initial'})
   $('#' + id2+' .text').css({'color': 'initial','font-size': 'medium'})
 
@@ -1003,17 +997,10 @@ function 開關購買流程(sel) {
 
 
 
-
-
-
-
-
-
-
-
+  
 /* **********************************************************************************
 *************************************************************************************
-Css 
+CSS
 
       ::::::::       ::::::::       ::::::::
     :+:    :+:     :+:    :+:     :+:    :+:
@@ -1026,6 +1013,39 @@ Css
 *************************************************************************************
 *************************************************************************************/
 
+let 網all按鍵 = 'btn-warning' 
+  /**
+    .btn-primary 藍
+    .btn-success 青
+    .btn-info 淺藍
+    .btn-warning 黃
+    .btn-danger 紅
+    .btn-secondary 灰
+    .btn-light 黑
+  */
+  
+  // 轉主css
+  , 網色1號 = "#b4b2a5"
+  , 左Menu下色 = "#9c27b0"
+  , 網字色1號 = "#111"
+  , 網字色2號 = "#999"
+  , htmlStyle = document.documentElement.style
+  htmlStyle.setProperty("--網色1號", 網色1號)
+  htmlStyle.setProperty("--左Menu下色", 左Menu下色)
+  htmlStyle.setProperty("--網字色1號", 網字色1號)
+  htmlStyle.setProperty("--網字色2號", 網字色2號)
+  // 色版 https://codepen.io/ikbbceme-the-sasster/full/eYyJxyN
+
+  // 內容大小
+  htmlStyle.setProperty("--產品鍵圖尺寸高", '200px')
+  htmlStyle.setProperty("--產品鍵圖尺寸高max", '200px')
+  htmlStyle.setProperty("--產品鍵圖尺寸橫", '48%')
+  htmlStyle.setProperty("--產品鍵圖尺寸橫max", '200px')
+
+  // js取到css样式变量 https://blog.csdn.net/qq_39953537/article/details/91047839
+
+
+  
 
 
 
@@ -1042,36 +1062,7 @@ Css
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 /* **********************************************************************************
 *************************************************************************************
 選模版 
@@ -1088,31 +1079,7 @@ Css
 *************************************************************************************/
 
 let MOK = !true   
-    // admin
+// admin
 
-  , 選版 = '餐廳' 
-    // 餐廳 // 火鍋
-
-  , 網all按鍵 = 'btn-primary' 
-    /**
-      .btn-primary 藍
-      .btn-success 青
-      .btn-info 淺藍
-      .btn-warning 黃
-      .btn-danger 紅
-      .btn-secondary 灰
-      .btn-light 黑
-    */
-  
-  , 網主_color
-  , 左Menu下_color
-$.get('aki/aki.css', function(css){
-  網主_color = css.split('--網主_color: #')[1].split(';')[0]
-  左Menu下_color = css.split('--左Menu下_color: #')[1].split(';')[0]
-})
-
-//遍历并输出localStorage里存储的名字和值
-/**/
-//for(var i=0; i<localStorage.length;i++){
-//  console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
-//}
+, 選版 = '餐廳' 
+// 餐廳 // 火鍋

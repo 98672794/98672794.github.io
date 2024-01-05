@@ -67,8 +67,8 @@
 
 #accordionSidebar{z-index: 3;
   /* 下拉變色 */
-  background-color:var(--網主_color);
-  background-image:linear-gradient(180deg,var(--網主_color) 10%,var(--左Menu下_color) 100%);
+  background-color:var(--網色1號);
+  background-image:linear-gradient(180deg,var(--網色1號) 10%,var(--左Menu下色) 100%);
   background-size:cover
 }
 
@@ -79,7 +79,7 @@
   bottom: -30px;
   left: 0;right: 0;
 }
-footer{margin-bottom: 30px;background: var(--全透明color);}
+footer{margin-bottom: 30px;background: var(--全透明);}
 /* /Menu*/
 
 
@@ -141,7 +141,7 @@ all產品
 
 
 
-.產品鍵{border: 2px solid var(--網主_color);
+.產品鍵{border: 2px solid var(--網色1號);
   border-radius: 5px;margin:1% ;padding: 0%;
   float: left;
   height: var(--產品鍵圖尺寸高); 
@@ -154,19 +154,19 @@ all產品
   opacity: 1;}
 
 .產品鍵 h5{
-  color: #fff;
+  color: var(--網字色1號);
   /*
   mix-blend-mode: difference;
   神奇的 CSS，让文字智能适配背景颜色 https://www.cnblogs.com/coco1s/p/16012545.html
   */
-  background: linear-gradient(to right , var(--網主_color) ,  rgba(0, 0, 0, .5));
+  background: linear-gradient(to right , var(--網色1號) ,  var(--全透明));
   width: 100%;text-align: left;padding: 0 5%;
   font-weight: 900;font-size: 140%;
   position: absolute;top: 0;left: 0;
 }
 
-.產品鍵 p{color: var(--網主_color);
-  background: linear-gradient(to right, rgba(0, 0, 0, .5) , rgba(255, 255, 255, .9));
+.產品鍵 p{color: var(--網色1號);
+  background: linear-gradient(to right, var(--全透明) ,var(--網字色1號));
   width: 100%;text-align: right;padding: 0 5%;
   font-weight: 500;font-size: 140%;
   position: absolute;bottom: -16px;right: 0;}
@@ -177,10 +177,10 @@ all產品
 
 
 
-#購買流程 samp{color: var(--網主_color);font-size: 140%;
+#購買流程 samp{color: var(--網色1號);font-size: 140%;
   text-align: right;}
 
-button{background: var(--全透明color);}
+button{background: var(--全透明);}
 
 #已點產品{background: rgba(0, 0, 0, 0.8);
   width: calc(80vw);position:fixed;
@@ -242,7 +242,7 @@ https://blog.csdn.net/p15097962069/article/details/103506957 */
 
 #購買流程 .row{display:inline-block;
   width: 100%;
-  padding: 10%;background: var(--全透明color);
+  padding: 10%;background: var(--全透明);
   mix-blend-mode: difference;font-weight: 1900;
   border: none;word-break: break-all;
 }
@@ -251,16 +251,16 @@ https://blog.csdn.net/p15097962069/article/details/103506957 */
 
 
 
-#購買流程 h2{padding: 10%;text-align: center;}
-#購買流程 a{color: #fff;}
-
-
+#購買流程 h2{padding: 10%;text-align: center;color: var(--網色1號);}
+#購買流程 a{color: var(--網字色1號);}
+#購買流程 .no了{color: var(--網字色2號);}
+#購買流程 .Price{color: var(--網字色1號);}
 
 #本單加總金{text-align: right;padding: 2%;border-radius: 5px;
   
-  background: linear-gradient(to right, var(--全透明color) , rgba(255, 255, 255, .9));
+  background: linear-gradient(to right, var(--全透明) , var(--網字色1號));
   }
-#本單加總金 span{color: var(--網主_color);
+#本單加總金 span{color: var(--網色1號);
   font-weight: 1500;font-size: 200%;}
 
 #清空購物車{display: none;}
@@ -312,7 +312,7 @@ span{
   cursor: pointer;
 }
 label{display: block;height: 50px;width: 100%;
-  border: .5px solid var(--網主_color);
+  border: .5px solid var(--網色1號);
   cursor: pointer;
   text-align: center;
   line-height: 50px;
@@ -329,15 +329,15 @@ https://juejin.cn/post/6844903613936959496*/
 }
 ::-webkit-scrollbar-track {
   border-radius: 3px;
-  background: var(--全透明color);
-  -webkit-box-shadow: inset 0 0 5px var(--全透明color);
+  background: var(--全透明);
+  -webkit-box-shadow: inset 0 0 5px var(--全透明);
   
 }
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  background: var(--全透明color);
-  -webkit-box-shadow: inset 0 0 10px var(--全透明color);
+  background: var(--全透明);
+  -webkit-box-shadow: inset 0 0 10px var(--全透明);
 }
 
 
@@ -423,15 +423,20 @@ https://juejin.cn/post/6844903613936959496*/
 
 /* CSS 變數的基本語法https://muki.tw/native-css-variables/  */
 :root {
-  --網主_color: #4E73DF;
-  --左Menu下_color: #ef9cb1;
-  --全透明color: rgba(0, 0, 0, 0);
+  --網色1號: #b2f178;
+  --左Menu下色: #ef9cb1;
+  --網字色1號: #fff;
+  --網字色2號: #5c5c5c;
+  --全透明: rgba(0, 0, 0, 0);
+
   --產品鍵圖尺寸高: 200px;
   --產品鍵圖尺寸高max: 200px;
   --產品鍵圖尺寸橫: 48%;
   --產品鍵圖尺寸橫max: 200px;
 }
 
-.導大btn{color: var(--網主_color);}
-.主hr{background: var(--網主_color);}
+.導大btn{color: var(--網色1號);}
+.主hr{background: var(--網色1號);}
 
+
+test{color: #45084f}
