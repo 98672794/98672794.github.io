@@ -279,7 +279,7 @@ function _data入網_整div(sel,run,box_name,data) {
     <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '// <img src="'+類圖+'" alt="'+類名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
   , 類書籤 = '\
-    <hr id="'+data[0]+'" style="clear:both; width: 100%;background: #4E73DF;">\
+    <hr id="'+data[0]+'" style="clear:both; width: 100%;" class="主hr">\
     <!-- '+data[0]+'書籤 -->\
     <h1 class="h3 mb-0 text-gray-800">'+data[0]+'</h1>\
     <hr id="_flow_'+data[1]+'_'+data[0]+'" style="clear:both; width: 100%;opacity: 0;">\
@@ -298,7 +298,7 @@ function _data入網_整div(sel,run,box_name,data) {
     <div class="card shadow mb-4">\
         <!-- Card Header - Dropdown -->\
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">\
-            <h4 class="m-0 font-weight-bold text-primary">'+data[0]+'</h4><samp >$ '+data[1]+'</samp>\
+            <h4 class="導大btn m-0 font-weight-bold ">'+data[0]+'</h4><samp >$ '+data[1]+'</samp>\
         </div>\
         <!-- Card Body -->\
         <div class="card-body">\
@@ -312,18 +312,18 @@ function _data入網_整div(sel,run,box_name,data) {
       <div class="card-body">\
         <input type="radio" name="Sel_'+data[0]+'" >\
           <label for="Sel_'+data[0]+'" id="Sel_'+data[0]+'" onclick="選項頁Sel_label('+data[1]+','+data[2]+')">\
-            <span class="text">'+data[3]+'</span>'+data[4]+'\
+            <span class="text">'+data[3]+'</span><span class="Price"'+data[4]+'</span>\
           </label>'+data[5]+'\
       </div>\
     </div>\
   '
   , 選項頁btn = '\
-    <a onclick="選項頁的確認btn組合('+data[0]+')" class="btn btn-primary btn-block btn-lg">確認</a>\
+    <a onclick="選項頁的確認btn組合('+data[0]+')" class="btn btn-block btn-lg '+網all按鍵+'">確認</a>\
     <a onclick="開關購買流程(1)" class="btn btn-block btn-lg">取消</a>\
   '
   , 加購流程頁 = '\
     <h2 class="m-0 font-weight-bold text-primary">嗎?</h2>\
-    <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">加購</a>\
+    <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+網all按鍵+'">加購</a>\
     <a onclick="確定訂單()" class="btn btn-block btn-lg">no了</a>\
   '
 
@@ -355,7 +355,7 @@ function _data入網_整div(sel,run,box_name,data) {
   '
   , 確定訂單頁btn = '\
     <p id="本單加總金">總金額 $ <span >'+data[0]+'</span></p>\
-    <a href="#" onclick="開關購買流程(0)" class="btn btn-primary btn-block btn-lg">確定訂單</a>\
+    <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+網all按鍵+'">確定訂單</a>\
     <a onclick="開關購買流程(0)" class="btn btn-block btn-lg">一陣先</a>\
   '
   // qqq 結算
@@ -483,7 +483,7 @@ function _買野_產品選項(品名,id) {
       if (!!選項名2) 選項2全 = '\
         <input type="radio" name="Sel_'+唉+'" >\
         <label for="Sel_'+唉2+'" id="Sel_'+唉2+'" onclick="選項頁Sel_label('+_label2+','+_label1+')">\
-          <span class="text">'+選項名2+'</span>'+選項價samp2+'</span>\
+          <span class="text">'+選項名2+'</span><span class="Price"'+選項價samp2+'</span>\
         </label>\
         ' 
 
@@ -673,9 +673,16 @@ function 買野(動,id) {
 let 已選項組 = []
 function 選項頁Sel_label(id1, id2) {
 
-  // id label點轉色
-  $('#' + id1).css({ 'background': '#05f' });
-  $('#' + id1 + ' .text').css({ 'color': '#fff', 'font-size': 'xx-large' });
+  // id label點轉色 
+  
+  
+
+
+
+  //$('#' + id1).attr('class', '主hr');
+  $('#' + id1).css({ 'background': '#'+網主_color })
+  $('#' + id1 + ' .text').css({ 'color': '#fff', 'font-size': 'xx-large' })
+  $('#' + id1 + ' .Price').css({ 'color': '#'+左Menu下_color })
   $('#' + id2).css({'background': 'initial'})
   $('#' + id2+' .text').css({'color': 'initial','font-size': 'medium'})
 
@@ -694,6 +701,7 @@ function 選項頁Sel_label(id1, id2) {
     // id1 label 重點轉冇色
     $('#' + id1).css({'background': 'initial'})
     $('#' + id1+' .text').css({'color': 'initial','font-size': 'medium'})
+    $('#' + id1 + ' .Price').css({ 'color': 'initial' })
   }
   // 已選加入
   else{ console.log('已選=',$('#'+id1+' .text').text());  已選項組.push(id1) }
@@ -1005,6 +1013,67 @@ function 開關購買流程(sel) {
 
 /* **********************************************************************************
 *************************************************************************************
+Css 
+
+      ::::::::       ::::::::       ::::::::
+    :+:    :+:     :+:    :+:     :+:    :+:
+   +:+            +:+            +:+
+  +#+            +#++:++#++     +#++:++#++
+ +#+                   +#+            +#+
+#+#    #+#     #+#    #+#     #+#    #+#
+########       ########       ########
+
+*************************************************************************************
+*************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* **********************************************************************************
+*************************************************************************************
 選模版 
 
           :::        :::::::::         :::   :::       :::::::::::       ::::    :::
@@ -1018,14 +1087,29 @@ function 開關購買流程(sel) {
 *************************************************************************************
 *************************************************************************************/
 
-let MOK = !true // admin
-,選版 = '餐廳' 
-// 餐廳
-// 火鍋
+let MOK = !true   
+    // admin
 
-// 版權 $('.copyright').text('©'+new Date().getFullYear()+' All rights reserved by '+location.hostname).css({'font-size': 'medium'})
+  , 選版 = '餐廳' 
+    // 餐廳 // 火鍋
 
-
+  , 網all按鍵 = 'btn-primary' 
+    /**
+      .btn-primary 藍
+      .btn-success 青
+      .btn-info 淺藍
+      .btn-warning 黃
+      .btn-danger 紅
+      .btn-secondary 灰
+      .btn-light 黑
+    */
+  
+  , 網主_color
+  , 左Menu下_color
+$.get('aki/aki.css', function(css){
+  網主_color = css.split('--網主_color: #')[1].split(';')[0]
+  左Menu下_color = css.split('--左Menu下_color: #')[1].split(';')[0]
+})
 
 //遍历并输出localStorage里存储的名字和值
 /**/
