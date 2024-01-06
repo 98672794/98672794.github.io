@@ -101,7 +101,6 @@ function 查客data(){
     
     get客data(客data2)
 
-    // qqq 轉網 localStorage 在
   })
 
 }
@@ -119,6 +118,11 @@ function get客data(客data){
     // page title icon
     $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
     $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
+
+  // 查看購物網 如購物網不是新入網ulr = del購物車 
+  新入網Ulr做主頁 = location.href
+  if (新入網Ulr做主頁 != localStorage.getItem('網Ulr2')) localStorage.clear()
+
 
     // 轉css
     _轉css()
@@ -183,11 +187,17 @@ function get客data(客data){
 
 
 let whatsapp
+let 新入網Ulr做主頁
 function _data入網(數) {
   if (MOK) console.log('_data入網(數)')
 
   // get分類名
   let 類名 = 總Data.values[數][0]
+
+
+
+  // 存儲在本地的瀏覽器購物車產品數
+  if (localStorage.getItem("購物車內")){  $('#已點產品數').text(localStorage.getItem("購物車內"));  $('#已點產品數').show()  }
 
 
   // 網whatsapp
@@ -216,11 +226,11 @@ function _data入網(數) {
 
 
 
-let 新入網Ulr做主頁
+
 function _data入網_加入類名menu(類名,數) {
   if (MOK) console.log('_data入網_加入類名menu(類名,數)')
 
-  新入網Ulr做主頁 = location.href
+
 
   if (!類名) return  //類名空pass
 
@@ -595,15 +605,14 @@ function _買野_產品選項(品名,id) {
 
 
 
-// 存儲在本地的瀏覽器購物車產品數
-if (localStorage.getItem("購物車內")){  $('#已點產品數').text(localStorage.getItem("購物車內"));  $('#已點產品數').show()  }
-// 購物車顯已點產品數
 function 購物車顯已點產品數(料) {
+
   if (MOK) console.log('購物車已加入('+料+')號產品')
 
   let 原已點 = localStorage.getItem("購物車內")
     ,新已點 = ~~原已點+1 // ~~ = str轉int
 
+  // 存儲在本地的瀏覽器購物車產品數  
   localStorage.setItem("購物車內",新已點)
 
   $('#已點產品數').text(新已點)
@@ -621,6 +630,9 @@ function 購物車顯已點產品數(料) {
 
   // 清空已選項組
   已選項組.length = 0 
+
+  // 存儲購物網 如購物網不是新入網ulr = del購物車
+  localStorage.setItem("網Ulr2",(location.href).split('#')[0] )
 
 
 }
@@ -957,7 +969,7 @@ function 確定訂單() {
     let 真產品加分類Data = localStorage.getItem(localStorage.key(i)).split(',') 
     // 真產品加分類Data = [已選購產品id,選項1_id,選項2_id...]
 
-    if (localStorage.key(i) != '購物車內' ){
+    if (localStorage.key(i) != '購物車內' && localStorage.key(i) != '網Ulr2' ){
 
       let 已選購產品id =  真產品加分類Data[0]
         , 品名 = 總Data.values[已選購產品id][4]
