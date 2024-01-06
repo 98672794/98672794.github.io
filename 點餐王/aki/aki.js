@@ -92,6 +92,9 @@ fetch(GEcl).then(res => res.json()).then(res => {
   $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
   $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
 
+  // 轉css
+  _轉css()
+
   // 用data總數计加左類Menu // 0是不用
   for(var 數=docsGoogle開始數 ; 數 < 總Data.values.length ; 數++){  _data入網(數)  }
 })
@@ -189,6 +192,9 @@ function _data入網_加入類名menu(類名,數) {
   // 公司名
   if (數 === docsGoogle開始數){  _data入網_整div('公司名','append','#all類',[類名]) }
 
+  // 公司logo
+  _data入網_整div('公司logo','html','#logoBox','0')
+
   // 類名menu
   if (數 > (docsGoogle開始數+1)){   _data入網_整div('類名menu','append','#all類',[類名]) }
   //不要exl的說明標題 pass
@@ -214,22 +220,25 @@ function _data入網_加入類名menu(類名,數) {
 function _data入網_加入產品(類名,數) {
   if (MOK) console.log('_data入網_加入產品(類名,數)')
 
-  let 加購流程 = 總Data.values[數][1],
-  類圖 = 總Data.values[數][2],
-  品名 = String(總Data.values[數][4]).replace(/\s*/g,""), // 刪空
-  產品價錢 = 總Data.values[數][5],
-  產品圖 = 總Data.values[數][6]
+  let 加購流程 = 總Data.values[數][1]
+    , 類圖 = 總Data.values[數][2]
+    , 品名 = 總Data.values[數][4]
+    , 產品價錢 = 總Data.values[數][5]
+    , 產品圖 = 總Data.values[數][6]
   if (!產品價錢) 產品價錢 = 0 // 沒寫價 = 0
 
   //不要exl的說明標題 pass
   if (數 <= (docsGoogle開始數+1)) return  
 
   // 加入產品書籤
-  if (!!類名){ _data入網_整div('類書籤','append','#all產品',[類名,加購流程])  } //類名空不顯
-  
-  // 加入每產品
-  if (選版 == '餐廳'){   _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])   }
+  if (!!類名){ _data入網_整div('類書籤','append','#all產品',[類名,加購流程])  } // 類名空不顯
 
+  // 品名空不顯
+  if (!品名) return
+
+  // 加入每產品
+  品名 = 品名.replace(/\s*/g,"") // 刪空
+  if (選版 == '餐廳'){  _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢]) }
 
 }
 
@@ -257,7 +266,8 @@ function _data入網_加入產品(類名,數) {
 
 
 
-var NoIMG = "'aki/NoIMG.jpg'" // monica : How to display a default image if the img tag fails to load an image in JavaScript?
+var NoIMG = "'aki/NoIMG.jpg'" 
+// monica : How to display a default image if the img tag fails to load an image in JavaScript?
 var dot = "'"
 function _data入網_整div(sel,run,box_name,data) {
   if (MOK) console.log('_data入網_整div(sel,run,box_name,data)')
@@ -269,6 +279,11 @@ function _data入網_整div(sel,run,box_name,data) {
     </a>\
     <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '
+  , 公司logo = '\
+  <li class="nav-item" style="background: '+網色1號+';" >\
+    <img class="類名 nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
+    </li>\
+  '
   , 類名menu = '\
     <!-- '+data[0]+' -->\
     <li class="nav-item"  title="'+data[0]+'" >\
@@ -278,6 +293,8 @@ function _data入網_整div(sel,run,box_name,data) {
     </li>\
     <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '// <img src="'+類圖+'" alt="'+類名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
+  // qqq 棺號
+
   , 類書籤 = '\
     <hr id="'+data[0]+'" style="clear:both; width: 100%;" class="主hr">\
     <!-- '+data[0]+'書籤 -->\
@@ -423,7 +440,7 @@ function _data入網_整div(sel,run,box_name,data) {
 
 // _買野_餐廳版
 function _買野_餐廳版(id) {
-  if (MOK) console.log('_買野_餐廳版(id)')
+  if (MOK) console.log('_買野_餐廳版('+id+')')
 
   let 品名 = String(總Data.values[id][4]).replace(/\s*/g,"") // 刪空
   ,可選項 = 總Data.values[id][7]
@@ -492,8 +509,7 @@ function _買野_產品選項(品名,id) {
     唉+=4
   } while (止<4)
 
-  let str = '' + id // Monica JavaScript 中的數字轉換為字串
-  _data入網_整div('選項頁btn','append','#購買流程 .row',str)
+  _data入網_整div('選項頁btn','append','#購買流程 .row',[id])
   開關購買流程() // 彈出產品選項
 
 }
@@ -514,7 +530,7 @@ function _買野_產品選項(品名,id) {
 if (localStorage.getItem("購物車內")){  $('#已點產品數').text(localStorage.getItem("購物車內"));  $('#已點產品數').show()  }
 // 購物車顯已點產品數
 function 購物車顯已點產品數(料) {
-  if (MOK) console.log('購物車顯已點產品數()')
+  if (MOK) console.log('購物車已加入('+料+')號產品')
 
   let 原已點 = localStorage.getItem("購物車內")
     ,新已點 = ~~原已點+1 // ~~ = str轉int
@@ -831,13 +847,6 @@ function 刪除單個購物車產品(data,sel) {
   // 重開顯示最新
   確定訂單()
 
-  /* 
-  // 確定訂單 修改  no
-  // 刪了上一個
-  <td style="float: right;" class="btn btn-primary" onclick="刪除單個購物車產品('+dot+data[2]+dot+',0)">修改</td>\
-  if(sel===0) 買野(1,刪除產品的id[0]) 
-  else 確定訂單()
-  */
 }
 
 
@@ -882,7 +891,7 @@ function 確定訂單() {
     if (localStorage.key(i) != '購物車內' ){
 
       let 已選購產品id =  真產品加分類Data[0]
-        , 品名 = (總Data.values[已選購產品id][4]).replace(/\s*/g,"") // 刪空
+        , 品名 = 總Data.values[已選購產品id][4]
         , 產品價錢 = 總Data.values[已選購產品id][5]
         , 加all選項 = ''
         , 加選項總金 = 0
@@ -913,9 +922,9 @@ function 確定訂單() {
       本產品總金 = (parseFloat(加選項總金)+parseFloat(產品價錢)).toFixed(2)
 
       // 加 確定訂單頁 
+      品名 = 品名.replace(/\s*/g,"") // 刪空
       _data入網_整div(
-        '確定訂單頁','append','#購買流程 .row'
-        ,[品名,產品價錢,localStorage.key(i),加all選項,本產品總金]
+        '確定訂單頁','append','#購買流程 .row',[品名,產品價錢,localStorage.key(i),加all選項,本產品總金]
       )
     
       // 本單加總金 轉結算
@@ -1013,39 +1022,57 @@ CSS
 *************************************************************************************
 *************************************************************************************/
 
-let 網all按鍵 = 'btn-warning' 
-  /**
-    .btn-primary 藍
-    .btn-success 青
-    .btn-info 淺藍
-    .btn-warning 黃
-    .btn-danger 紅
-    .btn-secondary 灰
-    .btn-light 黑
-  */
-  
+let 網all按鍵
+    //btn-primary 藍
+    //btn-success 青
+    //btn-info 淺藍
+    //btn-warning 黃
+    //btn-danger 紅
+    //btn-secondary 灰
+    //btn-light 黑
+
+  , 網色1號
+  , 左Menu下色
+  , 網字色1號
+  , 網字色2號
+  , 產品鍵圖尺寸高
+  , 產品鍵圖尺寸高max
+  , 產品鍵圖尺寸橫
+  , 產品鍵圖尺寸橫max
+  = 0
+
+let htmlStyle = document.documentElement.style
+// js取到css样式变量 https://blog.csdn.net/qq_39953537/article/details/91047839
+
+function _轉css() {
+
   // 轉主css
-  , 網色1號 = "#ffd600"
-  , 左Menu下色 = "#9c27b0"
-  , 網字色1號 = "#111"
-  , 網字色2號 = "#999"
-  , htmlStyle = document.documentElement.style
+  網all按鍵 = 'btn-' + 總Data.values[1][4]
+  網色1號 = 總Data.values[1][5]
+  左Menu下色 = 總Data.values[1][6]
+  網字色1號 = 總Data.values[1][7]
+  網字色2號 = 總Data.values[1][8]
+  // 色版 https://codepen.io/ikbbceme-the-sasster/full/eYyJxyN
+
+  產品鍵圖尺寸高 = 總Data.values[1][9]
+  產品鍵圖尺寸高max = 總Data.values[1][10]
+  產品鍵圖尺寸橫 = 總Data.values[1][11]
+  產品鍵圖尺寸橫max = 總Data.values[1][12]
+
+  // 轉色
   htmlStyle.setProperty("--網色1號", 網色1號)
   htmlStyle.setProperty("--左Menu下色", 左Menu下色)
   htmlStyle.setProperty("--網字色1號", 網字色1號)
   htmlStyle.setProperty("--網字色2號", 網字色2號)
-  // 色版 https://codepen.io/ikbbceme-the-sasster/full/eYyJxyN
 
   // 內容大小
-  htmlStyle.setProperty("--產品鍵圖尺寸高", '200px')
-  htmlStyle.setProperty("--產品鍵圖尺寸高max", '200px')
-  htmlStyle.setProperty("--產品鍵圖尺寸橫", '48%')
-  htmlStyle.setProperty("--產品鍵圖尺寸橫max", '200px')
+  htmlStyle.setProperty("--產品鍵圖尺寸高", 產品鍵圖尺寸高)
+  htmlStyle.setProperty("--產品鍵圖尺寸高max", 產品鍵圖尺寸高max)
+  htmlStyle.setProperty("--產品鍵圖尺寸橫", 產品鍵圖尺寸橫)
+  htmlStyle.setProperty("--產品鍵圖尺寸橫max", 產品鍵圖尺寸橫max)
 
-  // js取到css样式变量 https://blog.csdn.net/qq_39953537/article/details/91047839
+}
 
-
-  
 
 
 
@@ -1081,6 +1108,13 @@ let 網all按鍵 = 'btn-warning'
 let MOK = !true   
 // admin
 
-  , docsGoogle開始數= 1 //客名位
+  , docsGoogle開始數= 4 //客名位
   , 選版 = '餐廳' 
   // 餐廳 // 火鍋
+
+
+  
+//遍历并输出localStorage里存储的名字和值
+//for(var i=0; i<localStorage.length;i++){
+//  console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
+//}

@@ -63,7 +63,9 @@
 
 *********************************************************************
 *********************************************************************/
-#all類{position: fixed;top: 0;bottom: 0;left: -50px;overflow-y: scroll;overflow-x: hidden;}
+#all類{
+  
+  position: fixed;top: 0;bottom: 0;left: -50px;overflow-y: scroll;overflow-x: hidden;}
 
 #accordionSidebar{z-index: 3;
   /* 下拉變色 */
@@ -75,11 +77,17 @@
 
 
 #低導航{position: fixed;
+  
   z-index: 2;
+
   bottom: -30px;
   left: 0;right: 0;
+
 }
-footer{margin-bottom: 30px;background: var(--全透明);}
+footer{margin-bottom: 30px;
+  
+  /*background: var(--全透明);*/
+}
 /* /Menu*/
 
 
