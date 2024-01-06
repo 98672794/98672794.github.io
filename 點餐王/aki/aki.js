@@ -82,23 +82,49 @@
   https://sheets.googleapis.com/v4/spreadsheets/{表單id}/values/{sheet名稱}?alt=json&key={API金鑰}
 
   */
-let GEcl = 'https://sheets.googleapis.com/v4/spreadsheets/1Rr9FSD7oVUDxzoIB7tIsVh3GrDSOHp63bLTGh8oCipg/values/test?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM'
+
+
+  
+var 查客 = ['https://sheets.googleapis.com/v4/spreadsheets/1Rr9FSD7oVUDxzoIB7tIsVh3GrDSOHp63bLTGh8oCipg/values/','?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM']
+, 客data2
+function 查客data(){
+
+  var GEcss222l = 查客[0]+'aki'+查客[1]
+  
+  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品
+
+  fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
+    for(var 數=0;數 < r2es.values.length ; 數++){
+      if (客Ulr === r2es.values[數][0]) 客data2 = r2es.values[數][1]
+      else  客data2 = 'test'
+    }
+    
+    get客data(客data2)
+  })
+
+}
+
+
 var 總Data
-fetch(GEcl).then(res => res.json()).then(res => {
-  // 用G資料
-  總Data = res
+function get客data(客data){
 
-  // page title icon
-  $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
-  $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
+  let GEcl = 查客[0]+客data+查客[1]
 
-  // 轉css
-  _轉css()
+  fetch(GEcl).then(res => res.json()).then(res => {
+    // 用G資料
+    總Data = res
 
-  // 用data總數计加左類Menu // 0是不用
-  for(var 數=docsGoogle開始數 ; 數 < 總Data.values.length ; 數++){  _data入網(數)  }
-})
+    // page title icon
+    $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
+    $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
 
+    // 轉css
+    _轉css()
+
+    // 用data總數计加左類Menu // 0是不用
+    for(var 數=docsGoogle開始數 ; 數 < 總Data.values.length ; 數++){  _data入網(數)  }
+  })
+}
 
 
 
@@ -248,17 +274,10 @@ function _data入網_加入產品(類名,數) {
   品名 = 品名.replace(/\s*/g,"") // 刪空
   //if (選版 == '餐廳'){  _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢]) }
 
-  
-  if (總Data.values[數][3] === '2'){ 
-    // 加入文章
-    console.log('加入文章(數)')
-    _data入網_整div('文章類','append','#all產品',[數,產品圖,品名,產品價錢])
-
-  }
+  // 加入文章
+  if (總Data.values[數][3] === '2')_data入網_整div('文章類','append','#all產品',[數,產品圖,品名,產品價錢])
   // 加入每產品
-  else{
-    console.log('加入每產品(數)')
-    _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])}
+  else _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])
 
 
 }
@@ -1128,10 +1147,20 @@ function _轉css() {
 
 
 
+
+
+
+
+
+
+
+
+
+
   
 /* **********************************************************************************
 *************************************************************************************
-選模版 
+admin 
 
           :::        :::::::::         :::   :::       :::::::::::       ::::    :::
        :+: :+:      :+:    :+:       :+:+: :+:+:          :+:           :+:+:   :+:
@@ -1151,9 +1180,9 @@ let MOK = !true
   , 選版 = '餐廳' 
   // 餐廳 // 火鍋
 
-
-  
 //遍历并输出localStorage里存储的名字和值
 //for(var i=0; i<localStorage.length;i++){
 //  console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
 //}
+
+查客data()
