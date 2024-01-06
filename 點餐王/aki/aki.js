@@ -154,12 +154,17 @@ fetch(GEcl).then(res => res.json()).then(res => {
 
 
 
-
+let whatsapp
 function _data入網(數) {
   if (MOK) console.log('_data入網(數)')
 
   // get分類名
   let 類名 = 總Data.values[數][0]
+
+
+  // 網whatsapp
+  whatsapp = 'https://wa.me/'+總Data.values[4][1]+'?text='+總Data.values[4][2]
+  $('#低導航右 a').attr("href",whatsapp)
 
   _data入網_加入類名menu(類名,數)
   _data入網_加入產品(類名,數)  
@@ -190,13 +195,16 @@ function _data入網_加入類名menu(類名,數) {
   if (!類名) return  //類名空pass
 
   // 公司名
-  if (數 === docsGoogle開始數){  _data入網_整div('公司名','append','#all類',[類名]) }
+  if (數 === docsGoogle開始數)  _data入網_整div('公司名','append','#all類',[類名]) 
 
   // 公司logo
   _data入網_整div('公司logo','html','#logoBox','0')
 
+  // 低導航右轉購物車
+  if (總Data.values[1][0] === '1')  _data入網_整div('低導航右','html','#低導航右','0') 
+
   // 類名menu
-  if (數 > (docsGoogle開始數+1)){   _data入網_整div('類名menu','append','#all類',[類名]) }
+  if (數 > (docsGoogle開始數+1))  _data入網_整div('類名menu','append','#all類',[類名])
   //不要exl的說明標題 pass
   
 
@@ -231,19 +239,29 @@ function _data入網_加入產品(類名,數) {
   if (數 <= (docsGoogle開始數+1)) return  
 
   // 加入產品書籤
-  if (!!類名){ _data入網_整div('類書籤','append','#all產品',[類名,加購流程])  } // 類名空不顯
+  if (!!類名) _data入網_整div('類書籤','append','#all產品',[類名,加購流程]) // 類名空不顯
 
   // 品名空不顯
   if (!品名) return
 
   // 加入每產品
   品名 = 品名.replace(/\s*/g,"") // 刪空
-  if (選版 == '餐廳'){  _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢]) }
+  //if (選版 == '餐廳'){  _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢]) }
+
+  
+  if (總Data.values[數][3] === '2'){ 
+    // 加入文章
+    console.log('加入文章(數)')
+    _data入網_整div('文章類','append','#all產品',[數,產品圖,品名,產品價錢])
+
+  }
+  // 加入每產品
+  else{
+    console.log('加入每產品(數)')
+    _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])}
+
 
 }
-
-
-
 
 
 
@@ -280,9 +298,18 @@ function _data入網_整div(sel,run,box_name,data) {
     <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '
   , 公司logo = '\
-  <li class="nav-item" style="background: '+網色1號+';" >\
-    <img class="類名 nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
+    <li class="nav-item" style="background: '+網色1號+';" >\
+      <img class="類名 nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
     </li>\
+  '
+  , 低導航右 = '\
+    <a class="nav-link dropdown-toggle" onclick="確定訂單()" id="userDropdown" role="button"\
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\
+      <span class=" fa fa-shopping-cart" style="font-size:36px;"></span>\
+      <!-- 已點產品數 -->\
+      <span id="已點產品數" class="badge  badge-counter '+網all按鍵+'" style="font-size:24px;border-radius: 50%;">\
+      </span>\
+    </a>\
   '
   , 類名menu = '\
     <!-- '+data[0]+' -->\
@@ -305,9 +332,21 @@ function _data入網_整div(sel,run,box_name,data) {
     <button class="產品鍵" onclick="買野(1,'+data[0]+')">\
     <img src="'+data[1]+'" alt="'+data[2]+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
       <h5>'+data[2]+'</h5>\
-      <p>$ '+data[3]+'</p>\
+      <p class="Price">$ '+data[3]+'</p>\
     </button>\
   '
+  , 文章類 = '\
+    <div class="文章box" style="clear:both;">\
+        <h5>'+data[2]+'</h5>\
+      <div class="card-body">\
+        <div class="text-center">\
+          <img class="" src="'+data[1]+'" alt="'+data[2]+'">\
+        </div>\
+        <p>'+data[3]+'</p>\
+      </div>\
+    </div>\
+  '
+
 
   // 加購流程頁
   , 選項頁 = '\

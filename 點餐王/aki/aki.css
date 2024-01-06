@@ -149,35 +149,74 @@ all產品
 
 
 
-.產品鍵{border: 2px solid var(--網色1號);
+.產品鍵, .文章box{border: 2px solid var(--網色1號);
   border-radius: 5px;margin:1% ;padding: 0%;
-  float: left;
-  height: var(--產品鍵圖尺寸高); 
-  max-width:var(--產品鍵圖尺寸橫max);width: var(--產品鍵圖尺寸橫);
-  position: relative;overflow: hidden;
-  }
+  
+}
 
-.產品鍵 img/*,.類名 img*/{
+.產品鍵 img, .文章box img/*,.類名 img*/{
   width: 100%;height: auto;
-  opacity: 1;}
+  border-radius: 5px;
+  opacity: 1;
+}
 
-.產品鍵 h5{
+.產品鍵 h5,.文章box h5{
   color: var(--網字色1號);
   /*
   mix-blend-mode: difference;
   神奇的 CSS，让文字智能适配背景颜色 https://www.cnblogs.com/coco1s/p/16012545.html
   */
   background: linear-gradient(to right , var(--網色1號) ,  var(--全透明));
-  width: 100%;text-align: left;padding: 0 5%;
+  width: 100%;text-align: left;
   font-weight: 900;font-size: 140%;
-  position: absolute;top: 0;left: 0;
+  padding: 0 5%;
+  
 }
 
 .產品鍵 p{color: var(--網色1號);
+  width: 100%;padding: 0 5%;
+}
+
+
+
+.文章box{
+  max-width:720px;width: 100%;
+  margin: 2% auto;
+}
+.文章box p{color: var(--網色1號);margin: 2%;}
+
+.產品鍵{
+  height: var(--產品鍵圖尺寸高); 
+  max-width:var(--產品鍵圖尺寸橫max);width: var(--產品鍵圖尺寸橫);
+  position: relative;overflow: hidden;
+  float: left;
+}
+
+
+
+.產品鍵 h5{
+  position: absolute;top: 0;left: 0;
+  
+}
+
+
+.產品鍵 p{
+  position: absolute;bottom: -16px;right: 0;
+  text-align: right;font-weight: 500;font-size: 140%;
   background: linear-gradient(to right, var(--全透明) ,var(--網字色1號));
-  width: 100%;text-align: right;padding: 0 5%;
-  font-weight: 500;font-size: 140%;
-  position: absolute;bottom: -16px;right: 0;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -431,10 +470,10 @@ https://juejin.cn/post/6844903613936959496*/
 
 /* CSS 變數的基本語法https://muki.tw/native-css-variables/  */
 :root {
-  --網色1號: #b2f178;
-  --左Menu下色: #ef9cb1;
-  --網字色1號: #fff;
-  --網字色2號: #5c5c5c;
+  --網色1號: #000;
+  --左Menu下色: #000;
+  --網字色1號: #000;
+  --網字色2號: #000;
   --全透明: rgba(0, 0, 0, 0);
 
   --產品鍵圖尺寸高: 200px;
