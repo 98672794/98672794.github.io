@@ -100,6 +100,8 @@ function 查客data(){
     }
     
     get客data(客data2)
+
+    // qqq 轉網 localStorage 在
   })
 
 }
@@ -214,17 +216,19 @@ function _data入網(數) {
 
 
 
-
+let 新入網Ulr做主頁
 function _data入網_加入類名menu(類名,數) {
   if (MOK) console.log('_data入網_加入類名menu(類名,數)')
+
+  新入網Ulr做主頁 = location.href
 
   if (!類名) return  //類名空pass
 
   // 公司名
-  if (數 === docsGoogle開始數)  _data入網_整div('公司名','append','#all類',[類名]) 
+  if (數 === docsGoogle開始數)  _data入網_整div('公司名','append','#all類',[類名,新入網Ulr做主頁]) 
 
   // 公司logo
-  _data入網_整div('公司logo','html','#logoBox','0')
+  _data入網_整div('公司logo','html','#logoBox',[新入網Ulr做主頁])
 
   // 低導航右轉購物車
   if (總Data.values[1][0] === '1')  _data入網_整div('低導航右','html','#低導航右','0') 
@@ -275,7 +279,12 @@ function _data入網_加入產品(類名,數) {
   //if (選版 == '餐廳'){  _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢]) }
 
   // 加入文章
-  if (總Data.values[數][3] === '2')_data入網_整div('文章類','append','#all產品',[數,產品圖,品名,產品價錢])
+  if (總Data.values[數][3] === '2'){
+    let 圖位 = ''
+    if (產品圖) 圖位 = '<img class="" src="'+產品圖+'" alt="'+品名+'">'
+
+    _data入網_整div('文章類','append','#all產品',[數,圖位,品名,產品價錢])
+  }
   // 加入每產品
   else _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])
 
@@ -311,15 +320,17 @@ function _data入網_整div(sel,run,box_name,data) {
 
   // 網頁data
   let 公司名 = '\
-    <a id="公司名" style="color: '+網字色1號+'" class="sidebar-brand d-flex align-items-center justify-content-center" href="./">\
+    <a id="公司名" style="color: '+網字色1號+'" class="sidebar-brand d-flex align-items-center justify-content-center" href="'+data[1]+'">\
     '+data[0]+'\
     </a>\
     <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '
   , 公司logo = '\
-    <li class="nav-item" style="background: '+網色1號+';" >\
-      <img class="類名 nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
-    </li>\
+    <a href="'+data[0]+'">\
+      <li class="nav-item" style="background: '+網色1號+';" >\
+        <img class="類名 nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
+      </li>\
+    </a>\
   '
   , 低導航右 = '\
     <a class="nav-link dropdown-toggle" onclick="確定訂單()" id="userDropdown" role="button"\
@@ -359,7 +370,7 @@ function _data入網_整div(sel,run,box_name,data) {
         <h5>'+data[2]+'</h5>\
       <div class="card-body">\
         <div class="text-center">\
-          <img class="" src="'+data[1]+'" alt="'+data[2]+'">\
+        '+data[1]+'\
         </div>\
         <p>'+data[3]+'</p>\
       </div>\
