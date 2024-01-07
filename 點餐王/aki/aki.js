@@ -95,10 +95,19 @@ function 查客data(){
 
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
     for(var 數=0;數 < r2es.values.length ; 數++){
-      if (客Ulr === r2es.values[數][0]) 客data2 = r2es.values[數][1]
-      else  客data2 = 'test'
+      if (客Ulr === r2es.values[數][0]) {
+        客data2 = r2es.values[數][1]
+        console.log('有')
+        數 = r2es.values.length
+      }
+      else  {
+        客data2 = 'test'
+        console.log('冇')
+      }
     }
     
+    console.log(客data2)
+
     get客data(客data2)
 
   })
