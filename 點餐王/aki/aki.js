@@ -89,14 +89,16 @@ var 查客 = ['https://sheets.googleapis.com/v4/spreadsheets/1Rr9FSD7oVUDxzoIB7t
 , 客data2 = 'test'
 function 查客data(){
 
+  // G ulr
   var GEcss222l = 查客[0]+'aki'+查客[1]
   
+  // 取現網址get 相關data
   客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品
 
-  if (!客Ulr) get客data(客data2) // 直連沒?
+  if (!客Ulr) return get客data(客data2) // 直連沒?
 
+  // 客的Key = 客Ulr
   console.log('客Ulr',客Ulr)
-
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
     for(var 數=0;數 < r2es.values.length ; 數++){
       if (客Ulr === r2es.values[數][0]) {
@@ -104,12 +106,11 @@ function 查客data(){
         數 = r2es.values.length
       }
     }
+    // 客的data
     console.log(客data2)
-
     get客data(客data2)
-
   })
-
+  
 }
 
 
@@ -372,7 +373,7 @@ function _data入網_整div(sel,run,box_name,data) {
   , 類書籤 = '\
     <hr id="'+data[0]+'" style="clear:both; width: 100%;" class="主hr">\
     <!-- '+data[0]+'書籤 -->\
-    <h1 class=" mb-0 text-gray-800">'+data[0]+'</h1>\
+    <h1 style="color: '+網字色1號+'" class="">'+data[0]+'</h1>\
     <hr id="_flow_'+data[1]+'_'+data[0]+'" style="clear:both; width: 100%;opacity: 0;">\
   '
   , 餐廳每產品 = '\
