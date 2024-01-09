@@ -64,8 +64,15 @@
 *********************************************************************
 *********************************************************************/
 #all類{
-  
-  position: fixed;top: 0;bottom: 0;left: -50px;overflow-y: scroll;overflow-x: hidden;}
+  position: fixed;top: 0;bottom: 0;left:-50px;overflow-y: scroll;overflow-x: hidden;
+  font-size: min(max(16px, 2vw), 38px);
+  padding-right:-60px;
+  width: 30%;max-width: 230px;
+}
+
+#公司名{font-size: min(max(16px, 2vw), 38px);}
+#all類 hr{ background: #000;width: 10%;max-width: 50px;}
+
 
 #accordionSidebar{z-index: 3;
   /* 下拉變色 */
@@ -144,7 +151,7 @@ all產品
   */
 
 #all產品{z-index: 0;}
-
+#all產品 h1{font-size: calc(8vw);}
 
 
 
@@ -154,7 +161,7 @@ all產品
   
 }
 
-.產品鍵 img, .文章box img/*,.類名 img*/{
+.產品鍵 img, .文章box img{
   width: 100%;height: auto;
   border-radius: 5px;
   opacity: 1;

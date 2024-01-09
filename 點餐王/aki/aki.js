@@ -86,26 +86,24 @@
 
   
 var 查客 = ['https://sheets.googleapis.com/v4/spreadsheets/1Rr9FSD7oVUDxzoIB7tIsVh3GrDSOHp63bLTGh8oCipg/values/','?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM']
-, 客data2
+, 客data2 = 'test'
 function 查客data(){
 
   var GEcss222l = 查客[0]+'aki'+查客[1]
   
   客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品
 
+  if (!客Ulr) get客data(客data2) // 直連沒?
+
+  console.log('客Ulr',客Ulr)
+
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
     for(var 數=0;數 < r2es.values.length ; 數++){
       if (客Ulr === r2es.values[數][0]) {
         客data2 = r2es.values[數][1]
-        console.log('有')
         數 = r2es.values.length
       }
-      else  {
-        客data2 = 'test'
-        console.log('冇')
-      }
     }
-    
     console.log(客data2)
 
     get客data(客data2)
@@ -342,12 +340,12 @@ function _data入網_整div(sel,run,box_name,data) {
     <a id="公司名" style="color: '+網字色1號+'" class="sidebar-brand d-flex align-items-center justify-content-center" href="'+data[1]+'">\
     '+data[0]+'\
     </a>\
-    <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
+    <hr>\
   '
   , 公司logo = '\
     <a href="'+data[0]+'">\
       <li class="nav-item" style="background: '+網色1號+';" >\
-        <img class="類名 nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
+        <img class="nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
       </li>\
     </a>\
   '
@@ -365,16 +363,16 @@ function _data入網_整div(sel,run,box_name,data) {
     <li class="nav-item"  title="'+data[0]+'" >\
       <a style="color: '+網字色1號+'" class="類名 nav-link " href="#'+data[0]+'" >\
         <span style="font-size: 150%;">'+data[0]+'</span>\
-        </a>\
+      </a>\
+      <hr>\
     </li>\
-    <hr class="sidebar-divider" style="background: rgba(0,0,0,.5);">\
   '// <img src="'+類圖+'" alt="'+類名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
   // qqq 棺號
 
   , 類書籤 = '\
     <hr id="'+data[0]+'" style="clear:both; width: 100%;" class="主hr">\
     <!-- '+data[0]+'書籤 -->\
-    <h1 class="h3 mb-0 text-gray-800">'+data[0]+'</h1>\
+    <h1 class=" mb-0 text-gray-800">'+data[0]+'</h1>\
     <hr id="_flow_'+data[1]+'_'+data[0]+'" style="clear:both; width: 100%;opacity: 0;">\
   '
   , 餐廳每產品 = '\
