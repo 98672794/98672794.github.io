@@ -153,7 +153,7 @@ all產品
 #all產品{z-index: 0;}
 #all產品 h1{font-size: calc(8vw);}
 
-
+#all產品 p{font-size: min(max(24px, 2vw), 30px);}
 
 
 .產品鍵, .文章box{border: 2px solid var(--網色1號);
@@ -175,7 +175,7 @@ all產品
   */
   background: linear-gradient(to right , var(--網色1號) ,  var(--全透明));
   width: 100%;text-align: left;
-  font-weight: 900;font-size: 140%;
+  font-weight: 900;font-size: min(max(24px, 2vw), 38px);
   padding: 0 5%;
   
 }

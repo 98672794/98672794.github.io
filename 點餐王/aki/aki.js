@@ -20,6 +20,7 @@
  * 
  * 開 google ecl 
  * 入客料
+ * 檔案 > 分享 > 及到網
  * 共用
  * 
  * 進入Google Cloud Platform的頁面
@@ -78,27 +79,28 @@
   使用「發佈到網路」的網址(id)會顯示拒絕跨網域請求的錯誤,使用「共用」的網址(id)就成功了
   https://www.letswrite.tw/google-excel-db/#comment-82
 
-  example
-  https://sheets.googleapis.com/v4/spreadsheets/{表單id}/values/{sheet名稱}?alt=json&key={API金鑰}
-
-  */
+*/
 
 
-  
-var 查客 = ['https://sheets.googleapis.com/v4/spreadsheets/1Rr9FSD7oVUDxzoIB7tIsVh3GrDSOHp63bLTGh8oCipg/values/','?alt=json&key=AIzaSyDoWvEleSQeqDFqwXN8z4slV8uhaMNuZAM']
-, 客data2 = 'test'
+/*
+aki data = _ZipCode('{表單id}')  
+客id = 查客data(get客data+1)
+get客data(_DeCode(客id))
+ */
+let 查客   = ['https://sheets.googleapis.com/v4/spreadsheets/','/values/','?alt=json&key=']
+  , 點餐王 = '%5D%83%C4%AB%7F%99%97%7B%A6%C5%AB%99%BC%F2%E9%B8%8By%AB%BD%BC%C9%BE%9Bz%B9%B6%97%A2%97%B8%A6i%95%AE%A0%9B%AF%A0%A7%B2%AC%D9%D7'
+  , api    = 'h%8A%C3%DB%B4%CC%BD%B3%C6%CD%BB%B1%D1%B8%A4%B6%D6%B5%8A%B7%E8%CF%A6%86%B2%AE%A7%DF%C2%8E%AD%DD%C9%AE%9B%C3%CF%9B%8E'
 function 查客data(){
 
   // G ulr
-  var GEcss222l = 查客[0]+'aki'+查客[1]
-  
+  let GEcss222l = 查客[0]+_DeCode(點餐王)+查客[1]+'aki'+查客[2]+_DeCode(api)
+  , 客data2 = 點餐王
+
   // 取現網址get 相關data
-  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品
+  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品 = 153
 
   if (!客Ulr) return get客data(客data2) // 直連沒?
 
-  // 客的Key = 客Ulr
-  console.log('客Ulr',客Ulr)
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
     for(var 數=0;數 < r2es.values.length ; 數++){
       if (客Ulr === r2es.values[數][0]) {
@@ -106,18 +108,34 @@ function 查客data(){
         數 = r2es.values.length
       }
     }
+
     // 客的data
-    console.log(客data2)
+    if (MOK) {
+      console.log('查客的Google Sheets',GEcss222l)
+      console.log('客的Key',客Ulr) 
+      console.log('客dataUlr ZipCode',客data2)
+    }
+    
     get客data(客data2)
   })
-  
+
 }
 
 
-var 總Data
+
+
+
+
+
+
+
+
+let 總Data
 function get客data(客data){
 
-  let GEcl = 查客[0]+客data+查客[1]
+  let GEcl = 查客[0]+_DeCode(客data)+查客[1]+'d'+查客[2]+_DeCode(api)
+  if (MOK) console.log('客總Data的ulr',GEcl)
+
 
   fetch(GEcl).then(res => res.json()).then(res => {
     // 用G資料
@@ -131,7 +149,6 @@ function get客data(客data){
   新入網Ulr做主頁 = location.href
   if (新入網Ulr做主頁 != localStorage.getItem('網Ulr2')) localStorage.clear()
 
-
     // 轉css
     _轉css()
 
@@ -139,6 +156,87 @@ function get客data(客data){
     for(var 數=docsGoogle開始數 ; 數 < 總Data.values.length ; 數++){  _data入網(數)  }
   })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ******************************************************************************************************
+*********************************************************************************************************
+加密解密
+
+      :::::::::       :::::::::::       :::::::::        ::::::::       ::::::::       :::::::::       ::::::::::
+          :+:            :+:           :+:    :+:      :+:    :+:     :+:    :+:      :+:    :+:      :+:
+        +:+             +:+           +:+    +:+      +:+            +:+    +:+      +:+    +:+      +:+
+      +#+              +#+           +#++:++#+       +#+            +#+    +:+      +#+    +:+      +#++:++#
+    +#+               +#+           +#+             +#+            +#+    +#+      +#+    +#+      +#+
+  #+#                #+#           #+#             #+#    #+#     #+#    #+#      #+#    #+#      #+#
+#########       ###########       ###              ########       ########       #########       ##########
+
+*********************************************************************************************************
+*********************************************************************************************************/
+// JS七种加密解密方法 https://www.cnblogs.com/mq0036/p/4983858.html
+
+// 加密 qqq 另頁
+function _ZipCode(code)  
+{    
+  var c=String.fromCharCode(code.charCodeAt(0)+code.length);  
+  for(var i=1;i<code.length;i++){  
+  c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));  
+  }  
+  //  console.log(escape(c))
+  return c
+}  
+
+//解密
+function _DeCode(code)  
+{  
+  code=unescape(code);  
+  var c=String.fromCharCode(code.charCodeAt(0)-code.length);  
+  for(var i=1;i<code.length;i++){  
+    c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));  
+  }  
+  //  console.log(c)
+  return c
+}  
+
+// _DeCode(_ZipCode('表單id'))
+
+
+
+
+
+
+
 
 
 
@@ -1217,3 +1315,13 @@ let MOK = !true
 //}
 
 查客data()
+
+
+
+
+
+// qqq 另頁
+// console.log(escape(_ZipCode('1NrrrubNIoZnuBru2004FtSB_Q82Z4EAjZkRfzSlpUGk')))
+
+
+
