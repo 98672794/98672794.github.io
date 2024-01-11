@@ -206,17 +206,6 @@ function get客data(客data){
 *********************************************************************************************************/
 // JS七种加密解密方法 https://www.cnblogs.com/mq0036/p/4983858.html
 
-// 加密 qqq 另頁
-function _ZipCode(code)  
-{    
-  var c=String.fromCharCode(code.charCodeAt(0)+code.length);  
-  for(var i=1;i<code.length;i++){  
-  c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));  
-  }  
-  //  console.log(escape(c))
-  return c
-}  
-
 //解密
 function _DeCode(code)  
 {  
@@ -229,7 +218,6 @@ function _DeCode(code)
   return c
 }  
 
-// _DeCode(_ZipCode('表單id'))
 
 
 
@@ -566,6 +554,8 @@ function _data入網_整div(sel,run,box_name,data) {
   // 執行儲存為字串的 JavaScript 程式碼 https://stackoverflow.com/a/939343
   // append = [run] https://chateverywhere.app/
   $(box_name)[run]([eval(sel)])
+  // $("div").append('strong')
+  // <script src="3.7.0.js
 
 }
 
@@ -1320,8 +1310,6 @@ let MOK = !true
 
 
 
-// qqq 另頁
-// console.log(escape(_ZipCode('1NrrrubNIoZnuBru2004FtSB_Q82Z4EAjZkRfzSlpUGk')))
 
 
 
