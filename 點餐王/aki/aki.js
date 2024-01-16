@@ -7,11 +7,8 @@
 
 /*
 * aki
-* 202401032346
+* 202401162348
 */
-
-
-
 
 
 
@@ -56,17 +53,25 @@
 
 
 
+
+
+
+
+
+
+
+
 /* ******************************************************************************************************
 *********************************************************************************************************
 取Google Sheets 資料 
 
-      ::::::::       ::::::::   :::::::::::        :::::::::           :::    :::::::::::           :::
-    :+:    :+:     :+:    :+:      :+:            :+:    :+:        :+: :+:      :+:             :+: :+:
-   +:+            +:+             +:+            +:+    +:+       +:+   +:+     +:+            +:+   +:+
-  :#:            +#++:++#++      +#+            +#+    +:+      +#++:++#++:    +#+           +#++:++#++:
- +#+   +#+#            +#+      +#+            +#+    +#+      +#+     +#+    +#+           +#+     +#+
-#+#    #+#     #+#    #+#      #+#            #+#    #+#      #+#     #+#    #+#           #+#     #+#
-########       ########       ###            #########       ###     ###    ###           ###     ###
+      ::::::::       ::::::::::   :::::::::::       :::::::::           :::    :::::::::::           :::
+    :+:    :+:      :+:              :+:           :+:    :+:        :+: :+:      :+:             :+: :+:
+   +:+             +:+              +:+           +:+    +:+       +:+   +:+     +:+            +:+   +:+
+  :#:             +#++:++#         +#+           +#+    +:+      +#++:++#++:    +#+           +#++:++#++:
+ +#+   +#+#      +#+              +#+           +#+    +#+      +#+     +#+    +#+           +#+     +#+
+#+#    #+#      #+#              #+#           #+#    #+#      #+#     #+#    #+#           #+#     #+#
+########       ##########       ###           #########       ###     ###    ###           ###     ###
 
 *********************************************************************************************************
 *********************************************************************************************************/
@@ -78,18 +83,17 @@
 
   使用「發佈到網路」的網址(id)會顯示拒絕跨網域請求的錯誤,使用「共用」的網址(id)就成功了
   https://www.letswrite.tw/google-excel-db/#comment-82
-
 */
-
 
 /*
 aki data = _ZipCode('{表單id}')  
 客id = 查客data(get客data+1)
 get客data(_DeCode(客id))
- */
+*/
 let 查客   = ['https://sheets.googleapis.com/v4/spreadsheets/','/values/','?alt=json&key=']
   , 點餐王 = '%5D%83%C4%AB%7F%99%97%7B%A6%C5%AB%99%BC%F2%E9%B8%8By%AB%BD%BC%C9%BE%9Bz%B9%B6%97%A2%97%B8%A6i%95%AE%A0%9B%AF%A0%A7%B2%AC%D9%D7'
   , api    = 'h%8A%C3%DB%B4%CC%BD%B3%C6%CD%BB%B1%D1%B8%A4%B6%D6%B5%8A%B7%E8%CF%A6%86%B2%AE%A7%DF%C2%8E%AD%DD%C9%AE%9B%C3%CF%9B%8E'
+  , 客Lv   = '1'
 function 查客data(){
 
   // G ulr
@@ -101,11 +105,12 @@ function 查客data(){
 
   if (!客Ulr) return get客data(客data2) // 直連沒?
 
-  fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
-    for(var 數=0;數 < r2es.values.length ; 數++){
-      if (客Ulr === r2es.values[數][0]) {
-        客data2 = r2es.values[數][1]
-        數 = r2es.values.length
+  fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => { // 取表 
+    for(var 數=0;數 < r2es.values.length ; 數++){           // 循環表找客Key
+      if (客Ulr === r2es.values[數][0]) {                   // 客Key在表
+          客data2 = r2es.values[數][1]                      // 客Key+1=客api
+          客Lv    = r2es.values[數][2]                      // 客Lv有冇購物車
+          數      = r2es.values.length                      // 終止循環
       }
     }
 
@@ -130,12 +135,14 @@ function 查客data(){
 
 
 
+
+
+
 let 總Data
 function get客data(客data){
 
   let GEcl = 查客[0]+_DeCode(客data)+查客[1]+'d'+查客[2]+_DeCode(api)
   if (MOK) console.log('客總Data的ulr',GEcl)
-
 
   fetch(GEcl).then(res => res.json()).then(res => {
     // 用G資料
@@ -145,9 +152,9 @@ function get客data(客data){
     $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
     $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
 
-  // 查看購物網 如購物網不是新入網ulr = del購物車 
-  新入網Ulr做主頁 = location.href
-  if (新入網Ulr做主頁 != localStorage.getItem('網Ulr2')) localStorage.clear()
+    // 查看購物網 如購物網不是新入網ulr = del購物車 
+    新入網Ulr做主頁 = location.href
+    if (新入網Ulr做主頁 != localStorage.getItem('網Ulr2')) localStorage.clear()
 
     // 轉css
     _轉css()
@@ -288,11 +295,8 @@ function _data入網(數) {
   // get分類名
   let 類名 = 總Data.values[數][0]
 
-
-
   // 存儲在本地的瀏覽器購物車產品數
   if (localStorage.getItem("購物車內")){  $('#已點產品數').text(localStorage.getItem("購物車內"));  $('#已點產品數').show()  }
-
 
   // 網whatsapp
   whatsapp = 'https://wa.me/'+總Data.values[4][1]+'?text='+總Data.values[4][2]
@@ -324,8 +328,6 @@ function _data入網(數) {
 function _data入網_加入類名menu(類名,數) {
   if (MOK) console.log('_data入網_加入類名menu(類名,數)')
 
-
-
   if (!類名) return  //類名空pass
 
   // 公司名
@@ -335,7 +337,7 @@ function _data入網_加入類名menu(類名,數) {
   _data入網_整div('公司logo','html','#logoBox',[新入網Ulr做主頁])
 
   // 低導航右轉購物車
-  if (總Data.values[1][0] === '1')  _data入網_整div('低導航右','html','#低導航右','0') 
+  if (客Lv === '1')  _data入網_整div('低導航右','html','#低導航右','0')
 
   // 類名menu
   if (數 > (docsGoogle開始數+1))  _data入網_整div('類名menu','append','#all類',[類名])
@@ -730,7 +732,6 @@ function 購物車顯已點產品數(料) {
   // 存儲購物網 如購物網不是新入網ulr = del購物車
   localStorage.setItem("網Ulr2",(location.href).split('#')[0] )
 
-
 }
 
 
@@ -1074,24 +1075,23 @@ function 確定訂單() {
         , 加選項總金 = 0
         , 本產品總金 = 0
 
-        // 取選項 不要0的id
-        for(var jj=1; jj<真產品加分類Data.length;jj++){
-          let 真選項 = 真產品加分類Data[jj].split('_') //只取sel_後的
-          , 真選項價 = ~~真選項[1]+1
-          , 真選項價2 = 總Data.values[已選購產品id][真選項價]
+      // 取選項 不要0的id
+      for(var jj=1; jj<真產品加分類Data.length;jj++){
+        let 真選項 = 真產品加分類Data[jj].split('_') //只取sel_後的
+        , 真選項價 = ~~真選項[1]+1
+        , 真選項價2 = 總Data.values[已選購產品id][真選項價]
           
-          if (!真選項價2) 真選項價2 = 0
+        if (!真選項價2) 真選項價2 = 0
 
-          //顯示選項用 多項+後
-          if(!!總Data.values[已選購產品id][真選項[1]]){ // 如該選項的GEcl非空
-            加all選項 = 加all選項 + 總Data.values[已選購產品id][真選項[1]] + '($' + 真選項價2 + ')' + ','  
-          }
-
-          // 如有選項 加選項總金額
-          // 保留两位小数 https://chateverywhere.app/
-          if (加all選項 != '') 加選項總金 = (parseFloat(加選項總金)+parseFloat(真選項價2)).toFixed(2)
-
+        //顯示選項用 多項+後
+        if(!!總Data.values[已選購產品id][真選項[1]]){ // 如該選項的GEcl非空
+          加all選項 = 加all選項 + 總Data.values[已選購產品id][真選項[1]] + '($' + 真選項價2 + ')' + ','  
         }
+
+        // 如有選項 加選項總金額
+        // 保留两位小数 https://chateverywhere.app/
+        if (加all選項 != '') 加選項總金 = (parseFloat(加選項總金)+parseFloat(真選項價2)).toFixed(2)
+      }
 
       if (!產品價錢) 產品價錢 = 0 // 沒寫價 = 0
 
@@ -1157,7 +1157,6 @@ function 開關購買流程(sel) {
     // filter 導致 position 失效 https://shinyu0430.github.io/2021/09/18/filterchildproblem/
   }
 }
-  
 
 
 
@@ -1179,11 +1178,6 @@ function 開關購買流程(sel) {
 
 
 
-
-
-
-
-  
 /* **********************************************************************************
 *************************************************************************************
 CSS
@@ -1292,17 +1286,14 @@ admin
 *************************************************************************************
 *************************************************************************************/
 
-let MOK = !true   
-// admin
-
+let MOK = !true         // admin
   , docsGoogle開始數= 4 //客名位
-  , 選版 = '餐廳' 
-  // 餐廳 // 火鍋
+  , 選版 = '餐廳'       // 餐廳 // 火鍋
 
 //遍历并输出localStorage里存储的名字和值
-//for(var i=0; i<localStorage.length;i++){
-//  console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
-//}
+if (MOK) for(var i=0; i<localStorage.length;i++){
+  console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
+}
 
 查客data()
 
