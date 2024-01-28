@@ -93,23 +93,22 @@ get客data(_DeCode(客id))
 let 查客   = ['https://sheets.googleapis.com/v4/spreadsheets/','/values/','?alt=json&key=']
   , 點餐王 = '%5D%83%C4%AB%7F%99%97%7B%A6%C5%AB%99%BC%F2%E9%B8%8By%AB%BD%BC%C9%BE%9Bz%B9%B6%97%A2%97%B8%A6i%95%AE%A0%9B%AF%A0%A7%B2%AC%D9%D7'
   , api    = 'h%8A%C3%DB%B4%CC%BD%B3%C6%CD%BB%B1%D1%B8%A4%B6%D6%B5%8A%B7%E8%CF%A6%86%B2%AE%A7%DF%C2%8E%AD%DD%C9%AE%9B%C3%CF%9B%8E'
-  , 客Lv   = '1'
 function 查客data(){
 
   // G ulr
   let GEcss222l = 查客[0]+_DeCode(點餐王)+查客[1]+'aki'+查客[2]+_DeCode(api)
-  , 客data2 = 點餐王
 
   // 取現網址get 相關data
-  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品 = 153
+    客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品 = 153
 
-  if (!客Ulr) return get客data(客data2) // 直連沒?
+  if (!客Ulr) 客Ulr = 'aki' // 直連沒?
 
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => { // 取表 
     for(var 數=0;數 < r2es.values.length ; 數++){           // 循環表找客Key
       if (客Ulr === r2es.values[數][0]) {                   // 客Key在表
           客data2 = r2es.values[數][1]                      // 客Key+1=客api
           客Lv    = r2es.values[數][2]                      // 客Lv有冇購物車
+          客表    = r2es.values[數][3]                      // 客的海低
           數      = r2es.values.length                      // 終止循環
       }
     }
@@ -152,9 +151,17 @@ function get客data(客data){
     $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
     $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
 
-    // 查看購物網 如購物網不是新入網ulr = del購物車 
-    新入網Ulr做主頁 = location.href
-    if (新入網Ulr做主頁 != localStorage.getItem('網Ulr2')) localStorage.clear()
+    // save now url
+    新入網Ulr做主頁 = (location.href).split('#')[0]
+    // 查看購物網 如購物網不是新入網ulr = del購物車
+    /**
+     * 不用del
+     * 因各網ulr多不同
+     * 很難a網轉B網
+     * 但刪?後就會轉網del
+     * 易發生
+     */
+    //if (新入網Ulr做主頁 != localStorage.getItem('網Ulr2')) localStorage.clear()
 
     // 轉css
     _轉css()
@@ -439,7 +446,7 @@ function _data入網_整div(sel,run,box_name,data) {
     </a>\
   '
   , 低導航右 = '\
-    <a class="nav-link dropdown-toggle" onclick="確定訂單()" id="userDropdown" role="button"\
+    <a class="nav-link dropdown-toggle" onclick="查看購物車()" id="userDropdown" role="button"\
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\
       <span class=" fa fa-shopping-cart" style="font-size:36px;"></span>\
       <!-- 已點產品數 -->\
@@ -516,11 +523,30 @@ function _data入網_整div(sel,run,box_name,data) {
   , 加購流程頁 = '\
     <h2 class="m-0 font-weight-bold">嗎?</h2>\
     <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+網all按鍵+'">加購</a>\
-    <a onclick="確定訂單()" class="no了 btn btn-block btn-lg">no了</a>\
+    <a onclick="查看購物車()" class="no了 btn btn-block btn-lg">no了</a>\
   '
 
 
   // 確定訂單頁
+  , 顯示已點的訂單1 = '\
+    <div class="card shadow mb-4">\
+      <div class="card-body">\
+        <div class="table-responsive">\
+        <h5>已點訂單</h5>\
+          <table class=" " width="100%" cellspacing="0" >\
+            <tbody id="顯示已點的訂單床">\
+            </tbody>\
+          </table>\
+        </div>\
+      </div>\
+    </div>\
+  '
+  , 顯示已點的訂單2 = data[0]
+  , 顯示已點的訂單3 = '\
+    <tr>\
+    <td></td><td></td><td class="導大btn" style="float: right; font-weight: 500;font-size: 140%;" >'+data[0]+'</td>\
+    </tr>\
+  '
   , 清空購物車 = '<a id="清空購物車" onclick="清空購物車()" class="btn btn-danger btn-block btn-lg">刪除所有</a><br>'
   , 確定訂單頁 = '\
     <div class="card shadow mb-4">\
@@ -531,11 +557,11 @@ function _data入網_整div(sel,run,box_name,data) {
               <tr>\
                   <td style="float: left;" class="btn btn-danger" onclick="刪除單個購物車產品('+dot+data[2]+dot+',1)">刪除</td>\
               </tr>\
-              <tr>\
+              <tr class="購物車表">\
                   <td style="float: left; font-weight: 900;font-size: 140%;">'+data[0]+'</td>\
                   <td style="float: right; ">$ '+data[1]+'</td>\
               </tr>\
-              <tr>\
+              <tr class="購物車表">\
                   <td style="float: left;" >'+data[3]+'</td>\
                   <td class="導大btn" style="float: right; font-weight: 500;font-size: 140%;" >$ '+data[4]+'</td>\
               </tr>\
@@ -546,8 +572,8 @@ function _data入網_整div(sel,run,box_name,data) {
     </div>\
   '
   , 確定訂單頁btn = '\
-    <p id="本單加總金">總金額 $ <span >'+data[0]+'</span></p>\
-    <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+網all按鍵+'">確定訂單</a>\
+    <p id="本單加總金">總金額 $ <span >'+data[1]+'</span></p>\
+    <a onclick="開關購買流程(0);'+data[0]+'" class="btn btn-block btn-lg '+網all按鍵+'">確定訂單</a>\
     <a onclick="開關購買流程(0)" class="no了 btn btn-block btn-lg">一陣先</a>\
   '
   // qqq 結算
@@ -624,7 +650,7 @@ function _買野_餐廳版(id) {
 
   //如有可選項
   if (!!可選項) {_買野_產品選項(品名, id)}  
-  else {購物車顯已點產品數(id);確定訂單()}
+  else {購物車顯已點產品數(id);查看購物車()}
   // 如果想判断一个值不是undefined、null和空字符串中的一种，则用 !! 就可以 
   // https://blog.csdn.net/m0_38039437/article/details/127791259
 
@@ -729,7 +755,7 @@ function 購物車顯已點產品數(料) {
   // 清空已選項組
   已選項組.length = 0 
 
-  // 存儲購物網 如購物網不是新入網ulr = del購物車
+  // 存儲 now 購物網 如購物網不是新入網ulr = del購物車 (get客data()用)
   localStorage.setItem("網Ulr2",(location.href).split('#')[0] )
 
 }
@@ -946,7 +972,7 @@ function 加購流程(id) {
 
   // if有下個流程
   下個流程 = ~~加購流程+1
-  if ( $('hr[id^="_flow_'+下個流程+'_"]').length === 0 ) return 確定訂單()  
+  if ( $('hr[id^="_flow_'+下個流程+'_"]').length === 0 ) return 查看購物車()  
   // jQuery判断元素存在与否 https://www.cnblogs.com/asplover/p/14470731.html
   // jq id模糊查询 https://blog.csdn.net/qq_24909089/article/details/100026008
 
@@ -1023,7 +1049,7 @@ function 刪除單個購物車產品(data,sel) {
   $('#已點產品數').text(購物數)
 
   // 重開顯示最新
-  確定訂單()
+  查看購物車()
 
 }
 
@@ -1048,25 +1074,83 @@ function 刪除單個購物車產品(data,sel) {
 
 
 
-// 確定訂單
-function 確定訂單() {
-  if (MOK) console.log('確定訂單()')
+// 查看購物車
+function 查看購物車() { 
+  if (MOK) console.log('查看購物車()')
 
-  let 訂單總金 = 0
+
+
+  
+
+
   // 清頁面
   _data入網_整div('清空購物車','html','#購買流程 .row','0')
   // 購物車有產品才顯示
   if (localStorage.length > 1)  $('#清空購物車').css({'display': 'block'})
 
+
+
+
+
+
+
+
+  // 顯示已點的訂單 qqq 
+  
+  console.log("localStorage.getItem('已點訂單')",localStorage.getItem('已點訂單'))
+
+  if(!!localStorage.getItem('已點訂單')) {                            // 如有已點的訂單
+    let 已點的訂單 = localStorage.getItem('已點訂單').split('!?')          // 已點的訂單轉list
+      , totoPrice = 已點的訂單.pop()                                      // 刪除並取最後一個元素
+
+    _data入網_整div('顯示已點的訂單1','append','#購買流程 .row','')
+
+    for(var 已點的cont=0; 已點的cont<已點的訂單.length;已點的cont=已點的cont+3){   // loop加入已點的內容
+                              // 0=品名
+      let bb = 已點的cont+1   //   選項
+        , cc = 已點的cont+2   //   單價
+        , data = '\
+        <tr>\
+        <td style="float: left;" >'+已點的訂單[已點的cont]+'</td>'
+        +'<td>'+已點的訂單[bb]+'</td>'
+        +'<td style="float: right;" >'+已點的訂單[cc]+'</td>\
+        </tr>'
+
+        _data入網_整div('顯示已點的訂單2','append','#顯示已點的訂單床',[data])
+
+      //console.log("totoPrice",totoPrice,已點的cont)
+    }
+
+
+
+    _data入網_整div('顯示已點的訂單3','append','#顯示已點的訂單床',[totoPrice])
+
+
+     // 清空購物車 並保留 顯示已點的訂單床 qqq 
+  
+  }
+
+
+
+
+
+
+
+  let 訂單總金 = 0
+    , 有購物
   // all 訂單 內容
   for(var i=0; i<localStorage.length;i++){
-    // 读取第一条数据的变量名(键值 https://blog.csdn.net/wy_Blog/article/details/77945410
+    
 
     // 分割 localStorage 轉為數組 取購產品id
     let 真產品加分類Data = localStorage.getItem(localStorage.key(i)).split(',') 
     // 真產品加分類Data = [已選購產品id,選項1_id,選項2_id...]
+    
 
-    if (localStorage.key(i) != '購物車內' && localStorage.key(i) != '網Ulr2' ){
+    if ( localStorage.key(i) != '購物車內' 
+      && localStorage.key(i) != '網Ulr2' 
+      && localStorage.key(i) != '已點訂單' 
+    ){
 
       let 已選購產品id =  真產品加分類Data[0]
         , 品名 = 總Data.values[已選購產品id][4]
@@ -1100,26 +1184,169 @@ function 確定訂單() {
 
       // 加 確定訂單頁 
       品名 = 品名.replace(/\s*/g,"") // 刪空
+
+      
       _data入網_整div(
         '確定訂單頁','append','#購買流程 .row',[品名,產品價錢,localStorage.key(i),加all選項,本產品總金]
-      )
+      ) 
     
       // 本單加總金 轉結算
       訂單總金 = (parseFloat(訂單總金)+parseFloat(本產品總金)).toFixed(2)
 
+      有購物 = 品名
     }
   }
 
   // 加 確定訂單 btn
-  _data入網_整div('確定訂單頁btn','append','#購買流程 .row',[訂單總金])
+  if (!!有購物) btn = ['確定訂單()',訂單總金]
+  else btn = ['',訂單總金]
+  _data入網_整div('確定訂單頁btn','append','#購買流程 .row',btn)
 
   // 彈出確定訂單
   開關購買流程() 
 
-  console.log(' ++++請確定訂單++++ ')
+  console.log(' +請確定訂單+ ')
   
 }
 
+
+
+
+
+
+
+
+
+
+
+
+// 確定訂單
+
+/*
+客D傍新s
+sid = ?**? //d/?**?/edit
+
+s>擴>app script> pass .gs
+
+部>新>類(網)>執(我)>取(所)>部
+
+客表Z = 部id
+
+https://emtech.cc/post/rol-call/
+https://chateverywhere.app
+---
+
+.gs
+---
+const id = "sid"
+
+
+
+function doGet(e) {
+  let t = {
+    name: e.parameter.name,
+    time: new Date().toLocaleString(),
+    type: e.parameter.type // 添加type参数，以便在switch语句中使用
+  };
+  let a = SpreadsheetApp.openById(id).getSheets()
+    , data = t.name.split('!?') //data轉list
+    , totoprice = data.pop()  // 刪除並取最後一個元素
+
+  switch (t.type) {
+    case "new":
+
+      let f = a[0].getLastRow() + 2 //頁2 加新行
+
+      // 添加兩行空白
+      a[0].appendRow([""])
+
+      // loop加入訂單內容
+      for(var cont=0; cont<data.length;cont=cont+3){
+                          // 0=品名
+        let bb = cont+1   //   選項     
+          , cc = cont+2;  //   單價
+        a[0].appendRow([data[cont], data[bb], data[cc]])
+      }
+
+      // 将时间合并到2个单元格 https://chateverywhere.app/
+      let lastRow = a[0].getLastRow();
+      a[0].getRange(lastRow + 1, 1).setValue(t.time);
+      let totopriceRange = a[0].getRange(lastRow + 1, 1, 1, 2);
+      totopriceRange.merge();
+      totopriceRange.setHorizontalAlignment("right");
+
+      // 秘3格加入總金
+      //let lastRow = a[0].getLastRow();
+      a[0].getRange(lastRow+1, 3).setValue(totoprice);
+
+      // 添加兩行空白
+      a[0].appendRow([" "])
+      a[0].appendRow([""]);
+            
+      let response = {
+        success: true
+      };
+      return ContentService.createTextOutput(JSON.stringify(response))
+        .setMimeType(ContentService.MimeType.JSON);
+
+    default:
+      return _hi();
+  }
+}
+
+function _hi() {
+  var url = 'https://98672794.github.io/%E9%BB%9E%E9%A4%90%E7%8E%8B/#%E9%A3%B2%E5%93%81'; // The URL you want to redirect to
+  var htmlOutput = HtmlService.createHtmlOutput('<script>window.location.href = "' + url + '";</'+'script>');
+  return htmlOutput;
+}
+
+---
+*/
+
+
+function 確定訂單() {
+  if (MOK) console.log('確定訂單()')
+
+  let url3 = ["%8B%DC%E8%E4%E3%ADi%5E%A2%D6%D5%DB%D9%E4%A2%95%D6%DE%D6%D3%D1%93%91%D2%DC%9C%9C%CE%C4%D5%E1%E2%A2%A2%A2","4%94%DD%DD%C8"]
+    , 客低 = _DeCode(url3[0])+_DeCode(客表)+_DeCode(url3[1]) // 客結數表
+    , 訂單list = ''
+
+    
+    for(var cont=0; cont<$(".購物車表 td").length;cont=cont+4){
+
+      let j = cont+1
+        , k = cont+2
+        , m = cont+3
+        , 名   = $('.購物車表 td').eq(cont).text()
+        , 原價 = $('.購物車表 td').eq(j).text()
+        , 選   = $('.購物車表 td').eq(k).text()
+        , 總價 = $('.購物車表 td').eq(m).text()
+
+      訂單list = 訂單list 
+      + 名 + 原價 + '!?'
+      + 選 + '!?'
+      + 總價 + '!?'
+
+    }
+
+    訂單list = 訂單list + ($('#本單加總金').text())
+
+  console.log('訂單list)',訂單list)
+
+  if (MOK) console.log('客表',客低)
+
+  訂單list && (fetch(`${客低}?type=new&name=${encodeURIComponent(訂單list)}`, {mode: 'no-cors'}))
+
+  // 已完
+  console.log('已發送訂單')
+
+  // save已點的訂單 
+  localStorage.setItem("已點訂單",訂單list)
+  // 重BUY qqq 
+  // 清空購物車 qqq 
+  
+
+  }
 
 
 
@@ -1270,7 +1497,7 @@ function _轉css() {
 
 
 
-  
+
 /* **********************************************************************************
 *************************************************************************************
 admin 
@@ -1291,15 +1518,12 @@ let MOK = !true         // admin
   , 選版 = '餐廳'       // 餐廳 // 火鍋
 
 //遍历并输出localStorage里存储的名字和值
+// 读取第一条数据的变量名(键值 https://blog.csdn.net/wy_Blog/article/details/77945410
 if (MOK) for(var i=0; i<localStorage.length;i++){
   console.log('localStorage里存储的第'+i+'条数据的名字为：'+localStorage.key(i)+',值为：'+localStorage.getItem(localStorage.key(i)));
 }
 
 查客data()
-
-
-
-
 
 
 

@@ -54,7 +54,10 @@
 
         $('#表單id').val(escape(c))
 
-        //console.log(escape(c))
+        // 複製 input 內容 https://chateverywhere.app/
+        $('#表單id').select()
+        document.execCommand("copy")
+
         return c
     }  
 
