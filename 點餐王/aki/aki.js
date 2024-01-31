@@ -401,7 +401,6 @@ function _data入網_加入產品(類名,數) {
   // 加入每產品
   else _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])
 
-
 }
 
 
@@ -532,9 +531,11 @@ function _data入網_整div(sel,run,box_name,data) {
     <div class="card shadow mb-4">\
       <div class="card-body">\
         <div class="table-responsive">\
-        <h5>已點訂單</h5>\
           <table class=" " width="100%" cellspacing="0" >\
             <tbody id="顯示已點的訂單床">\
+            <tr>\
+              <td><h5>已點訂單</h5></td><td></td><td style="float: right;" class="btn btn-block btn-lg '+網all按鍵+'" onclick="結帳();開關購買流程(1)">結帳</td>\
+              <hr></tr>\
             </tbody>\
           </table>\
         </div>\
@@ -576,7 +577,7 @@ function _data入網_整div(sel,run,box_name,data) {
     <a onclick="開關購買流程(0);'+data[0]+'" class="btn btn-block btn-lg '+網all按鍵+'">確定訂單</a>\
     <a onclick="開關購買流程(0)" class="no了 btn btn-block btn-lg">一陣先</a>\
   '
-  // qqq 結算
+
 
 
   // 執行儲存為字串的 JavaScript 程式碼 https://stackoverflow.com/a/939343
@@ -890,6 +891,11 @@ function 買野(動,id) {
 
 
 
+
+
+
+
+
 let 已選項組 = []
 function 選項頁Sel_label(id1, id2) {
 
@@ -936,6 +942,23 @@ function 選項頁Sel_label(id1, id2) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function 選項頁的確認btn組合(data) {
   if (MOK) console.log('選項頁的確認btn組合(',{data},')')
 
@@ -943,6 +966,18 @@ function 選項頁的確認btn組合(data) {
   開關購買流程(0)
   加購流程(data) 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1008,8 +1043,13 @@ function 清空購物車() {
   let r=confirm("你是否要清空購物車!!")
 
 	if (r==true){
+
+    // 清購物車前 ,備份已點
+    已點的單 = localStorage.getItem('已點訂單')
     localStorage.clear()
     $('#已點產品數').text(0)	
+    // 清購物車後 ,重save已點
+    localStorage.setItem("已點訂單",已點的單)
   }
   // 确认框 https://www.runoob.com/js/js-popup.html
 
@@ -1078,27 +1118,13 @@ function 刪除單個購物車產品(data,sel) {
 function 查看購物車() { 
   if (MOK) console.log('查看購物車()')
 
-
-
-  
-
-
   // 清頁面
   _data入網_整div('清空購物車','html','#購買流程 .row','0')
   // 購物車有產品才顯示
   if (localStorage.length > 1)  $('#清空購物車').css({'display': 'block'})
 
-
-
-
-
-
-
-
-  // 顯示已點的訂單 qqq 
-  
-  console.log("localStorage.getItem('已點訂單')",localStorage.getItem('已點訂單'))
-
+  // 顯示已點的訂單
+  //console.log("localStorage.getItem('已點訂單')",localStorage.getItem('已點訂單'))
   if(!!localStorage.getItem('已點訂單')) {                            // 如有已點的訂單
     let 已點的訂單 = localStorage.getItem('已點訂單').split('!?')          // 已點的訂單轉list
       , totoPrice = 已點的訂單.pop()                                      // 刪除並取最後一個元素
@@ -1115,38 +1141,21 @@ function 查看購物車() {
         +'<td>'+已點的訂單[bb]+'</td>'
         +'<td style="float: right;" >'+已點的訂單[cc]+'</td>\
         </tr>'
-
-        _data入網_整div('顯示已點的訂單2','append','#顯示已點的訂單床',[data])
-
-      //console.log("totoPrice",totoPrice,已點的cont)
+      _data入網_整div('顯示已點的訂單2','append','#顯示已點的訂單床',[data])
     }
 
-
-
     _data入網_整div('顯示已點的訂單3','append','#顯示已點的訂單床',[totoPrice])
-
-
-     // 清空購物車 並保留 顯示已點的訂單床 qqq 
-  
   }
-
-
-
-
-
-
 
   let 訂單總金 = 0
     , 有購物
   // all 訂單 內容
   for(var i=0; i<localStorage.length;i++){
     
-
     // 分割 localStorage 轉為數組 取購產品id
     let 真產品加分類Data = localStorage.getItem(localStorage.key(i)).split(',') 
     // 真產品加分類Data = [已選購產品id,選項1_id,選項2_id...]
     
-
     if ( localStorage.key(i) != '購物車內' 
       && localStorage.key(i) != '網Ulr2' 
       && localStorage.key(i) != '已點訂單' 
@@ -1186,9 +1195,7 @@ function 查看購物車() {
       品名 = 品名.replace(/\s*/g,"") // 刪空
 
       
-      _data入網_整div(
-        '確定訂單頁','append','#購買流程 .row',[品名,產品價錢,localStorage.key(i),加all選項,本產品總金]
-      ) 
+      _data入網_整div('確定訂單頁','append','#購買流程 .row',[品名,產品價錢,localStorage.key(i),加all選項,本產品總金]) 
     
       // 本單加總金 轉結算
       訂單總金 = (parseFloat(訂單總金)+parseFloat(本產品總金)).toFixed(2)
@@ -1208,9 +1215,6 @@ function 查看購物車() {
   console.log(' +請確定訂單+ ')
   
 }
-
-
-
 
 
 
@@ -1311,42 +1315,56 @@ function 確定訂單() {
     , 客低 = _DeCode(url3[0])+_DeCode(客表)+_DeCode(url3[1]) // 客結數表
     , 訂單list = ''
 
-    
-    for(var cont=0; cont<$(".購物車表 td").length;cont=cont+4){
+  // 重BUY
+  if(!!localStorage.getItem('已點訂單')) {                                  // 如有已點的訂單
+    已點的訂單重BUY用 = localStorage.getItem('已點訂單').split('總金額 $')   // 取總金前料
+    訂單list = 已點的訂單重BUY用[0]                                         // 加之前的已點的訂單
+  }
 
-      let j = cont+1
-        , k = cont+2
-        , m = cont+3
-        , 名   = $('.購物車表 td').eq(cont).text()
-        , 原價 = $('.購物車表 td').eq(j).text()
-        , 選   = $('.購物車表 td').eq(k).text()
-        , 總價 = $('.購物車表 td').eq(m).text()
+  // loop做訂單list
+  for(var cont=0; cont<$(".購物車表 td").length;cont=cont+4){
+    let j = cont+1
+      , k = cont+2
+      , m = cont+3
+      , 名   = $('.購物車表 td').eq(cont).text()
+      , 原價 = $('.購物車表 td').eq(j).text()
+      , 選   = $('.購物車表 td').eq(k).text()
+      , 總價 = $('.購物車表 td').eq(m).text()
 
-      訂單list = 訂單list 
-      + 名 + 原價 + '!?'
-      + 選 + '!?'
-      + 總價 + '!?'
+    訂單list = 訂單list 
+    + 名 + 原價 + '!?'
+    + 選 + '!?'
+    + 總價 + '!?'
+  }
 
-    }
+  // 重BUY
+  if(!!localStorage.getItem('已點訂單')) {      
 
-    訂單list = 訂單list + ($('#本單加總金').text())
+    現總金 = $('#本單加總金').text().split('總金額 $')
 
-  console.log('訂單list)',訂單list)
+    現總金 = (parseFloat(已點的訂單重BUY用[1])+parseFloat(現總金[1])).toFixed(2)
+
+    訂單list = 訂單list + '總金額 $' + 現總金
+
+  }
+  // 新buy
+  else 訂單list = 訂單list + ($('#本單加總金').text())
+
+  if (MOK) console.log('訂單list)',訂單list)
 
   if (MOK) console.log('客表',客低)
 
   訂單list && (fetch(`${客低}?type=new&name=${encodeURIComponent(訂單list)}`, {mode: 'no-cors'}))
 
-  // 已完
-  console.log('已發送訂單')
+  // 清空購物車
+  localStorage.clear()
+  $('#已點產品數').text(0)	
 
   // save已點的訂單 
   localStorage.setItem("已點訂單",訂單list)
-  // 重BUY qqq 
-  // 清空購物車 qqq 
-  
+  console.log("已點訂單=",localStorage.getItem('已點訂單').split('!?') )
 
-  }
+}
 
 
 
@@ -1354,6 +1372,12 @@ function 確定訂單() {
 
 
 
+
+function 結帳() {
+  // 刪除localStorage內產品
+  localStorage.removeItem('已點訂單')
+  console.log('已刪除=','已點訂單')
+}
 
 
 
