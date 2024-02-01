@@ -341,11 +341,15 @@ function _data入網_加入類名menu(類名,數) {
   // 公司名
   if (數 === docsGoogle開始數)  _data入網_整div('公司名','append','#all類',[類名,新入網Ulr做主頁]) 
 
-  // 公司logo
-  _data入網_整div('公司logo','html','#logoBox',[新入網Ulr做主頁])
-
+  let 客台nb = ''
   // 低導航右轉購物車
-  if (客Lv === '1')  _data入網_整div('低導航右','html','#低導航右','0')
+  if (客Lv === '1')  {
+    _data入網_整div('低導航右','html','#低導航右','0')
+    客台nb = '<h3 style="position: fixed;bottom: 0;left: calc(17vw);width:50px;opacity: .5;" class="btn btn-block btn-lg '+網all按鍵+'">'+客台號+'</h3>'
+  }
+
+  // 公司logo
+  _data入網_整div('公司logo','html','#logoBox',[新入網Ulr做主頁,客台nb])
 
   // 類名menu
   if (數 > (docsGoogle開始數+1))  _data入網_整div('類名menu','append','#all類',[類名])
@@ -444,7 +448,7 @@ function _data入網_整div(sel,run,box_name,data) {
         <img class="nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
       </li>\
     </a>\
-    <h3 style="position: fixed;bottom: 0;left: calc(17vw);width:50px;opacity: .5;" class="btn btn-block btn-lg '+網all按鍵+'">'+客台號+'</h3>\
+    <!-- 客台號 -->'+data[1]+'\
   '
   , 低導航右 = '\
     <a class="nav-link dropdown-toggle" onclick="查看購物車()" id="userDropdown" role="button"\
