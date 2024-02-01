@@ -64,15 +64,16 @@
 *********************************************************************
 *********************************************************************/
 #all類{
-  position: fixed;top: 0;bottom: 0;left:-50px;overflow-y: scroll;overflow-x: hidden;
+  position: fixed;top: 10px;bottom: 0;left:-50px;overflow-y: scroll;overflow-x: hidden;
   font-size: min(max(16px, 2vw), 38px);
-  padding-right:-60px;
-  width: 30%;max-width: 230px;
+  width: min-content;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
+#all類 a{max-width: 200px;} /* 防 firefox出界 */
 #公司名{font-size: min(max(16px, 2vw), 38px);}
 #all類 hr{ background: #000;width: 10%;max-width: 50px;}
-
 
 #accordionSidebar{z-index: 3;
   /* 下拉變色 */
@@ -80,19 +81,13 @@
   background-image:linear-gradient(180deg,var(--網色1號) 10%,var(--左Menu下色) 100%);
   background-size:cover
 }
-
-
-
 #低導航{position: fixed;
-  
   z-index: 2;
-
   bottom: -30px;
   left: 0;right: 0;
 
 }
 footer{margin-bottom: 30px;
-  
   /*background: var(--全透明);*/
 }
 /* /Menu*/

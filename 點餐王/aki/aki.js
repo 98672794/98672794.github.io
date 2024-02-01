@@ -107,8 +107,9 @@ function 查客data(){
     for(var 數=0;數 < r2es.values.length ; 數++){           // 循環表找客Key
       if (客Ulr === r2es.values[數][0]) {                   // 客Key在表
           客data2 = r2es.values[數][1]                      // 客Key+1=客api
-          客Lv    = r2es.values[數][2]                      // 客Lv有冇購物車
+          客Lv    = r2es.values[數][2]                      // 客Lv1=有購物車
           客表    = r2es.values[數][3]                      // 客的海低
+          客台號  = r2es.values[數][4]                      // 台號
           數      = r2es.values.length                      // 終止循環
       }
     }
@@ -443,6 +444,7 @@ function _data入網_整div(sel,run,box_name,data) {
         <img class="nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
       </li>\
     </a>\
+    <h3 style="position: fixed;bottom: 0;left: calc(17vw);width:50px;opacity: .5;" class="btn btn-block btn-lg '+網all按鍵+'">'+客台號+'</h3>\
   '
   , 低導航右 = '\
     <a class="nav-link dropdown-toggle" onclick="查看購物車()" id="userDropdown" role="button"\
@@ -462,7 +464,6 @@ function _data入網_整div(sel,run,box_name,data) {
       <hr>\
     </li>\
   '// <img src="'+類圖+'" alt="'+類名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
-  // qqq 棺號
 
   , 類書籤 = '\
     <hr id="'+data[0]+'" style="clear:both; width: 100%;" class="主hr">\
@@ -1374,14 +1375,19 @@ function 確定訂單() {
 
 
 function 結帳() {
-  // 刪除localStorage內產品
+
+  // 支付 qqq 
+
+
+
+  // admin 確認 刪除localStorage內產品 qqq 
   localStorage.removeItem('已點訂單')
   console.log('已刪除=','已點訂單')
 }
 
 
 
-
+// admin睇單set野睇數 qqq 
 
 
 
@@ -1538,7 +1544,7 @@ admin
 *************************************************************************************/
 
 let MOK = !true         // admin
-  , docsGoogle開始數= 4 //客名位
+  , docsGoogle開始數= 3 //客名位
   , 選版 = '餐廳'       // 餐廳 // 火鍋
 
 //遍历并输出localStorage里存储的名字和值
