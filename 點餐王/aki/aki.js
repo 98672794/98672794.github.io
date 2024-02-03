@@ -156,6 +156,7 @@ function get客data(客data){
     新入網Ulr做主頁 = (location.href).split('#')[0]
     // 查看購物網 如購物網不是新入網ulr = del購物車
     /**
+     *  qqq 可用作每新台 qqq 
      * 不用del
      * 因各網ulr多不同
      * 很難a網轉B網
@@ -345,7 +346,7 @@ function _data入網_加入類名menu(類名,數) {
   // 低導航右轉購物車
   if (客Lv === '1')  {
     _data入網_整div('低導航右','html','#低導航右','0')
-    客台nb = '<h3 style="position: fixed;bottom: 0;left: calc(17vw);width:50px;opacity: .5;" class="btn btn-block btn-lg '+網all按鍵+'">'+客台號+'</h3>'
+    客台nb = '<h3 style="position: fixed;bottom: 0;left: calc(17vw);width:auto;padding:1%;opacity: .8;" class="btn btn-block btn-lg '+網all按鍵+'">'+客台號+'</h3>'
   }
 
   // 公司logo
@@ -538,9 +539,14 @@ function _data入網_整div(sel,run,box_name,data) {
         <div class="table-responsive">\
           <table class=" " width="100%" cellspacing="0" >\
             <tbody id="顯示已點的訂單床">\
-            <tr>\
-              <td><h5>已點訂單</h5></td><td></td><td style="float: right;" class="btn btn-block btn-lg '+網all按鍵+'" onclick="結帳();開關購買流程(1)">結帳</td>\
-              <hr></tr>\
+              <tr>\
+                <td colspan="3" id="支付方式列表的床">\
+                </td>\
+              </tr>\
+              <tr>\
+              <hr>\
+                <td><h5>已點訂單</h5></td><td></td><td id="結帳鍵" style="float: right;" class="btn btn-block btn-lg '+網all按鍵+'" onclick="結帳();">結帳</td>\
+              </tr>\
             </tbody>\
           </table>\
         </div>\
@@ -553,6 +559,22 @@ function _data入網_整div(sel,run,box_name,data) {
     <td></td><td></td><td class="導大btn" style="float: right; font-weight: 500;font-size: 140%;" >'+data[0]+'</td>\
     </tr>\
   '
+
+
+
+
+  , 支付方式列表 = '\
+    <a style="float: left;margin: 1%;width: 31.3%;" onclick="打開支付('+dot+data[1]+dot+',)" class="btn  btn-lg '+網all按鍵+'">'+data[0]+'</a>\
+  '
+  
+  , 打開支付頁 = '\
+    '+data[0]+'\
+    <a onclick="打開支付('+dot+''+dot+',1);結帳()" class="no了 btn btn-block btn-lg">返回</a>\
+  '
+
+
+
+
   , 清空購物車 = '<a id="清空購物車" onclick="清空購物車()" class="btn btn-danger btn-block btn-lg">刪除所有</a><br>'
   , 確定訂單頁 = '\
     <div class="card shadow mb-4">\
@@ -1379,19 +1401,45 @@ function 確定訂單() {
 
 
 function 結帳() {
+  console.log('請選支付方式')
 
-  // 支付 qqq 
+  // loop找支付方式
+  let 支付方式開始數 = 9
+    , 止=0
+  for(var 數=支付方式開始數 ; 止 < 2 ; 數++){
+    let 支付方式名 = 總Data.values[2][數]
+      , 支付方式料 = 總Data.values[3][數]
+    if (!!支付方式名) _data入網_整div('支付方式列表','append','#支付方式列表的床',[支付方式名,支付方式料])
 
+    if (!支付方式名) 止++ // 冇名1次out
+  }
+
+  // 取消支付方式列表onclick 防重
+  $('#結帳鍵').text("結帳中...").attr("onclick",'')
 
 
   // admin 確認 刪除localStorage內產品 qqq 
-  localStorage.removeItem('已點訂單')
-  console.log('已刪除=','已點訂單')
+  //localStorage.removeItem('已點訂單')
+  //console.log('已刪除=','已點訂單')
 }
 
 
+function 打開支付(木,sel) {
 
-// admin睇單set野睇數 qqq 
+  // 現場支付
+  let data5= '<h5 class="btn btn-lg '+網all按鍵+'">'+木+'</h5>'
+
+  // qr支付 如data包含"http"
+  if(木.indexOf("http") >= 0 ) {
+    data5 = '<img style="width: 100%;height: auto;" src="'+木+'">'
+  }
+
+  // 返回時 清空頁面
+  if (sel==1) _data入網_整div('顯示已點的訂單2','html','#支付方式列表的床','')
+  // 顯示支付碼
+  else _data入網_整div('打開支付頁','html','#支付方式列表的床',[data5])
+}
+
 
 
 
