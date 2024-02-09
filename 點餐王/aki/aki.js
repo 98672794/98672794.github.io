@@ -90,11 +90,13 @@ aki data = _0x5569ds('{表單id}')
 客id = 查客data(get客data+1)
 get客data(_0x1731ba(客id))
 */
-let 查客   = ['https://sheets.googleapis.com/v4/spreadsheets/','/values/','?alt=json&key=']
-  , 點餐王 = '%5D%83%C4%AB%7F%99%97%7B%A6%C5%AB%99%BC%F2%E9%B8%8By%AB%BD%BC%C9%BE%9Bz%B9%B6%97%A2%97%B8%A6i%95%AE%A0%9B%AF%A0%A7%B2%AC%D9%D7'
-  , api    = 'h%8A%C3%DB%B4%CC%BD%B3%C6%CD%BB%B1%D1%B8%A4%B6%D6%B5%8A%B7%E8%CF%A6%86%B2%AE%A7%DF%C2%8E%AD%DD%C9%AE%9B%C3%CF%9B%8E'
+let 查客=["/steehsdaerps/4v/moc.sipaelgoog.steehs//:sptth".split("").reverse().join(""),"/seulav/".split("").reverse().join(""),"\u003f\u0061\u006c\u0074\u003d\u006a\u0073\u006f\u006e\u0026\u006b\u0065\u0079\u003d"]
+,點餐王="7D%9D%CA%2B%7A%0A%FA%B9%0A%EA%59%i6A%8B%79%2A%79%6B%9B%zB9%EB%9C%CB%DB%BA%yB8%8B%9E%2F%CB%99%BA%5C%6A%B7%79%99%F7%BA%4C%38%D5%".split("").reverse().join("")
+,api="E8%B9%FC%3C%B9%EA%9C%DD%DA%E8%2C%FD%7A%EA%2B%68%6A%FC%8E%7B%A8%5B%6D%6B%4A%8B%1D%1B%BB%DC%6C%3B%DB%CC%4B%BD%3C%A8%h".split("").reverse().join("")
+,客data2="\u0025\u0035\u0044\u0025\u0039\u0044\u0025\u0041\u0034\u0070\u0025\u0039\u0041\u0025\u0041\u0033\u0025\u0042\u0041\u0025\u0043\u0037\u0025\u0041\u0038\u0025\u0041\u0036\u0025\u0039\u0039\u0025\u0039\u0037\u0025\u0042\u0034\u0025\u0042\u0046\u0025\u0042\u0036\u0025\u0039\u0038\u0025\u0038\u0036\u0025\u0041\u0033\u0025\u0041\u0041\u0025\u0043\u0035\u0025\u0042\u0030\u0025\u0038\u0036\u0025\u0038\u0045\u0025\u0037\u0044\u0025\u0038\u0044\u0025\u0042\u0038\u0025\u0039\u0037\u0025\u0037\u0044\u0025\u0039\u0046\u0025\u0043\u0045\u0025\u0044\u0035\u0025\u0039\u0033\u0025\u0039\u0036\u0025\u0039\u0034\u0025\u0039\u0043\u0025\u0045\u0035\u0025\u0044\u0031\u0025\u0043\u0033\u0025\u0041\u0045\u0025\u0042\u0044\u0025\u0045\u0043\u0025\u0045\u0030\u0025\u0041\u0030\u0025\u0038\u0033"
+,客Lv='1'
+,客台號='點餐王';
 
-  , ttt01
 function 查客data(){
 
   // G ulr
@@ -122,7 +124,7 @@ function 查客data(){
       console.log('客的Key',客Ulr) 
       console.log('客dataUlr ZipCode',客data2)
     }
-    
+
     get客data(客data2)
   })
 
@@ -296,7 +298,7 @@ function _data入網(數) {
   if (localStorage.getItem("購物車內")){  $('#已點產品數').text(localStorage.getItem("購物車內"));  $('#已點產品數').show()  }
 
   // 網whatsapp
-  whatsapp = 'https://wa.me/'+總Data.values[4][1]+'?text='+總Data.values[4][2]
+  whatsapp = 'https://wa.me/'+總Data.values[docsGoogle開始數][1]+'?text='+總Data.values[docsGoogle開始數][2]
   $('#低導航右 a').attr("href",whatsapp)
 
   _data入網_加入類名menu(類名,數)
