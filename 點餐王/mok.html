@@ -5,11 +5,9 @@
 <head>
     <title>admin</title>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
+    <script src="aki/_.js"></script>
 </head>
 <body id="mok">
-
-
-
 <!-- 
 \\\\\\\\\\\\\\\\\\\\\\
 \\\\\\\\\\\\\\\\\\\\\\
@@ -21,49 +19,26 @@
 \\\\\\\\\\\\\\\\\\\\\\
 \\\\\\\\\\\\\\\\\\\\\\
 \\\\\\\\\\\\\\\\\\\\\\
- -->
-
-
-
-
+-->
 <script>
-
-/*
-\\\\\\\\\\\\\\\\\\\\\\
-
-\\\\\\\\\\\\\\\\\\\\\\
-*/
-
-    // add div
-    $("#mok").append(
-        '<br><button onclick="_ZipCode()">hi</button>'
-        ,'<input id="表單id" type="text"  onclick="_Del()" placeholder="id">'
-    )
-
-    // 加密
-    function _ZipCode(){
-
-        code = $( "#表單id" ).val()
-        //console.log(code)
-
-        var c=String.fromCharCode(code.charCodeAt(0)+code.length)
-
-        for(var i=1;i<code.length;i++){  
-        c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1))
-        }  
-
-        $('#表單id').val(escape(c))
-
-        // 複製 input 內容 https://chateverywhere.app/
-        $('#表單id').select()
-        document.execCommand("copy")
-
-        return c
-    }  
-
-    function _Del(){    $('#表單id').val('')    }
+// add div
+$("#mok").append(
+    '<br><button onclick="_0x5569ds_()">hi</button>'
+  , '<input id="表單id" type="text"  onclick="_Del()" placeholder="id">'
+  , '<input id="表單id2" type="text" onclick="_0x1731ba_();_Del()" style="height: 1px; width: 1px;">'
+)
 </script>
-
-
+<!-- 
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+-->
 </body>
 </html>
