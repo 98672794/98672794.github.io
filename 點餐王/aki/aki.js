@@ -24,7 +24,7 @@
  * https://console.cloud.google.com/?hl=zh-TW 按下新增項目
  * 
  * 進到API 庫：https://console.cloud.google.com/apis/library?hl=zh-TW
- * 搜尋欄中搜尋“sheet”
+ * 搜尋欄中搜尋“sheet"
  * 
  * 按下 啟用
  * 
@@ -37,20 +37,6 @@
  *  https://sheets.googleapis.com/v4/spreadsheets/{表單id}/values/{sheet名稱}?alt=json&key={API金鑰}
  * 
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -90,57 +76,7 @@ aki data = _0x5569ds('{表單id}')
 客id = 查客data(get客data+1)
 get客data(_0x1731ba(客id))
 */
-let 查客=["/steehsdaerps/4v/moc.sipaelgoog.steehs//:sptth".split("").reverse().join(""),"/seulav/".split("").reverse().join(""),"\u003f\u0061\u006c\u0074\u003d\u006a\u0073\u006f\u006e\u0026\u006b\u0065\u0079\u003d"]
-,點餐王="7D%9D%CA%2B%7A%0A%FA%B9%0A%EA%59%i6A%8B%79%2A%79%6B%9B%zB9%EB%9C%CB%DB%BA%yB8%8B%9E%2F%CB%99%BA%5C%6A%B7%79%99%F7%BA%4C%38%D5%".split("").reverse().join("")
-,api="E8%B9%FC%3C%B9%EA%9C%DD%DA%E8%2C%FD%7A%EA%2B%68%6A%FC%8E%7B%A8%5B%6D%6B%4A%8B%1D%1B%BB%DC%6C%3B%DB%CC%4B%BD%3C%A8%h".split("").reverse().join("")
-,客data2="\u0025\u0035\u0044\u0025\u0039\u0044\u0025\u0041\u0034\u0070\u0025\u0039\u0041\u0025\u0041\u0033\u0025\u0042\u0041\u0025\u0043\u0037\u0025\u0041\u0038\u0025\u0041\u0036\u0025\u0039\u0039\u0025\u0039\u0037\u0025\u0042\u0034\u0025\u0042\u0046\u0025\u0042\u0036\u0025\u0039\u0038\u0025\u0038\u0036\u0025\u0041\u0033\u0025\u0041\u0041\u0025\u0043\u0035\u0025\u0042\u0030\u0025\u0038\u0036\u0025\u0038\u0045\u0025\u0037\u0044\u0025\u0038\u0044\u0025\u0042\u0038\u0025\u0039\u0037\u0025\u0037\u0044\u0025\u0039\u0046\u0025\u0043\u0045\u0025\u0044\u0035\u0025\u0039\u0033\u0025\u0039\u0036\u0025\u0039\u0034\u0025\u0039\u0043\u0025\u0045\u0035\u0025\u0044\u0031\u0025\u0043\u0033\u0025\u0041\u0045\u0025\u0042\u0044\u0025\u0045\u0043\u0025\u0045\u0030\u0025\u0041\u0030\u0025\u0038\u0033"
-,客Lv='1'
-,客台號='點餐王';
-
-function 查客data(){
-
-  // G ulr
-  let GEcss222l = 查客[0]+_0x1731ba(點餐王)+查客[1]+'aki'+查客[2]+_0x1731ba(api)
-
-  // 取現網址get 相關data
-  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品 = 153
-  if (!客Ulr) 客Ulr = 'aki' // 直連沒?
-  客Ulr = escape(_0x5569ds(客Ulr))
-
-  fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => { // 取表 
-    for(var 數=0;數 < r2es.values.length ; 數++){           // 循環表找客Key
-      if (客Ulr === r2es.values[數][0]) {                   // 客Key在表
-          客data2 = r2es.values[數][1]                      // 客Key+1=客api
-          客Lv    = r2es.values[數][2]                      // 客Lv1=有購物車
-          客表    = r2es.values[數][3]                      // 客的海低
-          客台號  = r2es.values[數][4]                      // 台號
-          數      = r2es.values.length                      // 終止循環
-      }
-    }
-
-    // 客的data
-    if (MOK) {
-      console.log('查客的Google Sheets',GEcss222l)
-      console.log('客的Key',客Ulr) 
-      console.log('客dataUlr ZipCode',客data2)
-    }
-
-    get客data(客data2)
-  })
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
+let 查客=["\u002f\u0073\u0074\u0065\u0065\u0068\u0073\u0064\u0061\u0065\u0072\u0070\u0073\u002f\u0034\u0076\u002f\u006d\u006f\u0063\u002e\u0073\u0069\u0070\u0061\u0065\u006c\u0067\u006f\u006f\u0067\u002e\u0073\u0074\u0065\u0065\u0068\u0073\u002f\u002f\u003a\u0073\u0070\u0074\u0074\u0068"["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")),"\u002f\u0073\u0065\u0075\u006c\u0061\u0076\u002f"["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''),"=yek&nosj=tla?".split("").reverse().join("")],點餐王='7D%9D%CA%2B%7A%0A%FA%B9%0A%EA%59%i6A%8B%79%2A%79%6B%9B%zB9%EB%9C%CB%DB%BA%yB8%8B%9E%2F%CB%99%BA%5C%6A%B7%79%99%F7%BA%4C%38%D5%'['split']("".split("").reverse().join(""))['reverse']()['join']("".split("").reverse().join("")),api="\u0045\u0038\u0025\u0042\u0039\u0025\u0046\u0043\u0025\u0033\u0043\u0025\u0042\u0039\u0025\u0045\u0041\u0025\u0039\u0043\u0025\u0044\u0044\u0025\u0044\u0041\u0025\u0045\u0038\u0025\u0032\u0043\u0025\u0046\u0044\u0025\u0037\u0041\u0025\u0045\u0041\u0025\u0032\u0042\u0025\u0036\u0038\u0025\u0036\u0041\u0025\u0046\u0043\u0025\u0038\u0045\u0025\u0037\u0042\u0025\u0041\u0038\u0025\u0035\u0042\u0025\u0036\u0044\u0025\u0036\u0042\u0025\u0034\u0041\u0025\u0038\u0042\u0025\u0031\u0044\u0025\u0031\u0042\u0025\u0042\u0042\u0025\u0044\u0043\u0025\u0036\u0043\u0025\u0033\u0042\u0025\u0044\u0042\u0025\u0043\u0043\u0025\u0034\u0042\u0025\u0042\u0044\u0025\u0033\u0043\u0025\u0041\u0038\u0025\u0068"['split']("")['reverse']()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")),客data2="\u0025\u0035\u0044\u0025\u0039\u0044\u0025\u0041\u0034\u0070\u0025\u0039\u0041\u0025\u0041\u0033\u0025\u0042\u0041\u0025\u0043\u0037\u0025\u0041\u0038\u0025\u0041\u0036\u0025\u0039\u0039\u0025\u0039\u0037\u0025\u0042\u0034\u0025\u0042\u0046\u0025\u0042\u0036\u0025\u0039\u0038\u0025\u0038\u0036\u0025\u0041\u0033\u0025\u0041\u0041\u0025\u0043\u0035\u0025\u0042\u0030\u0025\u0038\u0036\u0025\u0038\u0045\u0025\u0037\u0044\u0025\u0038\u0044\u0025\u0042\u0038\u0025\u0039\u0037\u0025\u0037\u0044\u0025\u0039\u0046\u0025\u0043\u0045\u0025\u0044\u0035\u0025\u0039\u0033\u0025\u0039\u0036\u0025\u0039\u0034\u0025\u0039\u0043\u0025\u0045\u0035\u0025\u0044\u0031\u0025\u0043\u0033\u0025\u0041\u0045\u0025\u0042\u0044\u0025\u0045\u0043\u0025\u0045\u0030\u0025\u0041\u0030\u0025\u0038\u0033",客Lv='1',客台號="\u738B\u9910\u9EDE".split("").reverse().join("");function 查客data(){let _0x23077e=查客[0x4ec70^0x4ec70]+_0x1731ba(點餐王)+查客[0xbe9b2^0xbe9b3]+"ika".split("").reverse().join("")+查客[0xb0c16^0xb0c14]+_0x1731ba(api);客Ulr=location["\u0068\u0072\u0065\u0066"]["\u0073\u0070\u006c\u0069\u0074"]("\u003f")[0x2730e^0x2730f];if(!客Ulr)客Ulr="ika".split("").reverse().join("");客Ulr=escape(_0x5569ds(客Ulr));fetch(_0x23077e)["\u0074\u0068\u0065\u006e"](_0x219973=>_0x219973['json']())['then'](_0x44f3bb=>{for(var _0xdc1a7e=0x5b8a0^0x5b8a0;_0xdc1a7e<_0x44f3bb['values']['length'];_0xdc1a7e++){if(客Ulr===_0x44f3bb["\u0076\u0061\u006c\u0075\u0065\u0073"][_0xdc1a7e][0xbf23e^0xbf23e]){客data2=_0x44f3bb['values'][_0xdc1a7e][0x7edeb^0x7edea];客Lv=_0x44f3bb['values'][_0xdc1a7e][0x4d795^0x4d797];客表=_0x44f3bb['values'][_0xdc1a7e][0xa5d7b^0xa5d78];客台號=_0x44f3bb['values'][_0xdc1a7e][0xd40b1^0xd40b5];_0xdc1a7e=_0x44f3bb["\u0076\u0061\u006c\u0075\u0065\u0073"]['length'];}}if(MOK){console['log']("steehS elgooG\u7684\u5BA2\u67E5".split("").reverse().join(""),_0x23077e);console["\u006c\u006f\u0067"]("\u5ba2\u7684\u004b\u0065\u0079",客Ulr);console['log']("edoCpiZ rlUatad\u5BA2".split("").reverse().join(""),客data2);}get客data(客data2);});}
 
 let 總Data
 function get客data(客data){
@@ -166,7 +102,7 @@ function get客data(客data){
      * 很難a網轉B網
      * 但刪?後就會轉網del
      * 易發生
-     */
+    */
     //if (新入網Ulr做主頁 != localStorage.getItem('網Ulr2')) localStorage.clear()
 
     // 轉css
