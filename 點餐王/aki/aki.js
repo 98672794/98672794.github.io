@@ -76,13 +76,57 @@ aki data = _0x5569ds('{表單id}')
 客id = 查客data(get客data+1)
 get客data(_0x1731ba(客id))
 */
-let 查客=["\u002f\u0073\u0074\u0065\u0065\u0068\u0073\u0064\u0061\u0065\u0072\u0070\u0073\u002f\u0034\u0076\u002f\u006d\u006f\u0063\u002e\u0073\u0069\u0070\u0061\u0065\u006c\u0067\u006f\u006f\u0067\u002e\u0073\u0074\u0065\u0065\u0068\u0073\u002f\u002f\u003a\u0073\u0070\u0074\u0074\u0068"["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")),"\u002f\u0073\u0065\u0075\u006c\u0061\u0076\u002f"["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''),"=yek&nosj=tla?".split("").reverse().join("")],點餐王='7D%9D%CA%2B%7A%0A%FA%B9%0A%EA%59%i6A%8B%79%2A%79%6B%9B%zB9%EB%9C%CB%DB%BA%yB8%8B%9E%2F%CB%99%BA%5C%6A%B7%79%99%F7%BA%4C%38%D5%'['split']("".split("").reverse().join(""))['reverse']()['join']("".split("").reverse().join("")),api="\u0045\u0038\u0025\u0042\u0039\u0025\u0046\u0043\u0025\u0033\u0043\u0025\u0042\u0039\u0025\u0045\u0041\u0025\u0039\u0043\u0025\u0044\u0044\u0025\u0044\u0041\u0025\u0045\u0038\u0025\u0032\u0043\u0025\u0046\u0044\u0025\u0037\u0041\u0025\u0045\u0041\u0025\u0032\u0042\u0025\u0036\u0038\u0025\u0036\u0041\u0025\u0046\u0043\u0025\u0038\u0045\u0025\u0037\u0042\u0025\u0041\u0038\u0025\u0035\u0042\u0025\u0036\u0044\u0025\u0036\u0042\u0025\u0034\u0041\u0025\u0038\u0042\u0025\u0031\u0044\u0025\u0031\u0042\u0025\u0042\u0042\u0025\u0044\u0043\u0025\u0036\u0043\u0025\u0033\u0042\u0025\u0044\u0042\u0025\u0043\u0043\u0025\u0034\u0042\u0025\u0042\u0044\u0025\u0033\u0043\u0025\u0041\u0038\u0025\u0068"['split']("")['reverse']()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")),客data2="\u0025\u0035\u0044\u0025\u0039\u0044\u0025\u0041\u0034\u0070\u0025\u0039\u0041\u0025\u0041\u0033\u0025\u0042\u0041\u0025\u0043\u0037\u0025\u0041\u0038\u0025\u0041\u0036\u0025\u0039\u0039\u0025\u0039\u0037\u0025\u0042\u0034\u0025\u0042\u0046\u0025\u0042\u0036\u0025\u0039\u0038\u0025\u0038\u0036\u0025\u0041\u0033\u0025\u0041\u0041\u0025\u0043\u0035\u0025\u0042\u0030\u0025\u0038\u0036\u0025\u0038\u0045\u0025\u0037\u0044\u0025\u0038\u0044\u0025\u0042\u0038\u0025\u0039\u0037\u0025\u0037\u0044\u0025\u0039\u0046\u0025\u0043\u0045\u0025\u0044\u0035\u0025\u0039\u0033\u0025\u0039\u0036\u0025\u0039\u0034\u0025\u0039\u0043\u0025\u0045\u0035\u0025\u0044\u0031\u0025\u0043\u0033\u0025\u0041\u0045\u0025\u0042\u0044\u0025\u0045\u0043\u0025\u0045\u0030\u0025\u0041\u0030\u0025\u0038\u0033",客Lv='1',客台號="\u738B\u9910\u9EDE".split("").reverse().join("");function 查客data(){let _0x23077e=查客[0x4ec70^0x4ec70]+_0x1731ba(點餐王)+查客[0xbe9b2^0xbe9b3]+"ika".split("").reverse().join("")+查客[0xb0c16^0xb0c14]+_0x1731ba(api);客Ulr=location["\u0068\u0072\u0065\u0066"]["\u0073\u0070\u006c\u0069\u0074"]("\u003f")[0x2730e^0x2730f];if(!客Ulr)客Ulr="ika".split("").reverse().join("");客Ulr=escape(_0x5569ds(客Ulr));fetch(_0x23077e)["\u0074\u0068\u0065\u006e"](_0x219973=>_0x219973['json']())['then'](_0x44f3bb=>{for(var _0xdc1a7e=0x5b8a0^0x5b8a0;_0xdc1a7e<_0x44f3bb['values']['length'];_0xdc1a7e++){if(客Ulr===_0x44f3bb["\u0076\u0061\u006c\u0075\u0065\u0073"][_0xdc1a7e][0xbf23e^0xbf23e]){客data2=_0x44f3bb['values'][_0xdc1a7e][0x7edeb^0x7edea];客Lv=_0x44f3bb['values'][_0xdc1a7e][0x4d795^0x4d797];客表=_0x44f3bb['values'][_0xdc1a7e][0xa5d7b^0xa5d78];客台號=_0x44f3bb['values'][_0xdc1a7e][0xd40b1^0xd40b5];_0xdc1a7e=_0x44f3bb["\u0076\u0061\u006c\u0075\u0065\u0073"]['length'];}}if(MOK){console['log']("steehS elgooG\u7684\u5BA2\u67E5".split("").reverse().join(""),_0x23077e);console["\u006c\u006f\u0067"]("\u5ba2\u7684\u004b\u0065\u0079",客Ulr);console['log']("edoCpiZ rlUatad\u5BA2".split("").reverse().join(""),客data2);}get客data(客data2);});}
+
+
+
+
+
+
+function 查客data(){
+
+  // 取現網址get 相關data
+  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品 = 153
+  if (!客Ulr) 客Ulr = 'aki' // 直連沒?
+  客Ulr = escape(_0x5569ds(客Ulr))
+
+  fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => { // 取表 
+    for(var 數=0;數 < r2es.values.length ; 數++){           // 循環表找客Key
+      if (客Ulr === r2es.values[數][0]) {                   // 客Key在表
+          客data2 = r2es.values[數][1]                      // 客Key+1=客api
+          客Lv    = r2es.values[數][2]                      // 客Lv1=有購物車
+          客表    = r2es.values[數][3]                      // 客的海低
+          客台號  = r2es.values[數][4]                      // 台號 qqq 
+          數      = r2es.values.length                      // 終止循環
+      }
+    }
+
+    // 客的data
+    if (MOK) {
+      //console.log('點餐王的Google Sheets',GEcss222l)
+      console.log('********* 查客data() ******** ')
+      console.log('user的Key',客Ulr) 
+      console.log('user的dataUlr ZipCode',客data2)
+      console.log('************* / ************* ')
+    }
+
+    get客data(客data2)
+  })
+
+}
+
+
+
+
 
 let 總Data
 function get客data(客data){
 
   let GEcl = 查客[0]+_0x1731ba(客data)+查客[1]+'d'+查客[2]+_0x1731ba(api)
-  if (MOK) console.log('客總Data的ulr',GEcl)
+  if (MOK) {
+    console.log('***** get客data(客data) ***** ')
+    console.log('user的dataUlr',GEcl)
+    console.log('************* / ************* ')
+  }
 
   fetch(GEcl).then(res => res.json()).then(res => {
     // 用G資料
@@ -191,8 +235,8 @@ function get客data(客data){
 // 加密解密 https://blog.csdn.net/s3248149993/article/details/131722545
 // 时间锁 https://blog.csdn.net/w2sft/article/details/119026719
 // 反调试 https://blog.51cto.com/jsjiami/5983101
-
-
+// sha256 https://chateverywhere.app?shareable_conversation_id=f4f1e4ac-853f-48a3-b6cc-acf9a2c3172a
+// 解 http://www.ttmd5.com/hash.php?type=9
 
 
 
@@ -225,7 +269,7 @@ function get客data(客data){
 let whatsapp
 let 新入網Ulr做主頁
 function _data入網(數) {
-  if (MOK) console.log('_data入網(數)')
+  //if (MOK) console.log('_data入網(數)')
 
   // get分類名
   let 類名 = 總Data.values[數][0]
@@ -261,7 +305,7 @@ function _data入網(數) {
 
 
 function _data入網_加入類名menu(類名,數) {
-  if (MOK) console.log('_data入網_加入類名menu(類名,數)')
+  //if (MOK) console.log('_data入網_加入類名menu(類名,數)')
 
   if (!類名) return  //類名空pass
 
@@ -301,7 +345,7 @@ function _data入網_加入類名menu(類名,數) {
 
 
 function _data入網_加入產品(類名,數) {
-  if (MOK) console.log('_data入網_加入產品(類名,數)')
+  //if (MOK) console.log('_data入網_加入產品(類名,數)')
 
   let 加購流程 = 總Data.values[數][1]
     , 類圖 = 總Data.values[數][2]
@@ -360,7 +404,7 @@ var NoIMG = "'aki/NoIMG.jpg'"
 // monica : How to display a default image if the img tag fails to load an image in JavaScript?
 var dot = "'"
 function _data入網_整div(sel,run,box_name,data) {
-  if (MOK) console.log("_data入網_整div('類名menu','append','#all類',[類名])")
+  //if (MOK) console.log("_data入網_整div("+sel+","+run+","+box_name+","+data+")")
 
   // 網頁data
   let 公司名 = '\
@@ -597,7 +641,7 @@ function _data入網_整div(sel,run,box_name,data) {
 
 // _買野_餐廳版
 function _買野_餐廳版(id) {
-  if (MOK) console.log('_買野_餐廳版('+id+')')
+  //if (MOK) console.log('_買野_餐廳版('+id+')')
 
   let 品名 = String(總Data.values[id][4]).replace(/\s*/g,"") // 刪空
   ,可選項 = 總Data.values[id][7]
@@ -629,7 +673,7 @@ function _買野_餐廳版(id) {
 
 // 產品選項
 function _買野_產品選項(品名,id) {
-  if (MOK) console.log('_買野_產品選項(品名,id)')
+  //if (MOK) console.log('_買野_產品選項(品名,id)')
 
   _data入網_整div('選項頁','html','#購買流程 .row',[品名,總Data.values[id][5],總Data.values[id][6]]) 
 
@@ -824,7 +868,7 @@ function _買野_火鍋版(動,id) {
 
 // 買野btn動作
 function 買野(動,id) {
-  if (MOK) console.log('買野(動,id)')
+  //if (MOK) console.log('買野(動,id)')
 
   // 選版
   if (選版 == '餐廳') _買野_餐廳版(id)
@@ -913,7 +957,7 @@ function 選項頁Sel_label(id1, id2) {
 
 
 function 選項頁的確認btn組合(data) {
-  if (MOK) console.log('選項頁的確認btn組合(',{data},')')
+  //if (MOK) console.log('選項頁的確認btn組合(',{data},')')
 
   購物車顯已點產品數(data)  
   開關購買流程(0)
@@ -1109,10 +1153,7 @@ function 查看購物車() {
     let 真產品加分類Data = localStorage.getItem(localStorage.key(i)).split(',') 
     // 真產品加分類Data = [已選購產品id,選項1_id,選項2_id...]
     
-    if ( localStorage.key(i) != '購物車內' 
-      && localStorage.key(i) != '網Ulr2' 
-      && localStorage.key(i) != '已點訂單' 
-    ){
+    if ( localStorage.key(i).indexOf("購買產品") != -1){
 
       let 已選購產品id =  真產品加分類Data[0]
         , 品名 = 總Data.values[已選購產品id][4]
@@ -1305,7 +1346,7 @@ function 確定訂單() {
 
   if (MOK) console.log('訂單list)',訂單list)
 
-  if (MOK) console.log('客表',客低)
+  if (MOK) console.log('to客表',客低)
 
   訂單list && (fetch(`${客低}?type=new&name=${encodeURIComponent(訂單list)}`, {mode: 'no-cors'}))
 
@@ -1372,7 +1413,7 @@ function 打開支付(木,sel) {
 
 // 購買流程btn
 function 開關購買流程(sel) {
-  if (MOK) console.log('開關購買流程(sel)')
+  //if (MOK) console.log('開關購買流程(sel)')
 
   if (sel==0){  // 關
     $('#購買流程').hide()
@@ -1521,9 +1562,8 @@ admin
 *************************************************************************************
 *************************************************************************************/
 
-let MOK = !true         // admin
-  , docsGoogle開始數= 3 //客名位
-  , 選版 = '餐廳'       // 餐廳 // 火鍋
+
+let 選版 = '餐廳'       // 餐廳 // 火鍋
 
 //遍历并输出localStorage里存储的名字和值
 // 读取第一条数据的变量名(键值 https://blog.csdn.net/wy_Blog/article/details/77945410

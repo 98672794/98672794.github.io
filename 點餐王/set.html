@@ -6,28 +6,158 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin|</title>
+    <title>Admin | 點餐王</title>
+    <link rel="shortcut icon" type="image/x-icon" href="#" />
+    <meta name="description" content="點餐王Admin" />
 
+
+    <link rel="stylesheet" href="aki/set.css" />
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
-    <link href="aki/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js">//用於貼js字</script>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js">//SHA256</script>
+
+    <link href="aki/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!-- fa faIcon --> 
 </head>
 
 <body id="set_page">
 
 
-dsd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container"><div class="row justify-content-center"><div class="col-xl-10 col-lg-12 col-md-9"><div class="row"><div class="col-lg-12"><div class="p-5">
+        <div class="text-center">
+            <h1 id="Login標題" class="h4 text-gray-900 mb-4">Admin | 點餐王</h1>
+        </div>
+        <form class="user">
+            <div class="form-group">
+                <input type="ID" class="form-control form-control-user"
+                    id="UserID" placeholder="Enter ID">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control form-control-user"
+                    id="UserPW" placeholder="Password">
+            </div>
+            <p id="pwWorg" style="color: tomato;"></p>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox small">
+                    <input type="checkbox" class="custom-control-input" id="SaveID">
+                    <label class="custom-control-label" for="SaveID">
+                        Remember Me
+                    </label>
+
+                    <a onclick="ForgotID()" style="float: right; cursor: pointer;">
+                        Delete login record
+                    </a>
+
+
+                </div>
+            </div>
+            <a onclick="Login()" class="btn btn-primary btn-user btn-block">
+                Login
+            </a>
+            <hr>
+            <div class="text-center">
+            <a href="https://wa.me/98672794?text=Create會員" class=" btn-block">Create an Account!</a>
+            </div>
+            <hr>
+            <div class="text-center">
+                <a href="https://wa.me/98672794?text=ForgotPW" class="small">Forgot Password?</a>
+            </div>
+        </form>
+    </div></div></div></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+      
+    <!-- 低導航 -->
+    <nav id="低導航" class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <ul class="navbar-nav ml-auto">
+            <li id="google_translate_element" style="margin-top: 20px; height: 25px;overflow: hidden;">
+                <!-- ============ Aki Web3Js ============ -->
+                <!-- =======html翻譯======= -->
+                <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_google_translate -->
+                <script type="text/javascript">
+                function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: "cn"}, "google_translate_element");
+                }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            </li>
+            <!-- Nav Item - User Information -->
+            <li id="低導航右" class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="https://wa.me/98672794?text=查詢">
+                    <span class="導2大btn fa fa-whatsapp" style="font-size:36px;"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- / 低導航 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
-
-<script src="aki/set.js"></script><!-- aki -->
-
+<script src="aki/a.js"></script>
+<script src="aki/set.js"></script>
 </html>
