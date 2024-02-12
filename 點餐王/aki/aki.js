@@ -87,7 +87,7 @@ function 查客data(){
   // 取現網址get 相關data
   客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品 = 153
   if (!客Ulr) 客Ulr = 'aki' // 直連沒?
-  客Ulr = escape(_0x5569ds(客Ulr))
+  客Ulr = escape(_0x5569ds(calculateHash(客Ulr).toString(CryptoJS.enc.Hex)))
 
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => { // 取表 
     for(var 數=0;數 < r2es.values.length ; 數++){           // 循環表找客Key
@@ -99,6 +99,7 @@ function 查客data(){
           數      = r2es.values.length                      // 終止循環
       }
     }
+    //console.log('user的Key',客Ulr) 
 
     // 客的data
     if (MOK) {
@@ -1218,7 +1219,7 @@ function 查看購物車() {
 
 
 
-// 確定訂單
+// 確定訂單.gs
 
 /*
 客D傍新s
