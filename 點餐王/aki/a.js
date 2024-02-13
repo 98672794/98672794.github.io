@@ -27,3 +27,4 @@ let 查客=["/steehsdaerps/4v/moc.sipaelgoog.steehs//:sptth".split("").reverse()
 ,MOK = !true         // admin
 , docsGoogle開始數= 3 //客名位
 , id位 = 5
+, NoIMG = "'aki/NoIMG.jpg'" 

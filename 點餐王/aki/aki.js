@@ -401,7 +401,7 @@ function _data入網_加入產品(類名,數) {
 
 
 
-var NoIMG = "'aki/NoIMG.jpg'" 
+
 // monica : How to display a default image if the img tag fails to load an image in JavaScript?
 var dot = "'"
 function _data入網_整div(sel,run,box_name,data) {
