@@ -24,7 +24,8 @@ let 查客=["/steehsdaerps/4v/moc.sipaelgoog.steehs//:sptth".split("").reverse()
 ,客台號='點餐王'
 // G ulr
 ,GEcss222l = 查客[0]+_0x1731ba(點餐王)+查客[1]+'aki'+查客[2]+_0x1731ba(api)
-,MOK = !true         // admin
+,MOK = ADminLV = !true         // admin
 , docsGoogle開始數= 3 //客名位
 , id位 = 5
 , NoIMG = "'aki/NoIMG.jpg'" 
+, dot = "'"

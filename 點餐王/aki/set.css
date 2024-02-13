@@ -39,8 +39,10 @@
 
 
 #settingMenu{list-style:none;position: absolute;bottom: -16px;left: -46px;right: 0;display: none;}
-#settingMenu li{float: left;width: calc(100vw/6);
-  color: rgb(251, 238, 0);
+#settingMenu li{float: left;
+  
+  width: calc(100vw/9);
+  color: #fff;
   display: flex;
   justify-content: center;    
   align-items: center; 
@@ -49,9 +51,11 @@
   border-bottom-left-radius: 25px;
   cursor: pointer;
 }
+#settingMenu.a2 li {width: calc(100vw/5);}
+#settingMenu.a3 li {width: calc(100vw);}
+#settingMenu.a4 li {width: calc(100vw/3);}
 
-
-#產品分類page,#產品資料page,#收款方式page{display: none;}
+#公司資料page,#產品分類page,#產品資料page,#收款方式page{display: none;}
 
 
 

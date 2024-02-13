@@ -32,7 +32,8 @@ function _客setting頁(客Url,客api){
   // get客data
   let GEcl = 查客[0]+_0x1731ba(客api)+查客[1]+'d'+查客[2]+_0x1731ba(api)
     , url = (location.href).split('/set')[0] + '?' +客Url+ '?' 
-  
+    , settingMenuSelLV = 'settingMenuSel編+settingMenuSel帳+settingMenuSel店'
+
   //console.log('url',url) 
   if (MOK) console.log('user的dataUlr',GEcl,'\nurl',url)
 
@@ -40,10 +41,68 @@ function _客setting頁(客Url,客api){
   _data入網_整div('user頁','html','#set_page',0) 
   _data入網_整div('settingBox','append','#set_page','') 
 
+  // 小編
+  if (ADminLV === 2) {
+    settingMenuSelLV = 'settingMenuSel編'
+    $('#settingMenu').toggleClass('a2')
+  }
+
+  // 帳房
+  if (ADminLV === 3) {
+    settingMenuSelLV = 'settingMenuSel帳'
+    $('#settingMenu').toggleClass('a3')
+  }
+
+  // 店員
+  if (ADminLV === 4) {
+    settingMenuSelLV = 'settingMenuSel店'
+    $('#settingMenu').toggleClass('a4')
+  }
+
+  _data入網_整div(settingMenuSelLV,'append','#settingMenu',0)
 
 
+
+
+
+  _admin編輯(GEcl,客Url)
+
+  // _流水帳目(流水帳目)
+
+  // _保存(保存)
+
+
+
+  // 最後背景加客網
+  $('#user頁').attr('src', url)
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function _admin編輯(data,Url) {
+
+  // 東主 / 小編 可見
+  if (ADminLV > 2 )  return
+
+  
   // 用G資料
-  fetch(GEcl).then(res => res.json()).then(res => {
+  fetch(data).then(res => res.json()).then(res => {
 
     // 公司資料page
     let 網lv     = res.values[0][0]    // aki set
@@ -67,49 +126,39 @@ function _客setting頁(客Url,客api){
 
     _data入網_整div(
       '公司資料page','append','#settingBox_B'
-      ,[客Url,網lv,公司名,公司logo,公司ws,ws來詢字,網站按鍵色,網主色,網副色,字主色,字副色,圖高,圖高mx,圖橫,圖橫mx]
+      ,[Url,網lv,公司名,公司logo,公司ws,ws來詢字,網站按鍵色,網主色,網副色,字主色,字副色,圖高,圖高mx,圖橫,圖橫mx]
     )
 
 
     // 產品分類page
+    let all產品分類 = []
     for(var 數=docsGoogle開始數+2 ; 數 < res.values.length ; 數++){
       let 產品分類名 = res.values[數][0]
         , 加購流程號 = res.values[數][1]
-      if (!!產品分類名) _data入網_整div('產品分類page','prepend','#產品分類List',[產品分類名,加購流程號])
+      if (!!產品分類名) {
+        _data入網_整div('產品分類page','prepend','#產品分類List',[產品分類名,加購流程號])
+        all產品分類.push(產品分類名)
+      }
     }
-
 
     // 產品資料page
-    let 產品分類名2
+    let 產轉類 = ''
     for(var 數=docsGoogle開始數+2 ; 數 < res.values.length ; 數++){
 
-      if (!!res.values[數][0]) 產品分類名2 = res.values[數][0]  // 如有取 產品分類名
-
       let 產品名 = res.values[數][4]
-        , 產品價錢 = res.values[數][5]
-        , 產品圖 = res.values[數][6]
+      , 產品價錢 = res.values[數][5]
+      , 產品圖 = res.values[數][6]
+      , 換行 = 單品option = ''
+      
+      if (!!res.values[數][0]) {  // 如有取 產品分類名
+        all產品分類.unshift(all產品分類.splice(all產品分類.indexOf(res.values[數][0]), 1)[0]) // Monica js list 移到  第一位
+        for(var 唉for類=0 ; 唉for類 < all產品分類.length ; 唉for類++){單品option = 單品option + '<option value="'+all產品分類[唉for類]+'">'+all產品分類[唉for類]+'</option>'}
+        產轉類 = '產品分類 = <select class="form-select" id="'+產品名+'轉類">'+單品option+'</select>'
+        換行 = '<hr style="clear:both; width: 100%;">'
+      }
 
-      if (!!產品名) _data入網_整div('產品資料page','prepend','#產品資料List',[產品名,產品價錢,產品圖,產品分類名2])
+      if (!!產品名) _data入網_整div('產品資料page','prepend','#產品資料List',[產品名,產品價錢,產品圖,換行,產轉類])
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // 收款方式page
     let 止=0
@@ -121,16 +170,18 @@ function _客setting頁(客Url,客api){
       if (!支付方式名) 止++ // 冇名1次out
     }
 
-
-
   })
-
-  // 最後背景加客網
-  $('#user頁').attr('src', url)
-
 
 
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -160,14 +211,10 @@ function _客setting頁(客Url,客api){
 ***********************************************************************************************************************
 ***********************************************************************************************************************/
 
-
-
-var dot = "'"
 function _data入網_整div(sel,run,box_name,data) {
   if (MOK) console.log("_data入網_整div('類名menu','append','#all類',[類名])")
 
   let user頁 = '<embed id="user頁" type="text/x-scriptlet" src="" width="100%" height="100%">'
-
     , settingBox = '\
     <div id="settingBox_">\
       <h5 onclick="settingBox_toggle()"><i class="fa fa-wrench" aria-hidden="true"></i></h5>\
@@ -184,19 +231,30 @@ function _data入網_整div(sel,run,box_name,data) {
         </div>\
         \
       </div>\
-      \
-      <ul id="settingMenu">\
-        <li onclick="settingMenuBtn(1)" style="background: rgba(213, 0, 0, 0.3);">公司資料</li>\
-        <li onclick="settingMenuBtn(2)" style="background: rgba(170, 0, 255, 0.3);">產品分類</li>\
-        <li onclick="settingMenuBtn(3)" style="background: rgba(245, 127, 23, 0.3);">產品資料</li>\
-        <li onclick="settingMenuBtn(4)" style="background: rgba(174, 234, 0, 0.3);">收款方式</li>\
-        <li onclick="settingMenuBtn(5)" style="background: rgba(255, 214, 0, 0.3);">流水帳目</li>\
-        <li onclick="" style="background: rgba(27, 94, 32, 0.3);">保存</li>\
-      </ul>\
-      \
+      <ul id="settingMenu"></ul>\
     </div>\
     '
-  
+
+
+
+    , settingMenuSel編 = '\
+      <li onclick="settingMenuBtn(1)" style="background: rgba(213, 0, 0, 0.3);">公司資料</li>\
+      <li onclick="settingMenuBtn(2)" style="background: rgba(170, 0, 255, 0.3);">產品分類</li>\
+      <li onclick="settingMenuBtn(3)" style="background: rgba(245, 127, 23, 0.3);">產品資料</li>\
+      <li onclick="settingMenuBtn(4)" style="background: rgba(174, 234, 0, 0.3);">收款方式</li>\
+      <li onclick="" style="background: rgba(27, 94, 32, 0.3);">保存</li>\
+    '
+    , settingMenuSel帳 = '<li onclick="settingMenuBtn(5)" style="background: rgba(255, 214, 0, 0.3);">流水帳目</li>'        
+    , settingMenuSel店 = '\
+      <li onclick="settingMenuBtn(7)" style="background: rgb(128, 222, 234, .3);">廚部</li>\
+      <li onclick="settingMenuBtn(8)" style="background: rgb(205, 220, 57,.5);">廳面</li>\
+      <li onclick="settingMenuBtn(9)" style="background: rgb(98, 0, 234, .3);">收銀</li>\
+    '
+
+
+
+
+
     , 公司資料page = '\
           <div id="公司資料page" class="row" >\
             <div class="col-md-6" >\
@@ -258,11 +316,11 @@ function _data入網_整div(sel,run,box_name,data) {
                 <div class="card-body">\
                   \
                   <div class="mb-3">\
-                    <label for="網站按鍵色" class="form-label">網站按鍵色</label>\
                     <select\
                       class="form-select"\
                       id="網站按鍵色"\
                     >\
+                      <option value="none" selected disabled hidden>網站按鍵色</option>\
                       <option value="info">淺藍</option>\
                       <option value="primary">藍</option>\
                       <option value="success">青</option>\
@@ -392,18 +450,21 @@ function _data入網_整div(sel,run,box_name,data) {
           \
           \
           <div id="產品分類page"  class="row" >\
-            <div class="col-md-6" style="margin: auto">\
+            \
+            <div class="col-md-12" style="margin: auto">\
               <div class="card mb-4">\
-              <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">產品分類</h4>\
-                <div id="產品分類List" class="card-body">\
-                  \
-                  <div class="mb-3">\
-                    <a onclick="新增產品分類()" class="btn btn-'+data[6]+'" >新增產品分類</a>\
-                  </div>\
-                  \
-                </div>\
+                <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">產品分類</h4>\
+                <a onclick="新增產品分類()" class="btn btn-'+data[6]+'" >新增產品分類</a>\
               </div>\
             </div>\
+            \
+            <div id="產品分類List"></div>\
+            \
+            <hr style="clear:both; width: 100%;">\
+            <div class="col-md-12" style="margin: auto">\
+              <a onclick="新增產品分類()" class="btn btn-'+data[6]+'" >新增產品分類</a>\
+            </div>\
+            \
           </div>\
           \
           \
@@ -411,7 +472,9 @@ function _data入網_整div(sel,run,box_name,data) {
             \
             <div class="col-md-12" style="margin: auto">\
               <div class="card mb-4">\
-                  <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">產品資料</h4>\
+                <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">產品資料</h4>\
+                <p class="btn-danger">清空產品名將刪除產品</p>\
+                <a onclick="新增產品()" class="btn btn-'+data[6]+'" >新增產品</a>\
               </div>\
             </div>\
             \
@@ -419,7 +482,7 @@ function _data入網_整div(sel,run,box_name,data) {
             \
             <hr style="clear:both; width: 100%;">\
             <div class="col-md-12" style="margin: auto">\
-                  <a onclick="新增產品()" class="btn btn-'+data[6]+'" >新增產品</a>\
+              <a onclick="新增產品()" class="btn btn-'+data[6]+'" >新增產品</a>\
             </div>\
             \
           </div>\
@@ -428,87 +491,87 @@ function _data入網_整div(sel,run,box_name,data) {
     '
 
 
-    
+
+
     , 產品分類page = '\
-                  <div class="mb-3">\
-                    <input\
-                      title="產品分類名"\
-                      type="text"\
-                      class="form-control"\
-                      id="產品分類名"\
-                      placeholder="'+data[0]+'"\
-                      value="'+data[0]+'"\
-                    />\
-                    <label for="加購順序號" class="form-label">加購順序號</label>\
-                    <input\
-                      title="加購順序號"\
-                      type="text"\
-                      class="form-control"\
-                      id="加購順序號"\
-                      placeholder="'+data[1]+'"\
-                      value="'+data[1]+'"\
-                    />\
-                  </div><hr>\
-    '
-
-    , 產品資料page = '\
     <div class="col-md-6" style="margin: auto; float: left; " >\
-    <div class="card mb-4">\
-                  <div class="mb-3">\
-                  <p title="產品分類名2">'+data[3]+'</p>\
-                    <input\
-                      title="產品名"\
-                      type="text"\
-                      class="form-control"\
-                      id="產品名"\
-                      placeholder="'+data[0]+'"\
-                      value="'+data[0]+'"\
-                    />\
-                    <img id="產品圖_img" style="height: 75px; width: 75px; margin: auto;" src="'+data[2]+'"  onerror="this.onerror=null;this.src='+NoIMG+'">\
-                    <input title="產品圖" class="form-control" type="file" id="產品圖" />\
-                    <label for="產品價錢" class="form-label">產品價錢 / 文章內容</label>\
-                    <input\
-                      title="產品價錢"\
-                      type="text"\
-                      class="form-control"\
-                      id="產品價錢"\
-                      placeholder="'+data[1]+'"\
-                      value="'+data[1]+'"\
-                    />\
-                  </div>\
-                  </div></div>\
+        <div class="card mb-4">\
+            <div class="mb-3">\
+                <input\
+                    title="產品分類名"\
+                    type="text"\
+                    class="form-control"\
+                    id="產品分類名"\
+                    placeholder="'+data[0]+'"\
+                    value="'+data[0]+'"\
+                />\
+                <label for="加購順序號" class="form-label">加購順序號</label>\
+                <input\
+                    title="加購順序號"\
+                    type="text"\
+                    class="form-control"\
+                    id="加購順序號"\
+                    placeholder="'+data[1]+'"\
+                    value="'+data[1]+'"\
+                />\
+            </div>\
+        </div>\
+    </div>\
     '
-
-
-
-
-
+    , 產品資料page = '\
+      <div class="col-md-6" style="margin: auto; float: left; " >\
+        <div class="card mb-4">\
+          <div class="mb-3">\
+            '+data[4]+'\
+            <input\
+              title="產品 / 文章名"\
+              type="text"\
+              class="form-control"\
+              id="產品名"\
+              placeholder="'+data[0]+'"\
+              value="'+data[0]+'"\
+            />\
+            <img id="產品圖_img" style="height: 75px; width: 75px; margin: auto;" src="'+data[2]+'"  onerror="this.onerror=null;this.src='+NoIMG+'">\
+            <input title="產品 / 文章圖" class="form-control" type="file" id="產品圖" />\
+            <label for="產品價錢" class="form-label">產品價錢 / 文章內容</label>\
+            <input\
+              title="產品價錢 / 文章內容"\
+              type="text"\
+              class="form-control"\
+              id="產品價錢"\
+              placeholder="'+data[1]+'"\
+              value="'+data[1]+'"\
+            />\
+          </div>\
+        </div>\
+      </div>\
+      '+data[3]+'\
+    '
     , 收款方式page = '\
-                  <div class="mb-3">\
-                    <input\
-                      title="收款方式名"\
-                      type="text"\
-                      class="form-control"\
-                      id="收款方式名"\
-                      placeholder="'+data[0]+'"\
-                      value="'+data[0]+'"\
-                    />\
-                    <input\
-                      title="收款方式code"\
-                      type="text"\
-                      class="form-control"\
-                      id="收款方式code"\
-                      placeholder="'+data[1]+'"\
-                      value="'+data[1]+'"\
-                    />\
-                  </div>\
+    <div class="mb-3">\
+        <input\
+            title="收款方式名"\
+            type="text"\
+            class="form-control"\
+            id="收款方式名"\
+            placeholder="'+data[0]+'"\
+            value="'+data[0]+'"\
+        />\
+        <input\
+            title="收款方式code"\
+            type="text"\
+            class="form-control"\
+            id="收款方式code"\
+            placeholder="'+data[1]+'"\
+            value="'+data[1]+'"\
+        />\
+    </div>\
     '
 
 
 
-
-
-
+    , 萬 = data
+  // ("_data入網_整div('類名menu','append','#all類',[類名])")
   $(box_name)[run]([eval(sel)])
 }
 
@@ -568,42 +631,66 @@ function Login() {
     // 取明文 轉sha256
     , id1 = escape(_0x5569ds(calculateHash(id).toString(CryptoJS.enc.Hex)))
     , pw1 = escape(_0x5569ds(calculateHash(pw).toString(CryptoJS.enc.Hex)))
+    , 如數
 
   //console.log('id1=',id1,'\npw1=',pw1)
   $('#pwWorg').text('')
 
+  // 循環表找客Id
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
 
-    for(var 數=0;數 < r2es.values.length ; 數++){           // 循環表找客Id
+    // ad1pw
+    for(var 數=0;數 < r2es.values.length ; 數++)  if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位]) { ADminLV = ~~1; 如數 = 數; }
 
-      // ad1pw
-      if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位]) {  // IdPw岩
-        $('#pwWorg').text(id+'歡迎您!!')
+    // ad2pw
+    if(!ADminLV) {
+      for(var 數=0;數 < r2es.values.length ; 數++) if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位+1]) { ADminLV = ~~2; 如數 = 數; }
+    }
 
-        // SaveID to localStorage
-        if(SaveID.checked) localStorage.setItem("id",[id,pw])
+    // ad3pw
+    if(!ADminLV) {
+      for(var 數=0;數 < r2es.values.length ; 數++) if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位+2]) { ADminLV = ~~3; 如數 = 數; }
+    }
 
-        // get 客api
-        _客setting頁(id,r2es.values[數][1])
-        
+    // ad4pw
+    if(!ADminLV) {
+      for(var 數=0;數 < r2es.values.length ; 數++) if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位+3]) { ADminLV = ~~4; 如數 = 數; }
+    }
 
-        if (MOK) console.log('id1=',id1,'\npw1=',pw1,'\n有有數',數)
-        //數      = r2es.values.length                      // 終止循環
+    // ad5pw
+    if(!ADminLV) {
+      for(var 數=0;數 < r2es.values.length ; 數++) if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位+4]) { ADminLV = ~~-1; 如數 = 數; }
+    }
+
+    if(!ADminLV) $('#pwWorg').text('找不到用戶!!')
+    else{
+
+      // SaveID to localStorage
+      if(SaveID.checked) localStorage.setItem("id",[id,pw])
+
+      // get 客api
+      _客setting頁(id,r2es.values[如數][1])
+
+      if (MOK) {
+        console.log('id1=',id1,'\npw1=',pw1,'\n有有數',數);
+        console.log('如數=',如數);
+        console.log('ADminLV=',ADminLV)
       }
-
-      // ad2pw qqq 
-      else $('#pwWorg').text('找不到用戶!!')
+      
+      $('#pwWorg').text(id+'歡迎您!!')
     }
 
   })
 }
+
+
+
 
 // 刪除登入記錄
 function ForgotID() {
   localStorage.removeItem('id')
   $( "#UserID" ).val('')
   $( "#UserPW" ).val('')
-  
 
 }
 
@@ -681,6 +768,10 @@ function settingMenuBtn(sel){
   if (sel === 4) {$('#settingBox_B').css('background', 'rgba(174, 234, 0, 0.3)');$(收p).css('display', 'block');$(類p+','+公p+','+產p).css('display', 'none')}
 
   if (sel === 5) {$('#settingBox_B').css('background', 'rgba(255, 214, 0, 0.3)')}
+
+  if (sel === 7) {$('#settingBox_B').css('background', 'rgb(128, 222, 234, .3)')}
+  if (sel === 8) {$('#settingBox_B').css('background', 'rgb(205, 220, 57,.5)')}
+  if (sel === 9) {$('#settingBox_B').css('background', 'rgb(98, 0, 234, .3)')}
 }
 
 
