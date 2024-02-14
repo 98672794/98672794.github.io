@@ -39,44 +39,21 @@ function _客setting頁(客Url,客api){
 
   // make user data box
   _data入網_整div('user頁','html','#set_page',0) 
-  _data入網_整div('settingBox','append','#set_page','') 
-
-  // 小編
-  if (ADminLV === 2) {
-    settingMenuSelLV = 'settingMenuSel編'
-    $('#settingMenu').toggleClass('a2')
-  }
-
-  // 帳房
-  if (ADminLV === 3) {
-    settingMenuSelLV = 'settingMenuSel帳'
-    $('#settingMenu').toggleClass('a3')
-  }
-
-  // 店員
-  if (ADminLV === 4) {
-    settingMenuSelLV = 'settingMenuSel店'
-    $('#settingMenu').toggleClass('a4')
-  }
-
-  _data入網_整div(settingMenuSelLV,'append','#settingMenu',0)
 
 
 
 
+  _admin編輯(GEcl,客Url,settingMenuSelLV)
 
-  _admin編輯(GEcl,客Url)
+
+
 
   // _流水帳目(流水帳目)
 
   // _保存(保存)
 
-
-
   // 最後背景加客網
   $('#user頁').attr('src', url)
-
-
 
 }
 
@@ -95,16 +72,72 @@ function _客setting頁(客Url,客api){
 
 
 
-function _admin編輯(data,Url) {
+function _admin編輯(data,Url,鍵lv) {  
+  let 鍵lv呀 = 鍵lv
 
-  // 東主 / 小編 可見
-  if (ADminLV > 2 )  return
-
-  
   // 用G資料
   fetch(data).then(res => res.json()).then(res => {
 
-    // 公司資料page
+    // $$$$$$$$ 框架 $$$$$$$$
+    let 網站按鍵色   = res.values[1][4]
+    _data入網_整div('settingBox','append','#set_page',網站按鍵色) 
+
+    // $$$$$$$$ 各lv按鍵 $$$$$$$$
+    // 小編
+    if (ADminLV === 2) {
+      鍵lv呀 = 'settingMenuSel編'
+      $('#settingMenu').toggleClass('a2')
+    }
+    // 店員
+    if (ADminLV === 3) {
+      鍵lv呀 = 'settingMenuSel店'
+      $('#settingMenu').toggleClass('a4')
+    }
+    // 帳房
+    if (ADminLV === 4) {
+      鍵lv呀 = 'settingMenuSel帳'
+      $('#settingMenu').toggleClass('a3')
+    }
+    _data入網_整div(鍵lv呀,'append','#settingMenu',0)
+
+
+
+
+
+
+    
+
+    // 東主 / 小編 / 店員 可見
+    if (ADminLV > 3 )  return // qqqqqqqqqqqqqqqqqqqqqqqq 
+
+    // $$$$$$$$ 店舖枱號 $$$$$$$$
+    let 枱止=0
+    let all枱號 = []
+    for(var 枱號開始數=14 ; 枱止 < 2 ; 枱號開始數++){ // loop找支付方式
+      let 店舖枱號 = res.values[0][枱號開始數]
+        , 枱號帳單 = res.values[1][枱號開始數]
+      if (!!店舖枱號 && !!枱號帳單) {
+        all枱號.push(店舖枱號,枱號帳單)
+        
+        // qqq  <a 店|舖|枱|號 herf="枱號帳單" qqqqqqqqqqqqqqqqqqqqqqqq  
+
+      }
+      if (!店舖枱號) 枱止++ // 冇名2次out
+    }
+
+    // _data入網_整div('萬','prepend','#店舖枱號List',[店舖枱號,枱號帳單])  
+
+
+
+
+
+
+
+    // 東主 / 小編 可見
+    if (ADminLV > 2 )  return // qqqqqqqqqqqqqqqqqqqqqqqq 
+
+
+    // $$$$$$$$ 公司資料page $$$$$$$$
     let 網lv     = res.values[0][0]    // aki set
       // 公司資料
       , 公司名   = res.values[docsGoogle開始數][0]
@@ -112,8 +145,8 @@ function _admin編輯(data,Url) {
       , 公司ws   = res.values[docsGoogle開始數][1]
       , ws來詢字 = res.values[docsGoogle開始數][2]
       
-      // 外觀美化
-      , 網站按鍵色   = res.values[1][4]
+
+      // $$$$$$$$  外觀美化 $$$$$$$$
       , 網主色 = res.values[1][5]
       , 網副色   = res.values[1][6]
       , 字主色 = res.values[1][7]
@@ -124,13 +157,19 @@ function _admin編輯(data,Url) {
       , 圖橫 = res.values[1][11]
       , 圖橫mx   = res.values[1][12] //13
 
-    _data入網_整div(
+
+    // $$$$$$$$ 各頁用框架 $$$$$$$$
+    _data入網_整div( 
       '公司資料page','append','#settingBox_B'
-      ,[Url,網lv,公司名,公司logo,公司ws,ws來詢字,網站按鍵色,網主色,網副色,字主色,字副色,圖高,圖高mx,圖橫,圖橫mx]
+      ,[Url,網lv,公司名,公司logo,公司ws,ws來詢字,網站按鍵色,網主色,網副色,字主色,字副色,圖高,圖高mx,圖橫,圖橫mx,all枱號] 
     )
+    _data入網_整div('共用page','append','#settingBox_B',[網站按鍵色,'產品分類'])
+    _data入網_整div('共用page','append','#settingBox_B',[網站按鍵色,'產品資料'])
+    _data入網_整div('共用page','append','#settingBox_B',[網站按鍵色,'收款方式'])
 
 
-    // 產品分類page
+
+    // $$$$$$$$ 產品分類page $$$$$$$$
     let all產品分類 = []
     for(var 數=docsGoogle開始數+2 ; 數 < res.values.length ; 數++){
       let 產品分類名 = res.values[數][0]
@@ -141,38 +180,38 @@ function _admin編輯(data,Url) {
       }
     }
 
-    // 產品資料page
+
+    // $$$$$$$$ 產品資料page $$$$$$$$
     let 產轉類 = ''
     for(var 數=docsGoogle開始數+2 ; 數 < res.values.length ; 數++){
-
       let 產品名 = res.values[數][4]
       , 產品價錢 = res.values[數][5]
       , 產品圖 = res.values[數][6]
       , 換行 = 單品option = ''
-      
       if (!!res.values[數][0]) {  // 如有取 產品分類名
         all產品分類.unshift(all產品分類.splice(all產品分類.indexOf(res.values[數][0]), 1)[0]) // Monica js list 移到  第一位
         for(var 唉for類=0 ; 唉for類 < all產品分類.length ; 唉for類++){單品option = 單品option + '<option value="'+all產品分類[唉for類]+'">'+all產品分類[唉for類]+'</option>'}
         產轉類 = '產品分類 = <select class="form-select" id="'+產品名+'轉類">'+單品option+'</select>'
         換行 = '<hr style="clear:both; width: 100%;">'
       }
-
       if (!!產品名) _data入網_整div('產品資料page','prepend','#產品資料List',[產品名,產品價錢,產品圖,換行,產轉類])
     }
 
-    // 收款方式page
+
+    // $$$$$$$$ 收款方式page $$$$$$$$
     let 止=0
     for(var 支付方式開始數=9 ; 止 < 2 ; 支付方式開始數++){ // loop找支付方式
       let 支付方式名 = res.values[2][支付方式開始數]
         , 支付方式料 = res.values[3][支付方式開始數]
       if (!!支付方式名) _data入網_整div('收款方式page','prepend','#收款方式List',[支付方式名,支付方式料])
-
-      if (!支付方式名) 止++ // 冇名1次out
+      if (!支付方式名) 止++ // 冇名2次out
     }
 
+
+
+
+
   })
-
-
 }
 
 
@@ -211,16 +250,23 @@ function _admin編輯(data,Url) {
 ***********************************************************************************************************************
 ***********************************************************************************************************************/
 
-function _data入網_整div(sel,run,box_name,data) {
+function _data入網_整div(sel,run,box_name,data) {  // qqqqqqqqqqqq 合
   if (MOK) console.log("_data入網_整div('類名menu','append','#all類',[類名])")
 
+
+
+
+
+      // 低主網 
   let user頁 = '<embed id="user頁" type="text/x-scriptlet" src="" width="100%" height="100%">'
+      // admin頁框架
     , settingBox = '\
     <div id="settingBox_">\
       <h5 onclick="settingBox_toggle()"><i class="fa fa-wrench" aria-hidden="true"></i></h5>\
       \
       <div id="settingBox_B">\
-      \
+        <!-- 公司資料page -->\
+        <!-- 共用page -->\
         <div id="google_translate_element2" style="margin-top: 20px; height: 25px;overflow: hidden;">\
           <script type="text/javascript">\
             function googleTranslateElementInit() {\
@@ -229,273 +275,252 @@ function _data入網_整div(sel,run,box_name,data) {
           </script>\
           <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>\
         </div>\
-        \
+          \
+          \
       </div>\
-      <ul id="settingMenu"></ul>\
+      <ul id="settingMenu"><!-- settingMenuSel編 --></ul>\
     </div>\
     '
-
-
-
-    , settingMenuSel編 = '\
-      <li onclick="settingMenuBtn(1)" style="background: rgba(213, 0, 0, 0.3);">公司資料</li>\
-      <li onclick="settingMenuBtn(2)" style="background: rgba(170, 0, 255, 0.3);">產品分類</li>\
-      <li onclick="settingMenuBtn(3)" style="background: rgba(245, 127, 23, 0.3);">產品資料</li>\
-      <li onclick="settingMenuBtn(4)" style="background: rgba(174, 234, 0, 0.3);">收款方式</li>\
-      <li onclick="" style="background: rgba(27, 94, 32, 0.3);">保存</li>\
+      // 各頁用框架
+    , 共用page = '\
+    <div id="'+data[1]+'page"  class="row" >\
+      \
+      <div class="col-md-12" style="margin: auto">\
+        <div class="card mb-4">\
+          <h4 style="background: rgba(255, 255, 255, .5);" class="card-header">'+data[1]+'</h4>\
+          <a onclick="新增'+data[1]+'()" class="btn btn-'+data[0]+'" >新增'+data[1]+'</a>\
+        </div>\
+      </div>\
+      \
+      <div id="'+data[1]+'List" class="col-md-12" style="margin: auto"></div>\
+      \
+      <hr style="clear:both; width: 100%;">\
+      <div class="col-md-12" style="margin: auto">\
+        <a onclick="新增'+data[1]+'()" class="btn btn-'+data[0]+'" >新增'+data[1]+'</a>\
+      </div>\
+      \
+    </div>\
+  '
+    // 各lv按鍵
+  , settingMenuSel編 = '\
+    <li onclick="settingMenuBtn(1)" style="background: rgba(213, 0, 0, 0.3);">公司資料</li>\
+    <li onclick="settingMenuBtn(2)" style="background: rgba(170, 0, 255, 0.3);">產品分類</li>\
+    <li onclick="settingMenuBtn(3)" style="background: rgba(245, 127, 23, 0.3);">產品資料</li>\
+    <li onclick="settingMenuBtn(4)" style="background: rgba(174, 234, 0, 0.3);">收款方式</li>\
+    <li onclick="" style="background: rgba(27, 94, 32, 0.3);">保存</li>\
     '
-    , settingMenuSel帳 = '<li onclick="settingMenuBtn(5)" style="background: rgba(255, 214, 0, 0.3);">流水帳目</li>'        
-    , settingMenuSel店 = '\
-      <li onclick="settingMenuBtn(7)" style="background: rgb(128, 222, 234, .3);">廚部</li>\
-      <li onclick="settingMenuBtn(8)" style="background: rgb(205, 220, 57,.5);">廳面</li>\
-      <li onclick="settingMenuBtn(9)" style="background: rgb(98, 0, 234, .3);">收銀</li>\
+  , settingMenuSel帳 = '<li onclick="settingMenuBtn(5)" style="background: rgba(255, 214, 0, 0.3);">流水帳目</li>'        
+  , settingMenuSel店 = '\
+    <li onclick="settingMenuBtn(7)" style="background: rgb(128, 222, 234, .3);">廚部</li>\
+    <li onclick="settingMenuBtn(8)" style="background: rgb(205, 220, 57,.5);">廳面</li>\
+    <li onclick="settingMenuBtn(9)" style="background: rgb(98, 0, 234, .3);">收銀</li>\
     '
 
 
-
-
-
+    // 各page      
     , 公司資料page = '\
-          <div id="公司資料page" class="row" >\
-            <div class="col-md-6" >\
-              <div class="card mb-4">\
-                <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">'+data[0]+'</h4>\
-                <div class="card-body">\
-                  <div class="mb-3">\
-                    <label for="網lv" class="form-label">店主等級</label>\
-                    <input\
-                      class="form-control"\
-                      type="text"\
-                      id="網lv"\
-                      placeholder="'+data[1]+'"\
-                      readonly\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="公司名稱" class="form-label">公司名稱</label>\
-                    <input\
-                      title="公司名稱"\
-                      type="公司名稱"\
-                      class="form-control"\
-                      id="公司名稱"\
-                      placeholder="'+data[2]+'"\
-                      value="'+data[2]+'"\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="公司logo" class="form-label">公司logo</label>\
-                    <img id="公司logo_img" style="height: 75px; width: 75px; margin: auto;" src="'+data[3]+'">\
-                    <input title="公司logo" class="form-control" type="file" id="公司logo" /> qqq \
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="公司ws" class="form-label">公司Whatsapp號</label>\
-                    <input\
-                      title="公司Whatsapp號"\
-                      type="text"\
-                      class="form-control"\
-                      id="公司Whatsapp號"\
-                      placeholder="'+data[4]+'"\
-                      value="'+data[4]+'"\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="ws來詢字" class="form-label">客戶Whatsapp店主的首句內容</label>\
-                    <textarea class="form-control" id="ws來詢字" rows="3" placeholder="'+data[5]+'">'+data[5]+'</textarea>\
-                  </div>\
-                  <hr>\
-                  <div class="mb-3">\
-                    店舖枱號 qqq \
-                  </div>\
-                </div>\
-              </div>\
+    <div id="公司資料page" class="row" >\
+      \
+      \
+      <div class="col-md-6" >\
+        <div class="card mb-4" style="background: rgba(0, 0, 0, .5);">\
+          \
+          <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">'+data[0]+'</h4>\
+          \
+          <div class="card-body">\
+            \
+            <div class="mb-3">\
+              <label for="網lv" class="form-label">店主等級</label>\
+              <input\
+                class="form-control"\
+                type="text"\
+                id="網lv"\
+                placeholder="'+data[1]+'"\
+                readonly\
+              />\
             </div>\
             \
-            \
-            <div class="col-md-6">\
-              <div class="card mb-4">\
-                <div class="card-body">\
-                  \
-                  <div class="mb-3">\
-                    <select\
-                      class="form-select"\
-                      id="網站按鍵色"\
-                    >\
-                      <option value="none" selected disabled hidden>網站按鍵色</option>\
-                      <option value="info">淺藍</option>\
-                      <option value="primary">藍</option>\
-                      <option value="success">青</option>\
-                      <option value="warning">黃</option>\
-                      <option value="danger">紅</option>\
-                      <option value="secondary">灰</option>\
-                      <option value="light">黑</option>\
-                    </select>\
-                    <a onclick="Change網站按鍵色()" id="test網站按鍵色" class="btn btn-'+data[6]+'" >查看</a>\
-                  </div>\
-                  <div class="mb-3 row">\
-                    <label for="html5-color-input" class="col-md-2 col-form-label">色版</label>\
-                    <div class="col-md-10">\
-                      <input class="form-control" type="color" value="#666EE8" id="html5-color-input" />\
-                    </div>\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="網主色" class="form-label">網主色</label>\
-                    <input\
-                      title="網主色"\
-                      type="text"\
-                      class="form-control"\
-                      id="網主色"\
-                      placeholder="'+data[7]+'"\
-                      value="'+data[7]+'"\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="網副色" class="form-label">網副色</label>\
-                    <input\
-                      title="網副色"\
-                      type="text"\
-                      class="form-control"\
-                      id="網副色"\
-                      placeholder="'+data[8]+'"\
-                      value="'+data[8]+'"\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="字主色" class="form-label">字主色</label>\
-                    <input\
-                      title="字主色"\
-                      type="text"\
-                      class="form-control"\
-                      id="字主色"\
-                      placeholder="'+data[9]+'"\
-                      value="'+data[9]+'"\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="字副色" class="form-label">字副色</label>\
-                    <input\
-                      title="字副色"\
-                      type="text"\
-                      class="form-control"\
-                      id="字副色"\
-                      placeholder="'+data[10]+'"\
-                      value="'+data[10]+'"\
-                    />\
-                  </div>\
-                  <hr>\
-                  <div class="mb-3">\
-                    <label for="圖片最小高度" class="form-label">圖片最小高度</label>\
-                    <input\
-                      title="圖片最小高度"\
-                      type="text"\
-                      class="form-control"\
-                      id="圖片最小高度"\
-                      placeholder="'+data[11]+'"\
-                      value="'+data[11]+'"\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="圖片最大高度" class="form-label">圖片最大高度</label>\
-                    <input\
-                      title="圖片最大高度"\
-                      type="text"\
-                      class="form-control"\
-                      id="圖片最大高度"\
-                      placeholder="'+data[12]+'"\
-                      value="'+data[12]+'"\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="圖片最小寬度" class="form-label">圖片最小寬度</label>\
-                    <input\
-                      title="圖片最小寬度"\
-                      type="text"\
-                      class="form-control"\
-                      id="圖片最小寬度"\
-                      placeholder="'+data[13]+'"\
-                      value="'+data[13]+'"\
-                    />\
-                  </div>\
-                  <div class="mb-3">\
-                    <label for="圖片最大寬度" class="form-label">圖片最大寬度</label>\
-                    <input\
-                      title="圖片最大寬度"\
-                      type="text"\
-                      class="form-control"\
-                      id="圖片最大寬度"\
-                      placeholder="'+data[14]+'"\
-                      value="'+data[14]+'"\
-                    />\
-                  </div>\
-                  \
-                </div>\
-              </div>\
-            </div>\
-          </div>\
-          \
-          \
-          <div id="收款方式page"  class="row" >\
-            <div class="col-md-6" style="margin: auto">\
-              <div class="card mb-4">\
-              <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">收款方式</h4>\
-                <div id="收款方式List" class="card-body">\
-                  \
-                  <div class="mb-3">\
-                    <a onclick="新增收款方式()" class="btn btn-'+data[6]+'" >新增收款方式</a>\
-                  </div>\
-                  \
-                </div>\
-              </div>\
-            </div>\
-          </div>\
-          \
-          \
-          <div id="產品分類page"  class="row" >\
-            \
-            <div class="col-md-12" style="margin: auto">\
-              <div class="card mb-4">\
-                <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">產品分類</h4>\
-                <a onclick="新增產品分類()" class="btn btn-'+data[6]+'" >新增產品分類</a>\
-              </div>\
+            <div class="mb-3">\
+              <label for="公司名稱" class="form-label">公司名稱</label>\
+                <input\
+                title="公司名稱"\
+                type="公司名稱"\
+                class="form-control"\
+                id="公司名稱"\
+                placeholder="'+data[2]+'"\
+                value="'+data[2]+'"\
+              />\
             </div>\
             \
-            <div id="產品分類List"></div>\
+            <div class="mb-3">\
+              <label for="公司logo" class="form-label">公司logo</label>\
+              <img id="公司logo_img" style="height: 75px; width: 75px; margin: auto;" src="'+data[3]+'">\
+              <input title="公司logo" class="form-control" type="file" id="公司logo" /> qqq \
+            </div>\
             \
-            <hr style="clear:both; width: 100%;">\
-            <div class="col-md-12" style="margin: auto">\
-              <a onclick="新增產品分類()" class="btn btn-'+data[6]+'" >新增產品分類</a>\
+            <div class="mb-3">\
+              <label for="公司ws" class="form-label">公司Whatsapp號</label>\
+              <input\
+                title="公司Whatsapp號"\
+                type="text"\
+                class="form-control"\
+                id="公司Whatsapp號"\
+                placeholder="'+data[4]+'"\
+                value="'+data[4]+'"\
+              />\
+            </div>\
+            \
+            <div class="mb-3">\
+              <label for="ws來詢字" class="form-label">客戶Whatsapp店主的首句內容</label>\
+              <textarea class="form-control" id="ws來詢字" rows="3" placeholder="'+data[5]+'">'+data[5]+'</textarea>\
+            </div>\
+            \
+            <hr>\
+            <div id="店舖枱號編" class="mb-3">\
+            <label for="枱號編" class="form-label">店舖枱號</label>\
+              '+data[15]+'\
             </div>\
             \
           </div>\
-          \
-          \
-          <div id="產品資料page"  class="row" >\
+        </div>\
+      </div>\
+      \
+      \
+      <div class="col-md-6">\
+        <div class="card mb-4" style="background: rgba(0, 0, 0, .5);">\
+          <div class="card-body">\
             \
-            <div class="col-md-12" style="margin: auto">\
-              <div class="card mb-4">\
-                <h4 style="background: rgba(255, 255, 255, .3);" class="card-header">產品資料</h4>\
-                <p class="btn-danger">清空產品名將刪除產品</p>\
-                <a onclick="新增產品()" class="btn btn-'+data[6]+'" >新增產品</a>\
+            <div class="mb-3">\
+              <select\
+                class="form-select"\
+                id="網站按鍵色"\
+              >\
+                <option value="none" selected disabled hidden>網站按鍵色</option>\
+                <option value="info">淺藍</option>\
+                <option value="primary">藍</option>\
+                <option value="success">青</option>\
+                <option value="warning">黃</option>\
+                <option value="danger">紅</option>\
+                <option value="secondary">灰</option>\
+                <option value="light">黑</option>\
+              </select>\
+              <a onclick="Change網站按鍵色()" id="test網站按鍵色" class="btn btn-'+data[6]+'" >查看</a>\
+            </div>\
+            \
+            <div class="mb-3 row">\
+              <label for="html5-color-input" class="col-md-2 col-form-label">色版</label>\
+              <div class="col-md-10">\
+                <input class="form-control" type="color" value="#666EE8" id="html5-color-input" />\
               </div>\
             </div>\
             \
-            <div id="產品資料List"></div>\
+            <div class="mb-3">\
+              <label for="網主色" class="form-label">網主色</label>\
+              <input\
+                title="網主色"\
+                type="text"\
+                class="form-control"\
+                id="網主色"\
+                placeholder="'+data[7]+'"\
+                value="'+data[7]+'"\
+              />\
+            </div>\
             \
-            <hr style="clear:both; width: 100%;">\
-            <div class="col-md-12" style="margin: auto">\
-              <a onclick="新增產品()" class="btn btn-'+data[6]+'" >新增產品</a>\
+            <div class="mb-3">\
+              <label for="網副色" class="form-label">網副色</label>\
+              <input\
+                title="網副色"\
+                type="text"\
+                class="form-control"\
+                id="網副色"\
+                placeholder="'+data[8]+'"\
+                value="'+data[8]+'"\
+              />\
+            </div>\
+            \
+            <div class="mb-3">\
+              <label for="字主色" class="form-label">字主色</label>\
+              <input\
+                title="字主色"\
+                type="text"\
+                class="form-control"\
+                id="字主色"\
+                placeholder="'+data[9]+'"\
+                value="'+data[9]+'"\
+              />\
+            </div>\
+            \
+            <div class="mb-3">\
+              <label for="字副色" class="form-label">字副色</label>\
+              <input\
+                title="字副色"\
+                type="text"\
+                class="form-control"\
+                id="字副色"\
+                placeholder="'+data[10]+'"\
+                value="'+data[10]+'"\
+              />\
+            </div>\
+            \
+            <hr>\
+            <div class="mb-3">\
+              <label for="圖片最小高度" class="form-label">圖片最小高度</label>\
+              <input\
+                title="圖片最小高度"\
+                type="text"\
+                class="form-control"\
+                id="圖片最小高度"\
+                placeholder="'+data[11]+'"\
+                value="'+data[11]+'"\
+              />\
+            </div>\
+            \
+            <div class="mb-3">\
+              <label for="圖片最大高度" class="form-label">圖片最大高度</label>\
+              <input\
+                title="圖片最大高度"\
+                type="text"\
+                class="form-control"\
+                id="圖片最大高度"\
+                placeholder="'+data[12]+'"\
+                value="'+data[12]+'"\
+              />\
+            </div>\
+            \
+            <div class="mb-3">\
+              <label for="圖片最小寬度" class="form-label">圖片最小寬度</label>\
+              <input\
+                title="圖片最小寬度"\
+                type="text"\
+                class="form-control"\
+                id="圖片最小寬度"\
+                placeholder="'+data[13]+'"\
+                value="'+data[13]+'"\
+              />\
+            </div>\
+            \
+            <div class="mb-3">\
+              <label for="圖片最大寬度" class="form-label">圖片最大寬度</label>\
+              <input\
+                title="圖片最大寬度"\
+                type="text"\
+                class="form-control"\
+                id="圖片最大寬度"\
+                placeholder="'+data[14]+'"\
+                value="'+data[14]+'"\
+              />\
             </div>\
             \
           </div>\
-          \
-          \
+        </div>\
+      </div>\
+      \
+      \
+    </div>\
     '
-
-
-
-
     , 產品分類page = '\
     <div class="col-md-6" style="margin: auto; float: left; " >\
-        <div class="card mb-4">\
+        <div class="card mb-4" style="background: rgba(0, 0, 0, .5);">\
             <div class="mb-3">\
                 <input\
                     title="產品分類名"\
@@ -520,7 +545,7 @@ function _data入網_整div(sel,run,box_name,data) {
     '
     , 產品資料page = '\
       <div class="col-md-6" style="margin: auto; float: left; " >\
-        <div class="card mb-4">\
+        <div class="card mb-4" style="background: rgba(0, 0, 0, .5);">\
           <div class="mb-3">\
             '+data[4]+'\
             <input\
@@ -548,23 +573,27 @@ function _data入網_整div(sel,run,box_name,data) {
       '+data[3]+'\
     '
     , 收款方式page = '\
-    <div class="mb-3">\
-        <input\
-            title="收款方式名"\
-            type="text"\
-            class="form-control"\
-            id="收款方式名"\
-            placeholder="'+data[0]+'"\
-            value="'+data[0]+'"\
-        />\
-        <input\
-            title="收款方式code"\
-            type="text"\
-            class="form-control"\
-            id="收款方式code"\
-            placeholder="'+data[1]+'"\
-            value="'+data[1]+'"\
-        />\
+    <div class="col-md-6" style="margin: auto; float: left; " >\
+      <div class="card mb-4" style="background: rgba(0, 0, 0, .5);">\
+        <div class="mb-3">\
+          <input\
+              title="收款方式名"\
+              type="text"\
+              class="form-control"\
+              id="收款方式名"\
+              placeholder="'+data[0]+'"\
+              value="'+data[0]+'"\
+          />\
+          <input\
+              title="收款方式code"\
+              type="text"\
+              class="form-control"\
+              id="收款方式code"\
+              placeholder="'+data[1]+'"\
+              value="'+data[1]+'"\
+          />\
+        </div>\
+      </div>\
     </div>\
     '
 
@@ -639,25 +668,25 @@ function Login() {
   // 循環表找客Id
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
 
-    // ad1pw
+    // ad1pw 東主
     for(var 數=0;數 < r2es.values.length ; 數++)  if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位]) { ADminLV = ~~1; 如數 = 數; }
 
-    // ad2pw
+    // ad2pw 小編
     if(!ADminLV) {
       for(var 數=0;數 < r2es.values.length ; 數++) if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位+1]) { ADminLV = ~~2; 如數 = 數; }
     }
 
-    // ad3pw
+    // ad3pw 店員
     if(!ADminLV) {
       for(var 數=0;數 < r2es.values.length ; 數++) if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位+2]) { ADminLV = ~~3; 如數 = 數; }
     }
 
-    // ad4pw
+    // ad4pw 帳房
     if(!ADminLV) {
       for(var 數=0;數 < r2es.values.length ; 數++) if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位+3]) { ADminLV = ~~4; 如數 = 數; }
     }
 
-    // ad5pw
+    // ad5pw ??
     if(!ADminLV) {
       for(var 數=0;數 < r2es.values.length ; 數++) if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位+4]) { ADminLV = ~~-1; 如數 = 數; }
     }
@@ -760,6 +789,7 @@ function settingMenuBtn(sel){
     , 類p = '#產品分類page'
     , 產p = '#產品資料page'
     , 收p = '#收款方式page'
+    // , 收p = '#收款方式page'
 
     
   if (sel === 1) {$('#settingBox_B').css('background', 'rgba(213, 0, 0, 0.3)');$(公p).css('display', 'flex');$(類p+','+產p+','+收p).css('display', 'none')}
