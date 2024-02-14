@@ -32,18 +32,14 @@ function _客setting頁(客Url,客api){
   // get客data
   let GEcl = 查客[0]+_0x1731ba(客api)+查客[1]+'d'+查客[2]+_0x1731ba(api)
     , url = (location.href).split('/set')[0] + '?' +客Url+ '?' 
-    , settingMenuSelLV = 'settingMenuSel編+settingMenuSel帳+settingMenuSel店'
+    
 
   //console.log('url',url) 
   if (MOK) console.log('user的dataUlr',GEcl,'\nurl',url)
 
   // make user data box
   _data入網_整div('user頁','html','#set_page',0) 
-
-
-
-
-  _admin編輯(GEcl,客Url,settingMenuSelLV)
+  _admin編輯(GEcl,客Url)
 
 
 
@@ -71,92 +67,122 @@ function _客setting頁(客Url,客api){
 
 
 
-
-function _admin編輯(data,Url,鍵lv) {  
-  let 鍵lv呀 = 鍵lv
+let all枱號 = []
+function _admin編輯(data,Url) {  
+  let settingMenuSelLV = 'settingMenuSel編+settingMenuSel店+settingMenuSel帳'
 
   // 用G資料
   fetch(data).then(res => res.json()).then(res => {
 
+
     // $$$$$$$$ 框架 $$$$$$$$
     let 網站按鍵色   = res.values[1][4]
     _data入網_整div('settingBox','append','#set_page',網站按鍵色) 
+    // $$$$$$$$  ///  $$$$$$$$
+
+
 
     // $$$$$$$$ 各lv按鍵 $$$$$$$$
     // 小編
     if (ADminLV === 2) {
-      鍵lv呀 = 'settingMenuSel編'
+      settingMenuSelLV = 'settingMenuSel編'
       $('#settingMenu').toggleClass('a2')
     }
     // 店員
     if (ADminLV === 3) {
-      鍵lv呀 = 'settingMenuSel店'
+      settingMenuSelLV = 'settingMenuSel店'
       $('#settingMenu').toggleClass('a4')
     }
     // 帳房
     if (ADminLV === 4) {
-      鍵lv呀 = 'settingMenuSel帳'
+      settingMenuSelLV = 'settingMenuSel帳'
       $('#settingMenu').toggleClass('a3')
     }
-    _data入網_整div(鍵lv呀,'append','#settingMenu',0)
+    _data入網_整div(settingMenuSelLV,'append','#settingMenu',0)
+     // $$$$$$$$  ///  $$$$$$$$
 
 
-
-
-
-
-    
-
-    // 東主 / 小編 / 店員 可見
-    if (ADminLV > 3 )  return // qqqqqqqqqqqqqqqqqqqqqqqq 
 
     // $$$$$$$$ 店舖枱號 $$$$$$$$
+
+    // 東主 / 小編 / 店員 可見
+    if (ADminLV > 3 )  return 
+
     let 枱止=0
-    let all枱號 = []
-    for(var 枱號開始數=14 ; 枱止 < 2 ; 枱號開始數++){ // loop找支付方式
+
+    // loop找店舖枱號
+    for(var 枱號開始數=14 ; 枱止 < 2 ; 枱號開始數++){ 
       let 店舖枱號 = res.values[0][枱號開始數]
         , 枱號帳單 = res.values[1][枱號開始數]
+        , 枱號標頭
+        , 純枱號   = 店舖枱號
+        , 枱號尾
+        , 該海低
+        , 計=0
+        , 枱data
+
       if (!!店舖枱號 && !!枱號帳單) {
-        all枱號.push(店舖枱號,枱號帳單)
-        
-        // qqq  <a 店|舖|枱|號 herf="枱號帳單" qqqqqqqqqqqqqqqqqqqqqqqq  
+        // 分枱號標頭 https://chateverywhere.app?shareable_conversation_id=a14fde3d-5613-4e1a-a4c4-647bac53b41e
+        枱號標頭 = 店舖枱號.replace(/[0-9]/g, '').split('-')[0] // 取純枱號標頭
+
+        if (枱號標頭) 純枱號 = 店舖枱號.split(枱號標頭)[1]  // 如有枱號標頭 = 刪枱號標頭 = 取純枱號
+
+        // make 枱號 list
+        枱號尾 = ~~純枱號.split('-')[1]+1
+        // loop出每台
+        for(var 枱號頭=純枱號.split('-')[0]; 枱號頭 < 枱號尾; 枱號頭++){ 
+          let 真枱號 = 枱號標頭+枱號頭
+          
+          // 再loop出每台的表
+          該海低 = 枱號帳單.split(',')[計]
+          計++
+          //console.log("真枱號=",真枱號,"該海低=",該海低)
+          枱data = '<a title="'+該海低+'" class=" btn-circle btn-'+網站按鍵色+'" style="margin: 1%;cursor: pointer;">'+真枱號+'</a>'
+          all枱號.push(枱data)
+        }
+
+        // 標頭不同分用
+        all枱號.push('<hr>')
 
       }
       if (!店舖枱號) 枱止++ // 冇名2次out
     }
+    all枱號 = all枱號.toString().replace(/,/g,"") // https://blog.csdn.net/haibo0668/article/details/80926927    
+    //all枱號 = all枱號.replace(/,/g,"")
 
-    // _data入網_整div('萬','prepend','#店舖枱號List',[店舖枱號,枱號帳單])  
+    _data入網_整div('共用page','append','#settingBox_B',[網站按鍵色,'店員用'])
+    _data入網_整div('萬','prepend','#店員用List',all枱號)  // qqqqqqqqqqqqqqqqqqqqqqqqq  新增店員用() 
+     // $$$$$$$$  ///  $$$$$$$$
 
-
-
-
-
-
-
-    // 東主 / 小編 可見
-    if (ADminLV > 2 )  return // qqqqqqqqqqqqqqqqqqqqqqqq 
 
 
     // $$$$$$$$ 公司資料page $$$$$$$$
+
+    // 東主 / 小編 可見
+    if (ADminLV > 2 )  return
+
     let 網lv     = res.values[0][0]    // aki set
       // 公司資料
       , 公司名   = res.values[docsGoogle開始數][0]
       , 公司logo = res.values[docsGoogle開始數][4]
       , 公司ws   = res.values[docsGoogle開始數][1]
       , ws來詢字 = res.values[docsGoogle開始數][2]
-      
+       // $$$$$$$$  ///  $$$$$$$$
+
+
 
       // $$$$$$$$  外觀美化 $$$$$$$$
       , 網主色 = res.values[1][5]
       , 網副色   = res.values[1][6]
       , 字主色 = res.values[1][7]
       , 字副色   = res.values[1][8]
-
       , 圖高 = res.values[1][9]
       , 圖高mx   = res.values[1][10]
       , 圖橫 = res.values[1][11]
       , 圖橫mx   = res.values[1][12] //13
+      // $$$$$$$$  ///  $$$$$$$$
 
+  
 
     // $$$$$$$$ 各頁用框架 $$$$$$$$
     _data入網_整div( 
@@ -166,6 +192,7 @@ function _admin編輯(data,Url,鍵lv) {
     _data入網_整div('共用page','append','#settingBox_B',[網站按鍵色,'產品分類'])
     _data入網_整div('共用page','append','#settingBox_B',[網站按鍵色,'產品資料'])
     _data入網_整div('共用page','append','#settingBox_B',[網站按鍵色,'收款方式'])
+     // $$$$$$$$  ///  $$$$$$$$
 
 
 
@@ -179,6 +206,8 @@ function _admin編輯(data,Url,鍵lv) {
         all產品分類.push(產品分類名)
       }
     }
+    // $$$$$$$$  ///  $$$$$$$$
+
 
 
     // $$$$$$$$ 產品資料page $$$$$$$$
@@ -196,6 +225,8 @@ function _admin編輯(data,Url,鍵lv) {
       }
       if (!!產品名) _data入網_整div('產品資料page','prepend','#產品資料List',[產品名,產品價錢,產品圖,換行,產轉類])
     }
+    // $$$$$$$$  ///  $$$$$$$$
+
 
 
     // $$$$$$$$ 收款方式page $$$$$$$$
@@ -206,8 +237,7 @@ function _admin編輯(data,Url,鍵lv) {
       if (!!支付方式名) _data入網_整div('收款方式page','prepend','#收款方式List',[支付方式名,支付方式料])
       if (!支付方式名) 止++ // 冇名2次out
     }
-
-
+    // $$$$$$$$  ///  $$$$$$$$
 
 
 
@@ -250,12 +280,8 @@ function _admin編輯(data,Url,鍵lv) {
 ***********************************************************************************************************************
 ***********************************************************************************************************************/
 
-function _data入網_整div(sel,run,box_name,data) {  // qqqqqqqqqqqq 合
+function _data入網_整div(sel,run,box_name,data) {
   if (MOK) console.log("_data入網_整div('類名menu','append','#all類',[類名])")
-
-
-
-
 
       // 低主網 
   let user頁 = '<embed id="user頁" type="text/x-scriptlet" src="" width="100%" height="100%">'
@@ -280,7 +306,7 @@ function _data入網_整div(sel,run,box_name,data) {  // qqqqqqqqqqqq 合
       </div>\
       <ul id="settingMenu"><!-- settingMenuSel編 --></ul>\
     </div>\
-    '
+  '
       // 各頁用框架
     , 共用page = '\
     <div id="'+data[1]+'page"  class="row" >\
@@ -302,19 +328,19 @@ function _data入網_整div(sel,run,box_name,data) {  // qqqqqqqqqqqq 合
     </div>\
   '
     // 各lv按鍵
-  , settingMenuSel編 = '\
+    , settingMenuSel編 = '\
     <li onclick="settingMenuBtn(1)" style="background: rgba(213, 0, 0, 0.3);">公司資料</li>\
     <li onclick="settingMenuBtn(2)" style="background: rgba(170, 0, 255, 0.3);">產品分類</li>\
     <li onclick="settingMenuBtn(3)" style="background: rgba(245, 127, 23, 0.3);">產品資料</li>\
     <li onclick="settingMenuBtn(4)" style="background: rgba(174, 234, 0, 0.3);">收款方式</li>\
     <li onclick="" style="background: rgba(27, 94, 32, 0.3);">保存</li>\
-    '
-  , settingMenuSel帳 = '<li onclick="settingMenuBtn(5)" style="background: rgba(255, 214, 0, 0.3);">流水帳目</li>'        
-  , settingMenuSel店 = '\
-    <li onclick="settingMenuBtn(7)" style="background: rgb(128, 222, 234, .3);">廚部</li>\
-    <li onclick="settingMenuBtn(8)" style="background: rgb(205, 220, 57,.5);">廳面</li>\
-    <li onclick="settingMenuBtn(9)" style="background: rgb(98, 0, 234, .3);">收銀</li>\
-    '
+  '
+    , settingMenuSel店 = '\
+    <li onclick="settingMenuBtn(6)" style="background: rgb(128, 222, 234, .3);">廚部</li>\
+    <li onclick="settingMenuBtn(7)" style="background: rgb(205, 220, 57,.5);">廳面</li>\
+    <li onclick="settingMenuBtn(8)" style="background: rgb(98, 0, 234, .3);">收銀</li>\
+  '
+    , settingMenuSel帳 = '<li onclick="settingMenuBtn(9)" style="background: rgba(255, 214, 0, 0.3);">流水帳目</li>'    
 
 
     // 各page      
@@ -375,10 +401,28 @@ function _data入網_整div(sel,run,box_name,data) {  // qqqqqqqqqqqq 合
               <textarea class="form-control" id="ws來詢字" rows="3" placeholder="'+data[5]+'">'+data[5]+'</textarea>\
             </div>\
             \
-            <hr>\
+            \
+          </div>\
+        </div>\
+      </div>\
+      \
+      \
+      <div class="col-md-6">\
+        <div class="card mb-4" style="background: rgba(0, 0, 0, .5);">\
+          <div class="card-body">\
+            \
             <div id="店舖枱號編" class="mb-3">\
-            <label for="枱號編" class="form-label">店舖枱號</label>\
+            <label class="form-label">店舖枱號</label><br>\
               '+data[15]+'\
+              <label for="枱號編" class="form-label">增加店舖枱數量</label><br>\
+              <input\
+                title="枱號編"\
+                type="枱號編"\
+                class="form-control"\
+                id="枱號編"\
+                placeholder="a1-99"\
+                value=""\
+              />\
             </div>\
             \
           </div>\
@@ -461,61 +505,68 @@ function _data入網_整div(sel,run,box_name,data) {  // qqqqqqqqqqqq 合
                 value="'+data[10]+'"\
               />\
             </div>\
-            \
-            <hr>\
-            <div class="mb-3">\
-              <label for="圖片最小高度" class="form-label">圖片最小高度</label>\
-              <input\
-                title="圖片最小高度"\
-                type="text"\
-                class="form-control"\
-                id="圖片最小高度"\
-                placeholder="'+data[11]+'"\
-                value="'+data[11]+'"\
-              />\
-            </div>\
-            \
-            <div class="mb-3">\
-              <label for="圖片最大高度" class="form-label">圖片最大高度</label>\
-              <input\
-                title="圖片最大高度"\
-                type="text"\
-                class="form-control"\
-                id="圖片最大高度"\
-                placeholder="'+data[12]+'"\
-                value="'+data[12]+'"\
-              />\
-            </div>\
-            \
-            <div class="mb-3">\
-              <label for="圖片最小寬度" class="form-label">圖片最小寬度</label>\
-              <input\
-                title="圖片最小寬度"\
-                type="text"\
-                class="form-control"\
-                id="圖片最小寬度"\
-                placeholder="'+data[13]+'"\
-                value="'+data[13]+'"\
-              />\
-            </div>\
-            \
-            <div class="mb-3">\
-              <label for="圖片最大寬度" class="form-label">圖片最大寬度</label>\
-              <input\
-                title="圖片最大寬度"\
-                type="text"\
-                class="form-control"\
-                id="圖片最大寬度"\
-                placeholder="'+data[14]+'"\
-                value="'+data[14]+'"\
-              />\
-            </div>\
-            \
+          </div>\
           </div>\
         </div>\
-      </div>\
-      \
-      \
+        \
+        \
+        <div class="col-md-6">\
+          <div class="card mb-4" style="background: rgba(0, 0, 0, .5);">\
+            <div class="card-body">\
+              \
+              <div class="mb-3">\
+                <label for="圖片最小高度" class="form-label">圖片最小高度</label>\
+                <input\
+                  title="圖片最小高度"\
+                  type="text"\
+                  class="form-control"\
+                  id="圖片最小高度"\
+                  placeholder="'+data[11]+'"\
+                  value="'+data[11]+'"\
+                />\
+              </div>\
+              \
+              <div class="mb-3">\
+                <label for="圖片最大高度" class="form-label">圖片最大高度</label>\
+                <input\
+                  title="圖片最大高度"\
+                  type="text"\
+                  class="form-control"\
+                  id="圖片最大高度"\
+                  placeholder="'+data[12]+'"\
+                  value="'+data[12]+'"\
+                />\
+              </div>\
+              \
+              <div class="mb-3">\
+                <label for="圖片最小寬度" class="form-label">圖片最小寬度</label>\
+                <input\
+                  title="圖片最小寬度"\
+                  type="text"\
+                  class="form-control"\
+                  id="圖片最小寬度"\
+                  placeholder="'+data[13]+'"\
+                  value="'+data[13]+'"\
+                />\
+              </div>\
+              \
+              <div class="mb-3">\
+                <label for="圖片最大寬度" class="form-label">圖片最大寬度</label>\
+                <input\
+                  title="圖片最大寬度"\
+                  type="text"\
+                  class="form-control"\
+                  id="圖片最大寬度"\
+                  placeholder="'+data[14]+'"\
+                  value="'+data[14]+'"\
+                />\
+              </div>\
+              \
+            </div>\
+          </div>\
+        </div>\
+        \
+        \
     </div>\
     '
     , 產品分類page = '\
@@ -789,19 +840,21 @@ function settingMenuBtn(sel){
     , 類p = '#產品分類page'
     , 產p = '#產品資料page'
     , 收p = '#收款方式page'
-    // , 收p = '#收款方式page'
+    , 店p = '#店員用page'
 
     
-  if (sel === 1) {$('#settingBox_B').css('background', 'rgba(213, 0, 0, 0.3)');$(公p).css('display', 'flex');$(類p+','+產p+','+收p).css('display', 'none')}
-  if (sel === 2) {$('#settingBox_B').css('background', 'rgba(170, 0, 255, 0.3)');$(類p).css('display', 'flex');$(公p+','+產p+','+收p).css('display', 'none')}
-  if (sel === 3) {$('#settingBox_B').css('background', 'rgba(245, 127, 23, 0.3)');$(產p).css('display', 'block');$(類p+','+收p+','+公p).css('display', 'none')}
-  if (sel === 4) {$('#settingBox_B').css('background', 'rgba(174, 234, 0, 0.3)');$(收p).css('display', 'block');$(類p+','+公p+','+產p).css('display', 'none')}
+  if (sel === 1) {$('#settingBox_B').css('background', 'rgba(213, 0, 0, 0.3)');$(公p).css('display', 'flex');$(類p+','+產p+','+收p+','+店p).css('display', 'none')}
+  if (sel === 2) {$('#settingBox_B').css('background', 'rgba(170, 0, 255, 0.3)');$(類p).css('display', 'flex');$(公p+','+產p+','+收p+','+店p).css('display', 'none')}
+  if (sel === 3) {$('#settingBox_B').css('background', 'rgba(245, 127, 23, 0.3)');$(產p).css('display', 'block');$(類p+','+收p+','+公p+','+店p).css('display', 'none')}
+  if (sel === 4) {$('#settingBox_B').css('background', 'rgba(174, 234, 0, 0.3)');$(收p).css('display', 'block');$(類p+','+公p+','+產p+','+店p).css('display', 'none')}
 
-  if (sel === 5) {$('#settingBox_B').css('background', 'rgba(255, 214, 0, 0.3)')}
+  if (sel === 5) {$('#settingBox_B').css('background', 'rgba(27, 94, 32, 0.3)')}
 
-  if (sel === 7) {$('#settingBox_B').css('background', 'rgb(128, 222, 234, .3)')}
-  if (sel === 8) {$('#settingBox_B').css('background', 'rgb(205, 220, 57,.5)')}
-  if (sel === 9) {$('#settingBox_B').css('background', 'rgb(98, 0, 234, .3)')}
+  
+  if (sel === 6) {$('#settingBox_B').css('background', 'rgb(128, 222, 234, .3)');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}
+  if (sel === 7) {$('#settingBox_B').css('background', 'rgb(205, 220, 57,.5)');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}
+  if (sel === 8) {$('#settingBox_B').css('background', 'rgb(98, 0, 234, .3)');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}
+  if (sel === 9) {$('#settingBox_B').css('background', 'rgb(255, 214, 0, 0.3)')}
 }
 
 
