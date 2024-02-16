@@ -95,7 +95,7 @@ function 查客data(){
           客data2 = r2es.values[數][1]                      // 客Key+1=客api
           客Lv    = r2es.values[數][2]                      // 客Lv1=有購物車
           客表    = r2es.values[數][3]                      // 客的海低
-          客台號  = r2es.values[數][4]                      // 台號 qqq 
+          客台號  = r2es.values[數][4]                      // 台號 qqq 用尾 ?a13? auto
           數      = r2es.values.length                      // 終止循環
       }
     }
@@ -114,6 +114,13 @@ function 查客data(){
   })
 
 }
+
+
+
+
+
+
+
 
 
 
@@ -311,20 +318,22 @@ function _data入網_加入類名menu(類名,數) {
   if (!類名) return  //類名空pass
 
   // 公司名
-  if (數 === docsGoogle開始數)  _data入網_整div('公司名','append','#all類',[類名,新入網Ulr做主頁]) 
+  if (數 === docsGoogle開始數)  _data入網_整div('公司名','append','#all類',[類名,新入網Ulr做主頁,網字色1號]) 
 
   let 客台nb = ''
+    , 公司名 = 總Data.values[docsGoogle開始數][0]
+    , 公司logo = 總Data.values[docsGoogle開始數][4]
   // 低導航右轉購物車
   if (客Lv === '1')  {
-    _data入網_整div('低導航右','html','#低導航右','0')
-    客台nb = '<h3 onclick="tttt333()" style="position: fixed;bottom: 0;left: calc(17vw);width:auto;padding:1%;opacity: .8;" class="btn btn-block btn-lg '+網all按鍵+'">'+客台號+'</h3>'
+    _data入網_整div('低導航右','html','#低導航右',[網all按鍵])
+    客台nb = '<h3 style="position: fixed;bottom: 0;left: calc(17vw);width:auto;padding:1%;opacity: .8;" class="btn btn-block btn-lg '+網all按鍵+'">'+客台號+'</h3>'
   }
 
   // 公司logo
-  _data入網_整div('公司logo','html','#logoBox',[新入網Ulr做主頁,客台nb])
+  _data入網_整div('公司logo','html','#logoBox',[新入網Ulr做主頁,客台nb,網色1號,公司logo,公司名])
 
   // 類名menu
-  if (數 > (docsGoogle開始數+1))  _data入網_整div('類名menu','append','#all類',[類名])
+  if (數 > (docsGoogle開始數+1))  _data入網_整div('類名menu','append','#all類',[類名,網字色1號])
   //不要exl的說明標題 pass
   
 
@@ -349,7 +358,7 @@ function _data入網_加入產品(類名,數) {
   //if (MOK) console.log('_data入網_加入產品(類名,數)')
 
   let 加購流程 = 總Data.values[數][1]
-    , 類圖 = 總Data.values[數][2]
+    //, 類圖 = 總Data.values[數][2]
     , 品名 = 總Data.values[數][4]
     , 產品價錢 = 總Data.values[數][5]
     , 產品圖 = 總Data.values[數][6]
@@ -359,7 +368,7 @@ function _data入網_加入產品(類名,數) {
   if (數 <= (docsGoogle開始數+1)) return  
 
   // 加入產品書籤
-  if (!!類名) _data入網_整div('類書籤','append','#all產品',[類名,加購流程]) // 類名空不顯
+  if (!!類名) _data入網_整div('類書籤','append','#all產品',[類名,加購流程,網字色1號]) // 類名空不顯
 
   // 品名空不顯
   if (!品名) return
@@ -376,7 +385,10 @@ function _data入網_加入產品(類名,數) {
     _data入網_整div('文章類','append','#all產品',[數,圖位,品名,產品價錢])
   }
   // 加入每產品
-  else _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])
+  else {
+    if (!產品圖) 產品圖 = NoIMG
+    _data入網_整div('餐廳每產品','append','#all產品',[數,產品圖,品名,產品價錢])
+  }
 
 }
 
@@ -401,189 +413,6 @@ function _data入網_加入產品(類名,數) {
 
 
 
-
-// monica : How to display a default image if the img tag fails to load an image in JavaScript?
-function _data入網_整div(sel,run,box_name,data) {
-  //if (MOK) console.log("_data入網_整div("+sel+","+run+","+box_name+","+data+")")
-
-  // 網頁data
-  let 公司名 = '\
-    <a id="公司名" style="color: '+網字色1號+'" class="sidebar-brand d-flex align-items-center justify-content-center" href="'+data[1]+'">\
-    '+data[0]+'\
-    </a>\
-    <hr>\
-  '
-  , 公司logo = '\
-    <a href="'+data[0]+'">\
-      <li class="nav-item" style="background: '+網色1號+';" >\
-        <img class="nav-link " style="height: 75px; width: 75px; margin: auto;" src="'+總Data.values[docsGoogle開始數][4]+'" alt="'+總Data.values[docsGoogle開始數][0]+'">\
-      </li>\
-    </a>\
-    <!-- 客台號 -->'+data[1]+'\
-  '
-  , 低導航右 = '\
-    <a class="nav-link dropdown-toggle" onclick="查看購物車()" id="userDropdown" role="button"\
-      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\
-      <span class=" fa fa-shopping-cart" style="font-size:36px;"></span>\
-      <!-- 已點產品數 -->\
-      <span id="已點產品數" class="badge  badge-counter '+網all按鍵+'" style="font-size:24px;border-radius: 50%;">\
-      </span>\
-    </a>\
-  '
-  , 類名menu = '\
-    <!-- '+data[0]+' -->\
-    <li class="nav-item"  title="'+data[0]+'" >\
-      <a style="color: '+網字色1號+'" class="類名 nav-link " href="#'+data[0]+'" >\
-        <span style="font-size: 150%;">'+data[0]+'</span>\
-      </a>\
-      <hr>\
-    </li>\
-  '// <img src="'+類圖+'" alt="'+類名+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
-
-  , 類書籤 = '\
-    <hr id="'+data[0]+'" style="clear:both; width: 100%;" class="主hr">\
-    <!-- '+data[0]+'書籤 -->\
-    <h1 style="color: '+網字色1號+'" class="">'+data[0]+'</h1>\
-    <hr id="_flow_'+data[1]+'_'+data[0]+'" style="clear:both; width: 100%;opacity: 0;">\
-  '
-  , 餐廳每產品 = '\
-    <button class="產品鍵" onclick="買野(1,'+data[0]+')">\
-    <img src="'+data[1]+'" alt="'+data[2]+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
-      <h5>'+data[2]+'</h5>\
-      <p class="Price">$ '+data[3]+'</p>\
-    </button>\
-  '
-  , 文章類 = '\
-    <div class="文章box" style="clear:both;">\
-        <h5>'+data[2]+'</h5>\
-      <div class="card-body">\
-        <div class="text-center">\
-        '+data[1]+'\
-        </div>\
-        <p>'+data[3]+'</p>\
-      </div>\
-    </div>\
-  '
-
-
-  // 加購流程頁
-  , 選項頁 = '\
-    <!-- 產品資料 -->\
-    <div class="card shadow mb-4">\
-        <!-- Card Header - Dropdown -->\
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">\
-            <h4 class="導大btn m-0 font-weight-bold ">'+data[0]+'</h4><samp >$ '+data[1]+'</samp>\
-        </div>\
-        <!-- Card Body -->\
-        <div class="card-body">\
-          <img src="'+data[2]+'" style="height: auto;width: 100%;max-width: 300px;display: block;margin: auto;" alt="'+data[0]+'" onerror="this.onerror=null;this.src='+NoIMG+'">\
-        </div>\
-    </div>\
-  '
-  , 選項表 = '\
-    <!-- 選項 -->\
-    <div class="card shadow mb-4">\
-      <div class="card-body">\
-        <input type="radio" name="Sel_'+data[0]+'" >\
-          <label for="Sel_'+data[0]+'" id="Sel_'+data[0]+'" onclick="選項頁Sel_label('+data[1]+','+data[2]+')">\
-            <span class="text">'+data[3]+'</span><span class="Price"'+data[4]+'</span>\
-          </label>'+data[5]+'\
-      </div>\
-    </div>\
-  '
-  , 選項頁btn = '\
-    <a onclick="選項頁的確認btn組合('+data[0]+')" class="btn btn-block btn-lg '+網all按鍵+'">確認</a>\
-    <a onclick="開關購買流程(1)" class="no了 btn btn-block btn-lg">取消</a>\
-  '
-  , 加購流程頁 = '\
-    <h2 class="m-0 font-weight-bold">嗎?</h2>\
-    <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+網all按鍵+'">加購</a>\
-    <a onclick="查看購物車()" class="no了 btn btn-block btn-lg">no了</a>\
-  '
-
-
-  // 確定訂單頁
-  , 顯示已點的訂單1 = '\
-    <div class="card shadow mb-4">\
-      <div class="card-body">\
-        <div class="table-responsive">\
-          <table class=" " width="100%" cellspacing="0" >\
-            <tbody id="顯示已點的訂單床">\
-              <tr>\
-                <td colspan="3" id="支付方式列表的床">\
-                </td>\
-              </tr>\
-              <tr>\
-              <hr>\
-                <td><h5>已點訂單</h5></td><td></td><td id="結帳鍵" style="float: right;" class="btn btn-block btn-lg '+網all按鍵+'" onclick="結帳();">結帳</td>\
-              </tr>\
-            </tbody>\
-          </table>\
-        </div>\
-      </div>\
-    </div>\
-  '
-  , 顯示已點的訂單2 = data[0]
-  , 顯示已點的訂單3 = '\
-    <tr>\
-    <td></td><td></td><td class="導大btn" style="float: right; font-weight: 500;font-size: 140%;" >'+data[0]+'</td>\
-    </tr>\
-  '
-
-
-
-
-  , 支付方式列表 = '\
-    <a style="float: left;margin: 1%;width: 31.3%;" onclick="打開支付('+dot+data[1]+dot+',)" class="btn  btn-lg '+網all按鍵+'">'+data[0]+'</a>\
-  '
-  
-  , 打開支付頁 = '\
-    '+data[0]+'\
-    <a onclick="打開支付('+dot+''+dot+',1);結帳()" class="no了 btn btn-block btn-lg">返回</a>\
-  '
-
-
-
-
-  , 清空購物車 = '<a id="清空購物車" onclick="清空購物車()" class="btn btn-danger btn-block btn-lg">刪除所有</a><br>'
-  , 確定訂單頁 = '\
-    <div class="card shadow mb-4">\
-      <div class="card-body">\
-        <div class="table-responsive">\
-          <table class=" " width="100%" cellspacing="0" >\
-            <tbody>\
-              <tr>\
-                  <td style="float: left;" class="btn btn-danger" onclick="刪除單個購物車產品('+dot+data[2]+dot+',1)">刪除</td>\
-              </tr>\
-              <tr class="購物車表">\
-                  <td style="float: left; font-weight: 900;font-size: 140%;">'+data[0]+'</td>\
-                  <td style="float: right; ">$ '+data[1]+'</td>\
-              </tr>\
-              <tr class="購物車表">\
-                  <td style="float: left;" >'+data[3]+'</td>\
-                  <td class="導大btn" style="float: right; font-weight: 500;font-size: 140%;" >$ '+data[4]+'</td>\
-              </tr>\
-            </tbody>\
-          </table>\
-        </div>\
-      </div>\
-    </div>\
-  '
-  , 確定訂單頁btn = '\
-    <p id="本單加總金">總金額 $ <span >'+data[1]+'</span></p>\
-    <a onclick="開關購買流程(0);'+data[0]+'" class="btn btn-block btn-lg '+網all按鍵+'">確定訂單</a>\
-    <a onclick="開關購買流程(0)" class="no了 btn btn-block btn-lg">一陣先</a>\
-  '
-
-
-
-  // 執行儲存為字串的 JavaScript 程式碼 https://stackoverflow.com/a/939343
-  // append = [run] https://chateverywhere.app/
-  $(box_name)[run]([eval(sel)])
-  // $("div").append('strong')
-  // <script src="3.7.0.js
-
-}
 
 
 
@@ -675,7 +504,9 @@ function _買野_餐廳版(id) {
 function _買野_產品選項(品名,id) {
   //if (MOK) console.log('_買野_產品選項(品名,id)')
 
-  _data入網_整div('選項頁','html','#購買流程 .row',[品名,總Data.values[id][5],總Data.values[id][6]]) 
+  let 產品圖 = 總Data.values[id][6]
+  if (!產品圖) 產品圖 = NoIMG
+  _data入網_整div('選項頁','html','#購買流程 .row',[品名,總Data.values[id][5],產品圖]) 
 
   let 唉 = 7  // 選項1名號
   ,止 = 0  
@@ -710,7 +541,7 @@ function _買野_產品選項(品名,id) {
     唉+=4
   } while (止<4)
 
-  _data入網_整div('選項頁btn','append','#購買流程 .row',[id])
+  _data入網_整div('選項頁btn','append','#購買流程 .row',[id,網all按鍵])
   開關購買流程() // 彈出產品選項
 
 }
@@ -988,7 +819,7 @@ function 選項頁的確認btn組合(data) {
 
 function 加購流程(id) {
   if (MOK) console.log('加購流程(id)')
-  _data入網_整div('加購流程頁','html','#購買流程 .row','0')
+  _data入網_整div('加購流程頁','html','#購買流程 .row',網all按鍵)
 
   let 加購流程 = ~~總Data.values[id][1]+0 // 轉數字
 
@@ -1126,7 +957,7 @@ function 查看購物車() {
     let 已點的訂單 = localStorage.getItem('已點訂單').split('!?')          // 已點的訂單轉list
       , totoPrice = 已點的訂單.pop()                                      // 刪除並取最後一個元素
 
-    _data入網_整div('顯示已點的訂單1','append','#購買流程 .row','')
+    _data入網_整div('顯示已點的訂單1','append','#購買流程 .row',網all按鍵)
 
     for(var 已點的cont=0; 已點的cont<已點的訂單.length;已點的cont=已點的cont+3){   // loop加入已點的內容
                               // 0=品名
@@ -1138,7 +969,7 @@ function 查看購物車() {
         +'<td>'+已點的訂單[bb]+'</td>'
         +'<td style="float: right;" >'+已點的訂單[cc]+'</td>\
         </tr>'
-      _data入網_整div('顯示已點的訂單2','append','#顯示已點的訂單床',[data])
+      _data入網_整div('萬','append','#顯示已點的訂單床',[data])
     }
 
     _data入網_整div('顯示已點的訂單3','append','#顯示已點的訂單床',[totoPrice])
@@ -1201,7 +1032,7 @@ function 查看購物車() {
   // 加 確定訂單 btn
   if (!!有購物) btn = ['確定訂單()',訂單總金]
   else btn = ['',訂單總金]
-  _data入網_整div('確定訂單頁btn','append','#購買流程 .row',btn)
+  _data入網_整div('確定訂單頁btn','append','#購買流程 .row',[btn,網all按鍵])
 
   // 彈出確定訂單
   開關購買流程() 
@@ -1209,6 +1040,27 @@ function 查看購物車() {
   console.log(' +請確定訂單+ ')
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1367,6 +1219,18 @@ function 確定訂單() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 function 結帳() {
   console.log('請選支付方式')
 
@@ -1376,7 +1240,7 @@ function 結帳() {
   for(var 數=支付方式開始數 ; 止 < 2 ; 數++){
     let 支付方式名 = 總Data.values[2][數]
       , 支付方式料 = 總Data.values[3][數]
-    if (!!支付方式名) _data入網_整div('支付方式列表','append','#支付方式列表的床',[支付方式名,支付方式料])
+    if (!!支付方式名) _data入網_整div('支付方式列表','append','#支付方式列表的床',[支付方式名,支付方式料,網all按鍵])
 
     if (!支付方式名) 止++ // 冇名1次out
   }
@@ -1402,10 +1266,21 @@ function 打開支付(木,sel) {
   }
 
   // 返回時 清空頁面
-  if (sel==1) _data入網_整div('顯示已點的訂單2','html','#支付方式列表的床','')
+  if (sel==1) _data入網_整div('萬','html','#支付方式列表的床','')
   // 顯示支付碼
   else _data入網_整div('打開支付頁','html','#支付方式列表的床',[data5])
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

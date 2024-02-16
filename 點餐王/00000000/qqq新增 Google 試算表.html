@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>新增 Google 試算表,錯名,qqqqqqqqqq</title>
+</head>
+<body>
+
+    <a onclick="aaaaaaaaaaa()">
+        Google
+    </a>
+
+    <input  id="SGoogleeID" value="oooooooooooooo">
+
+
+  <script>
+    let ddaad = 'https://script.google.com/macros/s/AKfycbxoMTwNymaibfkciAylM-q6eFOMUNDM-sWdFOcgvqXIPfFtCTMfmWUOZnhjjpJunZ5tBw/exec'
+
+
+
+
+    function aaaaaaaaaaa() {
+        console.log('1111()')
+
+        let eeeeeeeee =$( "#SGoogleeID" ).val()
+
+        eeeeeeeee && (fetch(`${ddaad}?type=new&name=${encodeURIComponent(eeeeeeeee)}`, {mode: 'no-cors'}))
+
+        console.log('2222()')
+    }
+
+
+
+
+/*
+
+
+
+
+
+.gs
+
+
+
+
+
+function doGet(name) {
+
+
+
+  var name222 = name.parameter.name222
+
+  var folderId = "1L2LeTBCAjRzGF33hhi8Y_HQD2sIRowoV"; // 將指定文件夾的ID替換為實際的文件夾ID
+  var folder = DriveApp.getFolderById(folderId);
+  var sheet = SpreadsheetApp.create(name222); // 在Google 試算表中創建一個新表格
+  var fileId = sheet.getId(); // 獲取Google 試算表的ID
+  var file = DriveApp.getFileById(fileId);
+
+  // 在指定文件夾中移動Google 試算表
+  folder.createFile(file);
+  file.getParents().next().removeFile(file);
+
+  Logger.log('新增 '+name222+' 試算表成功！');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+  </script>
+
+</body>
+</html>
