@@ -27,11 +27,14 @@
 
 
 //let 總Data
+let 客主url 
 function _客setting頁(客Url,客api){
 
   // get客data
   let GEcl = 查客[0]+_0x1731ba(客api)+查客[1]+'d'+查客[2]+_0x1731ba(api)
     , url = (location.href).split('/set')[0] + '?' +客Url+ '?' 
+
+    客主url = url
 
   //console.log('url',url) 
   if (MOK) console.log('user的dataUlr',GEcl,'\nurl',url)
@@ -46,7 +49,7 @@ function _客setting頁(客Url,客api){
   // _保存(保存)
 
   // 最後背景加客網
-  $('#user頁').attr('src', url)
+  //$('#user頁').attr('src', url)
 
 }
 
@@ -64,21 +67,40 @@ function _客setting頁(客Url,客api){
 
 
 
-let all枱號 = []
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function _admin編輯(data,Url) {  
   let settingMenuSelLV = 'settingMenuSel編+settingMenuSel店+settingMenuSel帳'
 
   // 用G資料
   fetch(data).then(res => res.json()).then(res => {
 
-
     // $$$$$$$$ 框架 $$$$$$$$
     let 公司名   = res.values[docsGoogle開始數][0]
       , 網站按鍵色   = res.values[1][4]
     _data入網_整div('settingBox','append','#set_page',[公司名]) 
     // $$$$$$$$  ///  $$$$$$$$
-
-
 
     // $$$$$$$$ 各lv按鍵 $$$$$$$$
     // 小編
@@ -99,75 +121,24 @@ function _admin編輯(data,Url) {
     _data入網_整div(settingMenuSelLV,'append','#settingMenu','0')
      // $$$$$$$$  ///  $$$$$$$$
 
-
-
-    // $$$$$$$$ 店舖枱號 $$$$$$$$
-
     // 東主 / 小編 / 店員 可見
     if (ADminLV > 3 )  return 
 
-    let 枱止=0
-    // loop找店舖枱號
-    for(var 枱號開始數=14 ; 枱止 < 2 ; 枱號開始數++){ 
-      let 店舖枱號 = res.values[0][枱號開始數]
-        , 枱號帳單 = res.values[1][枱號開始數]
-        , 枱號標頭
-        , 純枱號   = 店舖枱號
-        , 枱號尾
-        , 該海低
-        , 計=0
-        , 枱data
-        
-
-      if (!!店舖枱號 && !!枱號帳單) {
-        // 分枱號標頭 https://chateverywhere.app?shareable_conversation_id=a14fde3d-5613-4e1a-a4c4-647bac53b41e
-        枱號標頭 = 店舖枱號.replace(/[0-9]/g, '').split('-')[0] // 取純枱號標頭
-
-        if (枱號標頭) 純枱號 = 店舖枱號.split(枱號標頭)[1]  // 如有枱號標頭 = 刪枱號標頭 = 取純枱號
-
-        // make 枱號 list
-        枱號尾 = ~~純枱號.split('-')[1]+1
-        // loop出每台
-        for(var 枱號頭=純枱號.split('-')[0]; 枱號頭 < 枱號尾; 枱號頭++){ 
-          let 真枱號 = 枱號標頭+枱號頭
-          
-          // 再loop出每台的表
-          該海低 = 枱號帳單.split(',')[計]
-          計++
-          //console.log("真枱號=",真枱號,"該海低=",該海低)
-          枱data = '<a title="'+該海低+'" class=" btn-circle btn-'+網站按鍵色+'" style="margin: 1%;cursor: pointer;">'+真枱號+'</a>' // qqqq  台貼qr=睇數+幫下單 
-          all枱號.push(枱data)
-        }
-
-        // 標頭不同分用
-        all枱號.push('<hr>')
-
-      }
-      if (!店舖枱號) 枱止++ // 冇名2次out
-    }
-    all枱號 = all枱號.toString().replace(/,/g,"") // https://blog.csdn.net/haibo0668/article/details/80926927    
-    //all枱號 = all枱號.replace(/,/g,"")
-
+    // $$$$$$$$ 店舖枱號 $$$$$$$$
+    all枱號 = _搵台(res.values,客主url,網站按鍵色)
     _data入網_整div('共用page','append','#settingBox_B',['睇枱用',''])
     _data入網_整div('萬','prepend','#睇枱用List',all枱號)  
      // $$$$$$$$  ///  $$$$$$$$
 
-
-
-    // $$$$$$$$ 公司資料page $$$$$$$$
-
     // 東主 / 小編 可見
     if (ADminLV > 2 )  return
 
+    // $$$$$$$$ 公司資料page $$$$$$$$
     let 網lv     = res.values[0][0]    // aki set
-      // 公司資料
-      
       , 公司logo = res.values[docsGoogle開始數][4]
       , 公司ws   = res.values[docsGoogle開始數][1]
       , ws來詢字 = res.values[docsGoogle開始數][2]
        // $$$$$$$$  ///  $$$$$$$$
-
-
 
       // $$$$$$$$  外觀美化 $$$$$$$$
       , 網主色 = res.values[1][5]
@@ -180,8 +151,6 @@ function _admin編輯(data,Url) {
       , 圖橫mx   = res.values[1][12] //13
       // $$$$$$$$  ///  $$$$$$$$
 
-  
-
     // $$$$$$$$ 各頁用框架 $$$$$$$$
     _data入網_整div( 
       '公司資料page','append','#settingBox_B'
@@ -191,8 +160,6 @@ function _admin編輯(data,Url) {
     _data入網_整div('共用page','append','#settingBox_B',['產品資料','<a onclick="產品資料分類()" class="btn btn-' + 網站按鍵色 + '" >產品資料分類</a>'])
     _data入網_整div('共用page','append','#settingBox_B',['收款方式','<a onclick="收款方式分類()" class="btn btn-' + 網站按鍵色 + '" >收款方式分類</a>'])
      // $$$$$$$$  ///  $$$$$$$$
-
-
 
     // $$$$$$$$ 產品分類page $$$$$$$$
     let all產品分類 = []
@@ -207,8 +174,6 @@ function _admin編輯(data,Url) {
       }
     }
     // $$$$$$$$  ///  $$$$$$$$
-
-
 
     // $$$$$$$$ 產品資料page $$$$$$$$
     let 產轉類 = ''
@@ -229,8 +194,6 @@ function _admin編輯(data,Url) {
     }
     // $$$$$$$$  ///  $$$$$$$$
 
-
-
     // $$$$$$$$ 收款方式page $$$$$$$$
     let 止=0
     for(var 支付方式開始數=9 ; 止 < 2 ; 支付方式開始數++){ // loop找支付方式
@@ -240,8 +203,6 @@ function _admin編輯(data,Url) {
       if (!支付方式名) 止++ // 冇名2次out
     }
     // $$$$$$$$  ///  $$$$$$$$
-
-
 
   })
 }
@@ -367,14 +328,28 @@ function Login() {
       _客setting頁(id,r2es.values[如數][1])
 
       if (MOK) {
-        console.log('id1=',id1,'\npw1=',pw1,'\n有有數',數);
-        console.log('如數=',如數);
+        console.log('id1=',id1,'\npw1=',pw1,'\n有有數',數)
+        console.log('如數=',如數)
         console.log('ADminLV=',ADminLV)
       }
     }
 
   })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -454,29 +429,37 @@ function settingMenuBtn(sel){
     , 產p = '#產品資料page'
     , 收p = '#收款方式page'
     , 店p = '#睇枱用page'
-
-
     
+  $('.枱號*').map(function(){
+    // https://stackoverflow.com/a/28218673
+    let 鍵 = 客主url+$(this).attr('data')+'?'+$(this).attr('title')+'?'
 
+    if (sel === 1) {$('#settingBox_B').css('background', 'rgba(213, 0, 0, 0.3)');$(公p).css('display', 'flex');$(類p+','+產p+','+收p+','+店p).css('display', 'none')}
+    if (sel === 2) {$('#settingBox_B').css('background', 'rgba(170, 0, 255, 0.3)');$(類p).css('display', 'flex');$(公p+','+產p+','+收p+','+店p).css('display', 'none')}
+    if (sel === 3) {$('#settingBox_B').css('background', 'rgba(245, 127, 23, 0.3)');$(產p).css('display', 'block');$(類p+','+收p+','+公p+','+店p).css('display', 'none')}
+    if (sel === 4) {$('#settingBox_B').css('background', 'rgba(174, 234, 0, 0.3)');$(收p).css('display', 'block');$(類p+','+公p+','+產p+','+店p).css('display', 'none')}
+
+    if (sel === 5) {$('#settingBox_B').css('background', 'rgba(27, 94, 32, 0.3)')}
     
-  if (sel === 1) {$('#settingBox_B').css('background', 'rgba(213, 0, 0, 0.3)');$(公p).css('display', 'flex');$(類p+','+產p+','+收p+','+店p).css('display', 'none')}
-  if (sel === 2) {$('#settingBox_B').css('background', 'rgba(170, 0, 255, 0.3)');$(類p).css('display', 'flex');$(公p+','+產p+','+收p+','+店p).css('display', 'none')}
-  if (sel === 3) {$('#settingBox_B').css('background', 'rgba(245, 127, 23, 0.3)');$(產p).css('display', 'block');$(類p+','+收p+','+公p+','+店p).css('display', 'none')}
-  if (sel === 4) {$('#settingBox_B').css('background', 'rgba(174, 234, 0, 0.3)');$(收p).css('display', 'block');$(類p+','+公p+','+產p+','+店p).css('display', 'none')}
+    if (sel === 6) {
+      $('#settingBox_B').css('background', 'rgb(128, 222, 234, .3)');$('#睇枱用page h4').text('廚部');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')
+      $(this).attr('onclick', '店員睇台('+dot+鍵+dot+','+dot+'廚'+dot+')')  // 廚部睇出菜
+    }
+    if (sel === 7) {
+      $('#settingBox_B').css('background', 'rgb(205, 220, 57,.4)');$('#睇枱用page h4').text('廳面');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')
+      $(this).attr('onclick', '店員睇台('+dot+鍵+dot+','+dot+'廳'+dot+')')  // 廳面點餐用
+    }
+    if (sel === 8) {
+      $('#settingBox_B').css('background', 'rgb(98, 0, 234, .3)');$('#睇枱用page h4').text('收銀');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')
+      $(this).attr('onclick', '店員睇台('+dot+鍵+dot+','+dot+'收'+dot+')')  // 收銀=開台/結帳/點外買
+    }
 
-  if (sel === 5) {$('#settingBox_B').css('background', 'rgba(27, 94, 32, 0.3)')}
-
-  
-  if (sel === 6) {$('#settingBox_B').css('background', 'rgb(128, 222, 234, .3)');$('#睇枱用page h4').text('廚部');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}
-  if (sel === 7) {$('#settingBox_B').css('background', 'rgb(205, 220, 57,.4)');$('#睇枱用page h4').text('廳面');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}
-  if (sel === 8) {$('#settingBox_B').css('background', 'rgb(98, 0, 234, .3)');$('#睇枱用page h4').text('收銀');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}
-  if (sel === 9) {$('#settingBox_B').css('background', 'rgb(255, 214, 0, 0.3)');$('#睇枱用page h4').text('帳目');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}
+    if (sel === 9) {$('#settingBox_B').css('background', 'rgb(255, 214, 0, 0.3)');$('#睇枱用page h4').text('帳目');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}
+  })
 }
 
 
 
-
-  
 // 當選項改變時觸發事件 
 function Change網站按鍵色(){
   let 網站按鍵色31 = $('#網站按鍵色').val();
@@ -487,6 +470,27 @@ function Change網站按鍵色(){
 
 
 
+
+
+function 店員睇台(url員用,sel){
+  if(sel === '廚'){
+    // 廚部睇出菜
+    console.log('廚部睇出菜',url員用)
+    $('.睇data哈哈').text('廚部睇出菜'+url員用)
+  }
+  if(sel === '廳'){
+    // 背景轉客網
+    $('#user頁').attr('src', url員用)
+    console.log('台url廳面用',url員用)
+    // 關set頁
+    settingBox_toggle()
+  }
+  if(sel === '收'){
+    // 收銀=開台/結帳/點外買
+    console.log('收銀=開台/結帳/點外買',url員用)
+    $('.睇data哈哈').text('收銀=開台/結帳/點外買'+url員用)
+  }
+}
 
 
 

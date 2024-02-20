@@ -255,9 +255,11 @@ function _data入網_整div(sel,run,box_name,data) {
       \
       <div id="'+data[0]+'List" class="col-md-12" style="margin: auto"></div>\
       \
-      <hr style="clear:both; width: 100%;">\
-      <div class="col-md-12" style="margin: auto">\
-      '+data[1]+'\
+      <br style="clear:both; width: 100%;">\
+      <div class="col-md-12 睇data哈哈" style="margin: auto">\
+        <div class="card mb-4">\
+        '+data[1]+'\
+        </div>\
       </div>\
       \
     </div>\
@@ -594,3 +596,59 @@ function _data入網_整div(sel,run,box_name,data) {
   // $("div").append('strong')
   // <script src="3.7.0.js
 }
+
+
+
+
+
+
+
+
+function _搵台(data,客主url,鍵色) {  
+
+  let all枱號 = []
+    ,  枱止=0
+  // loop找店舖枱號
+  for(var 枱號開始數=14 ; 枱止 < 2 ; 枱號開始數++){ 
+    let 店舖枱號 = data[0][枱號開始數]
+      , 枱號帳單 = data[1][枱號開始數]
+      , 枱號標頭
+      , 純枱號   = 店舖枱號
+      , 枱號尾
+      , 該海低
+      , 計=0
+      , 枱data
+
+    if (!!店舖枱號 && !!枱號帳單) {
+      // 分枱號標頭 https://chateverywhere.app?shareable_conversation_id=a14fde3d-5613-4e1a-a4c4-647bac53b41e
+      枱號標頭 = 店舖枱號.replace(/[0-9]/g, '').split('-')[0] // 取純枱號標頭
+
+      if (枱號標頭) 純枱號 = 店舖枱號.split(枱號標頭)[1]  // 如有枱號標頭 = 刪枱號標頭 = 取純枱號
+
+      // make 枱號 list
+      枱號尾 = ~~純枱號.split('-')[1]+1
+      // loop出每台
+      for(var 枱號頭=純枱號.split('-')[0]; 枱號頭 < 枱號尾; 枱號頭++){ 
+        let 真枱號 = 枱號標頭+枱號頭
+        
+        // 再loop出每台的表
+        該海低 = 枱號帳單.split(',')[計]
+        計++
+        //console.log("真枱號=",真枱號,"該海低=",該海低)
+        枱data = '<a data="'+該海低+'" title="'+真枱號+'" class="枱號 btn-circle btn-'+鍵色+'" style="margin: 1%;cursor: pointer;">'+真枱號+'</a>' // qqqq  台貼qr=睇數+幫下單 
+        all枱號.push(枱data)
+      }
+      
+      // 標頭不同分用
+      all枱號.push('<hr>')
+    }
+    if (!店舖枱號) 枱止++ // 冇名2次out
+  }
+  all枱號 = all枱號.toString().replace(/,/g,"") // https://blog.csdn.net/haibo0668/article/details/80926927    
+
+  return all枱號
+
+
+}
+
+

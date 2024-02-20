@@ -85,7 +85,7 @@ get客data(_0x1731ba(客id))
 function 查客data(){
 
   // 取現網址get 相關data
-  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?#飲品 = 153
+  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?低?台?#客台號 = 153
   if (!客Ulr) 客Ulr = 'aki' // 直連沒?
   客Ulr = escape(_0x5569ds(calculateHash(客Ulr).toString(CryptoJS.enc.Hex)))
 
@@ -94,12 +94,16 @@ function 查客data(){
       if (客Ulr === r2es.values[數][0]) {                   // 客Key在表
           客data2 = r2es.values[數][1]                      // 客Key+1=客api
           客Lv    = r2es.values[數][2]                      // 客Lv1=有購物車
-          客表    = r2es.values[數][3]                      // 客的海低
-          客台號  = r2es.values[數][4]                      // 台號 qqq 用尾 ?a13? auto
+          客台號  =  (location.href).split('?')[3]
           數      = r2es.values.length                      // 終止循環
       }
     }
-    //console.log('user的Key',客Ulr) 
+    // 查台號海低 qqq 
+
+
+
+
+    //console.log('客表',客表) 
 
     // 客的data
     if (MOK) {
@@ -148,7 +152,7 @@ function get客data(客data){
     新入網Ulr做主頁 = (location.href).split('#')[0]
     // 查看購物網 如購物網不是新入網ulr = del購物車
     /**
-     *  qqq 可用作每新台 qqq 
+     * 可用作每新台 qqq 
      * 不用del
      * 因各網ulr多不同
      * 很難a網轉B網
@@ -173,7 +177,11 @@ function get客data(客data){
 
 
 
+// 找該客台的海低
+function _找台低(){
 
+
+}
 
 
 
@@ -282,6 +290,11 @@ function _data入網(數) {
   // get分類名
   let 類名 = 總Data.values[數][0]
 
+
+  // 客的海低 qqq 客的海低 qqq 客的海低 qqq 客的海低 qqq 客的海低 qqq 
+
+
+
   // 存儲在本地的瀏覽器購物車產品數
   if (localStorage.getItem("購物車內")){  $('#已點產品數').text(localStorage.getItem("購物車內"));  $('#已點產品數').show()  }
 
@@ -324,9 +337,10 @@ function _data入網_加入類名menu(類名,數) {
     , 公司名 = 總Data.values[docsGoogle開始數][0]
     , 公司logo = 總Data.values[docsGoogle開始數][4]
   // 低導航右轉購物車
-  if (客Lv === '1')  {
+  if (客Lv === '1' && !!客台號)  {
     _data入網_整div('低導航右','html','#低導航右',[網all按鍵])
-    客台nb = '<h3 style="position: fixed;bottom: 0;left: calc(17vw);width:auto;padding:1%;opacity: .8;" class="btn btn-block btn-lg '+網all按鍵+'">'+客台號+'</h3>'
+    客台nb = '<h3 style="position: fixed;top: 1%;right: 1%;width:auto;padding:1%;opacity: .8;" class="btn btn-block btn-lg '+網all按鍵+'" data="'+客台號+'" >'+decodeURIComponent(客台號)+'</h3>'
+    // 亂碼 https://chateverywhere.app?shareable_conversation_id=8b0a0314-e543-4253-8fad-df3b1e568bcd 
   }
 
   // 公司logo

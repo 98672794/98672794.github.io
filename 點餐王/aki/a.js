@@ -29,5 +29,5 @@ let 查客=["/steehsdaerps/4v/moc.sipaelgoog.steehs//:sptth".split("").reverse()
 , id位 = 5
 , NoIMG = 'aki/NoIMG.jpg'
 , dot = "'"
-
+, 豆 = ','
 
