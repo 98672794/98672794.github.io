@@ -84,6 +84,13 @@ get客data(_0x1731ba(客id))
 
 function 查客data(){
 
+
+
+  
+  console.log('document.referrer',document.referrer) 
+
+
+
   // 取現網址get 相關data
   客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?低?客台號?#主食 = 153
 
