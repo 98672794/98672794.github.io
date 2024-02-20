@@ -85,7 +85,8 @@ get客data(_0x1731ba(客id))
 function 查客data(){
 
   // 取現網址get 相關data
-  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?低?台?#客台號 = 153
+  客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?低?客台號?#主食 = 153
+
   if (!客Ulr) 客Ulr = 'aki' // 直連沒?
   客Ulr = escape(_0x5569ds(calculateHash(客Ulr).toString(CryptoJS.enc.Hex)))
 
@@ -94,17 +95,14 @@ function 查客data(){
       if (客Ulr === r2es.values[數][0]) {                   // 客Key在表
           客data2 = r2es.values[數][1]                      // 客Key+1=客api
           客Lv    = r2es.values[數][2]                      // 客Lv1=有購物車
-          客台號  =  (location.href).split('?')[3]
+          客表    = (location.href).split('?')[2]           // 台號海低
+          客台號  = (location.href).split('?')[3]           // 客台號
           數      = r2es.values.length                      // 終止循環
       }
     }
-    // 查台號海低 qqq 
 
 
-
-
-    //console.log('客表',客表) 
-
+        
     // 客的data
     if (MOK) {
       //console.log('點餐王的Google Sheets',GEcss222l)
@@ -114,7 +112,7 @@ function 查客data(){
       console.log('************* / ************* ')
     }
 
-    get客data(客data2)
+  get客data(客data2)
   })
 
 }
@@ -148,6 +146,11 @@ function get客data(客data){
     $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
     $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
 
+
+    if(!客表) 客表 = 總Data.values[1][14]   
+    console.log('客表1111客表客表',客表) 
+
+
     // save now url
     新入網Ulr做主頁 = (location.href).split('#')[0]
     // 查看購物網 如購物網不是新入網ulr = del購物車
@@ -175,13 +178,6 @@ function get客data(客data){
 
 
 
-
-
-// 找該客台的海低
-function _找台低(){
-
-
-}
 
 
 
@@ -290,14 +286,6 @@ function _data入網(數) {
   // get分類名
   let 類名 = 總Data.values[數][0]
 
-
-  // 客的海低 qqq 客的海低 qqq 客的海低 qqq 客的海低 qqq 客的海低 qqq 
-
-
-
-  // 存儲在本地的瀏覽器購物車產品數
-  if (localStorage.getItem("購物車內")){  $('#已點產品數').text(localStorage.getItem("購物車內"));  $('#已點產品數').show()  }
-
   // 網whatsapp
   whatsapp = 'https://wa.me/'+總Data.values[docsGoogle開始數][1]+'?text='+總Data.values[docsGoogle開始數][2]
   $('#低導航右 a').attr("href",whatsapp)
@@ -333,15 +321,24 @@ function _data入網_加入類名menu(類名,數) {
   // 公司名
   if (數 === docsGoogle開始數)  _data入網_整div('公司名','append','#all類',[類名,新入網Ulr做主頁,網字色1號]) 
 
-  let 客台nb = ''
-    , 公司名 = 總Data.values[docsGoogle開始數][0]
+  let 客台nb   = ''
+    , 公司名   = 總Data.values[docsGoogle開始數][0]
     , 公司logo = 總Data.values[docsGoogle開始數][4]
-  // 低導航右轉購物車
-  if (客Lv === '1' && !!客台號)  {
+  
+  // lv顯
+  if (客Lv > 0) {                                                          // 低導航右轉購物車
     _data入網_整div('低導航右','html','#低導航右',[網all按鍵])
-    客台nb = '<h3 style="position: fixed;top: 1%;right: 1%;width:auto;padding:1%;opacity: .8;" class="btn btn-block btn-lg '+網all按鍵+'" data="'+客台號+'" >'+decodeURIComponent(客台號)+'</h3>'
-    // 亂碼 https://chateverywhere.app?shareable_conversation_id=8b0a0314-e543-4253-8fad-df3b1e568bcd 
+    // 存儲在本地的瀏覽器購物車產品數
+    if (localStorage.getItem("購物車內")){  
+      $('#已點產品數').text(localStorage.getItem("購物車內"))
+      $('#已點產品數').show()  
+    }
   }
+  else $('.產品鍵').attr('onclick', '')                                    // 沒lv不能買
+  
+  if (!!客台號) 客台nb                                                     // 顯台號
+  = '<h3 style="position: fixed;top: 1%;right: 1%;width:auto;padding:1%;opacity: .8;" class="btn btn-block btn-lg '+網all按鍵+'" data="'+客表+'" >'+decodeURIComponent(客台號)+'</h3>'
+  // 亂碼 https://chateverywhere.app?shareable_conversation_id=8b0a0314-e543-4253-8fad-df3b1e568bcd 
 
   // 公司logo
   _data入網_整div('公司logo','html','#logoBox',[新入網Ulr做主頁,客台nb,網色1號,公司logo,公司名])
@@ -349,8 +346,6 @@ function _data入網_加入類名menu(類名,數) {
   // 類名menu
   if (數 > (docsGoogle開始數+1))  _data入網_整div('類名menu','append','#all類',[類名,網字色1號])
   //不要exl的說明標題 pass
-  
-
 }
 
 
@@ -971,7 +966,7 @@ function 查看購物車() {
     let 已點的訂單 = localStorage.getItem('已點訂單').split('!?')          // 已點的訂單轉list
       , totoPrice = 已點的訂單.pop()                                      // 刪除並取最後一個元素
 
-    _data入網_整div('顯示已點的訂單1','append','#購買流程 .row',網all按鍵)
+    _data入網_整div('顯示已點的訂單1','append','#購買流程 .row',[網all按鍵])
 
     for(var 已點的cont=0; 已點的cont<已點的訂單.length;已點的cont=已點的cont+3){   // loop加入已點的內容
                               // 0=品名
@@ -1169,7 +1164,14 @@ function _hi() {
 
 
 function 確定訂單() {
+
+  // qqqqqqqqqqqqqqqqqqqqqqq
+
+
   if (MOK) console.log('確定訂單()')
+
+  console.log('客表客表客表',客表) 
+
 
   let url3 = ["%8B%DC%E8%E4%E3%ADi%5E%A2%D6%D5%DB%D9%E4%A2%95%D6%DE%D6%D3%D1%93%91%D2%DC%9C%9C%CE%C4%D5%E1%E2%A2%A2%A2","4%94%DD%DD%C8"]
     , 客低 = _0x1731ba(url3[0])+_0x1731ba(客表)+_0x1731ba(url3[1]) // 客結數表
@@ -1270,17 +1272,12 @@ function 結帳() {
 
 
 function 打開支付(木,sel) {
-
   // 現場支付
   let data5= '<h5 class="btn btn-lg '+網all按鍵+'">'+木+'</h5>'
-
   // qr支付 如data包含"http"
-  if(木.indexOf("http") >= 0 ) {
-    data5 = '<img style="width: 100%;height: auto;" src="'+木+'">'
-  }
-
+  if(木.indexOf("http") >= 0 ) data5 = '<img style="width: 100%;height: auto;" src="'+木+'">'
   // 返回時 清空頁面
-  if (sel==1) _data入網_整div('萬','html','#支付方式列表的床','')
+  if (sel===1) _data入網_整div('萬','html','#支付方式列表的床',' ')
   // 顯示支付碼
   else _data入網_整div('打開支付頁','html','#支付方式列表的床',[data5])
 }

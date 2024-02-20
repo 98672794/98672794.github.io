@@ -294,9 +294,6 @@ function Login() {
   // 循環表找客Id
   fetch(GEcss222l).then(r2es => r2es.json()).then(r2es => {
 
-    
-
-
     // ad1pw 東主
     for(var 數=0;數 < r2es.values.length ; 數++)  if (id1 === r2es.values[數][0] && pw1 === r2es.values[數][id位]) { ADminLV = ~~1; 如數 = 數;}
     // ad2pw 小編
@@ -491,6 +488,37 @@ function 店員睇台(url員用,sel){
     $('.睇data哈哈').text('收銀=開台/結帳/點外買'+url員用)
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

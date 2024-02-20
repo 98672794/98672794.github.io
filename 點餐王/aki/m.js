@@ -112,13 +112,14 @@ function _data入網_整div(sel,run,box_name,data) {
       </div>\
     </div>\
   '
+  
   , 選項頁btn = '\
     <a onclick="選項頁的確認btn組合('+data[0]+')" class="btn btn-block btn-lg '+data[1]+'">確認</a>\
     <a onclick="開關購買流程(1)" class="no了 btn btn-block btn-lg">取消</a>\
   '
   , 加購流程頁 = '\
     <h2 class="m-0 font-weight-bold">嗎?</h2>\
-    <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+data[0]+'">加購</a>\
+    <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+data[0]+'">加購</a> qqqqqqqqqqqq\
     <a onclick="查看購物車()" class="no了 btn btn-block btn-lg">no了</a>\
   '
 
@@ -635,7 +636,7 @@ function _搵台(data,客主url,鍵色) {
         該海低 = 枱號帳單.split(',')[計]
         計++
         //console.log("真枱號=",真枱號,"該海低=",該海低)
-        枱data = '<a data="'+該海低+'" title="'+真枱號+'" class="枱號 btn-circle btn-'+鍵色+'" style="margin: 1%;cursor: pointer;">'+真枱號+'</a>' // qqqq  台貼qr=睇數+幫下單 
+        枱data = '<a data="'+該海低+'" title="'+真枱號+'" class="枱號 btn-circle btn-'+鍵色+'" style="margin: 1%;cursor: pointer;">'+真枱號+'</a>'
         all枱號.push(枱data)
       }
       
