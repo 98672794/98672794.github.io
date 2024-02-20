@@ -34,13 +34,13 @@ function _客setting頁(客Url,客api){
   let GEcl = 查客[0]+_0x1731ba(客api)+查客[1]+'d'+查客[2]+_0x1731ba(api)
     , url = (location.href).split('/set')[0] + '?' +客Url+ '?' 
 
-    客主url = url
+  客主url = url
 
   //console.log('url',url) 
   if (MOK) console.log('user的dataUlr',GEcl,'\nurl',url)
 
   // make user data box
-  _data入網_整div('user頁','html','#set_page','0') 
+  _data入網_整div('user頁','html','#set_page',' ') 
 
   _admin編輯(GEcl,客Url)
 
@@ -49,7 +49,7 @@ function _客setting頁(客Url,客api){
   // _保存(保存)
 
   // 最後背景加客網
-  //$('#user頁').attr('src', url)
+  $('#user頁').attr('src', url)
 
 }
 
@@ -421,6 +421,10 @@ function settingBox_toggle(){
 
 // settingMenu btn
 function settingMenuBtn(sel){
+
+  $('.睇data哈哈').text(' ')
+
+
   let 公p = '#公司資料page'
     , 類p = '#產品分類page'
     , 產p = '#產品資料page'
@@ -449,6 +453,7 @@ function settingMenuBtn(sel){
     if (sel === 8) {
       $('#settingBox_B').css('background', 'rgb(98, 0, 234, .3)');$('#睇枱用page h4').text('收銀');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')
       $(this).attr('onclick', '店員睇台('+dot+鍵+dot+','+dot+'收'+dot+')')  // 收銀=開台/結帳/點外買
+      // qqqqqqqqqqqqqqqqqqqqqqq  開台時間 人數
     }
 
     if (sel === 9) {$('#settingBox_B').css('background', 'rgb(255, 214, 0, 0.3)');$('#睇枱用page h4').text('帳目');$(店p).css('display', 'block');$(類p+','+公p+','+產p+','+收p).css('display', 'none')}

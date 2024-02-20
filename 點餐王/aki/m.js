@@ -119,7 +119,7 @@ function _data入網_整div(sel,run,box_name,data) {
   '
   , 加購流程頁 = '\
     <h2 class="m-0 font-weight-bold">嗎?</h2>\
-    <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+data[0]+'">加購</a> qqqqqqqqqqqq\
+    <a href="#" onclick="開關購買流程(0)" class="btn btn-block btn-lg '+data[0]+'">加購</a>\
     <a onclick="查看購物車()" class="no了 btn btn-block btn-lg">no了</a>\
   '
 

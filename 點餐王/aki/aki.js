@@ -146,10 +146,7 @@ function get客data(客data){
     $('title').html(總Data.values[docsGoogle開始數][0])  //總Data.values[直][橫]
     $('link[rel="shortcut icon"]').attr('href',總Data.values[docsGoogle開始數][4])
 
-
     if(!客表) 客表 = 總Data.values[1][14]   
-    console.log('客表1111客表客表',客表) 
-
 
     // save now url
     新入網Ulr做主頁 = (location.href).split('#')[0]
@@ -828,7 +825,7 @@ function 選項頁的確認btn組合(data) {
 
 function 加購流程(id) {
   if (MOK) console.log('加購流程(id)')
-  _data入網_整div('加購流程頁','html','#購買流程 .row',網all按鍵)
+  _data入網_整div('加購流程頁','html','#購買流程 .row',[網all按鍵])
 
   let 加購流程 = ~~總Data.values[id][1]+0 // 轉數字
 
@@ -1165,13 +1162,10 @@ function _hi() {
 
 function 確定訂單() {
 
-  // qqqqqqqqqqqqqqqqqqqqqqq
+  // qqqqqqqqqqqqqqqqqqqqqqq  開台時間 人數
 
 
   if (MOK) console.log('確定訂單()')
-
-  console.log('客表客表客表',客表) 
-
 
   let url3 = ["%8B%DC%E8%E4%E3%ADi%5E%A2%D6%D5%DB%D9%E4%A2%95%D6%DE%D6%D3%D1%93%91%D2%DC%9C%9C%CE%C4%D5%E1%E2%A2%A2%A2","4%94%DD%DD%C8"]
     , 客低 = _0x1731ba(url3[0])+_0x1731ba(客表)+_0x1731ba(url3[1]) // 客結數表
