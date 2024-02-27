@@ -83,14 +83,7 @@ get客data(_0x1731ba(客id))
 
 
 function 查客data(){
-
-
-
   
-  console.log('document.referrer',document.referrer) 
-
-
-
   // 取現網址get 相關data
   客Ulr = (location.href).split('?')[1] // http://127.0.0.1:5502/?153?低?客台號?#主食 = 153
 
@@ -108,8 +101,6 @@ function 查客data(){
       }
     }
 
-
-        
     // 客的data
     if (MOK) {
       //console.log('點餐王的Google Sheets',GEcss222l)
@@ -1169,13 +1160,11 @@ function _hi() {
 
 function 確定訂單() {
 
-  // qqqqqqqqqqqqqqqqqqqqqqq  開台時間 人數
-
+  // qqq 開台時間 人數
 
   if (MOK) console.log('確定訂單()')
 
-  let url3 = ["%8B%DC%E8%E4%E3%ADi%5E%A2%D6%D5%DB%D9%E4%A2%95%D6%DE%D6%D3%D1%93%91%D2%DC%9C%9C%CE%C4%D5%E1%E2%A2%A2%A2","4%94%DD%DD%C8"]
-    , 客低 = _0x1731ba(url3[0])+_0x1731ba(客表)+_0x1731ba(url3[1]) // 客結數表
+  let 客低 = _0x1731ba(url3[0])+_0x1731ba(客表)+_0x1731ba(url3[1]) // 客結數表
     , 訂單list = ''
 
   // 重BUY
@@ -1213,11 +1202,9 @@ function 確定訂單() {
   // 新buy
   else 訂單list = 訂單list + ($('#本單加總金').text())
 
-  if (MOK) console.log('訂單list)',訂單list)
+  if (MOK) console.log('訂單list)',訂單list, 'to客表',客低)
 
-  if (MOK) console.log('to客表',客低)
-
-  訂單list && (fetch(`${客低}?type=new&name=${encodeURIComponent(訂單list)}`, {mode: 'no-cors'}))
+  _修G(客低,訂單list)
 
   // 清空購物車
   localStorage.clear()

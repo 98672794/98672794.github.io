@@ -9,23 +9,33 @@ function _0x5569ds_(){$("di\u55AE\u8868#".split("").reverse().join(""))['val'](e
 
 
 function calculateHash(input) {
-    var hash = CryptoJS.SHA256(input);
-    //console.log(hash.toString(CryptoJS.enc.Hex));
-    return hash
-  }
+  var hash = CryptoJS.SHA256(input);
+  //console.log(hash.toString(CryptoJS.enc.Hex));
+  return hash
+}
 
 
 
-let 查客=["/steehsdaerps/4v/moc.sipaelgoog.steehs//:sptth".split("").reverse().join(""),"/seulav/".split("").reverse().join(""),"\u003f\u0061\u006c\u0074\u003d\u006a\u0073\u006f\u006e\u0026\u006b\u0065\u0079\u003d"]
-,點餐王="7D%9D%CA%2B%7A%0A%FA%B9%0A%EA%59%i6A%8B%79%2A%79%6B%9B%zB9%EB%9C%CB%DB%BA%yB8%8B%9E%2F%CB%99%BA%5C%6A%B7%79%99%F7%BA%4C%38%D5%".split("").reverse().join("")
-,api="E8%B9%FC%3C%B9%EA%9C%DD%DA%E8%2C%FD%7A%EA%2B%68%6A%FC%8E%7B%A8%5B%6D%6B%4A%8B%1D%1B%BB%DC%6C%3B%DB%CC%4B%BD%3C%A8%h".split("").reverse().join("")
-,客data2="\u0025\u0035\u0044\u0025\u0039\u0044\u0025\u0041\u0034\u0070\u0025\u0039\u0041\u0025\u0041\u0033\u0025\u0042\u0041\u0025\u0043\u0037\u0025\u0041\u0038\u0025\u0041\u0036\u0025\u0039\u0039\u0025\u0039\u0037\u0025\u0042\u0034\u0025\u0042\u0046\u0025\u0042\u0036\u0025\u0039\u0038\u0025\u0038\u0036\u0025\u0041\u0033\u0025\u0041\u0041\u0025\u0043\u0035\u0025\u0042\u0030\u0025\u0038\u0036\u0025\u0038\u0045\u0025\u0037\u0044\u0025\u0038\u0044\u0025\u0042\u0038\u0025\u0039\u0037\u0025\u0037\u0044\u0025\u0039\u0046\u0025\u0043\u0045\u0025\u0044\u0035\u0025\u0039\u0033\u0025\u0039\u0036\u0025\u0039\u0034\u0025\u0039\u0043\u0025\u0045\u0035\u0025\u0044\u0031\u0025\u0043\u0033\u0025\u0041\u0045\u0025\u0042\u0044\u0025\u0045\u0043\u0025\u0045\u0030\u0025\u0041\u0030\u0025\u0038\u0033"
-,客Lv='1'
-,客台號='點餐王'
-// G ulr
-,GEcss222l = 查客[0]+_0x1731ba(點餐王)+查客[1]+'aki'+查客[2]+_0x1731ba(api)
-,MOK = ADminLV = !true         // admin
-, docsGoogle開始數= 3 //客名位
-, id位 = 5
-, NoIMG = 'aki/NoIMG.jpg'
-, dot = "'"
+function _修G(表,d) {
+  d && (fetch(`${表}?type=new&name=${encodeURIComponent(d)}`, {mode: 'no-cors'}))
+  return
+}
+  
+
+let 查客    =["/steehsdaerps/4v/moc.sipaelgoog.steehs//:sptth".split("").reverse().join(""),"/seulav/".split("").reverse().join(""),"\u003f\u0061\u006c\u0074\u003d\u006a\u0073\u006f\u006e\u0026\u006b\u0065\u0079\u003d"]
+  , 點餐王  ="7D%9D%CA%2B%7A%0A%FA%B9%0A%EA%59%i6A%8B%79%2A%79%6B%9B%zB9%EB%9C%CB%DB%BA%yB8%8B%9E%2F%CB%99%BA%5C%6A%B7%79%99%F7%BA%4C%38%D5%".split("").reverse().join("")
+  , api     ="E8%B9%FC%3C%B9%EA%9C%DD%DA%E8%2C%FD%7A%EA%2B%68%6A%FC%8E%7B%A8%5B%6D%6B%4A%8B%1D%1B%BB%DC%6C%3B%DB%CC%4B%BD%3C%A8%h".split("").reverse().join("")
+  , 客data2 ="\u0025\u0035\u0044\u0025\u0039\u0044\u0025\u0041\u0034\u0070\u0025\u0039\u0041\u0025\u0041\u0033\u0025\u0042\u0041\u0025\u0043\u0037\u0025\u0041\u0038\u0025\u0041\u0036\u0025\u0039\u0039\u0025\u0039\u0037\u0025\u0042\u0034\u0025\u0042\u0046\u0025\u0042\u0036\u0025\u0039\u0038\u0025\u0038\u0036\u0025\u0041\u0033\u0025\u0041\u0041\u0025\u0043\u0035\u0025\u0042\u0030\u0025\u0038\u0036\u0025\u0038\u0045\u0025\u0037\u0044\u0025\u0038\u0044\u0025\u0042\u0038\u0025\u0039\u0037\u0025\u0037\u0044\u0025\u0039\u0046\u0025\u0043\u0045\u0025\u0044\u0035\u0025\u0039\u0033\u0025\u0039\u0036\u0025\u0039\u0034\u0025\u0039\u0043\u0025\u0045\u0035\u0025\u0044\u0031\u0025\u0043\u0033\u0025\u0041\u0045\u0025\u0042\u0044\u0025\u0045\u0043\u0025\u0045\u0030\u0025\u0041\u0030\u0025\u0038\u0033"
+  , url3    = ["%8B%DC%E8%E4%E3%ADi%5E%A2%D6%D5%DB%D9%E4%A2%95%D6%DE%D6%D3%D1%93%91%D2%DC%9C%9C%CE%C4%D5%E1%E2%A2%A2%A2","4%94%DD%DD%C8"]
+  , 客Lv    ='1'
+  , 客台號  ='點餐王'
+  // G ulr
+  , GEcss222l       = 查客[0]+_0x1731ba(點餐王)+查客[1]+'aki'+查客[2]+_0x1731ba(api)
+  , MOK = ADminLV   = !true         // admin
+  , docsGoogle開始數= 3 //客名位
+  , id位            = 5
+  , NoIMG           = 'aki/NoIMG.jpg'
+  , dot             ="'"
+  , QR
+
+

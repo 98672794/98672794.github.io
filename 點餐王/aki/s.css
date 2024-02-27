@@ -1,0 +1,166 @@
+#settingBox_{
+  position: fixed;
+  width: 50px;height: 100%;
+  top: 0;bottom: 0;right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: .5s;
+  opacity: .5;
+}
+#settingBox_.see {width: 100%;opacity: 1;}
+#user頁.see{filter: blur(5px);}
+#settingMenu.see{display: block;}
+#settingBox_ h5{font-weight: 900;font-size: min(max(28px, 2vw), 38px);color: #fff;
+  position: absolute;
+  top: 0;bottom: 42px;left: 0;
+  width: 50px;
+  padding-top: calc(45vh);
+  padding-left: 12px;
+  background: linear-gradient(to right , rgba(0, 0, 0, 0) ,  rgb(0, 255, 221, .5));
+
+  
+}
+
+#settingBox_B{
+  height: auto;
+  right: 0;top: 0;bottom: 50px;left: 50px;
+  padding: 1%;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  color: #fff;
+  background: rgba(213, 0, 0, 0.3);
+}
+#settingBox_B div{  background: rgba(0, 0, 0, 0);}
+#settingBox_B input,#settingBox_B textarea{  background: rgba(255, 255, 255, .3);}
+
+
+
+
+
+
+#settingMenu{list-style:none;position: absolute;bottom: -16px;left: -46px;right: 0;display: none;}
+#settingMenu li{float: left;
+  
+  width: calc(100vw/9);
+  color: #fff;
+  display: flex;
+  justify-content: center;    
+  align-items: center; 
+  height: 50px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  cursor: pointer;
+}
+#settingMenu.a2 li {width: calc(100vw/5);}
+#settingMenu.a3 li {width: calc(100vw);}
+#settingMenu.a4 li {width: calc(100vw/3);}
+
+#公司資料page,#產品分類page,#產品資料page,#收款方式page,#睇枱用page{display: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 滚动槽 
+https://juejin.cn/post/6844903613936959496*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: var(--全透明);
+  -webkit-box-shadow: inset 0 0 5px var(--全透明);
+  
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--全透明);
+  -webkit-box-shadow: inset 0 0 10px var(--全透明);
+}
+
+
+
+
+
+hr{ background: #333;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 公司logo input */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.4375rem 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.53;
+  color: #697a8d;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d9dee3;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-control[type=file]:not(:disabled):not([readonly]) {
+  cursor: pointer;
+}
+.form-control::file-selector-button {
+  padding: 0.4375rem 0.875rem;
+  margin: -0.4375rem -0.875rem;
+  -webkit-margin-end: 0.875rem;
+          margin-inline-end: 0.875rem;
+  color: #697a8d;
+  background-color: #fff;
+  pointer-events: none;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  border-inline-end-width: 1px;
+  border-radius: 0;
+  transition: all 0.2s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-control::file-selector-button {
+    transition: none;
+  }
+}
+.form-control:hover:not(:disabled):not([readonly])::file-selector-button {
+  background-color: #f2f2f2;
+}

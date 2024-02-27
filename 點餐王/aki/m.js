@@ -218,7 +218,6 @@ function _data入網_整div(sel,run,box_name,data) {
   
   // 低主網 
   let user頁 = '<embed id="user頁" type="text/x-scriptlet" src="" width="100%" height="100%">'
-  
   // admin頁框架
     , settingBox = '\
     <div id="settingBox_">\
@@ -257,9 +256,11 @@ function _data入網_整div(sel,run,box_name,data) {
       <div id="'+data[0]+'List" class="col-md-12" style="margin: auto"></div>\
       \
       <br style="clear:both; width: 100%;">\
-      <div class="col-md-12 睇data哈哈" style="margin: auto">\
-        <div class="card mb-4">\
-        '+data[1]+'\
+      <div class="col-md-12" style="margin: auto">\
+        <div class="mb-6" style="margin: auto;display: flex;">\
+          <h2 id="收睇台" style="margin: auto"></h2>\
+          <div id="QRCode" style="margin: auto"></div>\
+          '+data[1]+'\
         </div>\
       </div>\
       \
@@ -271,7 +272,7 @@ function _data入網_整div(sel,run,box_name,data) {
     <li onclick="settingMenuBtn(2)" style="background: rgba(170, 0, 255, 0.3);">產品分類</li>\
     <li onclick="settingMenuBtn(3)" style="background: rgba(245, 127, 23, 0.3);">產品資料</li>\
     <li onclick="settingMenuBtn(4)" style="background: rgba(174, 234, 0, 0.3);">收款方式</li>\
-    <li onclick="" style="background: rgba(27, 94, 32, 0.3);">保存</li>\
+    <li id="保存鍵" style="background: rgba(27, 94, 32, 0.3);">保存</li>\
   '
     , settingMenuSel店 = '\
     <li onclick="settingMenuBtn(6)" style="background: rgb(128, 222, 234, .3);">廚部</li>\
@@ -352,18 +353,6 @@ function _data入網_整div(sel,run,box_name,data) {
             <div id="店舖枱號編" class="mb-3">\
             <label class="form-label">店舖枱號</label><br>\
               '+data[15]+'\
-              <!--\
-              <label for="枱號編" class="form-label">增加店舖枱數量</label><br>\
-              <input\
-                title="枱號編"\
-                type="枱號編"\
-                class="form-control"\
-                id="枱號編"\
-                placeholder="a1-99 [組名][組首枱號][-][組尾枱號]"\
-                value=""\
-              /><br>\
-              <a onclick="增加更多枱組()" id="test網站按鍵色" class="btn btn-'+data[6]+'" >增加更多枱組</a>\
-              -->\
             </div>\
             \
           </div>\
@@ -376,19 +365,7 @@ function _data入網_整div(sel,run,box_name,data) {
           <div class="card-body">\
             \
             <div class="mb-3">\
-              <select\
-                class="form-select"\
-                id="網站按鍵色"\
-              >\
-                <option value="none" selected disabled hidden>網站按鍵色</option>\
-                <option value="info">淺藍</option>\
-                <option value="primary">藍</option>\
-                <option value="success">青</option>\
-                <option value="warning">黃</option>\
-                <option value="danger">紅</option>\
-                <option value="secondary">灰</option>\
-                <option value="light">黑</option>\
-              </select>\
+            '+data[16]+'<!--按鍵色-->\
               <a onclick="Change網站按鍵色()" id="test網站按鍵色" class="btn btn-'+data[6]+'" >查看</a>\
             </div>\
             \
@@ -571,8 +548,8 @@ function _data入網_整div(sel,run,box_name,data) {
           <input\
               title="收款方式名"\
               type="text"\
-              class="form-control"\
-              id="收款方式名"\
+              class="收款方式 form-control"\
+              id="收款方式名_'+data[2]+'"\
               placeholder="'+data[0]+'"\
               value="'+data[0]+'"\
           />\
@@ -580,7 +557,7 @@ function _data入網_整div(sel,run,box_name,data) {
               title="收款方式code"\
               type="text"\
               class="form-control"\
-              id="收款方式code"\
+              id="收款方式code_'+data[2]+'"\
               placeholder="'+data[1]+'"\
               value="'+data[1]+'"\
           />\
