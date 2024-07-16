@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐳宣傳王🐳</title>
+    <link rel="stylesheet" href="aki.css">
+    <script src="https://cdn.staticfile.org/pako/1.0.10/pako.min.js">//TxtZip </script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js">//SHA256</script>
+
+
+
+</head>
+<body>
+    <header>
+        <h1>🐳宣傳王🐳</h1>
+        <!-- m.js _網插件('頭','html','#頭',0) -->
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <main>
+        <div class="search-container">
+            
+            <div class="search-section">
+                <label for="region-select">地區搜尋</label>
+                <select id="region-select">
+                    <option value="">請選擇地區</option>
+                    <option value="tuen-mun">屯門</option>
+                    <option value="yuen-long">元朗</option>
+                    <option value="tsuen-wan">荃灣</option>
+                </select>
+            </div>
+            <div class="search-section">
+                <label for="industry-select">行業搜尋</label>
+                <select id="industry-select">
+                    <option value="">請選擇行業</option>
+                    <option value="restaurants">餐廳</option>
+                    <option value="beauty-salons">美容院</option>
+                    <option value="hair-salons">理髮店</option>
+                </select>
+            </div>
+            <div class="search-section">
+                <label for="merchant-select">商戶搜尋</label>
+                <select id="merchant-select">
+                    <option value="">請選擇商戶</option>
+                    <option value="company1">公司1</option>
+                    <option value="company2">公司2</option>
+                    <option value="company3">公司3</option>
+                </select>
+            </div>
+            <div class="search-section">
+                <label for="keyword-input">關鍵字搜尋</label>
+                <input type="text" id="keyword-input" placeholder="輸入關鍵字">
+            </div>
+        </div>
+        <button onclick="searchAds()">搜尋</button>
+
+        <div id="adContainer" class="ad-grid">
+            <!-- 廣告會在這裡動態載入 -->
+        </div>
+        <div class="pagination">
+            <button onclick="changePage(-1)">上一頁</button>
+            <button onclick="changePage(1)">下一頁</button>
+        </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+    <nav id="導航">
+        <h1>🐳宣傳王🐳</h1>
+        <!-- m.js _網插件('導航','html','#導航',0) -->
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // 模擬從資料庫讀取廣告資料
+        const allAds = [
+            { id: 'ad1', imageSrc: 'https://via.placeholder.com/300', region: 'tuen-mun', industry: 'restaurants', merchant: 'company1', keywords: ['food', 'chinese'] },
+            { id: 'ad2', imageSrc: 'https://via.placeholder.com/300', region: 'yuen-long', industry: 'beauty-salons', merchant: 'company2', keywords: ['beauty', 'nails'] },
+            { id: 'ad3', imageSrc: 'https://via.placeholder.com/300', region: 'tsuen-wan', industry: 'hair-salons', merchant: 'company3', keywords: ['hair', 'styling'] },
+            { id: 'ad4', imageSrc: 'https://via.placeholder.com/300', region: 'tuen-mun', industry: 'restaurants', merchant: 'company1', keywords: ['food', 'western'] },
+            { id: 'ad5', imageSrc: 'https://via.placeholder.com/300', region: 'yuen-long', industry: 'beauty-salons', merchant: 'company2', keywords: ['spa', 'massage'] },
+            { id: 'ad6', imageSrc: 'https://via.placeholder.com/300', region: 'tsuen-wan', industry: 'hair-salons', merchant: 'company3', keywords: ['barber', 'men'] },
+            { id: 'ad7', imageSrc: 'https://via.placeholder.com/300', region: 'tuen-mun', industry: 'restaurants', merchant: 'company1', keywords: ['food', 'japanese'] },
+            { id: 'ad8', imageSrc: 'https://via.placeholder.com/300', region: 'yuen-long', industry: 'beauty-salons', merchant: 'company2', keywords: ['makeup', 'wedding'] },
+            { id: 'ad9', imageSrc: 'https://via.placeholder.com/300', region: 'tsuen-wan', industry: 'hair-salons', merchant: 'company3', keywords: ['hair', 'coloring'] },
+            { id: 'ad10', imageSrc: 'https://via.placeholder.com/300', region: 'tuen-mun', industry: 'restaurants', merchant: 'company1', keywords: ['food', 'italian'] },
+        ];
+
+        let currentPage = 1;
+        const adsPerPage = 8;
+
+        // 從localStorage讀取收藏的廣告ID
+        const collectedAds = JSON.parse(localStorage.getItem('collectedAds')) || [];
+
+        function loadAds(ads) {
+            const adContainer = document.getElementById('adContainer');
+            adContainer.innerHTML = ''; // 清空容器
+
+            const startIndex = (currentPage - 1) * adsPerPage;
+            const endIndex = startIndex + adsPerPage;
+            const paginatedAds = ads.slice(startIndex, endIndex);
+
+            if (paginatedAds.length === 0) {
+                adContainer.innerHTML = '<div class="no-ads"><h3>暫時沒有可供展示的廣告</h3><p>請稍後再來查看或嘗試其他搜尋條件。</p></div>';
+                return;
+            }
+
+            paginatedAds.forEach((ad) => {
+                const adElement = document.createElement('div');
+                adElement.className = 'ad-item';
+                adElement.innerHTML = `
+                    <img src="${ad.imageSrc}" alt="廣告 ${ad.id}" width="300" height="300">
+                    <div class="ad-actions">
+                        <button onclick="collectAd('${ad.id}')">
+                            ${collectedAds.includes(ad.id) ? '取消收藏' : '收藏'}
+                        </button>
+                        <button onclick="shareAd('${ad.id}')">分享</button>
+                    </div>
+                `;
+                adContainer.appendChild(adElement);
+            });
+        }
+
+        function searchAds() {
+            const region = document.getElementById('region-select').value;
+            const industry = document.getElementById('industry-select').value;
+            const merchant = document.getElementById('merchant-select').value;
+            const keyword = document.getElementById('keyword-input').value.toLowerCase();
+
+            const filteredAds = allAds.filter(ad => {
+                const matchesRegion = region ? ad.region === region : true;
+                const matchesIndustry = industry ? ad.industry === industry : true;
+                const matchesMerchant = merchant ? ad.merchant === merchant : true;
+                const matchesKeyword = keyword ? ad.keywords.some(k => k.includes(keyword)) : true;
+
+                return matchesRegion && matchesIndustry && matchesMerchant && matchesKeyword;
+            });
+
+            currentPage = 1;
+            loadAds(filteredAds);
+        }
+
+        function collectAd(id) {
+            const index = collectedAds.indexOf(id);
+            if (index > -1) {
+                collectedAds.splice(index, 1);
+                alert('已從收藏中移除！');
+            } else {
+                collectedAds.push(id);
+                alert('已添加到收藏！');
+            }
+            localStorage.setItem('collectedAds', JSON.stringify(collectedAds));
+            loadAds(allAds);
+        }
+
+        function shareAd(id) {
+            alert(`分享廣告 ${id} 的功能即將推出！`);
+        }
+
+        function changePage(direction) {
+            const totalPages = Math.ceil(allAds.length / adsPerPage);
+            currentPage += direction;
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            loadAds(allAds);
+        }
+
+        // 頁面加載時顯示廣告
+        loadAds(allAds);
+    </script>
+
+
+
+
+</body>
+<script src="m.js"></script>
+<script src="aki.js"></script>
+<script src="https://cdn.staticfile.net/translate.js/3.1.7/translate.js"></script>
+<script>
+    // 翻译 
+    translate.language.setLocal('chinese_traditional'); //设置本地语种（当前网页的语种）。如果不设置，默认自动识别当前网页显示文字的语种。 可填写如 'english'、'chinese_simplified' 等，具体参见文档下方关于此的说明。
+    translate.service.use('client.edge'); //设置机器翻译服务通道，直接客户端本身，不依赖服务端 。相关说明参考 http://translate.zvo.cn/43086.html
+    translate.execute();//进行翻译 
+</script>
+</html>

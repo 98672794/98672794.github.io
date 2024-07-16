@@ -1,0 +1,245 @@
+    <!DOCTYPE html>
+    <html lang="zh-HK">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>🐳宣傳王🐳 - 關於我們</title>
+        <script src="https://cdn.staticfile.org/pako/1.0.10/pako.min.js">//TxtZip </script>
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
+        <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js">//SHA256</script>
+    
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+                color: #333;
+            }
+            header {
+                background-color: #333;
+                color: white;
+                padding: 1em;
+                text-align: center;
+            }
+            nav {
+                background-color: #444;
+                padding: 0.5em;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: space-around;
+            }
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+            main {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2em;
+                background-color: white;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                margin-top: 2em;
+                margin-bottom: 4em;
+            }
+            h2 {
+                color: #007bff;
+                border-bottom: 2px solid #007bff;
+                padding-bottom: 0.5em;
+            }
+            .timeline {
+                position: relative;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 1em 0;
+            }
+            .timeline::after {
+                content: '';
+                position: absolute;
+                width: 6px;
+                background-color: #007bff;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -3px;
+            }
+            .timeline-item {
+                padding: 10px 0;
+                position: relative;
+                background-color: inherit;
+                width: 50%;
+            }
+            .timeline-item::after {
+                content: '';
+                position: absolute;
+                width: 25px;
+                height: 25px;
+                background-color: white;
+                border: 4px solid #007bff;
+                top: 15px;
+                border-radius: 50%;
+                z-index: 1;
+            }
+            .left {
+                left: 0;
+            }
+            .right {
+                left: 50%;
+            }
+            .left::after {
+                right: -17px;
+            }
+            .right::after {
+                left: -17px;
+            }
+            .content {
+                padding: 20px;
+                background-color: white;
+                position: relative;
+                border-radius: 6px;
+                border: 2px solid #007bff;
+            }
+            .left .content {
+                margin-right: 20px;
+            }
+            .right .content {
+                margin-left: 20px;
+            }
+            .team-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1em;
+                margin-top: 1em;
+            }
+            .team-member {
+                text-align: center;
+            }
+            .team-member img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>🐳宣傳王🐳 - 關於我們</h1>
+            <!-- m.js _網插件('頭','append','#頭',0) -->
+        </header>
+        <main>
+            <section>
+                <h2>我們的故事</h2>
+                <p>AdView 成立於2020年，是一個革命性的廣告平台，旨在為本地企業和消費者搭建橋樑。我們相信，每一個企業都應該有機會讓自己的聲音被聽到，而每一個消費者都應該輕鬆找到他們需要的產品和服務。</p>
+            </section>
+            <section>
+                <h2>我們的使命</h2>
+                <p>我們的使命是創造一個互利共贏的廣告生態系統。通過提供直觀、高效的廣告平台，我們幫助企業增加曝光率，同時為消費者提供更多選擇和更好的購物體驗。</p>
+            </section>
+            <section>
+                <h2>我們的成長歷程</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3>2020年</h3>
+                            <p>AdView 正式成立，推出基礎廣告平台。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <h3>2021年</h3>
+                            <p>新增地區和行業分類功能，幫助用戶更精準地找到所需信息。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3>2022年</h3>
+                            <p>推出移動應用程序，讓用戶隨時隨地瀏覽和收藏廣告。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <h3>2023年</h3>
+                            <p>引入AI推薦系統，為用戶提供個性化的廣告體驗。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>未來展望</h2>
+                <p>展望未來，我們將繼續創新，不斷優化用戶體驗，擴大我們的服務範圍。我們計劃引入更多互動功能，如虛擬實境廣告體驗，以及基於區塊鏈技術的透明廣告交易系統。我們相信，通過不懈努力，AdView 將成為香港乃至全球最受歡迎的廣告平台之一。</p>
+            </section>
+            <section>
+                <h2>我們的團隊</h2>
+                <p>AdView 的成功離不開我們優秀的團隊。我們的團隊由來自不同背景的專業人士組成，包括技術專家、市場營銷專家、設計師和客戶服務代表。每一位團隊成員都致力於為我們的用戶提供最佳體驗。</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://yt3.ggpht.com/5Lz804uWSKcZYK6fasNmdaAXcXUWZRMYaOlnZMtTGkYFEuOKNCU4TmuDoK_HqQT85C5nUP-mRg=s48-c-k-c0x00ffffff-no-rj" alt="陳志明 - 創始人兼首席執行官" width="150" height="150">
+                        <h3>陳志明</h3>
+                        <p>創始人兼首席執行官</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://yt3.ggpht.com/5Lz804uWSKcZYK6fasNmdaAXcXUWZRMYaOlnZMtTGkYFEuOKNCU4TmuDoK_HqQT85C5nUP-mRg=s48-c-k-c0x00ffffff-no-rj" alt="李小明 - 首席技術官" width="150" height="150">
+                        <h3>李小明</h3>
+                        <p>首席技術官</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://yt3.ggpht.com/5Lz804uWSKcZYK6fasNmdaAXcXUWZRMYaOlnZMtTGkYFEuOKNCU4TmuDoK_HqQT85C5nUP-mRg=s48-c-k-c0x00ffffff-no-rj" alt="王美玲 - 首席營銷官" width="150" height="150">
+                        <h3>王美玲</h3>
+                        <p>首席營銷官</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://yt3.ggpht.com/5Lz804uWSKcZYK6fasNmdaAXcXUWZRMYaOlnZMtTGkYFEuOKNCU4TmuDoK_HqQT85C5nUP-mRg=s48-c-k-c0x00ffffff-no-rj" alt="張家豪 - 首席設計官" width="150" height="150">
+                        <h3>張家豪</h3>
+                        <p>首席設計官</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>我們的價值觀</h2>
+                <ul>
+                    <li><strong>創新：</strong>我們不斷探索新技術和新方法，以提供更好的廣告解決方案。</li>
+                    <li><strong>誠信：</strong>我們以誠實和透明的方式經營業務，贏得客戶和合作夥伴的信任。</li>
+                    <li><strong>用戶至上：</strong>我們將用戶的需求放在首位，不斷改進我們的產品和服務。</li>
+                    <li><strong>社會責任：</strong>我們致力於為社會創造價值，支持本地經濟發展。</li>
+                </ul>
+            </section>
+            <section>
+                <h2>我們的成就</h2>
+                <ul>
+                    <li>2021年香港科技創新獎</li>
+                    <li>2022年最佳用戶體驗設計獎</li>
+                    <li>2023年香港百大網站之一</li>
+                </ul>
+            </section>
+        </main>
+
+        
+
+
+
+
+
+
+        <nav id="導航">
+            <!-- m.js _網插件('導航','html','#導航',0) -->
+        </nav>
+    </body>
+    <script src="m.js"></script>
+    <script src="aki.js"></script>
+    <script src="https://cdn.staticfile.net/translate.js/3.1.7/translate.js"></script>
+    <script>
+        // 翻译 
+        translate.language.setLocal('chinese_traditional'); //设置本地语种（当前网页的语种）。如果不设置，默认自动识别当前网页显示文字的语种。 可填写如 'english'、'chinese_simplified' 等，具体参见文档下方关于此的说明。
+        translate.service.use('client.edge'); //设置机器翻译服务通道，直接客户端本身，不依赖服务端 。相关说明参考 http://translate.zvo.cn/43086.html
+        translate.execute();//进行翻译 
+    </script>
+    </html>
