@@ -94,7 +94,7 @@
                 const adElement = document.createElement('div');
                 adElement.className = 'ad-item';
                 adElement.innerHTML = `
-                    <img src="${ad.imageSrc}" alt="廣告 ${ad.id}" width="300" height="300">
+                    <img src="${ad.imageSrc}" alt="廣告 ${ad.id}" title="${ad.id}" width="300" height="300" onclick="zoomAd('${ad.imageSrc}')">
                     <div class="ad-actions">
                         <button onclick="uncollectAd('${ad.id}')">取消收藏</button>
                         <button onclick="shareAd('${ad.id}')">分享</button>
@@ -116,6 +116,25 @@
 
         function shareAd(id) {
             alert(`分享廣告 ${id} 的功能即將推出！`);
+        }
+
+        // 放大廣告
+        function zoomAd(imageSrc) {
+            const overlay = document.createElement('div');
+            overlay.className = 'zoom-overlay';
+            overlay.innerHTML = `<img src="${imageSrc}" alt="放大廣告圖片">`;
+            overlay.onclick = function(event) {
+                if (event.target === overlay) {
+                    closeZoom();
+                }
+            };
+            document.body.appendChild(overlay);
+        }
+        function closeZoom() {
+            const overlay = document.querySelector('.zoom-overlay');
+            if (overlay) {
+                overlay.remove();
+            }
         }
 
         function changePage(direction) {
