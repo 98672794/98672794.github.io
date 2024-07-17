@@ -44,11 +44,17 @@ main {
   flex: 1;
   min-width: 200px;
 }
-select, input[type="text"] {
+select {
   width: 100%;
   padding: 0.5em;
   margin-top: 0.5em;
 }
+input[type="text"] {
+  width: 96%;
+  padding: 0.5em;
+  margin-top: 0.5em;
+}
+
 button {
   background-color: #007bff;
   color: white;

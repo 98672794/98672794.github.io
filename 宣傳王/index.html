@@ -9,8 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
     <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js">//SHA256</script>
 
-
-
+    <script src="廣料.js">// 模擬從資料庫讀取廣告資料</script>
 </head>
 <body>
     <header>
@@ -61,29 +60,23 @@
                 <label for="region-select">地區搜尋</label>
                 <select id="region-select">
                     <option value="">請選擇地區</option>
-                    <option value="tuen-mun">屯門</option>
-                    <option value="yuen-long">元朗</option>
-                    <option value="tsuen-wan">荃灣</option>
                 </select>
             </div>
+
             <div class="search-section">
                 <label for="industry-select">行業搜尋</label>
                 <select id="industry-select">
                     <option value="">請選擇行業</option>
-                    <option value="restaurants">餐廳</option>
-                    <option value="beauty-salons">美容院</option>
-                    <option value="hair-salons">理髮店</option>
                 </select>
             </div>
+
             <div class="search-section">
                 <label for="merchant-select">商戶搜尋</label>
                 <select id="merchant-select">
                     <option value="">請選擇商戶</option>
-                    <option value="company1">公司1</option>
-                    <option value="company2">公司2</option>
-                    <option value="company3">公司3</option>
                 </select>
             </div>
+            
             <div class="search-section">
                 <label for="keyword-input">關鍵字搜尋</label>
                 <input type="text" id="keyword-input" placeholder="輸入關鍵字">
@@ -124,21 +117,10 @@
 
 
 
-
+    
     <script>
-        // 模擬從資料庫讀取廣告資料
-        const allAds = [
-            { id: 'ad1', imageSrc: 'https://via.placeholder.com/300', region: 'tuen-mun', industry: 'restaurants', merchant: 'company1', keywords: ['food', 'chinese'] },
-            { id: 'ad2', imageSrc: 'https://via.placeholder.com/300', region: 'yuen-long', industry: 'beauty-salons', merchant: 'company2', keywords: ['beauty', 'nails'] },
-            { id: 'ad3', imageSrc: 'https://via.placeholder.com/300', region: 'tsuen-wan', industry: 'hair-salons', merchant: 'company3', keywords: ['hair', 'styling'] },
-            { id: 'ad4', imageSrc: 'https://via.placeholder.com/300', region: 'tuen-mun', industry: 'restaurants', merchant: 'company1', keywords: ['food', 'western'] },
-            { id: 'ad5', imageSrc: 'https://via.placeholder.com/300', region: 'yuen-long', industry: 'beauty-salons', merchant: 'company2', keywords: ['spa', 'massage'] },
-            { id: 'ad6', imageSrc: 'https://via.placeholder.com/300', region: 'tsuen-wan', industry: 'hair-salons', merchant: 'company3', keywords: ['barber', 'men'] },
-            { id: 'ad7', imageSrc: 'https://via.placeholder.com/300', region: 'tuen-mun', industry: 'restaurants', merchant: 'company1', keywords: ['food', 'japanese'] },
-            { id: 'ad8', imageSrc: 'https://via.placeholder.com/300', region: 'yuen-long', industry: 'beauty-salons', merchant: 'company2', keywords: ['makeup', 'wedding'] },
-            { id: 'ad9', imageSrc: 'https://via.placeholder.com/300', region: 'tsuen-wan', industry: 'hair-salons', merchant: 'company3', keywords: ['hair', 'coloring'] },
-            { id: 'ad10', imageSrc: 'https://via.placeholder.com/300', region: 'tuen-mun', industry: 'restaurants', merchant: 'company1', keywords: ['food', 'italian'] },
-        ];
+        
+
 
         let currentPage = 1;
         const adsPerPage = 8;
@@ -222,6 +204,38 @@
         // 頁面加載時顯示廣告
         loadAds(allAds);
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

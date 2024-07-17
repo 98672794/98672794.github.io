@@ -17,6 +17,8 @@ function _網插件(sel,run,box_name,data) {
     \
   '
 
+  let 搜尋選擇 = '<option value="'+data[0]+'">'+data[0]+'</option>'
+
 
   // 將插件加入到選取的元素中
   // _網插件('導航','html','#導航',[公司名,新入網Ulr做主頁,網字色1號])
