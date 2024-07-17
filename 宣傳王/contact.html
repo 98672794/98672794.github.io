@@ -143,7 +143,7 @@
         
         <section class="contact-form">
             <h2>聯絡表格</h2>
-            <form action="https://adview.com/submit-contact" method="GET">
+            <form id="contactForm">
                 <label for="name">名稱：</label>
                 <input type="text" id="name" name="name" required>
                 
@@ -159,7 +159,7 @@
                 <label for="message">訊息：</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
                 
-                <button type="submit" id="發送whatsapp">發送whatsapp</button>
+                <button type="button" onclick="發送whatsapp()">發送whatsapp</button>
             </form>
         </section>
         

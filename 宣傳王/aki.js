@@ -13,18 +13,21 @@
 
 // 按鈕
 function 發送whatsapp() {
-  myWS = '85298672794'
-  隔 = '%2C%20'
+  const myWS = '85298672794';
+  const 隔 = '%2C%20';
 
-  UserName = $( ".contact-form #name" ).val()
-  UserEmail = $( ".contact-form #email" ).val()
-  UserPhone = $( ".contact-form #phone" ).val()
-  UserSubject = $( ".contact-form #subject" ).val()
-  UserMessage = $( ".contact-form #message" ).val()
+  const UserName = $(".contact-form #name").val();
+  const UserEmail = $(".contact-form #email").val();
+  const UserPhone = $(".contact-form #phone").val();
+  const UserSubject = $(".contact-form #subject").val();
+  const UserMessage = $(".contact-form #message").val();
 
+  const url = `https://wa.me/${myWS}?text=${UserName}${隔}${UserEmail}${隔}${UserPhone}${隔}${UserSubject}${隔}${UserMessage}`;
+  //console.log('WhatsApp URL:', url);
   // 打開新分頁
-  window.open("https://wa.me/"+myWS+"/?text="+UserName+隔+UserEmail+隔+UserPhone+隔+UserSubject+隔+UserMessage+隔);
+  window.open(url, '_blank');
 }
+
 
 
 
