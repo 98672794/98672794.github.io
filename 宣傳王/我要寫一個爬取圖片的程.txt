@@ -1,0 +1,53 @@
+我要寫一個爬取圖片的程,
+爬取網址為 https://www.jetsoclub.com/
+網址中會出現多個連結像: <a href="https://www.jetsoclub.com/2024/07/okeasy-win-1002112.html" previewlistener="true">
+OK便利店：對對拼Easy Win大抽獎 日日免費玩 100%中獎（18/7-14/8）
+</a>
+我要打開這個網址,取裡面的圖片src,圖片元素為:
+<img alt="" border="0" data-original-height="1750" data-original-width="1250" loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg72thPi2A9q0sdkYFxuMlHIJ3MygECEe4tf3wbuz_zqCOmIFdr8mnsS8NGz4aClm5LkyEcHI9rjROIJ5Ozg7Nl_kGY7W6I8UC-PGsrrSMx8UQOXCJmDFJWw62svYhHOIdGt207tswQ1pCyIwllcN4R6IROmGlBMIETw6xB3qWng9Kd6Ygj48WoNdUOkNLR/s0/0718-ok-1-www.jetsoclub.com.jpg" width="480">
+
+及
+分類： 參茸海味 , 娛樂購物 
+
+我要取這兩個元素
+
+取所有  https://www.jetsoclub.com/ 內的連結
+
+用PYTHON
+謝謝
+
+--------
+
+現在取完的格或是這樣:
+
+Title: 萬寧：星期三氹氹你 優惠大放送（17/7）
+URL: https://www.jetsoclub.com/2024/07/177.html
+Images:
+  - https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8AcOascUim0y5BNByLyD_v5gQCZWklca9-2seW5Yf0nMdgaJ0QuNNMuRYsGU641GC6ugVdN_Q4pf8wCqYEJRooDY3P5v6O96PVkoD2cZvh2l3Vldjvb5H5jiE1HErKWEZBLNkZ3WPNqiLuWK_JRWfOf5QG404wEZRKj9-Fqo7FOpHgBdyQxtyUsXRrsN3/s0/0717-mannings-10-www.jetsoclub.com.jpg
+  - https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtid4CbwZANfijWCy00rEZ1V8lXqx0nWf1zfiQOpIwpNM3xhIW2TNfsQZLBf54vX7CjZWWOBQzFPH1nv4e4L5d7qMELM1ah0P3IdV8SQBj4gaAKdddlreJIp4gyL0XtUfKba6eoyhmbfv6zJdM76WJ1H8M8VhQTvZEU7oM1X72pcM1uSuNv-yXzmwrrSzI/s0/0717-mannings-1-www.jetsoclub.com.jpg
+Categories: 娛樂購物
+
+Title: MTR Mobile：港鐵即時賞（17/7）
+URL: https://www.jetsoclub.com/2024/07/mtr-mobile177.html
+Images:
+  - https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNEypp8RoGTMG-OkAMvg-3VUVp7xlfEH4FjNOF7FVYmg_11foa9iuOzpaEHm1oJWHgvkfQWLZN9zULhj2ITppRXs69S_0ExxZxLTXhYDGLtuNyHgSU-zdsJZHRDK-ORdTlNkfg1HzX22PxjDu8pLKODOKggI-cgTWlqJsgLdUBs5eFI1_Rq87cCTY4ApIo/s0/0717-mtr-www.jetsoclub.com.jpg
+Categories: 交通或通訊, 數碼科技
+
+Title: 7-Eleven：應屆DSE考生 免費獲贈燒賣/魚蛋（17/7）
+URL: https://www.jetsoclub.com/2024/07/7-elevendse-177.html
+Images:
+  - https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEja9VQVpG7wAjnzfnousozBNVqKhULIrBLrLLJc6f9F8LXI2F1OYhQ7RdyU2XrEI541EcYaRlAPKLblKLwFI5ZqJc2H0HZFD6UoMhhfb2Bq3ENgqNzzajQjO_uvQuyMWjfDdTcXDZJy51UUxq50er4Qhrqe5fRAu3FaKHA3ENSV0EH3vMlwuosMTNBjxEB6/s0/0717-7-eleven-1-www.jetsoclub.com.jpg
+Categories: 優惠券/現金券/換領券/免費試用, 超市/便利店
+
+我需要轉為這樣格式:
+
+Title: 萬寧：星期三氹氹你 優惠大放送（17/7）
+  { id: 'ad20240717_01', imageSrc: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8AcOascUim0y5BNByLyD_v5gQCZWklca9-2seW5Yf0nMdgaJ0QuNNMuRYsGU641GC6ugVdN_Q4pf8wCqYEJRooDY3P5v6O96PVkoD2cZvh2l3Vldjvb5H5jiE1HErKWEZBLNkZ3WPNqiLuWK_JRWfOf5QG404wEZRKj9-Fqo7FOpHgBdyQxtyUsXRrsN3/s0/0717-mannings-10-www.jetsoclub.com.jpg', region: '全香港', industry: '娛樂購物', merchant: '萬寧', keywords: ['萬寧', '娛樂購物'] },
+
+  { id: 'ad20240717_02', imageSrc: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtid4CbwZANfijWCy00rEZ1V8lXqx0nWf1zfiQOpIwpNM3xhIW2TNfsQZLBf54vX7CjZWWOBQzFPH1nv4e4L5d7qMELM1ah0P3IdV8SQBj4gaAKdddlreJIp4gyL0XtUfKba6eoyhmbfv6zJdM76WJ1H8M8VhQTvZEU7oM1X72pcM1uSuNv-yXzmwrrSzI/s0/0717-mannings-1-www.jetsoclub.com.jpg', region: '全香港', industry: '娛樂購物', merchant: '萬寧', keywords: ['萬寧', '娛樂購物'] },
+
+Title: MTR Mobile：港鐵即時賞（17/7）
+  { id: 'ad20240717_03', imageSrc: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNEypp8RoGTMG-OkAMvg-3VUVp7xlfEH4FjNOF7FVYmg_11foa9iuOzpaEHm1oJWHgvkfQWLZN9zULhj2ITppRXs69S_0ExxZxLTXhYDGLtuNyHgSU-zdsJZHRDK-ORdTlNkfg1HzX22PxjDu8pLKODOKggI-cgTWlqJsgLdUBs5eFI1_Rq87cCTY4ApIo/s0/0717-mtr-www.jetsoclub.com.jpg', region: '全香港', industry: '交通或通訊', merchant: 'MTR Mobile', keywords: ['MTR Mobile', '交通或通訊','數碼科技'] },
+
+Title: 7-Eleven：應屆DSE考生 免費獲贈燒賣/魚蛋（17/7）
+  { id: 'ad20240717_04', imageSrc: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEja9VQVpG7wAjnzfnousozBNVqKhULIrBLrLLJc6f9F8LXI2F1OYhQ7RdyU2XrEI541EcYaRlAPKLblKLwFI5ZqJc2H0HZFD6UoMhhfb2Bq3ENgqNzzajQjO_uvQuyMWjfDdTcXDZJy51UUxq50er4Qhrqe5fRAu3FaKHA3ENSV0EH3vMlwuosMTNBjxEB6/s0/0717-7-eleven-1-www.jetsoclub.com.jpg', region: '全香港', industry: '優惠券/現金券/換領券/免費試用', merchant: '7-Eleven', keywords: ['7-Eleven', '優惠券/現金券/換領券/免費試用','超市/便利店'] },

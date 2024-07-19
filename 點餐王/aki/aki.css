@@ -9,6 +9,10 @@
 
 
 
+test{color: #b4b2a5;margin: 5%;}
+
+
+
 
 
 
@@ -150,16 +154,8 @@ all產品
 
 #all產品 p{font-size: min(max(24px, 2vw), 30px);}
 
-
 .產品鍵, .文章box{border: 2px solid var(--網色1號);
   border-radius: 5px;margin:1% ;padding: 0%;
-  
-}
-
-.產品鍵 img, .文章box img{
-  width: 100%;height: auto;
-  border-radius: 5px;
-  opacity: 1;
 }
 
 .產品鍵 h5,.文章box h5{
@@ -187,12 +183,20 @@ all產品
 }
 .文章box p{color: var(--網色1號);margin: 2%;}
 
+
 .產品鍵{
-  height: var(--產品鍵圖尺寸高); 
-  max-width:var(--產品鍵圖尺寸橫max);width: var(--產品鍵圖尺寸橫);
+  min-width: var(--產品鍵圖尺寸橫);
+
+  /* 設定寬高比例 https://chat.openai.com/share/4b4f7c93-8281-47bd-87eb-a240694c5a42 */
+  aspect-ratio: 1 / 1; 
+  width:50%;
+  max-width:var(--產品鍵圖尺寸橫max);
   position: relative;overflow: hidden;
   float: left;
+  margin: auto;
+  
 }
+
 
 
 
@@ -302,8 +306,8 @@ https://blog.csdn.net/p15097962069/article/details/103506957 */
 
 #購買流程 h2{padding: 10%;text-align: center;color: var(--網色1號);}
 #購買流程 a{color: var(--網字色1號);}
-#購買流程 .no了{color: var(--網字色2號);}
-#購買流程 .Price{color: var(--網字色1號);}
+#購買流程 .no了{mix-blend-mode: difference; }
+#購買流程 .P222rice{color: var(--網字色1號);}
 
 #本單加總金{text-align: right;padding: 2%;border-radius: 5px;
   
@@ -324,14 +328,16 @@ https://blog.csdn.net/p15097962069/article/details/103506957 */
 
 
 
+.彈出提醒_確定訂單{
+  position: absolute;
+  top: -200px;
+  left: 0;
+  right: 0;
 
-
-
-
-
-
-
-
+  padding: 5%;
+  color: #fffb00;
+  mix-blend-mode: difference;
+}
 
 
 
@@ -387,6 +393,7 @@ https://juejin.cn/post/6844903613936959496*/
   border-radius: 3px;
   background: var(--全透明);
   -webkit-box-shadow: inset 0 0 10px var(--全透明);
+  
 }
 
 
@@ -416,7 +423,7 @@ https://juejin.cn/post/6844903613936959496*/
     opacity: .1;width: 360px;height: 360px;
   }
   100% {
-    opacity: 0;;width: 400px;height: 400px;right: 30%;
+    opacity: 0;width: 400px;height: 400px;right: 30%;
   }
 }
 
@@ -478,9 +485,8 @@ https://juejin.cn/post/6844903613936959496*/
   --網字色2號: #000;
   --全透明: rgba(0, 0, 0, 0);
 
-  --產品鍵圖尺寸高: 200px;
-  --產品鍵圖尺寸高max: 200px;
-  --產品鍵圖尺寸橫: 48%;
+
+  --產品鍵圖尺寸橫: 100%;
   --產品鍵圖尺寸橫max: 200px;
 }
 
@@ -488,7 +494,6 @@ https://juejin.cn/post/6844903613936959496*/
 .主hr{background: var(--網色1號);}
 
 
-test{color: #b4b2a5}
 
 
 
@@ -503,7 +508,12 @@ test{color: #b4b2a5}
 
 
 
-
-
-
+/* 翻译box */
+.translateSelectLanguage{
+  z-index: 3;
+  position: absolute;
+  bottom:16px;
+  left:20%;
+  width: 100px;
+}
 

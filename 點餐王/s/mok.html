@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mok setting</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script><!-- 用於貼js字 -->
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js">//SHA256</script>
+    <script src="../aki/a.js"></script>
+    <script src="../aki/g.js"></script>
+</head>
+<body id="mok">
+<!-- 
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+-->
+<script>
+
+
+// admin login
+function adminLogin1() {
+  $("#mok").html('<input id="ALB1" type="password" onclick="_Del('+dot+'ALB1,#ALB2'+dot+');" placeholder="???">')
+  $("#mok").append('<input id="ALB2" type="password" onclick="_adminLogin2();_Del('+dot+'ALB1,#ALB2'+dot+');" placeholder="???">')
+}
+function _adminLogin2() {if(_取明文($( "#ALB2" ).val() + $( "#ALB1" ).val(),'pw') === akiAdPw) _adminLogin3()}
+function _adminLogin3() {
+  // add div
+  $("#mok").html(
+    '<br><button onclick="_0x5569ds_()">hi</button>\
+    <input id="表單id" type="text"  onclick="_Del('+dot+'表單id'+dot+')" placeholder="id">\
+    <input id="表單id2" type="text" onclick="_0x1731ba_();_Del('+dot+'表單id'+dot+')" style="height: 1px; width: 1px;">\
+    <br><input id="pw4" type="text"  onclick="_Del('+dot+'表單id'+dot+')" placeholder="Ac">\
+    <button onclick="encode()">out</button>\
+    \
+    \
+    <br><br>\
+    <input id="S256" type="text"  onclick="_Del('+dot+'S256'+dot+')" placeholder="s"><br>\
+    <input id="id" type="text"  onclick="_Del('+dot+'id'+dot+')" placeholder="i"><br>\
+    <input id="pw" type="text"  onclick="_Del('+dot+'pw'+dot+')" placeholder="p"><br>\
+    <input id="adminPW" type="password" onclick="_Del('+dot+'adminPW'+dot+')" placeholder="a"><br>\
+    <button onclick="AdminSet()">刪除網站</button>\
+    <div id="data"></div>\
+    '
+  )
+}
+
+
+/* admin set */
+async function AdminSet() {
+
+  s256 = $( "#S256" ).val()
+  id   = $( "#id" ).val()
+  pw   = $( "#pw" ).val()
+  adminPW = escape(_0x5569ds(calculateHash( $( "#adminPW" ).val()).toString(CryptoJS.enc.Hex)))
+
+  // 取明文 轉sha256
+  id1  = _取明文(id,'pw')
+  pw1  = _取明文(pw,'pw')
+  d位  = _取明文(id,'位')
+
+  // 生成密匙 明密__
+  if(id !== '' && pw === '' && $( "#adminPW" ).val() === '') $( "#data" ).html(_取明文(s256,'pw'))
+
+  // 生成256 明_密_
+  if(id === '' && pw !== '' && $( "#adminPW" ).val() === '') $( "#data" ).html(_取明文(s256,'2'))
+
+  // Make AC supa
+  if(_取明文(s256,'pw') === 'vh%95%99l%97%98%98%96%99%C8%9Bg%93%96dejlgihfi%96%96gh%99%9Ahd%96%9B%9A%98%96%97n%9E%98jpqhhlhg%96%C8%9Eoh%94%95%94%C3%C6%9Ai%96%98%96' && adminPW === akiAdPw)  Make = await _makeAC('Make',[id,id1],pw1,d位)
+
+
+  // 更網Lv sula id=店名,pw=lv 基本網站 = 0 | 購物 = 1
+  if(_取明文(s256,'pw') === '%A1%C4%C4%C4%9Bn%99%93%95%9Bfi%9C%C4%9Aif%9C%9Cie%94%92%95%97%96%C5%C4%C6%C6%C5%94%94%99n%9B%96d%94%92fhc%97%98b%95%C7%C7%C8%C8%96%92%95lkh%97%9Bl%99%9C%9C%96' && /^[0-9]$/.test(pw) && adminPW === akiAdPw)  Make = await _ChangLv(pw,d位)
+
+  // 睇Data snsa
+  if(_取明文(s256,'pw') === 'qi%99%C4%96%98%9Cjgg%99%96agnqi%93%98fa%95%9El%99%9Flhghgbgo%9D%9D%9E%98%99%9Bkkigijfkqkc%96%C7%C7%96ilg%9A%9A%9A%9E%9D%99' && adminPW === akiAdPw)  Make = await _睇Data(pw1,d位)
+
+  // 台號Change D>snda !=D
+  if(_取明文(s256,'pw') === 'r%97%9C%9B%96%95%93c%94%9Aneg%98%C6%97hk%9A%C8%C9%9B%97%97hhknpm%96%96hfll%94%93bbk%9D%96fedlmmrpihk%96%92%92%93g%96%C6%CB%C9%99' && adminPW === akiAdPw){
+
+    金 = '=0x00485740673475=='
+    if($( "#data" ).text().indexOf('公司資料'+金) !== -1) s = '1'
+    if($( "#data" ).text().indexOf('分類名'+金) !== -1)   s = '2'
+    if($( "#data" ).text().indexOf('收款方式'+金) !== -1) s = '3'
+    if($( "#data" ).text().indexOf('台號'+金) !== -1)     s = '4'
+    if($( "#data" ).text().indexOf('產品/文章'+金) !== -1)s = '5'
+
+    Make = await _ChangeData(s,pw,d位)
+  }
+
+  console.log(id+Make)
+  $( "#data" ).html(id+Make)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// qqq 
+// mok
+function _0x5569ds_(){$("di\u55AE\u8868#".split("").reverse().join(""))['val'](escape(_0x5569ds($("\u0023\u8868\u55ae\u0069\u0064")["\u0076\u0061\u006c"]())));$("di\u55AE\u8868#".split("").reverse().join(""))['select']();document["\u0065\u0078\u0065\u0063\u0043\u006f\u006d\u006d\u0061\u006e\u0064"]("ypoc".split("").reverse().join(""));}function _0x1731ba_(){$('#表單id2')["\u0076\u0061\u006c"](_0x1731ba($('#表單id')['val']()));$("2di\u55AE\u8868#".split("").reverse().join(""))["\u0073\u0065\u006c\u0065\u0063\u0074"]();document['execCommand']('copy');$('#表單id2')['val']("".split("").reverse().join(""));}
+function _Del(box){$('#'+box)["\u0076\u0061\u006c"]("".split("").reverse().join(""));}String['prototype']['encode']=function(){var _0x1359aa=[];for(var _0x237bf9=0x5efae^0x5efae;_0x237bf9<this['length'];_0x237bf9++){_0x1359aa["\u0070\u0075\u0073\u0068"](this["\u0063\u0068\u0061\u0072\u0043\u006f\u0064\u0065\u0041\u0074"](_0x237bf9));}return _0x1359aa["\u006a\u006f\u0069\u006e"]("\u002c");};
+
+/*
+function MakeAc() {
+  let a = $( "#表單id" ).val() 
+    , b = $( "#pw4" ).val() 
+  if (b === '69c36670d68c8b38f8bce5b13702fe8a3f7b2ae0834f38f901ca9be9b4b8372d')
+  //console.log(hash.toString(CryptoJS.enc.Hex));
+  return hash
+}
+*/
+
+
+// 加密B https://blog.csdn.net/cnds123/article/details/128392404
+function encode() {
+    // var s = secret.value;
+    // s 是一个字符串， 类型： String
+    // 根据 s 来创建一个字符串对象
+    // str 的类型是: Object
+    // var str = new String(s);
+    // length 是获取字符串对象的长度，也就是说有多少个字符
+    // str.length
+    var str = $( "#表單id" ).val() ;
+    var r = "";
+    // string 类型的可以当做字符串对象来用
+    for (var i = 0; i < str.length; i++) {
+        // 取出下标为 i 字符的编码
+        var code = str.charCodeAt(i);
+        // 将字符对应的编码，拼接到一个空字符串上
+        r += code;
+        // 每个符号后，添加 , 分割
+        r += ",";
+    }
+    // secret.value 
+    console.log('rrrr',r)
+    $( "#pw4" ).val(r)
+    // 设置输入框的内容为 r
+    return r;
+}
+// 解密B
+function _CwMakeBox() {
+    var str = $( "#表單id2" ).val() ;
+    var arr = str.split(",");
+    var r = "";
+    for (var i = 0; i < arr.length; i++) {
+        var code = parseInt(arr[i]);
+        r += String.fromCharCode(code);
+    }
+    return r;
+  }
+
+// qqq 
+
+adminLogin1()
+</script>
+<!-- 
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
+-->
+
+<script src="https://cdn.staticfile.org/pako/1.0.10/pako.min.js">//TxtZip</script>
+</body>
+</html>

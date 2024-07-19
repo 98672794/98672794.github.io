@@ -284,6 +284,6 @@ const allAds = [
   {'id': 'ad20240718_155', 'imageSrc': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOQEwroguYvXTVV0Xce-vvSUnrE0j6Z6b8oBNgVQ4Ai5nrvoiOsAUWgpOzjnhyPrPqFI4ZfwQ7RavVb7jJocEl_WnRRXc6tuUfs0K32EiJ_liMFXSnwBHlduvANvuPwSw7dkXY7QSHiKHvwElYzj1EGtBgAVGQGIzsrbDo8wxpyyMd6oQccTDF5VMQIZHR/s0/0717-7-eleven-4-www.jetsoclub.com.jpg', 'region': '全香港', 'industry': '超市/便利店', 'merchant': '7-Eleven', 'keywords': ['7-Eleven', '超市/便利店', '飲食']},
   {'id': 'ad20240718_156', 'imageSrc': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkPNL_JWMAcTjQrMrEVi8002M6W-L3IG3qbiTji5oEkKqjPVz5xgmoE3EYoMODjrbq9sdsBcfAIvk1SdNsGpNOCWG0LTD6zRJgJROHF2voTDD3Qg3As0GCxyx-X-A6XNKhc96OjOwLod_SFpLrxWMt6cD7G3FrTjqPd65rIsew12_F8qq6aLfygEBo1WZO/s0/0717-7-eleven-5-www.jetsoclub.com.jpg', 'region': '全香港', 'industry': '超市/便利店', 'merchant': '7-Eleven', 'keywords': ['7-Eleven', '超市/便利店', '飲食']}
 
-    
+
 
 ];

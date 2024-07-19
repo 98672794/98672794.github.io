@@ -1,17 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-HK">
 <head>
-	<title>莫氏有限公司</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>莫氏有限公司</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    #game-container {
+      width: 400px;
+      height: 500px;
+      background-color: #8FBC8F;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #player {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: 20px;
+      transition: left 0.1s;
+      font-size: 50px;
+      line-height: 50px;
+      text-align: center;
+    }
+    .portal, .obstacle {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      top: -80px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      color: #000;
+      text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+    }
+    .obstacle {
+      background-color: #FF4500;
+    }
+    #score {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    #character-select {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .character {
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 40px;
+      line-height: 50px;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+    .character:hover {
+      transform: scale(1.2);
+    }
+    #share-button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    #share-button:hover {
+      background-color: #d16fb7a8;
+    }
+    #game-over {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+    #restart-button, #share-score-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    #restart-button:hover, #share-score-button:hover {
+      background-color: #45a049;
+    }
+    #info-box {
+      width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #translate {
+      margin-top: 20px;
+    }
+  </style>
+  </head>
+  <body>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="index0525/css/style.css">
-	<link rel="stylesheet" href="index0525/css/aki.css">
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-</head>
-<body>
 
 
 
@@ -29,30 +151,34 @@
 
 
 
+    <div id="game-container">
+      <div id="player"></div>
+      <div id="score">⌛: 0</div>
+      <a id="share-button" href="./index0525">🏡</a>
+      <div id="game-over">
+        <h2>🫣</h2>
+        <p>⌛ =  <span id="final-score"></span></p>
+        <button id="restart-button">🎮</button>
+        <button id="share-score-button">🛜</button>
+      </div>
+    </div>
+  
+    <div id="character-select" style="display:none;">
+      <div id="character-options"></div>
+    </div>
+  
+    <div id="info-box">
+      <p>🏡 = home page </p>
+      <p>🔧 = ai tool </p>
+      <p>📢 = advertising page </p>
+      <p>💰 = Business concession </p>
+      <p>⛓️ = blockchain solutions </p>
+      <p title="阻礙物">🌵, 🗿, 🦂 = Game Over</p>
+      <p title="每500分钟可以解锁一个角色">⌛ = 500 =  ➕❓👤 </p><!-- 每500分钟可以解锁一个角色 -->
+    </div>
 
 
 
-	<div class="py-1 top-wrap">
-		<div class="container-xl">
-			<div class="row justify-content-between">
-				<div class="col-md topper d-flex mb-md-0 align-items-xl-center">
-					<div class="text">
-						<p class="con"><span>莫氏有限公司</span></p>
-					</div>
-				</div>
-				<div class="col-md topper d-flex mb-md-0 align-items-xl-center">
-					<div class="text text-md-right">
-						<p class="con">
-							<a href="https://www.facebook.com/aki.mok.10">facebook</a> 
-							<a href="https://www.instagram.com/moksurky">instagram</a> 
-							<a href="https://www.github.com/98672794">github</a> 
-							<a href="https://www.wa.me/85298672794">whatsapp</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 
@@ -68,184 +194,295 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-	<nav class="navbar navbar-expand-lg  ftco-navbar-light">
-		<div class="container-xl">
-			<a class="navbar-brand d-flex align-items-center" href="index.html">
-				<span class=""> <small>98672794.coms.hk</small></span>
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="fa fa-bars"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav m-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active" href="./">首頁</a></li>
-					<li class="nav-item" ><a class="nav-link" id="findJobLink" href="#Box2" >找工作</a></li>
-					<li class="nav-item" ><a class="nav-link" onclick="背景加網('https://98672794.github.io/%E6%98%93%E9%AB%AE/')" href="#Box2" >理髮</a></li>
-					<li class="nav-item" ><a class="nav-link" onclick="背景加網('https://tool2023.github.io/')" href="#Box2" >工具</a></li>
-					<li class="nav-item" ><a class="nav-link" onclick="背景加網('https://mybookhk.github.io/')" href="#Box2" >客製化個人故事圖書</a></li>
-
-
-					<li><hr/></li>
-					<li class="nav-item"><a class="nav-link"  id="translate"></a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<section id="Box2" class="hero-wrap" style="background-image: url('index0525/images/bg_1.jpg');">
-		<h1 id="notee"></h1>
-		<embed id="PageData" type="text/x-scriptlet" src="" width="100%" height="100%" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0;">
-	</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <footer class="">
-									<div class=" px-0">
-										<div class="container-xl">
-											<div class="row">
-
-													<p class="mb-0" style="font-size: 13px;">
-														
-														<script>document.write(new Date().getFullYear());</script> 
-														<i class="fa fa-copyright color-danger" aria-hidden="true"></i> by 
-														<a href="https://98672794.coms.hk" target="_blank" rel="nofollow noopener">98672794</a>
-
-												</div>
-											</div>
-										</div>
-  </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-									<script src="index0525/js/bootstrap.bundle.min.js"></script>
-									<script src="index0525/js/tiny-slider.js"></script>
-
-									<script src="https://cdn.staticfile.net/translate.js/3.1.7/translate.js"></script>
-									<script>
-										translate.language.setLocal('chinese_traditional'); //设置本地语种（当前网页的语种）。如果不设置，默认自动识别当前网页显示文字的语种。 可填写如 'english'、'chinese_simplified' 等，具体参见文档下方关于此的说明。
-										translate.service.use('client.edge'); //设置机器翻译服务通道，直接客户端本身，不依赖服务端 。相关说明参考 http://translate.zvo.cn/43086.html
-										translate.execute();//进行翻译 
-									</script>
-
-									<script>
-										function 背景加網(Ulr){
-											$('#notee').text('請稍候...')
-											// 背景加網
-											$('#PageData').attr('src', Ulr)
-											setTimeout(3000)
-											$('#notee').text('')
-										}
-									</script>
-
-<script>
-
-	function _0x1731ba(code){
-		code=unescape(code)
-		var c=String.fromCharCode(code.charCodeAt(0)-code.length)
-		for(var i=1;i<code.length;i++){
-			c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1))
-		}
-		return c
-	}  
-	//console.log('98672794',escape(_0x5569ds('98672794')))
-
-
-	// GitHub 私人存儲庫文件顯示
-	async function _SeeGitHubTxt() {
-
-		const token = _0x1731ba('%8F%CF%D8%CF%CB%B2%93%BE%E1%CA%8Cv%A6%BC%9E%A6%97%8D%C6%A6m%A5%C9%B3%BC%A3%B1%BE%A0%C0%BE%9E%C4%BDx%A4%EC%C1%B8%BE');
-		const repoOwner = _0x1731ba('Aqnmiipm');
-		const repoName = _0x1731ba('L%A5%D5%D9%97bbf');
-		const filePath = _0x1731ba('k%C5%D5%D5%8F%9B%D1');
-
-		// https://chat.openai.com/share/8924f5eb-0a01-4238-959a-2ace05fea61e
-		try {
-			const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
-				headers: {
-					Authorization: `token ${token}`
-				}
-			});
-			const data = await response.json();
-			// 解析Base64編碼的內容
-			const content = atob(data.content);
-			// 返回內容
-			console.log('content=',content) 
-			return content;
-		} catch (error) {
-			console.log('error=',error)
-		}
-	}
-
-	$(document).ready(function() {
-			$('#findJobLink').click(async function(event) {
-				event.preventDefault();
-				const url = await _SeeGitHubTxt();
-				背景加網(url)
-				document.getElementById('Box2').scrollIntoView({ behavior: 'smooth' })
-			});
-		});
-
-	//_SeeGitHubTxt()
-	//.split(',')[0]
-</script>
-
-</body>
-</html>
+    <script>
+      const gameContainer = document.getElementById('game-container');
+      const player = document.getElementById('player');
+      const scoreElement = document.getElementById('score');
+      const characterSelect = document.getElementById('character-select');
+      const characterOptions = document.getElementById('character-options');
+      const shareButton = document.getElementById('share-button');
+      const gameOverScreen = document.getElementById('game-over');
+      const finalScoreElement = document.getElementById('final-score');
+      const restartButton = document.getElementById('restart-button');
+      const shareScoreButton = document.getElementById('share-score-button');
+  
+      let score = 0;
+      let gameInterval;
+      let objectInterval;
+      let playerX = 200;
+      let gameRunning = false;
+      let isPressed = false;
+  
+
+
+
+
+
+
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      const characters = [
+        '🐹', '🐰', '🐻', '🐼', '🦊'
+      ];
+  
+      const portals = [
+        { color: '#4CAF50', url: './index0525', symbol: '🏡' },
+        { color: '#7986cb', url: 'https://tool2023.github.io/', symbol: '🔧' },
+        { color: '#fbc02d', url: './宣傳王', symbol: '📢' },
+        { color: '#33691e', url: './abta', symbol: '⛓️' },
+        { color: '#9575cd', url: 'https://www.facebook.com/groups/441454859557899', symbol: '💰' }
+      ];
+  
+      const obstacles = [
+        '🌵', '🗿', '🦂'
+      ];
+
+      function updateScore(value) {
+        score += value;
+        scoreElement.textContent = `⌛: ${score}`;
+        localStorage.setItem('cuteAnimalPortalDashScore', score);
+  
+        if (score % 10000 === 0 && score / 10000 < characters.length) {
+          updateCharacterSelect();
+        }
+      }
+  
+      function updateCharacterSelect() {
+        // 每500分钟可以解锁一个角色
+        const unlockedCharacters = Math.min(3 + Math.floor(score / 500), characters.length);
+        //const unlockedCharacters = Math.min(3 + Math.floor(score / 10000), characters.length);
+        characterOptions.innerHTML = '';
+        for (let i = 0; i < unlockedCharacters; i++) {
+          const charElement = document.createElement('span');
+          charElement.textContent = characters[i];
+          charElement.className = 'character';
+          charElement.onclick = () => selectCharacter(i);
+          characterOptions.appendChild(charElement);
+        }
+      }
+  
+
+
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+
+
+      
+
+
+
+
+
+      function selectCharacter(index) {
+        player.textContent = characters[index];
+        characterSelect.style.display = 'none';
+        startGame();
+      }
+  
+      function createPortal() {
+        const portal = document.createElement('div');
+        portal.className = 'portal';
+        const randomPortal = portals[Math.floor(Math.random() * portals.length)];
+        portal.style.backgroundColor = randomPortal.color;
+        portal.style.left = `${Math.random() * (gameContainer.clientWidth - 80)}px`;
+        portal.textContent = randomPortal.symbol;
+        gameContainer.appendChild(portal);
+  
+        const portalAnimation = portal.animate([
+          { top: '-80px' },
+          { top: '580px' }
+        ], {
+          duration: 4000,
+          easing: 'linear'
+        });
+  
+        portalAnimation.onfinish = () => {
+          portal.remove();
+        };
+  
+        return { element: portal, url: randomPortal.url };
+      }
+  
+      function createObstacle() {
+        const obstacle = document.createElement('div');
+        obstacle.className = 'obstacle';
+        obstacle.style.left = `${Math.random() * (gameContainer.clientWidth - 80)}px`;
+        obstacle.textContent = obstacles[Math.floor(Math.random() * obstacles.length)];
+        gameContainer.appendChild(obstacle);
+  
+        const obstacleAnimation = obstacle.animate([
+          { top: '-80px' },
+          { top: '580px' }
+        ], {
+          duration: 3500,
+          easing: 'linear'
+        });
+  
+        obstacleAnimation.onfinish = () => {
+          obstacle.remove();
+        };
+  
+        return obstacle;
+      }
+  
+      function checkCollision() {
+        const playerRect = player.getBoundingClientRect();
+        const objects = document.querySelectorAll('.portal, .obstacle');
+  
+        for (let object of objects) {
+          const objectRect = object.getBoundingClientRect();
+          if (
+            playerRect.left < objectRect.right &&
+            playerRect.right > objectRect.left &&
+            playerRect.top < objectRect.bottom &&
+            playerRect.bottom > objectRect.top
+          ) {
+            if (object.classList.contains('portal')) {
+              const url = object.dataset.url;
+              window.location.href = url;
+            } else {
+              gameOver();
+            }
+            return true;
+          }
+        }
+        return false;
+      }
+  
+      function updateGame() {
+        if (isPressed) {
+          playerX -= 5;
+        } else {
+          playerX += 5;
+        }
+  
+        playerX = Math.max(0, Math.min(playerX, gameContainer.clientWidth - 50));
+  
+        player.style.left = `${playerX}px`;
+  
+        if (!checkCollision()) {
+          updateScore(1);
+        }
+      }
+  
+      function startGame() {
+        gameRunning = true;
+        score = 0;
+        updateScore(0);
+        playerX = 200;
+        player.style.left = `${playerX}px`;
+        gameOverScreen.style.display = 'none';
+        gameInterval = setInterval(updateGame, 20);
+        objectInterval = setInterval(() => {
+          if (Math.random() < 0.7) {
+            const portal = createPortal();
+            portal.element.dataset.url = portal.url;
+          } else {
+            createObstacle();
+          }
+        }, 1000);
+      }
+  
+      function gameOver() {
+        gameRunning = false;
+        clearInterval(gameInterval);
+        clearInterval(objectInterval);
+        finalScoreElement.textContent = score;
+        gameOverScreen.style.display = 'block';
+      }
+  
+      function init() {
+        score = parseInt(localStorage.getItem('cuteAnimalPortalDashScore')) || 0;
+        updateScore(0);
+        updateCharacterSelect();
+        characterSelect.style.display = 'block';
+      }
+  
+
+
+
+
+
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      function shareScore() {
+        const shareText = `I scored ${score} points in Cute Animal Portal Dash! Can you beat my score?`;
+        if (navigator.share) {
+          navigator.share({
+            title: 'Cute Animal Portal Dash Score',
+            text: shareText,
+            url: window.location.href,
+          });
+        } else {
+          alert(shareText);
+        }
+      }
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+      
+      gameContainer.addEventListener('mousedown', () => {
+        if (gameRunning) {
+          isPressed = true;
+        }
+      });
+  
+      gameContainer.addEventListener('mouseup', () => {
+        if (gameRunning) {
+          isPressed = false;
+        }
+      });
+  
+      gameContainer.addEventListener('touchstart', (e) => {
+        if (gameRunning) {
+          isPressed = true;
+          e.preventDefault();
+        }
+      });
+  
+      gameContainer.addEventListener('touchend', () => {
+        if (gameRunning) {
+          isPressed = false;
+        }
+      });
+  
+
+      shareScoreButton.addEventListener('click', shareScore);
+  
+      restartButton.addEventListener('click', () => {
+        startGame();
+      });
+  
+      init();
+    </script>
+
+
+
+
+
+
+
+
+  </body></html>
