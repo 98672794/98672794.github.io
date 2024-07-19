@@ -63,6 +63,9 @@ function start() {
     _網插件('搜尋選擇','append','#merchant-select',[element])
   });
 
+  // 
+  _網插件('分享','html','#shareContainer',[0])
+
 }
 
 
