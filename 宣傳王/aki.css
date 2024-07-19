@@ -170,4 +170,5 @@ button {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+  max-width: 80%;
 }
