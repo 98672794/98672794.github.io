@@ -165,10 +165,10 @@
             const index = collectedAds.indexOf(id);
             if (index > -1) {
                 collectedAds.splice(index, 1);
-                alert('已從收藏中移除！');
+                //alert('已從收藏中移除！');
             } else {
                 collectedAds.push(id);
-                alert('已添加到收藏！');
+                //alert('已添加到收藏！');
             }
             localStorage.setItem('collectedAds', JSON.stringify(collectedAds));
             loadAds(allAds);
@@ -206,12 +206,11 @@
         }
 
         function changePage(direction) {
-            const totalCollectedAds = allAds.filter(ad => collectedAds.includes(ad.id)).length;
-            const totalPages = Math.ceil(totalCollectedAds / adsPerPage);
+            const totalPages = Math.ceil(allAds.length / adsPerPage);
             currentPage += direction;
             if (currentPage < 1) currentPage = 1;
             if (currentPage > totalPages) currentPage = totalPages;
-            loadCollectedAds();
+            loadAds(allAds);
         }
 
         // 頁面加載時顯示廣告
