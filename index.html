@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>莫氏有限公司</title>
   <style>
     body {
@@ -418,10 +419,10 @@
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       function shareScore() {
-        const shareText = `I scored ${score} points in Cute Animal Portal Dash! Can you beat my score?`;
+        const shareText = `我在可愛動物傳送門達陣遊戲中獲得了 ${score} 分！你能打破我的紀錄嗎？`;
         if (navigator.share) {
           navigator.share({
-            title: 'Cute Animal Portal Dash Score',
+            title: '可愛動物傳送門達陣遊戲分數',
             text: shareText,
             url: window.location.href,
           });
