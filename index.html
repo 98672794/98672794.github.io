@@ -159,7 +159,7 @@
       <div id="game-over">
         <h2>🫣</h2>
         <p>⌛ =  <span id="final-score"></span></p>
-        <button id="restart-button">🎮</button>
+        <a id="restart-button" href="./">🎮</a>
         <button id="share-score-button">🛜</button>
       </div>
     </div>
@@ -472,9 +472,9 @@
 
       shareScoreButton.addEventListener('click', shareScore);
   
-      restartButton.addEventListener('click', () => {
-        startGame();
-      });
+      //restartButton.addEventListener('click', () => {
+      //  startGame();
+      //});
   
       init();
     </script>
