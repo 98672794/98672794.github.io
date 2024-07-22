@@ -41,7 +41,7 @@
 #settingMenu{list-style:none;position: absolute;bottom: -16px;left: -46px;right: 0;display: none;}
 #settingMenu li{float: left;
   
-  width: calc(100vw/9);
+  width: calc(100vw/8);
   color: #fff;
   display: flex;
   justify-content: center;    
@@ -51,7 +51,7 @@
   border-bottom-left-radius: 25px;
   cursor: pointer;
 }
-#settingMenu.a2 li {width: calc(100vw/5);}
+#settingMenu.a2 li {width: calc(100vw/4);}
 #settingMenu.a3 li {width: calc(100vw);}
 #settingMenu.a4 li {width: calc(100vw/3);}
 
@@ -98,9 +98,9 @@ https://juejin.cn/post/6844903613936959496*/
 
 hr{ background: #333;}
 
-
-
-
+input, textarea{
+  color: #5800f1;
+}
 
 
 
@@ -128,7 +128,7 @@ hr{ background: #333;}
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.53;
-  color: #697a8d;
+  color: #fff;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #d9dee3;

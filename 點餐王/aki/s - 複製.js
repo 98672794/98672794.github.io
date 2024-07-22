@@ -136,12 +136,18 @@ function _admin編輯(data,Url) {
     if (ADminLV > 2 )  return
 
     // $$$$$$$$ 公司資料page $$$$$$$$
-    網lv         = res.values[0][0]    // aki set
     gsApi        = res.values[0][1]
-    let 公司logo = res.values[docsGoogle開始數][4]
+    let 網lv     = res.values[0][0]    // aki set
+      , 公司logo = res.values[docsGoogle開始數][4]
       , 公司ws   = res.values[docsGoogle開始數][1]
       , ws來詢字 = res.values[docsGoogle開始數][2]
+    
+    
+       // $$$$$$$$  ///  $$$$$$$$
 
+
+
+       // qqqqqq 網站按鍵色
       // $$$$$$$$  外觀美化 $$$$$$$$
       , 網主色  = res.values[1][5]
       , 網副色  = res.values[1][6]
@@ -152,7 +158,6 @@ function _admin編輯(data,Url) {
       , 圖橫    = res.values[1][11]
       , 圖橫mx  = res.values[1][12] //13
 
-      // 網站按鍵色
       , 按鍵色 = ' '
       , 按鍵色List  = ['info','primary','success','warning','danger','secondary','light']
 
@@ -162,15 +167,6 @@ function _admin編輯(data,Url) {
       }
       按鍵色 = '<select class="form-select" id="網站按鍵色">'+按鍵色+'</select>'
 
-  // $$$$$$$$  修網標  $$$$$$$$
-  if (網lv == '基本網站'){
-    產品標頭 = '文章'
-    錢位     = '文章內容'
-  }
-
-
-
-
 
       // $$$$$$$$  ///  $$$$$$$$
 
@@ -179,21 +175,9 @@ function _admin編輯(data,Url) {
       '公司資料page','append','#settingBox_B'
       ,[Url,網lv,公司名,公司logo,公司ws,ws來詢字,網站按鍵色,網主色,網副色,字主色,字副色,圖高,圖高mx,圖橫,圖橫mx,all枱號,按鍵色] 
     )
-    _data入網_整div('共用page','append','#settingBox_B',['產品分類','<a onclick="新增產品分類()" class="btn btn-' + 網站按鍵色 + '" >新增'+產品標頭+'分類qqq </a>'
-    ,'<a onclick="SaveData('+dot+'類'+dot+')" class="btn btn-'+網站按鍵色+'" style="background: rgba(170, 0, 255, 0.3)">保存</a>']
-    )
-    _data入網_整div('共用page','append','#settingBox_B',['產品資料','<a onclick="新增'+產品標頭+'()" class="btn btn-' + 網站按鍵色 + '" >新增產品資料qqq </a>'
-    ,'<a onclick="SaveData('+dot+'產'+dot+')" class="btn btn-'+網站按鍵色+'" style="background: rgba(245, 127, 23, 0.3)">保存</a>']
-    )
-    _data入網_整div('共用page','append','#settingBox_B',['收款方式','<a onclick="新增收款方式()" class="btn btn-' + 網站按鍵色 + '" >新增收款方式qqq </a>'
-    ,'<a onclick="SaveData('+dot+'收'+dot+')" class="btn btn-'+網站按鍵色+'" style="background: rgba(174, 234, 0, 0.3)">保存</a>']
-    )
-
-
-
-
-
-
+    _data入網_整div('共用page','append','#settingBox_B',['產品分類','<a onclick="新增產品分類()" class="btn btn-' + 網站按鍵色 + '" >新增產品分類qqq </a>'])
+    _data入網_整div('共用page','append','#settingBox_B',['產品資料','<a onclick="新增產品資料()" class="btn btn-' + 網站按鍵色 + '" >新增產品資料qqq </a>'])
+    _data入網_整div('共用page','append','#settingBox_B',['收款方式','<a onclick="新增收款方式()" class="btn btn-' + 網站按鍵色 + '" >新增收款方式qqq </a>'])
      // $$$$$$$$  ///  $$$$$$$$
 
     // $$$$$$$$ 產品分類page $$$$$$$$
@@ -494,15 +478,23 @@ function settingMenuBtn(sel){
 
     if (sel === 1) {
       $('#settingBox_B').css('background', 'rgba(213, 0, 0, 0.3)');$(公p).css('display', 'flex');$(類p+','+產p+','+收p+','+店p).css('display', 'none')
+      $('#保存鍵').attr('onclick', 'SaveData('+dot+'公'+dot+')')  // 公司資料 Save
+      $('#保存鍵').css('background', 'rgba(213, 0, 0, 0.3)')
     }
     if (sel === 2) {
       $('#settingBox_B').css('background', 'rgba(170, 0, 255, 0.3)');$(類p).css('display', 'flex');$(公p+','+產p+','+收p+','+店p).css('display', 'none')
+      $('#保存鍵').attr('onclick', 'SaveData('+dot+'類'+dot+')')  // 產品類 Save
+      $('#保存鍵').css('background', 'rgba(170, 0, 255, 0.3)')
     }
     if (sel === 3) {
       $('#settingBox_B').css('background', 'rgba(245, 127, 23, 0.3)');$(產p).css('display', 'block');$(類p+','+收p+','+公p+','+店p).css('display', 'none')
+      $('#保存鍵').attr('onclick', 'SaveData('+dot+'產'+dot+')')  // 產品料 Save
+      $('#保存鍵').css('background', 'rgba(245, 127, 23, 0.3)')
     }
     if (sel === 4) {
       $('#settingBox_B').css('background', 'rgba(174, 234, 0, 0.3)');$(收p).css('display', 'block');$(類p+','+公p+','+產p+','+店p).css('display', 'none')
+      $('#保存鍵').attr('onclick', 'SaveData('+dot+'收'+dot+')')  // 收款式 Save
+      $('#保存鍵').css('background', 'rgba(174, 234, 0, 0.3)')
     }
 
     //if (sel === 5) {$('#settingBox_B').css('background', 'rgba(27, 94, 32, 0.3)')}
@@ -581,7 +573,9 @@ function SaveData(set){
     , 格 = '///-///'
     , allData
 
+    , 產品類 = '產品類'
     , 產品料 = '產品料'
+    , 收款式 = '收款式'
 
   if(set === '公') {
     let 公司料 =$( "#公司名稱" ).val()       + 格 +
@@ -605,6 +599,11 @@ function SaveData(set){
     Data = 公位 + '/?qwe123?/' + 公司料
   }
 
+
+
+
+  if(set === '產') Data = 產品料
+
   if(set === '類') {  
     let 類名 = ''
       , ids = 
@@ -613,6 +612,7 @@ function SaveData(set){
         return this.id.split('_')[1]
       }).get().join()
     ids = ids.replace(/,/g, 格)
+
     Data = ids + '/?qwe123?/' + 類名
     console.log('Data()',Data)
   }
@@ -637,9 +637,6 @@ function SaveData(set){
     // 再入收式
     Data = ids + '/?qwe123?/' + 收式
   }
-
-  if(set === '產') Data = 產品料
-
 
 
   allData = Data +格+ _0x1731ba(客api0) +格+ set
