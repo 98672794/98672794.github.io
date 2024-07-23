@@ -287,3 +287,8 @@ const allAds = [
 
 
 ];
+
+
+
+
+allAds.sort((a, b) => b.id.localeCompare(a.id));

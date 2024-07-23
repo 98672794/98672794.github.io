@@ -114,6 +114,12 @@
         const collectedAds = JSON.parse(localStorage.getItem('collectedAds')) || [];
 
         function loadAds(ads) {
+            ads.sort((a, b) => {
+                const idA = parseInt(a.id.split('_')[1], 10);
+                const idB = parseInt(b.id.split('_')[1], 10);
+                return idB - idA;
+            });
+
             const adContainer = document.getElementById('adContainer');
             adContainer.innerHTML = ''; // 清空容器
 
@@ -142,6 +148,7 @@
             });
         }
 
+
         function searchAds() {
             const region = document.getElementById('region-select').value;
             const industry = document.getElementById('industry-select').value;
@@ -155,6 +162,10 @@
                 const matchesKeyword = keyword ? ad.keywords.some(k => k.includes(keyword)) : true;
 
                 return matchesRegion && matchesIndustry && matchesMerchant && matchesKeyword;
+            }).sort((a, b) => {
+                const idA = parseInt(a.id.split('_')[1], 10);
+                const idB = parseInt(b.id.split('_')[1], 10);
+                return idB - idA;
             });
 
             currentPage = 1;
@@ -214,7 +225,9 @@
         }
 
         // 頁面加載時顯示廣告
-        loadAds(allAds);
+        //loadAds(allAds);
+        // 頁面加載時顯示廣告
+        loadAds(allAds.sort((a, b) => b.id.localeCompare(a.id))); // 這行是新增的，用於頁面加載時按id倒序排列廣告
 
 
         // 打開分享的廣告
