@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>莫氏有限公司</title>
   <style>
@@ -123,6 +124,8 @@
     }
     #info-box {
       width: 400px;
+      height: 300px;
+      overflow-y: scroll;
       background-color: #fff;
       padding: 20px;
       border-radius: 10px;
@@ -130,6 +133,22 @@
     }
     #translate {
       margin-top: 20px;
+    }
+    .share-option {
+      display: block;
+      margin: 5px 0;
+      padding: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .share-option:hover {
+      background-color: #45a049;
     }
   </style>
   </head>
@@ -160,7 +179,13 @@
         <h2>🫣</h2>
         <p>⌛ =  <span id="final-score"></span></p>
         <a id="restart-button" href="./">🎮</a>
-        <button id="share-score-button">🛜</button>
+        <button id="share-score-button">📶</button>
+        <div id="share-options" style="display:none;">
+          <a class="share-option" id="share-whatsapp">分享到 WhatsApp</a>
+          <a class="share-option" id="share-facebook">分享到 Facebook</a>
+          <a class="share-option" id="share-wechat">分享到 WeChat</a>
+          <a class="share-option" id="copy-content">複製內容</a>
+        </div>
       </div>
     </div>
   
@@ -171,16 +196,24 @@
     <div id="info-box">
       <p>🏡 = home page </p>
       <p>🔧 = ai tool </p>
-      <p>📢 = advertising page </p>
+      <p>📢 = advertising</p>
       <p>💰 = Business concession </p>
       <p>👷‍♂️ = Job recruitment </p>
       <p>⛓️ = blockchain solutions </p>
-      <p title="阻礙物">🌵, 🗿, 🦂 = Game Over</p>
-      <p title="每500分钟可以解锁一个角色">⌛ = 500 =  ➕❓👤 </p><!-- 每500分钟可以解锁一个角色 -->
+      <p title="obstacle">🌵, 🗿, 🦂 = Game Over</p>
+      <p id="translate"></p>
+      <p title="A new character can be unlocked every 500 points">⌛500 = ❓👤</p><!-- 每500分钟可以解锁一个角色 -->
+      
     </div>
 
 
-
+    <script src="https://cdn.staticfile.net/translate.js/3.1.7/translate.js"></script>
+    <script>
+        // 翻譯 
+        //translate.language.setLocal('chinese_traditional'); //設置本地語種（當前網頁的語種）。如果不設置，默認自動識別當前網頁顯示文字的語種。 可填寫如 'english'、'chinese_simplified' 等，具體參見文檔下方關於此的說明。
+        translate.service.use('client.edge'); //設置機器翻譯服務通道，直接客戶端本身，不依賴服務端 。相關說明參考 http://translate.zvo.cn/43086.html
+        translate.execute();//進行翻譯 
+    </script>
 
 
 
@@ -207,7 +240,12 @@
       const finalScoreElement = document.getElementById('final-score');
       const restartButton = document.getElementById('restart-button');
       const shareScoreButton = document.getElementById('share-score-button');
-  
+      const shareOptions = document.getElementById('share-options');
+      const shareWhatsapp = document.getElementById('share-whatsapp');
+      const shareFacebook = document.getElementById('share-facebook');
+      const shareWechat = document.getElementById('share-wechat');
+      const copyContent = document.getElementById('copy-content');
+
       let score = 0;
       let gameInterval;
       let objectInterval;
@@ -228,7 +266,8 @@
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       const characters = [
-        '🐹', '🐰', '🐻', '🐼', '🦊'
+        '🐹', '🐰', '🐻', '🐼', '🦊',
+        '🐸', '🐥', '🐘', '🦖', '🫨'
       ];
   
       const portals = [
@@ -255,7 +294,7 @@
       }
   
       function updateCharacterSelect() {
-        // 每500分钟可以解锁一个角色
+        // 每500分可以解锁一个角色
         const unlockedCharacters = Math.min(3 + Math.floor(score / 500), characters.length);
         //const unlockedCharacters = Math.min(3 + Math.floor(score / 10000), characters.length);
         characterOptions.innerHTML = '';
@@ -421,17 +460,26 @@
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       function shareScore() {
-        const shareText = `我在可愛動物傳送門達陣遊戲中獲得了 ${score} 分！你能打破我的紀錄嗎？`;
-        if (navigator.share) {
-          navigator.share({
-            title: '可愛動物傳送門達陣遊戲分數',
-            text: shareText,
-            url: window.location.href,
-          });
-        } else {
-          alert(shareText);
-        }
+        const unlockedCharacters = [];
+        const unlockedCharacterElements = document.querySelectorAll('.character');
+
+        unlockedCharacterElements.forEach(element => {
+            unlockedCharacters.push(element.textContent.trim());
+        });
+
+        const shareText = `我在可愛動物傳送門達陣遊戲中獲得了 ${score} 分！你能打破我的紀錄嗎？已解鎖的角色: ${unlockedCharacters.join(', ')}`;
+
+        shareOptions.style.display = 'block';
+
+        shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+        shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(shareText)}`;
+        shareWechat.href = `https://web.wechat.com/`;
+        copyContent.onclick = () => {
+            navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
+            alert('內容已複製到剪貼簿');
+        };
       }
+
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
       //////////////////////////////////////////////////////////////////
@@ -474,9 +522,6 @@
 
       shareScoreButton.addEventListener('click', shareScore);
   
-      //restartButton.addEventListener('click', () => {
-      //  startGame();
-      //});
   
       init();
     </script>
