@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -199,6 +200,7 @@
                 <a href="https://www.facebook.com/groups/1375195432528847" target="_blank" title="Facebook"><i class="fab fa-facebook"> 香港兼職fb群</i></a>
                 <a href="https://www.facebook.com/groups/nightclubjobhk" target="_blank" title="Facebook"><i class="fab fa-facebook"> 酒吧業fb群</i></a>
             </div>
+            <div id="translate" class="social-icons"></div>
 
             
         </section>
@@ -225,4 +227,13 @@
             });
         });
     </script>
+
+    <script src="https://cdn.staticfile.net/translate.js/3.1.7/translate.js"></script>
+    <script>
+        // 翻譯 
+        translate.language.setLocal('chinese_traditional'); //設置本地語種（當前網頁的語種）。如果不設置，默認自動識別當前網頁顯示文字的語種。 可填寫如 'english'、'chinese_simplified' 等，具體參見文檔下方關於此的說明。
+        translate.service.use('client.edge'); //設置機器翻譯服務通道，直接客戶端本身，不依賴服務端 。相關說明參考 http://translate.zvo.cn/43086.html
+        translate.execute();//進行翻譯 
+    </script>
+
 </body></html>
