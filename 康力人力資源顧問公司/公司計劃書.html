@@ -1,0 +1,781 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>康力人力資源 - 創新散工解決方案</title>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+}
+.container {
+    width: 80%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+h1, h2, h3 {
+    color: #2c3e50;
+}
+.section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.chart {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+
+.solution {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  .solution h3 {
+    color: #3498db;
+    margin-top: 0;
+  }
+  .solution ul {
+    padding-left: 20px;
+  }
+  .divider {
+    border-top: 2px solid #3498db;
+    margin: 40px 0;
+  }
+
+
+  
+  .chart-container {
+    margin-top: 30px;
+    height: 400px;
+  }
+  .benefits {
+    margin-top: 20px;
+  }
+  .benefits li {
+    margin-bottom: 10px;
+  }
+
+
+
+
+  .section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  .signature {
+    margin-top: 30px;
+  }
+  .signature-line {
+    border-bottom: 1px solid #333;
+    margin-top: 5px;
+    padding-top: 5px;
+  }
+  #comparison-chart {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+  }
+
+
+
+
+
+
+  #fee-chart, #deposit-chart {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+  }
+  input {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px 0;
+  }
+
+
+  .team-member {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  .team-member h2 {
+    color: #3498db;
+    margin-bottom: 10px;
+  }
+  .team-member p {
+    margin: 0;
+  }
+  #org-chart {
+    width: 100%;
+    height: 400px;
+    margin-top: 30px;
+  }
+
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+
+
+<div class="container">
+    <h1>康力人力資源 - 創新散工解決方案</h1>
+    
+    <div class="section">
+        <h2>引言</h2>
+        <p>當前，許多臨時散工同事缺乏公司福利和保障，並且在經濟上沒有穩定的保障。這樣的現狀使得他們的生活容易受到影響，無法規劃未來。<br><br>針對這一問題，我們康力人力資源提供一個創新的解決方案：讓散工同時成為自己的老闆。<br><br>我們的服務不僅幫助散工找到合適的工作機會，還提供支持和保障，使他們能夠更安心地工作和生活。</p>
+    </div>
+
+    <div class="section">
+        <h2>業務流程</h2>
+        <ol>
+            <li>我們康力人力資源的核心業務是為需要散工的企業招聘合適人才。我們每幫助企業成功招聘一名員工，每個工作日將收取100元的服務費。</li>
+            <br>
+            <li>我們主動與各企業聯繫，了解並確認企業的招聘需求，並與之簽署合作協議。協議內容包括企業名稱、人才需求、工作內容、工作地點、薪資、福利待遇、休假制度、保障福利、工作時數、工作日數，以及我們的服務費用和繳費方式（最多45天內繳納）。</li>
+            <br>
+            <li>根據企業的需求，我們可能會提前收取或墊付員工的薪金，以便保障員工即時入職。</li>
+            <br>
+            <li>在業務初期，我們將限制墊付員工薪金的數量，僅為所有企業安排總共3名墊付薪金的員工。</li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <h1>公司預算計劃</h1>
+
+    <h2>開業成本預算</h2>
+    <p>
+      1. 預墊付員工薪金：<br>
+      一名員工45天（開工39日）的預墊付薪金為27,300元（如有預收則不需支付）。<br>
+      按計劃安排3名員工，預算總額為81,900元。
+    </p>
+    <p>
+      2. 勞工保險：<br>
+      1名員工的勞工保險費用（1年）為8,000元。<br>
+      3名員工=24,000元。
+    </p>
+    <p>
+      3. 強積金：<br>
+      1名員工的勞工保險費用（1年）為7,200元。<br>
+      3名員工=21,600元。
+    </p>
+    <p>
+      4. 開辦公司費用：<br>
+      公司註冊、公司戶口預存款和虛擬辦公室的費用合計為15,000元。
+    </p>
+    <p>
+      總預算為142,500元。
+    </p>
+
+    <div class="chart-container">
+      <canvas id="startupCostsChart"></canvas>
+    </div>
+
+    <h2>每年固定成本預算</h2>
+    <p>
+      1. 公司運營費用：<br>
+      公司運營及虛擬辦公室費用為10,000元。
+    </p>
+    <p>
+      2. 勞工保險：<br>
+      1名員工的勞工保險費用（1年）為8,000元。<br>
+      3名員工=24,000元。
+    </p>
+    <p>
+      3. 強積金：<br>
+      1名員工的勞工保險費用（1年）為7,200元。<br>
+      3名員工=21,600元。
+    </p>
+    <p>
+      總預算為55,600元。
+    </p>
+
+    <div class="chart-container">
+      <canvas id="annualFixedCostsChart"></canvas>
+    </div>
+
+    <h2>每年收入預估</h2>
+    <p>
+      我們每安排一名員工每日可獲得100元收入。假設每月工作26天，每月收入為2,600元，最少安排3人，每月總收入為7,800元。全年12個月的收入為93,600元。
+    </p>
+
+    <h2>每年最少純利預估</h2>
+    <p>
+      收入93,600元扣除固定成本55,600元，預估每年最少純利為38,000元。
+    </p>
+    <p>
+      每增加安排一名員工，收入增加31,200元，扣除成本15,200 = 16,000元。
+    </p>
+
+    <div class="chart-container">
+      <canvas id="annualProfitChart"></canvas>
+    </div>
+
+    <script>
+        // 開業成本預算圖表
+        new Chart(document.getElementById('startupCostsChart'), {
+          type: 'pie',
+          data: {
+            labels: ['預墊付員工薪金', '勞工保險', '強積金', '開辦公司費用'],
+            datasets: [{
+              data: [81900, 24000, 21600, 15000],
+              backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0']
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: '開業成本預算分佈'
+            }
+          }
+        });
+    
+        // 每年固定成本預算圖表（改為圓餅圖）
+        new Chart(document.getElementById('annualFixedCostsChart'), {
+          type: 'pie',
+          data: {
+            labels: ['公司運營費用', '勞工保險', '強積金'],
+            datasets: [{
+              data: [10000, 24000, 21600],
+              backgroundColor: ['#ff6384', '#36a2eb', '#ffce56']
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: '每年固定成本預算分佈'
+            }
+          }
+        });
+    
+        // 每年收入和純利預估圖表（改為圓餅圖）
+        new Chart(document.getElementById('annualProfitChart'), {
+          type: 'pie',
+          data: {
+            labels: ['純利', '固定成本'],
+            datasets: [{
+              data: [38000, 55600],
+              backgroundColor: ['#4bc0c0', '#ff6384']
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              text: '每年收入分配'
+            }
+          }
+        });
+      </script>
+  </div>
+
+
+
+
+  <div class="container">
+    <h1>招聘解決方案</h1>
+
+    <div class="solution">
+      <h2>解決企業招聘痛點</h2>
+      <p>在如今競爭激烈的市場環境下，招聘合適的人才並非易事。<br><br>招聘過程繁瑣，從刊登廣告、篩選簡歷、面試安排到最終錄用，每一步都需要耗費大量時間和資源。<br><br>而這些工作往往會分散企業的精力，影響核心業務的發展。</p>
+
+      <h3>我們的解決方案：</h3>
+      <ul>
+        <li>全面招聘服務：我們包辦從刊登招聘廣告、篩選合適人才，到講解工作內容及資質要求，並安排面試或試工。為企業大幅減少招聘過程行政成本。</li>
+        <br>
+        <li>靈活用工方案：我們有外判形式安排合適人才到企業上班，並由我們處理勞工合約、勞工保險等一切手續。</li>
+        <br>
+        <li>專業諮詢服務：我們提供專業的諮詢服務，協助企業解決招聘時遇到的各種問題，提升企業競爭力。</li>
+        <br>
+        <li>龐大人才庫：我們擁有多個涵蓋不同行業的招聘群組，求職會員超過2萬人，日活躍會員約3,000人，可快速找到適合人才應聘。</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="solution">
+      <h2>解決散工同事痛點</h2>
+      <p>臨時散工常常面臨沒有保障和缺乏穩定收入的問題。<br><br>我們通過以下方式幫助他們改善這些問題：</p>
+
+      <h3>我們的解決方案：</h3>
+      <ul>
+        <li>提供穩定的工作機會：我們與多家公司合作，提供穩定的散工崗位，讓散工能夠擁有穩定的收入來源。</li>
+        <br>
+        <li>保障福利和保險：我們為散工提供勞工保險，讓他們在工作期間獲得必要的保障，減少意外風險。</li>
+        <br>
+        <li>職業發展支持：我們提供職業培訓和諮詢服務，幫助散工提升技能，開拓職業發展的路徑。</li>
+        <br>
+        <li>打工做老闆計劃：員工可以交付$500元會費，成為我們公司的會員，會員將獲得公司盈利的0.3%收入。</li>
+      </ul>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+  <div class="container">
+    <h1>「打工做老闆」會員計劃</h1>
+
+    <p>我們推出了一項專屬於臨時散工同事的「打工做老闆」會員計劃，旨在提供更多的收入保障和職業發展機會。<br><br>為了激勵早期加入者及支持公司的員工，我們設定了不同的會員層級和盈利分成比例。</p>
+
+    <h2>會員層級</h2>
+    <ul>
+      <li><strong>高級會員</strong>：<br>願意45天才收取薪金的員工，無需繳納會費。</li>
+      <br>
+      <li><strong>一般會員</strong>：<br>需繳納500元的入會費。</li>
+    </ul>
+
+    <h2>會員特權和福利</h2>
+    <ol class="benefits">
+      <li><strong>收入分成</strong>：<br>高級會員將獲得公司每月盈利的3%作為分成，一般會員將獲得公司每月盈利的0.3%作為分成。<br><br>讓員工能夠享受公司發展的紅利，增加額外的收入來源。</li>
+      <br>
+      <li><strong>專屬培訓</strong>：<br>會員可免費參加公司提供的專業技能培訓和職業發展講座，提升自身的職場競爭力。</li>
+      <br>
+      <li><strong>優先推薦</strong>：<br>會員在我們公司內部獲得優先推薦的權利，在有新的工作機會時將優先安排面試和試工。</li>
+      <br>
+      <li><strong>福利保障</strong>：<br>會員可享受額外的保險保障，包括但不限於意外險、醫療險等，為其工作和生活提供更全面的保障。</li>
+      <br>
+      <li><strong>社群網絡</strong>：<br>會員將加入專屬社群，與其他會員和公司資深員工進行交流和學習，擴展職場人脈。</li>
+    </ol>
+
+    <h2>回報比較</h2>
+    <p>現時銀行定期一年10萬元，每年可得$3950元，年回報率為3.95%。</p>
+    <p>會員盈利分成每$500元，每年可得最少$114元，年回報率最少為22.8%。</p>
+
+    <div class="chart-container">
+      <canvas id="returnComparisonChart"></canvas>
+    </div>
+
+    <script>
+        // 回報比較圖表
+        new Chart(document.getElementById('returnComparisonChart'), {
+          type: 'bar',
+          data: {
+            labels: ['銀行定期存款', '會員盈利分成'],
+            datasets: [{
+              label: '年回報率 (%)',
+              data: [3.95, 22.8],
+              backgroundColor: ['#36a2eb', '#ff6384']
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: '年回報率 (%)'
+                }
+              }
+            },
+            plugins: {
+              title: {
+                display: true,
+                text: '回報比較：銀行定期存款 vs 會員盈利分成'
+              },
+              legend: {
+                display: false
+              }
+            }
+          }
+        });
+      </script>
+
+
+  </div>
+
+
+
+
+  <div class="container">
+    <h1>「打工做老闆」會員計劃協議草稿</h1>
+
+    <div class="section">
+      <h2>1. 計劃介紹</h2>
+      <p>本協議旨在闡述「打工做老闆」會員計劃之詳細條款及會員權益。<br><br>此計劃專為臨時散工同事設計，提供收入保障及職業發展機會，並設定不同的會員層級和盈利分成比例，以激勵早期加入者及支持公司的員工。</p>
+    </div>
+
+    <div class="section">
+      <h2>2. 會員類型及條款</h2>
+      <h3>高級會員：</h3>
+      <ul>
+        <li>資格：<br>願意延遲45天收取薪金的員工。</li>
+        <br>
+        <li>會費：<br>無需繳納任何會費。</li>
+        <br>
+        <li>收入分成：<br>每月將獲得公司盈利的3%作為分成。</li>
+      </ul>
+      <h3>一般會員：</h3>
+      <ul>
+        <li>資格：<br>願意繳納會費的員工或其他符合條件的人士。</li>
+        <br>
+        <li>會費：<br>每位會員需繳納500元的入會費。</li>
+        <br>
+        <li>收入分成：<br>每月將獲得公司盈利的0.3%作為分成。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. 會員福利及特權</h2>
+      <h3>3.1 專屬培訓</h3>
+      <p>會員可免費參加公司提供的專業技能培訓和職業發展講座，旨在提升會員的職場競爭力。</p>
+      <h3>3.2 優先推薦</h3>
+      <p>會員將獲得公司內部優先推薦的權利，在有新的工作機會時，公司將優先安排會員進行面試和試工。</p>
+      <h3>3.3 福利保障</h3>
+      <p>會員可享受額外的保險保障，包括但不限於意外險、醫療險等，為其工作和生活提供更全面的保障。</p>
+      <h3>3.4 社群網絡</h3>
+      <p>會員將加入專屬社群，與其他會員和公司資深員工交流學習，擴展職場人脈和資訊網絡。</p>
+    </div>
+
+    <div class="section">
+      <h2>4. 回報比較</h2>
+      <p>以現時銀行定期存款為例，一年存款10萬元，可獲得3,950元利息，回報率為3.95%。<br><br>在「打工做老闆」會員計劃中：</p>
+      <ul>
+        <li>高級會員：<br>
+            無需投入金額，即可享有每年公司盈利的3%分成。</li>
+        <br>
+        <li>一般會員：<br>
+            每繳納500元會費，可獲得每年最少114元的盈利分成，年回報率最少為22.8%。</li>
+      </ul>
+      <canvas id="comparison-chart"></canvas>
+    </div>
+
+    <div class="section">
+      <h2>5. 協議生效與終止</h2>
+      <p>會員入會時即代表同意遵守本協議條款。<br><br>公司保留對本協議的解釋權及隨時修改條款的權利，修改後的條款將提前通知會員，並於通知後的七日內生效。<br><br>會員可隨時選擇退出計劃，退出後將不再享有會員特權及福利。</p>
+    </div>
+
+    <div class="section">
+      <h2>6. 會員資料查詢</h2>
+      <p>會員可從公司網站查看自己的資料及紀錄。</p>
+    </div>
+
+    <div class="signature">
+      <p>我(會員全名)已閱讀並理解以上協議條款，並同意接受。</p>
+      <br>
+      <p>生效日期：<span class="">_________________________________</span></p>
+      <br>
+      <p>會員簽名：<span class="">_________________________________</span></p>
+      <br>
+      <p>會員編號：<span class="">____________公司填寫_____________</span></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const ctx = document.getElementById('comparison-chart').getContext('2d');
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['銀行定期存款', '「打工做老闆」一般會員'],
+              datasets: [{
+                label: '年回報率 (%)',
+                data: [3.95, 22.8],
+                backgroundColor: ['rgba(54, 162, 235, 0.5)', 'rgba(255, 99, 132, 0.5)'],
+                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
+                borderWidth: 1
+              }]
+            },
+            options: {
+              responsive: true,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: '年回報率 (%)'
+                  }
+                }
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: '回報比較：銀行定期存款 vs 「打工做老闆」會員計劃'
+                }
+              }
+            }
+          });
+        });
+      </script>
+  </div>
+
+
+
+
+
+  <div class="container">
+    <h1>委託招聘協議範本</h1>
+
+    <div class="section">
+      <p><strong>甲方:</strong> <input type="text" value="陳小明倉儲有限公司" ></p>
+      <p><strong>甲方聯繫方式:</strong> <input type="text" value="123456789" ></p>
+      <p><strong>乙方:</strong> 康力人力資源顧問公司</p>
+      <p><strong>乙方聯繫方式:</strong> 852 98672794</p>
+      <p>經友好協商，甲方決定委託乙方招聘合適員工，並指派員工到甲方指定工作地點工作。</p>
+    </div>
+
+    <div class="section">
+      <h2>一、委託期限：</h2>
+      <p><textarea style="width: 100%; height: 150px;">2024年1月1日 至 2024年2月1日，共24個工作日，每工作日9個工作小時</textarea>
+        </p>
+    </div>
+
+    <div class="section">
+      <h2>二、甲方指定工作地點：</h2>
+      <p>
+        <textarea style="width: 100%; height: 150px;">xx路yy工業大廈8樓z室</textarea></p>
+    </div>
+
+    <div class="section">
+      <h2>三、甲方招聘人數：</h2>
+      <p><input type="text" value="3" ></p>
+    </div>
+
+    <div class="section">
+      <h2>四、甲方招聘需求：</h2>
+      <textarea style="width: 100%; height: 150px;">
+荃灣誠聘化妝品執貨男工
+星期一至5
+返8收5 12至1點吃飯 $550日，ot$50
+星期一及4一定要ot
+輕鬆推車仔跟單執貨，輕貨
+有風扇，雪櫃，微波爐，有水飲
+環境干淨，工作優閒
+同事大方随和，氣氛融洽
+沒有冷氣，怕熱者請自備風扇仔散熱貼毛巾，穿輕鬆衣物。
+      </textarea>
+    </div>
+
+    <div class="section">
+      <h2>五、服務費用：</h2>
+      <p>甲方支付每位招聘員工<input type="text" value="$800" >港元/每工作日，予乙方作乙方服務費用及支付員工薪金。</p>
+      <p>如員工需加班，<input type="text" value="甲" >方支付加班費用，每小時加班費用為<input type="text" value="$50元" >。</p>
+      <p>基本總服務費用：3人 * 24天 * $800港元 = $57,600港元。</p>
+    </div>
+
+    <div class="section">
+      <h2>六、服務按金：</h2>
+      <p>委託開始前<input type="text" value="7" >個工作日，甲方需支付基本總服務費用<input type="text" value="50%" >予乙方作服務按金，即<input type="text" value="$28,800港元" >。</p>
+    </div>
+
+
+
+
+    <div class="section">
+        <h2>七、服務費用尾數繳付期限：</h2>
+        <p>委託結束後第<input type="text" value="10" >個工作日內甲方需繳付基本服務費用尾數<input type="text" value="50%" >及未付員工加班費，一同及予乙方。</p>
+      </div>
+  
+      <div class="section">
+        <h2>八、甲方同意：</h2>
+        <ol>
+          <li>甲方僅就上述協議的內容項目對乙方作出委託，如甲方有意委託乙方執行其他非上述協議的內容項目時，需就新委託另草協議及協商費用。</li>
+          <br>
+          <li>甲方必須提供足夠的安全操作規範及保護措施，確保工作中的自身和他人安全。</li>
+        </ol>
+      </div>
+  
+      <div class="section">
+        <h2>九、乙方同意：</h2>
+        <ol>
+          <li>委託期內，員工的基本薪金由<input type="text" value="乙" >方支付、勞工保險等福利由<input type="text" value="乙" >方支付，加班費用由<input type="text" value="甲" >方支付。</li>
+          <br>
+          <li>委託期內，乙方會用雲端文件型式記錄員工的工作日程、工作時數等，甲方可隨時查閱，並在甲方繳交服務費用尾數時用作對帳。</li>
+        </ol>
+      </div>
+  
+      <div class="section">
+        <h2>十、貨物損壞責任：</h2>
+        <p>如員工因過失或違反操作規範造成貨物損壞，員工需承擔相應的賠償責任。<br><br>賠償金額將根據損壞貨物的實際價值確定，並從員工的薪資中扣除。<br><br>若損壞情況特殊或賠償金額較大，則需經雙方協商解決，並可在必要時引入第三方評估機構進行公正評估。</p>
+      </div>
+  
+      <div class="section">
+        <h2>十一、保密條款：</h2>
+        <p>雙方需對合作過程中獲得的對方機密信息保密，不得洩露給第三方。</p>
+      </div>
+  
+      <div class="section">
+        <h2>十二、退出機制：</h2>
+        <p>提前解約：如甲乙任何一方需提前終止委託，需提前<input type="text" value="7" >個工作日以書面形式通知對方，並經雙方協商處理相關事宜。</p>
+        <p>違約責任：如因甲乙任何一方過失或違反協議規定導致損失，對方需承擔相應的賠償責任。</p>
+      </div>
+  
+      <div class="section">
+        <h2>十三、法律爭議：</h2>
+        <p>本協議於<input type="text" value="香港" >簽訂，甲乙雙方均需遵守<input type="text" value="香港" >法律履行本協議，本協議一經甲乙雙方簽訂即為生效。<br><br>雙方就本協議內容或其執行發生任何爭議，應友好協商；<br><br>協商不成時，任何一方均可將爭議或糾紛提交到<input type="text" value="香港" >刑事機構或法院解決。</p>
+      </div>
+  
+      <div class="section">
+        <h2>十四、協議法律效力:</h2>
+        <p>本協議壹式兩份共<input type="text" value="2" >頁，雙方各執壹份，自雙方簽訂之日起生效。<br><br>經簽字或蓋章後，電子版本與正本具有同等法律效力。</p>
+      </div>
+  
+      <div class="section">
+        <h2>十五、修訂或補充:</h2>
+        <p>本協議如有未盡事宜，雙方可協商修訂或補充，不論修訂或補充是否載於本協議中，自雙方簽字或蓋章後，亦與本協議一樣具有同等法律效力。</p>
+      </div>
+  
+      
+
+      <div class="signature">
+        <p>我(會員全名)已閱讀並理解以上協議條款，並同意接受。</p>
+        <br>
+        <p>簽訂日期：<span class="signature-line">_________________________________</span></p>
+        <br>
+        <p>甲方印鑑或簽名：<span class="signature-line"><br><br><br>_________________________________</span></p>
+        <br>
+        <p>乙方印鑑或簽名：<span class="signature-line"><br><br><br>_________________________________</span></p>
+      </div>
+
+  </div>
+
+
+
+
+
+
+  <div class="container">
+    <h1>員工協議草稿</h1>
+    <p>為保障散工同事的權益，我們將與每位員工簽訂以下協議，詳細列明工作條款及雙方權利義務。</p>
+
+    <div class="section">
+      <h2>甲方信息：</h2>
+      <p><strong>甲方：</strong>康力人力資源顧問公司</p>
+      <p><strong>甲方聯繫方式：</strong>852 98672794</p>
+    </div>
+
+    <div class="section">
+      <h2>員工信息：</h2>
+      <p><strong>員工：</strong><input type="text" value="陳大明" ></p>
+      <p><strong>員工身分證號碼：</strong><input type="text" value="z12345(6)" ></p>
+      <p><strong>員工聯繫方式：</strong><input type="text" value="987654321" ></p>
+      <p><strong>員工住址：</strong><input type="text" value="xx街yy樓833室" ></p>
+    </div>
+
+    <div class="section">
+      <h2>一、工作內容及安排：</h2>
+      <p><strong>工作內容：</strong>員工將受聘從事<input type="text" value="執貨男工" >，主要職責包括但不限於<input type="text" value="執貨" >。</p>
+      <p><strong>工作地點：</strong><input type="text" value="xx路yy工業大廈8樓z室" ></p>
+      <p><strong>工作時間：</strong></p>
+      <ul>
+        <li>員工的工作時間為每日<input type="text" value="9" >小時，<br>從<input type="text" value="0800" >至<input type="text" value="1700" >，<br>中間<input type="text" value="1" >小時休息。</li>
+        <br>
+        <li>每週工作日為<input type="text" value="6日" >，<br>每月總工作天數為<input type="text" value="24" >。</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>二、薪資與福利</h2>
+      <p><strong>基本薪資：</strong>員工的基本薪資為<input type="text" value="550" >元/日，<br>加班費每小時$<input type="text" value="50" >元。</p>
+      <p><strong>勞工保險：</strong>甲方為員工提供勞工保險，保障員工在工作期間的安全和健康。</p>
+    </div>
+
+    <div class="section">
+      <h2>三、員工義務</h2>
+      <p><strong>工作紀律：</strong><br>員工應遵守甲方的工作紀律和規章制度，嚴格履行職責。</p>
+      <p><strong>安全保障：</strong><br>員工應嚴格遵守安全操作規範，確保工作中的自身和他人安全。</p>
+    </div>
+
+    <div class="signature">
+      <br>
+      <p>生效日期：<span class="signature-line">_______________________________</span></p>
+      <br>
+      <p>員工簽名：<span class="signature-line">_______________________________</span></p>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <h1>團隊成員結構</h1>
+    
+    <div class="team-member">
+      <h2>總經理</h2>
+      <p>負責公司運營與策略規劃。</p>
+    </div>
+
+    <div class="team-member">
+      <h2>業務經理</h2>
+      <p>負責與企業客戶的聯繫與協調，確保招聘需求的準確傳達與實現。</p>
+    </div>
+
+    <div class="team-member">
+      <h2>人力資源專員</h2>
+      <p>負責員工招聘、培訓、考核等日常人事管理工作。</p>
+    </div>
+
+    <div class="team-member">
+      <h2>財務經理</h2>
+      <p>負責公司財務規劃、管理和資金運作，確保公司的經濟健康。</p>
+    </div>
+
+    <div class="team-member">
+      <h2>客戶服務專員</h2>
+      <p>負責處理企業和員工的日常溝通，解答相關疑問並提供支持服務。</p>
+    </div>
+
+    <div class="team-member">
+      <h2>法律顧問</h2>
+      <p>提供法律諮詢與支援，確保公司業務合規運營。</p>
+    </div>
+
+    <div class="team-member">
+      <h2>IT專員</h2>
+      <p>維護公司信息系統和網絡安全，支援數據管理與技術運營。</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="copyright"></p>
+    <script>// jquery-3.7.0.js
+        $(document).ready(function() {    $('.copyright').text('© ' + new Date().getFullYear() + ' All rights reserved by ' + location.hostname).css({'font-size': 'medium'});    });
+    </script>
+  </div>
+
+
+</body>
+</html>
