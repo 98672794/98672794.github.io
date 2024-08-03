@@ -4,6 +4,8 @@
 <title>康力人力資源 - 創新散工解決方案</title>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <style>
+
+.不顯{color: #ef95de;display: 0none;}
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -141,8 +143,8 @@ h1, h2, h3 {
   #navigation {
     position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: auto;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
@@ -207,7 +209,7 @@ h1, h2, h3 {
         <p>當前，許多臨時散工同事缺乏公司福利和保障，並且在經濟上沒有穩定的保障。這樣的現狀使得他們的生活容易受到影響，無法規劃未來。<br><br>針對這一問題，我們康力人力資源提供一個創新的解決方案：讓散工同時成為自己的老闆。<br><br>我們的服務不僅幫助散工找到合適的工作機會，還提供支持和保障，使他們能夠更安心地工作和生活。</p>
     </div>
 
-    <div class="section">
+    <div class="section 不顯">
         <h2>業務流程</h2>
         <ol>
             <li>我們康力人力資源的核心業務是為需要散工的企業招聘合適人才。我們每幫助企業成功招聘一名員工，每個工作日將收取100元的服務費。</li>
@@ -227,7 +229,7 @@ h1, h2, h3 {
 
 
 
-<div id="section2" class="container">
+<div id="section2" class="container 不顯 ">
     <h1>公司預算計劃</h1>
 
     <h2>開業成本預算</h2>
@@ -243,7 +245,7 @@ h1, h2, h3 {
     </p>
     <p>
       3. 強積金：<br>
-      1名員工的勞工保險費用（1年）為7,200元。<br>
+      1名員工的強積金費用（1年）為7,200元。<br>
       3名員工=21,600元。
     </p>
     <p>
@@ -551,7 +553,7 @@ h1, h2, h3 {
     </div>
 
     <div class="signature">
-      <p>我(會員全名)已閱讀並理解以上協議條款，並同意接受。</p>
+      <p>我<input type="text" value="會員全名" >已閱讀並理解以上協議條款，並同意接受。</p>
       <br>
       <p>生效日期：<span class="">_________________________________</span></p>
       <br>
@@ -717,7 +719,7 @@ h1, h2, h3 {
       
 
       <div class="signature">
-        <p>我(會員全名)已閱讀並理解以上協議條款，並同意接受。</p>
+        <p>我<input type="text" value="會員全名" >已閱讀並理解以上協議條款，並同意接受。</p>
         <br>
         <p>簽訂日期：<span class="signature-line">_________________________________</span></p>
         <br>
@@ -848,10 +850,19 @@ h1, h2, h3 {
       <li><a href="#section6">委託招聘協議</a></li>
       <li><a href="#section7">員工協議</a></li>
       <li><a href="#section8">團隊成員結構</a></li>
+      <li id="translate" class="social-icons"></li>
     </ul>
 
 
-    
+    <script src="https://cdn.staticfile.net/translate.js/3.1.7/translate.js"></script>
+    <script>
+        // 翻譯 
+        translate.language.setLocal('chinese_traditional'); //設置本地語種（當前網頁的語種）。如果不設置，默認自動識別當前網頁顯示文字的語種。 可填寫如 'english'、'chinese_simplified' 等，具體參見文檔下方關於此的說明。
+        translate.service.use('client.edge'); //設置機器翻譯服務通道，直接客戶端本身，不依賴服務端 。相關說明參考 http://translate.zvo.cn/43086.html
+        translate.execute();//進行翻譯 
+    </script>
+
+
 <script>
   let lastScrollPosition = 0;
   const navigation = document.getElementById('navigation');
@@ -869,7 +880,7 @@ h1, h2, h3 {
     // Set a new timer to hide navigation after scrolling stops
     scrollTimer = setTimeout(() => {
       navigation.classList.remove('visible');
-    }, 3000);
+    }, 2000);
     
     lastScrollPosition = currentScrollPosition;
   }
