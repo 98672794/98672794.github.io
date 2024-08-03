@@ -137,6 +137,61 @@ h1, h2, h3 {
   }
 
 
+
+  #navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%);
+    z-index: 1000;
+  }
+  
+  #navigation.visible {
+    transform: translateY(0);
+  }
+  
+  #navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  #navigation li {
+    padding: 5px;
+  }
+  
+  #navigation a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    min-height: 50px;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    #navigation ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    #navigation li {
+      padding: 5px 0;
+    }
+  }
+
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -144,7 +199,7 @@ h1, h2, h3 {
 
 
 
-<div class="container">
+<div id="section1" class="container">
     <h1>康力人力資源 - 創新散工解決方案</h1>
     
     <div class="section">
@@ -172,7 +227,7 @@ h1, h2, h3 {
 
 
 
-<div class="container">
+<div id="section2" class="container">
     <h1>公司預算計劃</h1>
 
     <h2>開業成本預算</h2>
@@ -309,7 +364,7 @@ h1, h2, h3 {
 
 
 
-  <div class="container">
+  <div id="section3" class="container">
     <h1>招聘解決方案</h1>
 
     <div class="solution">
@@ -356,7 +411,7 @@ h1, h2, h3 {
 
 
 
-  <div class="container">
+  <div id="section4" class="container">
     <h1>「打工做老闆」會員計劃</h1>
 
     <p>我們推出了一項專屬於臨時散工同事的「打工做老闆」會員計劃，旨在提供更多的收入保障和職業發展機會。<br><br>為了激勵早期加入者及支持公司的員工，我們設定了不同的會員層級和盈利分成比例。</p>
@@ -432,7 +487,7 @@ h1, h2, h3 {
 
 
 
-  <div class="container">
+  <div id="section5" class="container">
     <h1>「打工做老闆」會員計劃協議草稿</h1>
 
     <div class="section">
@@ -547,7 +602,7 @@ h1, h2, h3 {
 
 
 
-  <div class="container">
+  <div id="section6" class="container">
     <h1>委託招聘協議範本</h1>
 
     <div class="section">
@@ -678,7 +733,7 @@ h1, h2, h3 {
 
 
 
-  <div class="container">
+  <div id="section7" class="container">
     <h1>員工協議草稿</h1>
     <p>為保障散工同事的權益，我們將與每位員工簽訂以下協議，詳細列明工作條款及雙方權利義務。</p>
 
@@ -730,7 +785,7 @@ h1, h2, h3 {
 
 
 
-  <div class="container">
+  <div id="section8" class="container">
     <h1>團隊成員結構</h1>
     
     <div class="team-member">
@@ -775,6 +830,80 @@ h1, h2, h3 {
         $(document).ready(function() {    $('.copyright').text('© ' + new Date().getFullYear() + ' All rights reserved by ' + location.hostname).css({'font-size': 'medium'});    });
     </script>
   </div>
+
+
+
+
+
+
+
+
+  <nav id="navigation">
+    <ul>
+      <li><a href="#section1">創新散工解決方案</a></li>
+      <li><a href="#section2">公司預算計劃</a></li>
+      <li><a href="#section3">招聘解決方案</a></li>
+      <li><a href="#section4">會員計劃</a></li>
+      <li><a href="#section5">會員計劃協議</a></li>
+      <li><a href="#section6">委託招聘協議</a></li>
+      <li><a href="#section7">員工協議</a></li>
+      <li><a href="#section8">團隊成員結構</a></li>
+    </ul>
+
+
+    
+<script>
+  let lastScrollPosition = 0;
+  const navigation = document.getElementById('navigation');
+  let scrollTimer;
+  
+  function handleScroll() {
+    const currentScrollPosition = window.pageYOffset;
+    
+    // Show navigation when scrolling
+    navigation.classList.add('visible');
+    
+    // Clear the existing timer
+    clearTimeout(scrollTimer);
+
+    // Set a new timer to hide navigation after scrolling stops
+    scrollTimer = setTimeout(() => {
+      navigation.classList.remove('visible');
+    }, 1500);
+    
+    lastScrollPosition = currentScrollPosition;
+  }
+  
+  // Throttle function to limit the rate at which handleScroll is called
+  function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    }
+  }
+  
+  // Add event listener with throttled handleScroll
+  window.addEventListener('scroll', throttle(handleScroll, 100));
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('#navigation a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+  </nav>
+
 
 
 </body>
