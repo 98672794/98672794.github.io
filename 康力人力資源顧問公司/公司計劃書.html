@@ -5,7 +5,9 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <style>
 
-.不顯{color: #ef95de;display: 0none;}
+.不顯{display: 0none;}
+
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -143,13 +145,15 @@ h1, h2, h3 {
   #navigation {
     position: fixed;
     bottom: 0;
-    right: 0;
-    width: auto;
+    left: 0;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     transform: translateY(100%);
     z-index: 1000;
+    height: 200px;
+    overflow-y: scroll;
   }
   
   #navigation.visible {
@@ -651,7 +655,7 @@ h1, h2, h3 {
       <h2>五、服務費用：</h2>
       <p>甲方支付每位招聘員工<input type="text" value="$800" >港元/每工作日，予乙方作乙方服務費用及支付員工薪金。</p>
       <p>如員工需加班，<input type="text" value="甲" >方支付加班費用，每小時加班費用為<input type="text" value="$50元" >。</p>
-      <p>基本總服務費用：3人 * 24天 * $800港元 = $57,600港元。</p>
+      <p>基本總服務費用：<textarea style="width: 100%; height: 150px;">3人 * 24天 * $800港元 = $57,600港元。</textarea></p>
     </div>
 
     <div class="section">
