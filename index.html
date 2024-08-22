@@ -182,8 +182,10 @@
         <button id="share-score-button">📶</button>
         <div id="share-options" style="display:none;">
           <a class="share-option" id="share-whatsapp">分享到 WhatsApp</a>
+          <!--
           <a class="share-option" id="share-facebook">分享到 Facebook</a>
           <a class="share-option" id="share-wechat">分享到 WeChat</a>
+          -->
           <a class="share-option" id="copy-content">複製內容</a>
         </div>
       </div>
@@ -296,7 +298,6 @@
       function updateCharacterSelect() {
         // 每500分可以解锁一个角色
         const unlockedCharacters = Math.min(3 + Math.floor(score / 500), characters.length);
-        //const unlockedCharacters = Math.min(3 + Math.floor(score / 10000), characters.length);
         characterOptions.innerHTML = '';
         for (let i = 0; i < unlockedCharacters; i++) {
           const charElement = document.createElement('span');
@@ -464,18 +465,22 @@
         const unlockedCharacterElements = document.querySelectorAll('.character');
 
         unlockedCharacterElements.forEach(element => {
-            unlockedCharacters.push(element.textContent.trim());
+            const characterText = element.textContent.trim();
+            if (characterText) {
+                unlockedCharacters.push(characterText);
+            }
         });
 
+        const currentUrl = window.location.href;
         const shareText = `我在可愛動物傳送門達陣遊戲中獲得了 ${score} 分！你能打破我的紀錄嗎？已解鎖的角色: ${unlockedCharacters.join(', ')}`;
 
         shareOptions.style.display = 'block';
 
-        shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
-        shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(shareText)}`;
+        shareWhatsapp.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + '\n' + currentUrl)}`;
+        shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}&quote=${encodeURIComponent(shareText)}`;
         shareWechat.href = `https://web.wechat.com/`;
         copyContent.onclick = () => {
-            navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
+          navigator.clipboard.writeText(`${shareText}\n${currentUrl}`);
             alert('內容已複製到剪貼簿');
         };
       }
