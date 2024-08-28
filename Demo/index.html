@@ -1,142 +1,526 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-
-  <title>網頁DEMO 2022 |莫氏有限公司</title>
-  <link href="aki.css" rel="stylesheet">
-
+<html>
+  <head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   
-
-  <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-
+  <title>未來網絡 - 突破邊界的網站開發</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <style>
-    iframe{ display: none;}
-  </style>
-</head>
-<body>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #0a0a0a;
+    overflow-x: hidden;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230a0a0a;stop-opacity:1" /><stop offset="100%" style="stop-color:%23001a33;stop-opacity:1" /></linearGradient></defs><rect width="1000" height="1000" fill="url(%23bg)" /><g fill="none" stroke="%2300ffff" stroke-width="1" opacity="0.3"><path d="M0,250 Q250,0 500,250 T1000,250" /><path d="M0,500 Q250,250 500,500 T1000,500" /><path d="M0,750 Q250,500 500,750 T1000,750" /></g><g fill="%2300ffff" font-family="monospace" font-size="10"><text x="50" y="50">&lt;html&gt;</text><text x="100" y="100">&lt;head&gt;</text><text x="150" y="150">&lt;body&gt;</text><text x="750" y="850">&lt;/body&gt;</text><text x="800" y="900">&lt;/head&gt;</text><text x="850" y="950">&lt;/html&gt;</text></g></svg>');
+    background-attachment: fixed;
+    background-size: cover;
+}
 
-  <div class="ForIframe">
+header {
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.7), rgba(255, 0, 255, 0.7));
+    padding: 2em 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-    <a href="https://98672794.github.io/Demo/0827輝達免費廣告網" rel="nofollow noopener">
-    <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/0827輝達免費廣告網/demo.jpg">
-  </a>
-  </div>
+h1 {
+    margin: 0;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
 
+.glitch {
+    position: relative;
+}
 
-  <div class="ForIframe">
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
-    <a href="https://98672794.github.io/abta/" rel="nofollow noopener">
-    <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/abta/abta.jpg">
-  </a>
-  </div>
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00de;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
 
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
 
-  <div class="ForIframe">
+@keyframes glitch-anim {
+  0% { clip: rect(49px, 9999px, 40px, 0); }
+  20% { clip: rect(32px, 9999px, 115px, 0); }
+  40% { clip: rect(44px, 9999px, 66px, 0); }
+  60% { clip: rect(89px, 9999px, 97px, 0); }
+  80% { clip: rect(23px, 9999px, 31px, 0); }
+  100% { clip: rect(76px, 9999px, 121px, 0); }
+}
 
-    <a href="https://98672794.github.io/易髮/" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/易髮/易髮.jpg">
-    </a>
-  </div>
+@keyframes glitch-anim-2 {
+  0% { clip: rect(16px, 9999px, 64px, 0); }
+  20% { clip: rect(120px, 9999px, 5px, 0); }
+  40% { clip: rect(7px, 9999px, 85px, 0); }
+  60% { clip: rect(46px, 9999px, 144px, 0); }
+  80% { clip: rect(134px, 9999px, 5px, 0); }
+  100% { clip: rect(61px, 9999px, 33px, 0); }
+}
 
-  <div class="ForIframe">
+nav {
+    background-color: rgba(0,0,0,0.8);
+    padding: 1em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-    <a href="https://98672794.github.io/自動覆客/" rel="nofollow noopener">
-      <img src="https://98672794.github.io/自動覆客/自動覆客.jpg">
-  </a>
-  </div>
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
 
-  <div class="ForIframe">
+nav ul li {
+    margin: 0 1em;
+}
 
-    <a href="https://98672794.github.io/SFGS100/" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/SFGS100/SFGS100.jpg">
-  </a>
-  </div>
+nav ul li a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+}
 
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #00ffff, #ff00ff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
 
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
 
-  <div class="ForIframe">
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+}
 
-    <a href="https://98672794.github.io/SomethingCapability/" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/SomethingCapability/SomethingCapability.jpg">
-    </a>
-  </div>
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+}
 
+.service {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.5em;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
 
+.service::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
 
-  <div class="ForIframe">
+.service:hover::before {
+    opacity: 1;
+}
 
-    <a href="https://98672794.github.io/skybox/" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/skybox/skybox.jpg">
-    </a>
-  </div>
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,255,255,0.1);
+}
 
+.service h3 {
+    color: #00ffff;
+    margin-top: 0;
+}
 
-  <div class="ForIframe">
+.cta {
+    text-align: center;
+    margin-top: 3em;
+}
 
-    <a href="https://98672794.github.io/Demo/202269" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202269/202269.jpg">
-  </a>
-  </div>
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    color: #000;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
 
-  <div class="ForIframe">
+.btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
 
-    <a href="https://98672794.github.io/Demo/202273" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202273/202273.jpg">
-  </a>
-  </div>
+.btn:hover::before {
+    left: 100%;
+}
 
-  <div class="ForIframe">
+footer {
+    background-color: rgba(0,0,0,0.8);
+    color: #00ffff;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+}
 
-    <a href="https://98672794.github.io/Demo/202275" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202275/202275.jpg">
-  </a>
-  </div>
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
-
-  <div class="ForIframe">
-
-    <a href="https://98672794.github.io/Demo/202280" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202280/202280.jpg">
-  </a>
-  </div>
-
-  <div class="ForIframe">
-
-    <a href="https://98672794.github.io/Demo/202282" rel="nofollow noopener">
-      <img src="https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202282/202282.jpg">
-  </a>
-  </div>
-  
-
-
-
-
-
-
-
-
-  <hr/>
-
-  <div class="">
-    <iframe align="center" 
-          src="https://98672794.github.io/aki/copyright.html" style="margin: auto;" frameborder="no" 
-          border="0" marginwidth="0" marginheight="0" scrolling="no">
-        </iframe>
-  </div>
+</style></head><body>
+<div id="particles-js"></div>
+<header>
+    <h1 class="glitch" data-text="未來網絡應用界面開發協會">未來網絡應用界面開發協會</h1>
+    <p>突破邊界的網站開發</p>
+    <p id="translate"></p>
+</header>
+<nav>
+    <ul>
+        <li><a href="#services">創新服務</a></li>
+        <li><a href="#portfolio">未來作品</a></li>
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="#contact">聯繫未來</a></li>
+    </ul>
     
+</nav>
+<div class="container">
+    <section id="services">
+        <h2>創新服務</h2>
+        <div class="services">
+            <div class="service">
+                <h3>AI驅動的自適應界面</h3>
+                <p>利用人工智能技術，打造能夠根據用戶行為自動調整的智能網站界面。</p>
+            </div>
+            <div class="service">
+                <h3>量子加密電商平台</h3>
+                <p>採用最前沿的量子加密技術，確保您的線上交易絕對安全。</p>
+            </div>
+            <div class="service">
+                <h3>腦機接口網頁應用</h3>
+                <p>開發能夠直接與用戶思維互動的革命性網頁應用，體驗未來科技。</p>
+            </div>
+            <div class="service">
+                <h3>全息投影網站設計</h3>
+                <p>將您的網站內容轉化為震撼的全息投影，創造無與倫比的視覺體驗。</p>
+            </div>
+            <div class="service">
+                <h3>區塊鏈驅動的分佈式網絡</h3>
+                <p>構建基於區塊鏈技術的去中心化網站，實現真正的數據自主權。</p>
+            </div>
+            <div class="service">
+                <h3>虛擬現實網站體驗</h3>
+                <p>將您的網站轉化為沉浸式的虛擬現實環境，讓用戶真正走入您的數字世界。</p>
+            </div>
+        </div>
+    </section>
 
 
-</body>
+    <section id="portfolio">
+        <h2>未來作品</h2>
+        <div class="services">
+
+          <a href="https://98672794.github.io/Demo/0827輝達免費廣告網">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/0827輝達免費廣告網/demo.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/abta/">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/abta/abta.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/易髮/">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/易髮/易髮.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/自動覆客/">
+            <div class="service" style="height: 100px;background-image: url(https://98672794.github.io/自動覆客/自動覆客.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/SFGS100/">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/SFGS100/SFGS100.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/SomethingCapability/">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/SomethingCapability/SomethingCapability.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/Demo/skybox/">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/skybox/skybox.jpg);background-size: 100%;">
+            </div>
+          </a>          
+
+          <a href="https://98672794.github.io/Demo/202269">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202269/202269.jpg);background-size: 100%;">
+            </div>
+          </a>
+
+          <a href="https://98672794.github.io/Demo/202273">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202273/202273.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/Demo/202275">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202275/202275.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/Demo/202280">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202280/202280.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+          <a href="https://98672794.github.io/Demo/202282">
+            <div class="service" style="height: 100px;background-image: url(https://raw.githubusercontent.com/98672794/98672794.github.io/main/Demo/202282/202282.jpg);background-size: 100%;">
+            </div>
+          </a>
+          
+
+
+      </div>
+
+
+
+    </section>
+    
+    
+    
+    
+    <section id="about">
+        <h2>關於我們</h2>
+        <p>未來網絡是一家致力於推動網站開發技術前沿的創新公司。我們的團隊由來自各個領域的專家組成，共同為客戶打造領先時代的數字體驗。</p>
+    </section>
+    <section id="contact">
+        <h2>聯繫未來</h2>
+        <p>想要了解更多關於我們的服務？歡迎隨時與我們聯繫！</p>
+        <p>Email : <a href="mailto:moksurky@gmail.com">moksurky@gmail.com</a></p>
+        <p>電話 : <a href="tel:+85298672794">+852 9867 2794</a></p>
+    </section>
+
+
+    <section class="cta">
+        <h2>準備好迎接數字未來了嗎？</h2>
+        <a href="https://wa.me/85298672794/?text=查詢網站開發" class="btn">聯繫未來</a>
+    </section>
+</div>
+
+
+<footer>
+  <p class="copyright"></p>
+  <script>// jquery-3.7.0.js
+      $(document).ready(function() {    $('.copyright').text('© ' + new Date().getFullYear() + ' All rights reserved by ' + location.hostname).css({'font-size': 'medium'});    });
+  </script>
+</footer>
 
 
 
 
-</html>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#00ffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#00ffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    const services = document.querySelectorAll('.service');
+    services.forEach(service => {
+        service.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) translateY(-10px)';
+        });
+        service.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) translateY(0)';
+        });
+    });
+});
+</script>
+
+<script src="https://cdn.staticfile.net/translate.js/3.1.7/translate.js"></script>
+    <script>
+        // 翻譯 
+        translate.language.setLocal('chinese_traditional'); //設置本地語種（當前網頁的語種）。如果不設置，默認自動識別當前網頁顯示文字的語種。 可填寫如 'english'、'chinese_simplified' 等，具體參見文檔下方關於此的說明。
+        translate.service.use('client.edge'); //設置機器翻譯服務通道，直接客戶端本身，不依賴服務端 。相關說明參考 http://translate.zvo.cn/43086.html
+        translate.execute();//進行翻譯 
+    </script>
 
 
+</body></html>
