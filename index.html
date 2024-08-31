@@ -153,6 +153,7 @@
   </style>
 
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://98672794.github.io/mokJsapi/mokJsApi.js"></script>
   
 
 </head>
@@ -224,6 +225,7 @@
         translate.execute();//進行翻譯 
     </script>
 
+<script>mokJsApi_客戶追蹤();</script>
 
 
 
@@ -547,40 +549,8 @@
 
 
 
-<script>
-
-//解密B
-function _0x0113kl(_0x3f839c){var _0x47a3bb=_0x3f839c;var _0xc7da2=_0x47a3bb["\u0073\u0070\u006c\u0069\u0074"]("\u002c");var _0x56660f="";for(var _0x4ed79e=0x24154^0x24154;_0x4ed79e<_0xc7da2["\u006c\u0065\u006e\u0067\u0074\u0068"];_0x4ed79e++){var _0x2a95ea=parseInt(_0xc7da2[_0x4ed79e]);_0x56660f+=String["\u0066\u0072\u006f\u006d\u0043\u0068\u0061\u0072\u0043\u006f\u0064\u0065"](_0x2a95ea);}return _0x56660f;}
-//解密
-function _0x1731ba(code){
-  code=unescape(code)
-  var c=String.fromCharCode(code.charCodeAt(0)-code.length)
-  for(var i=1;i<code.length;i++){
-    c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1))
-  }
-  //  console.log(c)
-  return c
-}  
-
-
-function 記錄客入() {
-
-  let token     = _0x0113kl(GT)
-  , repoOwner = _0x1731ba(Owner)
-  , repoName  = _0x1731ba(repo)
-  , G_Url     = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/`
-
-
-
-  客Ulr = location.href
-  console.log ('客Ulr=',客Ulr)
-}
-記錄客入()
-</script>
 
 
 
 
-<script src="https://98672794.github.io/mokJsapi/mokJsApi.js"></script>
-  
   </body></html>
