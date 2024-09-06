@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>錄音檔加圖片轉影片並上傳至 YouTube</title>
+</head>
+<body>
+  <h1>將錄音檔加上圖片轉換為影片並上傳至 YouTube</h1>
+  <input type="file" id="audioInput" accept="audio/*">
+  <input type="file" id="imageInput" accept="image/*">
+  <button id="createVideoBtn">生成影片</button>
+  <button id="uploadBtn">上傳至 YouTube</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.10.0/dist/ffmpeg.min.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+
+  <script>
+    let videoBlob;
+
+    // Step 1: 合成影片
+    document.getElementById('createVideoBtn').addEventListener('click', async () => {
+      const audioFile = document.getElementById('audioInput').files[0];
+      const imageFile = document.getElementById('imageInput').files[0];
+
+      if (!audioFile || !imageFile) {
+        alert("請選擇錄音檔和圖片");
+        return;
+      }
+
+      const ffmpeg = FFmpeg.createFFmpeg({ log: true });
+      await ffmpeg.load();
+
+      ffmpeg.FS('writeFile', 'audio.mp3', await fetchFile(audioFile));
+      ffmpeg.FS('writeFile', 'image.jpg', await fetchFile(imageFile));
+
+      await ffmpeg.run('-loop', '1', '-i', 'image.jpg', '-i', 'audio.mp3', '-c:v', 'libx264', '-tune', 'stillimage', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-pix_fmt', 'yuv420p', 'output.mp4');
+
+      const data = ffmpeg.FS('readFile', 'output.mp4');
+      videoBlob = new Blob([data.buffer], { type: 'video/mp4' });
+
+      alert("影片已生成！");
+    });
+
+    // Step 2: OAuth2 授權並上傳影片到 YouTube
+    document.getElementById('uploadBtn').addEventListener('click', () => {
+      if (!videoBlob) {
+        alert("請先生成影片");
+        return;
+      }
+
+      gapi.load('client:auth2', () => {
+        gapi.auth2.init({client_id: 'YOUR_CLIENT_ID'}).then(() => {
+          return gapi.auth2.getAuthInstance().signIn();
+        }).then(() => {
+          gapi.client.load('youtube', 'v3', () => {
+            uploadVideo();
+          });
+        });
+      });
+    });
+
+    function uploadVideo() {
+      const metadata = {
+        snippet: {
+          title: "自動生成影片",
+          description: "此影片由程式自動生成",
+          tags: ["自動生成", "ffmpeg"],
+          categoryId: 22 // 影片類別ID
+        },
+        status: {
+          privacyStatus: "private" // 可以設置為 'public', 'private' 或 'unlisted'
+        }
+      };
+
+      const uploader = new MediaUploader({
+        baseUrl: 'https://www.googleapis.com/upload/youtube/v3/videos',
+        file: videoBlob,
+        token: gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse().access_token,
+        metadata: metadata,
+        params: { part: 'snippet,status' },
+        onError: (error) => console.error("Upload failed: ", error),
+        onProgress: (progress) => console.log(`Uploaded ${progress.loaded} of ${progress.total} bytes`),
+        onComplete: (data) => {
+          console.log("Upload successful! ", JSON.parse(data));
+        }
+      });
+
+      uploader.upload();
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/media-uploader/1.0.1/media-uploader.js"></script>
+</body>
+</html>
